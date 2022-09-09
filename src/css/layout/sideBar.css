@@ -1,0 +1,98 @@
+.side-bar{
+    background-color: #10250C;
+    width: 200px;
+    min-height: 775px;
+    height: 100%;
+}
+.side-bar__title{
+    height: 56px;
+    margin-left: 16px;
+    display: flex;
+    /* align-items: center; */
+}
+.select-option-icon{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -424px -88px;
+    width: 24px;
+    height: 24px;
+    margin-top: 16px;
+}
+.logo{
+    height: 36px;
+    width: 140px;
+    margin-top: 10px;
+    margin-left: 16px;
+    background-image: url(../../assets/img/Logo_Module_TiengViet_White.66947422.svg);
+}
+
+.side-bar-list{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.side-bar__item{
+    height: 40px;
+    width: 176px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+}
+.side-bar__icon{
+    height: 24px;
+    width: 24px;
+    margin-left: 12px;
+}
+.icon--total{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -30px -1628px;
+}
+.icon--money{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -73px -1628px;
+}
+.icon--money-send{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -117px -1628px;
+}
+.icon--buy{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -161px -1628px;
+}
+.icon--sale{
+	background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -204px -1630px;
+}
+.icon--bills{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -248px -1628px;
+}
+.icon--warehouse{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -290px -1630px;
+}
+.icon--tools{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -336px -1628px;
+}
+.icon--asset{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -378px -1628px;
+}
+.icon--taxt{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -423px -1628px;
+}
+.icon--price{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -467px -1628px;
+}
+.icon--general{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -510px -1628px;
+}
+.icon--fund{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -378px -1660px;
+}
+.icon--report{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -547px -1628px;
+}
+.icon--analysis{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -203px -1660px;
+}
+.item-name{
+    margin-left: 12px;
+    color: #D1D4D9;
+}
+
+

@@ -1,0 +1,78 @@
+
+.pop-up-container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 30;
+    display: none;
+}
+.pop-up-container .container{
+    display: block;
+}
+
+
+.pop-up{
+    border-radius: 5px;
+    background-color: #fff;
+    height: 200px;
+    width: 480px;
+    position: absolute;
+    z-index: 20;
+    box-shadow: 3px 0px 8px rgba(31,34,41,0.16);
+    top: calc(50% - 120px);
+    left: calc(50% - 240px);
+}
+
+.pop-up-text{
+    width: 320px;
+}
+
+.pop-up-content{
+    display: flex;
+    align-items: center;
+    margin: 36px;
+    margin-bottom: 0px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid #E6E6E6;
+
+}
+.icon-popUp{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -598px -463px;
+	width: 36px;
+	height: 36px;
+}
+.icon{
+    margin-right: 24px;
+}
+.icon-validate .icon-popUp{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -752px -462px;
+	width: 36px;
+	height: 36px;
+}
+.pop-up-action{
+    height: 60px;
+    display: flex;
+    margin-left: 36px;
+    margin-right: 36px;
+    margin-top: 24px;
+
+}
+.version1 .pop-up-action{
+    justify-content: space-between;
+}
+.version2 .pop-up-action{
+    justify-content: end;
+}
+.version1 .button-pop-up-no{
+    background-color: #fff;
+    color: #000;
+    font-family: misa bold;
+    border: 1px solid #a4a2a2;
+}
+.version1 .button-pop-up-no:hover{
+    background-color: #a4a2a2;
+}
+
+.version2 .button-pop-up-no{
+    display: none;
+}

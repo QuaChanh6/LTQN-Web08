@@ -1,0 +1,49 @@
+.pagination{
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.pagination__left{
+    padding-left: 12px;
+}
+.pagination__left span{
+    font-family: misa bold;
+}
+.pagination__right{
+    display: flex;
+    margin-right: 16px;
+}
+
+.paging{
+    display: flex;
+    align-items: center;
+}
+
+.numberList{
+    display: flex;
+    align-items: center;
+}
+
+.number{
+    height: 24px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.numberList .active{
+    border: 1px solid #E7F5EC;
+}
+.prev{
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.next{
+    margin-left: 16px;
+}
+.dot{
+    margin-left: 12px;
+}
+

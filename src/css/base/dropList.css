@@ -1,0 +1,113 @@
+.dropList{
+    display: flex;
+    position: relative;
+}
+.text{
+    margin-right: 10px;
+    color: #044EFF;
+}
+.icon-drop{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -893px -360px;
+    height: 16px;
+    width: 24px;
+    border: none;
+    margin-top: 2px;
+
+}
+.icon-drop-click{
+    border: 1px solid #044EFF;
+}
+
+.list-data{
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #E0E0E0;
+    width: 150px;
+    top: 20px;
+    right: 5px;
+    z-index: 10;
+}
+
+.data{
+    padding-left: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.data:hover{
+    background-color: #EEF8EC;
+}
+
+.drop-data-choose{
+    background-color: #DCF1D8;
+}
+
+/* droplist v2 */
+.dropList--v2{
+    height: 36px;
+    display: flex;
+    border: 1px solid #B9E2B1;
+    border-radius: 4px;
+    width: 230px;
+    padding-left: 12px;
+    position: relative;
+}
+.dropList__text{
+    margin-top: 8px;
+}
+.dropList__data{
+    position: absolute;
+    width: 229px;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #ccc2c2;
+    left: 0;
+    top: -180px;
+    display: none;
+
+}
+
+.data-item{
+    padding-left: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+}
+.data-item:hover{
+    background-color: #B9E2B1;
+}
+.dropList_icon-drop{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -560px -360px;
+    height: 16px;
+    width: 16px;
+    margin-top: 9px;
+    margin-left: 10px;
+    border-radius: 4px;
+    border: none;
+}
+
+.dropList_icon-drop--rotate{
+    transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    margin-top: 8px;
+}
+
+.dropList__icon{
+    position: absolute;
+    height: 34px;
+    width: 36px;
+    top: 0;
+    right: 0;
+}
+
+.dropList--v2 .dropList-choose{
+    background-color: #73C663;
+    color: #fff;
+}
+
+.choose-dropList-icon{
+    background-color: #ccc2c2;
+}

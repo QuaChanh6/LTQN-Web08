@@ -1,0 +1,46 @@
+table{
+    border-collapse: collapse ;
+    width: 100%;
+
+}
+
+thead td{
+    font-family: misa bold;
+    font-size: 11px;
+    text-align: left;
+    box-shadow: -1px 1px 1px #E3DCDC;
+}
+thead{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 12;
+}
+
+
+thead tr{
+    background-color: #DCF1D8;
+
+}
+td input{
+    height: 16px;
+    width: 16px;
+    margin-right: 14px;
+}
+tr{
+    border-bottom: 1px solid #E0E0E0;
+    height: 44px;
+}
+td{
+    border-right: 1px solid #E0E0E0;
+    padding-left: 16px;
+    padding-right: 8px;
+}
+
+.choose-tr{
+    background-color: #EEF8EC;
+}
+
+
+
+  

@@ -1,0 +1,245 @@
+.form-container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 12;
+    top: 0;
+    left: 0;
+    /* display: none; */
+}
+
+.form{
+    position: absolute;
+    /* display: none; */
+    z-index: 20;
+    background-color: #fff;
+    min-width: 900px;
+    border-radius: 4px;
+    padding-left: 32px;
+    padding-right: 32px;
+    box-shadow: 1px 0px 4px rgba(23,27,42,0.24);
+    top: calc(50% - 300px);
+    left: calc(50% - 460px);
+}
+.icon-form{
+    display: flex;
+    justify-content: end;
+    padding-top: 16px;
+}
+.info-more{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -731px -30px;
+    width: 24px;
+    height: 24px;
+}
+
+.icon-x{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -144px -144px;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    margin-right: -16px;
+}
+.icon-x:hover{
+    cursor: pointer;
+}
+
+.form__title{
+    display: flex;
+    margin-top: -16px;
+}
+
+.title-employee{
+    font-size: 24px;
+    font-family: misa bold;
+    width: 250px;
+    height: 32px;
+}
+.form__title input{
+    margin-right: 10px;
+}
+.customer, .producer{
+    margin-top: 7px;
+    display: flex;
+}
+
+.producer{
+    margin-left: 20px;
+}
+
+/* body */
+.form__body{
+    padding-bottom: 24px;
+    border-bottom: 1px solid #E6E6E6;
+}
+.row input{
+    margin-top: 8px;
+    width: 100%;
+}
+.row .combobox{
+    margin-top: 0px;
+}
+.combobox-container{
+    margin-top: 8px;
+    width: 100%;
+}
+.row{
+
+    margin-top: 14px;
+    margin-right: 50px;
+    display: flex;
+}
+.row label{
+    font-family: misa medium;
+}
+.row span{
+    color: rgb(226, 19, 19);
+}
+/* dòng 1 */
+
+
+.col-left, .col-right{
+    width: 50%;
+    height: 100%;
+    display: flex;
+}
+
+.form__body .employeeCode{
+    width: 40%;
+}
+.form__body .name{
+    width: 60%;
+    margin-left: 8px;
+}
+
+.form__body .dateOfBirth{
+    width: 45%;
+    margin-left: 24px;
+}
+.form__body .gender{
+    width: 55%;
+}
+.form__body .gender input{
+    height: 16px;
+    width: 16px;
+    margin-right: 10px;
+    margin-left: 16px;
+    margin-bottom: 8px;
+}
+
+.form__body .gender label{
+    margin-left: 16px;
+}
+
+.radio{
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+    height: 36px;
+    margin-bottom: 8px;
+}
+
+/* dòng 2 */
+.form__body .department{
+    width: 100%;
+}
+
+
+.form__body .identifyNumber{
+    margin-left: 24px;
+    width: 60%;
+}
+
+.form__body .identityIssuedDate{
+    margin-left: 8px;
+    width: 40%;
+}
+
+.form__body .position{
+    width: 100%;
+}
+
+.form__body .identityIssuedPlace{
+    margin-left: 24px;
+    width: 100%;
+}
+
+.form__body .address{
+    width: 100%;
+}
+
+.form__body .phoneNumber{
+    width: 25%;
+}
+
+.form__body .landlinePhone{
+    margin-left: 8px;
+    width: 25%;
+}
+
+.form__body .email{
+    margin-left: 8px;
+    width: 25%;
+}
+
+.form__body .accountBank{
+    width: 25%;
+}
+
+.form__body .nameOfBank{
+    margin-left: 8px;
+    width: 25%;
+}
+
+.form__body .branchOfBank{
+    margin-left: 8px;
+    width: 25%;
+}
+
+
+/* footer */
+
+.form__footer{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.btn-save{
+    margin-right: 8px;
+    background-color: #fff;
+    border: 1px solid #E6E6E6;
+    color: #000;
+    width: 80px;
+}
+.btn-cancle{
+    background-color: #fff;
+    border: 1px solid #E6E6E6;
+    color: #000;
+    width: 80px;
+}
+
+
+
+
+/* radio */
+input[type='radio'] {
+    -webkit-appearance: none;
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 0 0 0 2px #409330;
+}
+
+input[type='radio']:before {
+    content: '';
+    display: block;
+    width: 65%;
+    height: 65%;
+    margin: 20% auto;
+    border-radius: 50%;
+}
+
+input[type='radio']:checked:before {
+    background: #409330;
+}

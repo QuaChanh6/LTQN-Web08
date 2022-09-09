@@ -1,0 +1,121 @@
+<template>
+    <div class="content">
+        <div class="content-header">
+            <div class="title">Nhân viên</div>
+            <div class="tool-bar">
+                <!-- <button class="button add-employee">Thêm mới nhân viên</button> -->
+                <MButton class="add-employee" :text= "'Thêm mới nhân viên'" @click="showForm=true"/>
+                <!-- <MSCombobox :url="'https://cukcuk.manhnv.net/api/v1/Positions'" :propValue='PositionId' :propText='PositionName'/> -->
+            </div>
+        </div>
+        <div class="container-grid">
+            <div class="filter">
+                <div class="search input-icon">
+                    <input type="text" class="input" placeholder="Tìm theo mã, tên nhân viên">
+                    <div class="icon-search"></div>
+                </div>
+                <div class="refresh"></div>
+            </div>
+            <div class="container-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <td style="border-left: none; text-align: center;"><input type="checkbox" name="" id=""></td>
+                            <td>MÃ NHÂN VIÊN</td>
+                            <td>TÊN NHÂN VIÊN</td>
+                            <td>GIỚI TÍNH</td>
+                            <td>NGÀY SINH</td>
+                            <td>SỐ CMND</td>
+                            <td>CHỨC DANH</td>
+                            <td>TÊN ĐƠN VỊ</td>
+                            <td>SỐ TÀI KHOẢN</td>
+                            <td>TÊN NGÂN HÀNG</td>
+                            <td>CHI NHÁNH TÀI KHOẢN NGÂN HÀNG</td>
+                            <td style="border-right: none">CHỨC NĂNG</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(employee, index) in employees" :key="index" :value="employee.employeeID" @dblclick="editEmployee(employee)">
+                            <td style="border-left: none; text-align: center;"><input type="checkbox" name="" id=""></td>
+                            <td>{{employee.employeeCode}}</td>
+                            <td>{{employee.FullName}}</td>
+                            <td>{{employee.GenderName}}</td>
+                            <td style="text-align: center;">{{formatDate(employee.DateOfBirth)}}</td>
+                            <td style = "text-align: right;">{{employee.IdentityNumber}}</td>
+                            <td>{{employee.PositionName}}</td>
+                            <td>{{employee.DepartmentName}}</td>
+                            <td>{{employee.PersonalTaxCode}}</td>
+                            <td>{{employee.QualificationName}}</td>
+                            <td>{{employee.EducationalBackground}}</td>
+                            <td style="border-right: none">
+                                <MDropList/>
+                            </td>
+                        </tr>
+                                    
+                    </tbody>
+                </table>
+            </div>
+
+            <ThePagination/>
+        </div>
+    </div>
+    <TheForm :isShow='showForm' @closeForm='closeForm()' :employee="emp"/>
+</template>
+
+<script>
+import ThePagination from './ThePagination.vue';
+import MButton from '../base/MButton.vue';
+import MDropList from '../base/MDropList.vue';
+import TheForm from '../view/employee/TheForm.vue';
+
+// import MCombobox from '../base/MCombobox.vue';
+export default {
+    components: { ThePagination, MButton, MDropList, TheForm },
+    created(){
+        fetch("https://cukcuk.manhnv.net/api/v1/Employees")
+        .then(res => res.json())
+        .then(res => {
+            this.employees=res;
+        })
+    },
+    methods: {
+        formatDate(dateSrc){
+            if(dateSrc != null){
+                let dateString = dateSrc.slice(0,10);
+                let date = new Date(dateString);
+                let year = date.getFullYear().toString(),
+                month = (date.getMonth() + 1).toString().padStart(2, '0'),
+                day = date.getDate().toString().padStart(2, '0');
+                return `${day}/${month}/${year}`;
+            }
+           
+            return '';
+            
+        },
+        closeForm(){
+            this.showForm = false;
+        },
+        editEmployee(employee){
+            Object.assign(this.emp, employee);
+            this.showForm = true;
+        }
+    },
+    data() {
+        return{
+            employees: [],
+            date: '',
+            showForm: false,
+            emp: {}
+        }
+    },
+    computed: {
+  
+    }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+@import url(../../css/layout/content.css);
+@import url(../../css/base/table.css);
+</style>
