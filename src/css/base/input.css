@@ -12,7 +12,9 @@
 .input:hover{
     border-color: #DCF1D8;
 }
-
+.empty{
+    border: 1px solid red;
+}
 .input::placeholder{
     font-size: 11px;
     color: #99A1B2;

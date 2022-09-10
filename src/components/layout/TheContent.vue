@@ -4,7 +4,7 @@
             <div class="title">Nhân viên</div>
             <div class="tool-bar">
                 <!-- <button class="button add-employee">Thêm mới nhân viên</button> -->
-                <MButton class="add-employee" :text= "'Thêm mới nhân viên'" @click="showForm=true"/>
+                <MButton class="add-employee" :text= "'Thêm mới nhân viên'" @click="addEmployee()"/>
                 <!-- <MSCombobox :url="'https://cukcuk.manhnv.net/api/v1/Positions'" :propValue='PositionId' :propText='PositionName'/> -->
             </div>
         </div>
@@ -35,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(employee, index) in employees" :key="index" :value="employee.employeeID" @dblclick="editEmployee(employee)">
+                        <tr v-for="(employee, index) in employees" :key="index" @dblclick="editEmployee(employee)">
                             <td style="border-left: none; text-align: center;"><input type="checkbox" name="" id=""></td>
                             <td>{{employee.employeeCode}}</td>
                             <td>{{employee.FullName}}</td>
@@ -48,7 +48,7 @@
                             <td>{{employee.QualificationName}}</td>
                             <td>{{employee.EducationalBackground}}</td>
                             <td style="border-right: none">
-                                <MDropList/>
+                                <MDropList :employeeID='employee.EmployeeId'  @showPopUp="showPopUp"/>
                             </td>
                         </tr>
                                     
@@ -56,10 +56,13 @@
                 </table>
             </div>
 
-            <ThePagination/>
+            <ThePagination :TotalEmployee="employees.length"/>
         </div>
+        
     </div>
-    <TheForm :isShow='showForm' @closeForm='closeForm()' :employee="emp"/>
+    <TheForm  v-if="showForm" @closeForm='closeForm' :employee="emp"/>
+    <MPopup v-if="isShowFopup" :id='deleteEmployeeID' @closePopup='closePopup' @deleteEmp='deleteEmp'/>
+ 
 </template>
 
 <script>
@@ -67,10 +70,11 @@ import ThePagination from './ThePagination.vue';
 import MButton from '../base/MButton.vue';
 import MDropList from '../base/MDropList.vue';
 import TheForm from '../view/employee/TheForm.vue';
+import MPopup from '../base/MPopup.vue';
 
-// import MCombobox from '../base/MCombobox.vue';
+
 export default {
-    components: { ThePagination, MButton, MDropList, TheForm },
+    components: { ThePagination, MButton, MDropList, TheForm, MPopup },
     created(){
         fetch("https://cukcuk.manhnv.net/api/v1/Employees")
         .then(res => res.json())
@@ -79,6 +83,11 @@ export default {
         })
     },
     methods: {
+        /**
+         * Hàm forrmat date
+         * @param {date} dateSrc 
+         * author: LTQN(9/9/2022)
+         */
         formatDate(dateSrc){
             if(dateSrc != null){
                 let dateString = dateSrc.slice(0,10);
@@ -92,20 +101,66 @@ export default {
             return '';
             
         },
+        /**
+         * Ham đóng form
+         * author: LTQN(9/9/2022)
+         */
         closeForm(){
             this.showForm = false;
         },
+        /**
+         * Hiện popup xóa
+         * author: LTQN(10/9/2022)
+         */
+        showPopUp(e){
+            this.deleteEmployeeID=e;
+            this.isShowFopup = true;
+        },
+        /**
+         * Đưa dữ liệu lên form để sửa
+         * author: LTQN(10/9/2022)
+         */
         editEmployee(employee){
-            Object.assign(this.emp, employee);
+            this.emp = employee;
             this.showForm = true;
+        },
+        /**
+         * Ham mở form khi thêm mới
+         * author: LTQN(10/9/2022)
+         */
+        addEmployee(){
+            this.emp = {};
+            this.showForm = true;
+        },
+        /**
+         * hàm đóng popUp
+         * author: LTQN(10/9/2022)
+         */
+        closePopup(){
+            this.isShowFopup = false;
+        },
+        /**
+         * hàm xóa nhân viên
+         * author: LTQN(10/9/2022)
+         */
+        deleteEmp(e){
+            fetch('https://cukcuk.manhnv.net/api/v1/Employees/' + e, {method: 'DELETE'})
+            .then(res => res.json())
+            .then(res => {
+                console.log('Thành công'+ res);
+            }).catch((error) => {
+               console.error('Error:', error);
+            })
+            this.isShowFopup = false;
         }
     },
     data() {
         return{
             employees: [],
-            date: '',
             showForm: false,
-            emp: {}
+            emp: {},
+            isShowFopup: false,
+            deleteEmployeeID: ''
         }
     },
     computed: {

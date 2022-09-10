@@ -6,30 +6,50 @@
                 <div class="icon">
                     <div class="icon-popUp"></div>
                 </div>
-                <div class="pop-up-text">Bạn có thực sự muốn xóa nhân viên  <span>000579</span> không?</div>
+                <div class="pop-up-text">Bạn có thực sự muốn xóa nhân viên không?</div>
             </div>
             <div class="pop-up-action">
-                <!-- <button class="button button-pop-up-no">Không</button>
-                <button class="button button-pop-up-yes">Có</button> -->
-                <MButton class="button-pop-up-no" :text= 'button.No'/>
-                <MButton class="button-pop-up-yes" :text= 'button.Yes'/>
+                <MButton class="button-pop-up-no" :text= 'button.No' @click="sendMessageClose()"/>
+                <MButton class="button-pop-up-yes" :text= 'button.Yes' @click="sendMessageDelete()"/>
             </div>
         </div>
             
-    </div>
+    </div> 
 </template>
-  
+
 <script>
+import MButton from './MButton.vue';
   export default {
-    data(){
-        return{
+    props: {
+      id:String
+    },
+    data() {
+        return {
             button: {
-              No: 'Không',
-              Yes: 'Có'
-            }
-        }
-    }
-  }
+                No: "Không",
+                Yes: "Có"
+            },
+            text:'',
+        };
+    },
+    methods: {
+      /**
+       * gửi lên cha để đóng pop up
+       * author: LTQN(10/9/2022)
+       */
+      sendMessageClose(){
+        this.$emit('closePopup');
+      },
+      /**
+       * gửi lên cha để xóa nhân viên
+       * author: LTQN(10/9/2022)
+       */
+      sendMessageDelete(){
+        this.$emit('deleteEmp', this.id);
+      }
+    },
+    components: { MButton }
+}
 </script>
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -4,7 +4,8 @@
     width: 100%;
     position: absolute;
     z-index: 30;
-    display: none;
+    top:0;
+    left:0;
 }
 .pop-up-container .container{
     display: block;

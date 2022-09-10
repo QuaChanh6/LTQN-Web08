@@ -1,6 +1,6 @@
 
 <template>
-    <div class="form-container" v-if="isShow">
+    <div class="form-container">
         <div class="container"></div>
         <div class="form" >
         <div class="form__header">
@@ -26,19 +26,19 @@
                 <div class="col-left">
                     <div class="employeeCode">
                         <label for="">Mã <span> *</span></label>
-                        <input type="text" class="input" placeholder="Mã nhân viên" v-model='emp.employeeCode'>
+                        <input type="text" class="input" placeholder="Mã nhân viên" @focus="validate()" v-model='emp.employeeCode' :class="{empty: emptyCode}">
                         <!-- <MInput class="" :type="'text'" :placeholderInput="'Mã nhân viên'" :isClassText="true"/> -->
                     </div>
                     <div class="name">
                         <label for="">Tên <span> *</span></label>
-                        <input type="text" class="input" placeholder="Tên nhân viên" v-model='emp.FullName'>
+                        <input type="text" class="input" placeholder="Tên nhân viên" v-model='emp.FullName' @focus="validate()" :class="{empty: emptyName}">
                         <!-- <MInput class="" :type="'text'" :value="emp.FullName" :placeholderInput="'Tên nhân viên'" :isClassText="true" v-model='emp.FullName'/> -->
                     </div>
                 </div>
                 <div class="col-right">
                     <div class="dateOfBirth">
                         <label for="">Ngày sinh</label>
-                        <input type="date" class="input" v-model="date">
+                        <input type="date" class="input" v-model="fotmatDate">
                     </div>
                     <div class="gender">
                         <label for="">Giới tính</label>
@@ -139,7 +139,7 @@
                 <MButton class="btn-cancle" :text="'Hủy'" @click="sendMessageClose"/>
             </div>
             <div class="save">
-                <MButton class="btn-save" :text="'Cất'"/>
+                <MButton class="btn-save" :text="'Cất'" @click="save"/>
                 <MButton class="btn-saveAndAdd" :text="'Cất và thêm'"/>
             </div>
         </div>
@@ -154,25 +154,74 @@ import MButton from '@/components/base/MButton.vue';
   export default {
     components: { MButton },
     props: {
-        isShow: Boolean,
         employee: Object
     },
     created(){
         this.emp = this.employee;
-        console.log(this.employee);
+        
     },
+
     methods: {
+        /**
+         * đóng form
+         * author: LTQN(9/9/2022)
+         */
         sendMessageClose(){
             this.$emit('closeForm');
         },
-       
+        /**
+         * Kiểm tra rỗng
+         * author: LTQN(10/9/2022)
+         *
+         */
+        validate(){
+            if(this.emp.employeeCode == undefined)
+                this.emptyCode= true;
+            else this.emptyCode= false;
+            if(this.emp.FullName == undefined)
+                this.emptyName= true; 
+            else this.emptyName= false;  
+        },
+
+        // save(){
+        //     let url= "https://cukcuk.manhnv.net/api/v1/Employees/" + this.emp.EmployeeId;
+        //     fetch(url, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(this.emp),
+        //     })
+        //     .then((response) => response.json())
+        //     .then((res) => {
+        //         alert(res);
+        //     })
+        //     .catch((error) => {
+        //         console.error('Error:', error);
+        //     });
+        // }
     },
     data(){
         return{
             emp:{},
-            date: ''
+            date: '',
+            emptyCode: false,
+            emptyName: false
+            
+        }
+    },
+    computed: {
+        fotmatDate(){
+            
+            let temp = {};
+            Object.assign(temp, this.emp);
+            if(temp.DateOfBirth != null){
+                return temp.DateOfBirth.slice(0,10);
+            }
+            return null;
         }
     }
+ 
 }
 </script>
   
