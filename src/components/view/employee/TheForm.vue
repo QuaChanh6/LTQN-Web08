@@ -12,11 +12,9 @@
                 <div class="title-employee">Thông tin nhân viên</div>
                 <div class="customer">
                     <input type="checkbox" name="" id="">Là khách hàng
-                    <!-- <MInput :type="'checkbox'" :placeholderInput="''" :isClassText="false"/><span>Là khách hàng</span> -->
                 </div>
                 <div class="producer">
                     <input type="checkbox" name="" id="">Là nhà cung cấp
-                    <!-- <MInput :type="'checkbox'" :placeholderInput="''" :isClassText="false"/><span>Là nhà cung cấp</span></div> -->
                 </div>
             </div>
         </div>
@@ -26,19 +24,17 @@
                 <div class="col-left">
                     <div class="employeeCode">
                         <label for="">Mã <span> *</span></label>
-                        <input type="text" class="input" placeholder="Mã nhân viên" @focus="validate()" v-model='emp.employeeCode' :class="{empty: emptyCode}">
-                        <!-- <MInput class="" :type="'text'" :placeholderInput="'Mã nhân viên'" :isClassText="true"/> -->
+                        <input type="text" class="input" placeholder="Mã nhân viên" v-model='emp.EmployeeCode' :class="{empty: emptyCode}">
                     </div>
                     <div class="name">
                         <label for="">Tên <span> *</span></label>
-                        <input type="text" class="input" placeholder="Tên nhân viên" v-model='emp.FullName' @focus="validate()" :class="{empty: emptyName}">
-                        <!-- <MInput class="" :type="'text'" :value="emp.FullName" :placeholderInput="'Tên nhân viên'" :isClassText="true" v-model='emp.FullName'/> -->
+                        <input type="text" class="input" placeholder="Tên nhân viên" v-model='emp.FullName' :class="{empty: emptyName}">
                     </div>
                 </div>
                 <div class="col-right">
                     <div class="dateOfBirth">
                         <label for="">Ngày sinh</label>
-                        <input type="date" class="input" v-model="fotmatDate">
+                        <input type="date" class="input" v-model="emp.DateOfBirth">
                     </div>
                     <div class="gender">
                         <label for="">Giới tính</label>
@@ -56,21 +52,23 @@
                 <div class="col-left">
                     <div class="department">
                         <label for="">Đơn vị <span> *</span></label>
-                        <!-- <combobox id="position" api="https://cukcuk.manhnv.net/api/v1/Positions" text="PositionName" value="PositionId"></combobox> -->
+                        <MCombobox :url="'https://cukcuk.manhnv.net/api/v1/Departments'" 
+                        :text="'DepartmentName'" 
+                        @objectItemCombobox='objectItemCombobox'/>
+                     
                     </div>
                 </div>
                 <div class="col-right">
                     <div class="identifyNumber">
                         <label for="">Số CMND</label>
                         <input type="text" class="input" placeholder="Số chứng mình nhân dân" v-model="emp.IdentityNumber">
-                        <!-- <MInput class="" :type="'text'" :placeholderInput="'Số chứng mình nhân dân'" :isClassText="true"/> -->
+                  
                     </div>
                     <div class="identityIssuedDate">
                         <label for="">Ngày cấp</label>
-                        <input type="date" class="input" v-model="emp.IdentityDate">
-                        <!-- <MInput class="" :type="'date'" :placeholderInput="''" :isClassText="true"/> -->
-
+                        <input type="date" class="input" v-model="emp.identityDate">
                     </div>
+                    <div>emp.DateOfBirth</div>
                 </div>
                 
             
@@ -80,14 +78,12 @@
                     <div class="position">
                         <label for="">Chức danh</label>
                         <input type="text" class="input" placeholder="Chức vụ" v-model="emp.PositionName">
-                        <!-- <MInput class="" :type="'text'" :placeholderInput="'Chức vụ'" :isClassText="true"/> -->
                     </div>
                 </div>
                 <div class="col-right">
                     <div class="identityIssuedPlace">
                         <label for="">Nơi cấp</label>
                         <input type="text" class="input" placeholder="Nơi cấp chứng minh nhân dân" v-model="emp.IdentityPlace">
-                        <!-- <MInput class="" :type="'text'" :placeholderInput="'Nơi cấp chứng minh nhân dân'" :isClassText="true"/> -->
                     </div>
                 </div>
             
@@ -96,41 +92,34 @@
                 <div class="address">
                     <label for="">Địa chỉ</label>
                     <input type="text" class="input" placeholder="Địa chỉ liên lạc" v-model="emp.Address">
-                    <!-- <MInput class="" :type="'text'" :placeholderInput="'Địa chỉ liên lạc'" :isClassText="true"/> -->
                 </div>
             </div>
             <div class="row">
                 <div class="phoneNumber">
                     <label for="">Điện thoại di động</label>
                     <input type="text" class="input" placeholder="Số điện thoại di động" v-model="emp.PhoneNumber">
-                    <!-- <MInput class="" :type="'text'" :placeholderInput="'Số điện thoại di động'" :isClassText="true"/> -->
                 </div>
                 <div class="landlinePhone">
                     <label for="">Điện thoại cố định</label>
                     <input type="text" class="input" placeholder="Số điện thoại cố định" v-model="emp.PhoneNumber">
-                    <!-- <MInput class="" :type="'text'" :placeholderInput="'Số điện thoại cố định'" :isClassText="true"/> -->
                 </div>
                 <div class="email">
                     <label for="">Email</label>
                     <input type="text" class="input" placeholder="Email" v-model="emp.Email">
-                    <!-- <MInput class="" :type="'text'" :placeholderInput="'Email'" :isClassText="true"/> -->
                 </div>
             </div>
             <div class="row">
                 <div class="accountBank">
                     <label for="">Tài khoản ngân hàng</label>
                     <input type="text" class="input" placeholder="Tài khoản ngân hàng" v-model="emp.PersonalTaxCode">
-                    <!-- <MInput class="" :type="'text'" :placeholderInput="'Tài khoản ngân hàng'" :isClassText="true"/> -->
                 </div>
                 <div class="nameOfBank">
                     <label for="">Tên ngân hàng</label>
                     <input type="text" class="input" placeholder="Tên nhân hàng" v-model="emp.QualificationName">
-                    <!-- <MInput class="" :type="'text'" :placeholderInput="'Tên nhân hàng'" :isClassText="true"/> -->
                 </div>
                 <div class="branchOfBank">
                     <label for="">Chi nhánh</label>
                     <input type="text" class="input" placeholder="Chi nhánh ngân hàng" v-model="emp.EducationalBackground">
-                    <!-- <MInput class="" :type="'text'" :placeholderInput="'Chi nhánh ngân hàng'" :isClassText="true"/> -->
                 </div>
             </div>
         </div>
@@ -151,16 +140,30 @@
   
 <script>
 import MButton from '@/components/base/MButton.vue';
+import MCombobox from '@/components/base/MCombobox.vue';
   export default {
-    components: { MButton },
+    components: { MButton, MCombobox },
     props: {
-        employee: Object
+        employee: Object,
+        mode: Number
     },
     created(){
         this.emp = this.employee;
-        
-    },
+        if(this.emp.DateOfBirth !=null)
+            this.emp.DateOfBirth = this.emp.DateOfBirth.slice(0,10);
+        if(this.emp.identityDate !=null)
+            this.emp.identityDate = this.emp.identityDate.slice(0,10);
+       
 
+    },
+    beforeUpdate(){
+        if(this.emp.EmployeeCode == '')
+            this.emptyCode= true;
+        else this.emptyCode= false;
+        if(this.emp.FullName == '')
+            this.emptyName= true; 
+        else this.emptyName= false; 
+    },
     methods: {
         /**
          * đóng form
@@ -170,57 +173,65 @@ import MButton from '@/components/base/MButton.vue';
             this.$emit('closeForm');
         },
         /**
-         * Kiểm tra rỗng
+         * hàm lưu dữ liệu
+         * author: LTQN(10/9/2022)
+         */
+        save(){        
+            if(this.mode == this.Mode.ADD){
+                fetch("https://cukcuk.manhnv.net/api/v1/Employees",{
+                    headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+                    method: "POST",
+                    body: JSON.stringify(this.emp)
+                })
+                .then(function(res){ console.log(res) })
+                .catch(function(res){ console.log(res) })
+            }
+            if(this.mode == this.Mode.EDIT){
+                let url= "https://cukcuk.manhnv.net/api/v1/Employees/" + this.emp.EmployeeId;
+                fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(this.emp),
+                })
+                .then((res) => res.json())
+                .then((res) => {
+                    console.log(res);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
+        },
+        /**
+         * Hàm lấy giá trị của combobox
          * author: LTQN(10/9/2022)
          *
          */
-        validate(){
-            if(this.emp.employeeCode == undefined)
-                this.emptyCode= true;
-            else this.emptyCode= false;
-            if(this.emp.FullName == undefined)
-                this.emptyName= true; 
-            else this.emptyName= false;  
-        },
-
-        // save(){
-        //     let url= "https://cukcuk.manhnv.net/api/v1/Employees/" + this.emp.EmployeeId;
-        //     fetch(url, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(this.emp),
-        //     })
-        //     .then((response) => response.json())
-        //     .then((res) => {
-        //         alert(res);
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error:', error);
-        //     });
-        // }
+        objectItemCombobox(e){
+            this.emp.DepartmentId = e.DepartmentId;
+            this.emp.DepartmentName = e.DepartmentName;
+            this.emp.DepartmentCode = e.DepartmentCode;
+        }
     },
     data(){
         return{
-            emp:{},
+            emp:{}, //đối tượng được chọn
             date: '',
             emptyCode: false,
-            emptyName: false
+            emptyName: false,
+            Mode : {
+                ADD: 1,
+                EDIT: 2
+            }
             
         }
     },
-    computed: {
-        fotmatDate(){
-            
-            let temp = {};
-            Object.assign(temp, this.emp);
-            if(temp.DateOfBirth != null){
-                return temp.DateOfBirth.slice(0,10);
-            }
-            return null;
-        }
-    }
  
 }
 </script>

@@ -37,7 +37,7 @@
                     <tbody>
                         <tr v-for="(employee, index) in employees" :key="index" @dblclick="editEmployee(employee)">
                             <td style="border-left: none; text-align: center;"><input type="checkbox" name="" id=""></td>
-                            <td>{{employee.employeeCode}}</td>
+                            <td>{{employee.EmployeeCode}}</td>
                             <td>{{employee.FullName}}</td>
                             <td>{{employee.GenderName}}</td>
                             <td style="text-align: center;">{{formatDate(employee.DateOfBirth)}}</td>
@@ -60,7 +60,7 @@
         </div>
         
     </div>
-    <TheForm  v-if="showForm" @closeForm='closeForm' :employee="emp"/>
+    <TheForm  v-if="showForm" @closeForm='closeForm' :employee="emp" :mode='formMode'/>
     <MPopup v-if="isShowFopup" :id='deleteEmployeeID' @closePopup='closePopup' @deleteEmp='deleteEmp'/>
  
 </template>
@@ -123,6 +123,7 @@ export default {
         editEmployee(employee){
             this.emp = employee;
             this.showForm = true;
+            this.formMode = this.modeOfForm.EDIT;
         },
         /**
          * Ham mở form khi thêm mới
@@ -131,6 +132,7 @@ export default {
         addEmployee(){
             this.emp = {};
             this.showForm = true;
+            this.formMode = this.modeOfForm.ADD;
         },
         /**
          * hàm đóng popUp
@@ -160,7 +162,12 @@ export default {
             showForm: false,
             emp: {},
             isShowFopup: false,
-            deleteEmployeeID: ''
+            deleteEmployeeID: '',
+            modeOfForm: {
+                ADD: 1,
+                EDIT: 2
+            },
+            formMode: null
         }
     },
     computed: {
