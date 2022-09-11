@@ -14,18 +14,18 @@
                     <input type="text" class="input" placeholder="Tìm theo mã, tên nhân viên">
                     <div class="icon-search"></div>
                 </div>
-                <div class="refresh"></div>
+                <div class="refresh" @click="reload"></div>
             </div>
             <div class="container-table">
                 <table>
                     <thead>
                         <tr>
-                            <td style="border-left: none; text-align: center;"><input type="checkbox" name="" id=""></td>
+                            <td style="border-left: none;" :class="{'text-center': style.center}"><input type="checkbox" name="" id=""></td>
                             <td>MÃ NHÂN VIÊN</td>
                             <td>TÊN NHÂN VIÊN</td>
                             <td>GIỚI TÍNH</td>
-                            <td>NGÀY SINH</td>
-                            <td>SỐ CMND</td>
+                            <td :class="{'text-center': style.center}">NGÀY SINH</td>
+                            <td :class="{'text-right': style.right}">SỐ CMND</td>
                             <td>CHỨC DANH</td>
                             <td>TÊN ĐƠN VỊ</td>
                             <td>SỐ TÀI KHOẢN</td>
@@ -36,12 +36,12 @@
                     </thead>
                     <tbody>
                         <tr v-for="(employee, index) in employees" :key="index" @dblclick="editEmployee(employee)">
-                            <td style="border-left: none; text-align: center;"><input type="checkbox" name="" id=""></td>
+                            <td style="border-left: none;" :class="{'text-center': style.center}"><input type="checkbox" name="" id=""></td>
                             <td>{{employee.EmployeeCode}}</td>
                             <td>{{employee.FullName}}</td>
                             <td>{{employee.GenderName}}</td>
-                            <td style="text-align: center;">{{formatDate(employee.DateOfBirth)}}</td>
-                            <td style = "text-align: right;">{{employee.IdentityNumber}}</td>
+                            <td :class="{'text-center': style.center}">{{formatDate(employee.DateOfBirth)}}</td>
+                            <td :class="{'text-right': style.right}">{{employee.IdentityNumber}}</td>
                             <td>{{employee.PositionName}}</td>
                             <td>{{employee.DepartmentName}}</td>
                             <td>{{employee.PersonalTaxCode}}</td>
@@ -60,7 +60,7 @@
         </div>
         
     </div>
-    <TheForm  v-if="showForm" @closeForm='closeForm' :employee="emp" :mode='formMode'/>
+    <TheForm  v-if="showForm" @closeForm='closeForm' :employee="emp" :mode='formMode' @reload='reload'/>
     <MPopup v-if="isShowFopup" :id='deleteEmployeeID' @closePopup='closePopup' @deleteEmp='deleteEmp'/>
  
 </template>
@@ -149,11 +149,22 @@ export default {
             fetch('https://cukcuk.manhnv.net/api/v1/Employees/' + e, {method: 'DELETE'})
             .then(res => res.json())
             .then(res => {
+                //load lại trang
+                let randomKey = Math.floor(Math.random()*10000);
+                this.$emit('loadContent', randomKey);
                 console.log('Thành công'+ res);
             }).catch((error) => {
                console.error('Error:', error);
             })
             this.isShowFopup = false;
+        },
+        /**
+         * Hàm reload lại table
+         * author: LTQN(10/9/2022)
+         */
+        reload(){
+            let randomKey = Math.floor(Math.random()*10000);
+            this.$emit('loadContent', randomKey);
         }
     },
     data() {
@@ -167,12 +178,14 @@ export default {
                 ADD: 1,
                 EDIT: 2
             },
-            formMode: null
+            formMode: null,
+            style: {
+                center: true,
+                right: true
+            },
         }
     },
-    computed: {
-  
-    }
+    
 }
 </script>
 
@@ -180,4 +193,10 @@ export default {
 <style scoped>
 @import url(../../css/layout/content.css);
 @import url(../../css/base/table.css);
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
 </style>

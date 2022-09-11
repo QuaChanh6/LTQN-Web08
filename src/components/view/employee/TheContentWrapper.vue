@@ -1,7 +1,7 @@
 <template>
     <div class="content-wrapper">
         <TheTopnav/>
-        <TheContent/>
+        <TheContent @loadContent='loadContent' :key='reload'/>
     </div>
   </template>
   
@@ -9,8 +9,24 @@
 import TheTopnav from '@/components/layout/TheTopnav.vue';
 import TheContent from '@/components/layout/TheContent.vue';
   export default {
-    components: { TheTopnav, TheContent }
-}
+    components: { TheTopnav, TheContent },
+    methods: {
+
+      /**
+       * Load lại component
+       * author: LTQN(11/9/2022)
+       * @param {INT} e Key mới
+       */
+      loadContent(e){
+        this.reload = e;
+      }
+    },
+    data(){
+      return{
+        reload: null
+      }
+    }
+  }
 </script>
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->

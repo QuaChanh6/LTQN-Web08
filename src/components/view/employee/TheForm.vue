@@ -24,7 +24,7 @@
                 <div class="col-left">
                     <div class="employeeCode">
                         <label for="">Mã <span> *</span></label>
-                        <input type="text" class="input" placeholder="Mã nhân viên" v-model='emp.EmployeeCode' :class="{empty: emptyCode}">
+                        <input type="text" class="input" placeholder="Mã nhân viên" :ref="'Code'" v-model='emp.EmployeeCode' :class="{empty: emptyCode}">
                     </div>
                     <div class="name">
                         <label for="">Tên <span> *</span></label>
@@ -39,9 +39,9 @@
                     <div class="gender">
                         <label for="">Giới tính</label>
                         <div class="radio">
-                            <input type="radio" name="gender" id="0">Nam
-                            <input type="radio" name="gender" id="1">Nữ
-                            <input type="radio" name="gender" id="2">Khác
+                            <input type="radio" name="gender" value="0" v-model="picked">Nam
+                            <input type="radio" name="gender" value="1"  v-model="picked">Nữ
+                            <input type="radio" name="gender" value="2"  v-model="picked">Khác
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,8 @@
                         <label for="">Đơn vị <span> *</span></label>
                         <MCombobox :url="'https://cukcuk.manhnv.net/api/v1/Departments'" 
                         :text="'DepartmentName'" 
-                        @objectItemCombobox='objectItemCombobox'/>
+                        @objectItemCombobox='objectItemCombobox'
+                        :valueRender='dataCombobox'/>
                      
                     </div>
                 </div>
@@ -68,7 +69,6 @@
                         <label for="">Ngày cấp</label>
                         <input type="date" class="input" v-model="emp.identityDate">
                     </div>
-                    <div>emp.DateOfBirth</div>
                 </div>
                 
             
@@ -149,20 +149,45 @@ import MCombobox from '@/components/base/MCombobox.vue';
     },
     created(){
         this.emp = this.employee;
+        //xử lý dữ liệu date
         if(this.emp.DateOfBirth !=null)
             this.emp.DateOfBirth = this.emp.DateOfBirth.slice(0,10);
         if(this.emp.identityDate !=null)
             this.emp.identityDate = this.emp.identityDate.slice(0,10);
-       
+        //xử lý dữ liệu radio
+        if(this.emp.Gender !=null)
+            this.picked = this.emp.Gender;
+        //xử lý dữ liệu combobox
+        if(this.emp.DepartmentName !=null)
+            this.dataCombobox = this.emp.DepartmentName;
 
+        
+    },
+    mounted(){
+            //focus vào mã nhân viên
+        this.$refs['Code'].focus();
     },
     beforeUpdate(){
+        //kiem tra rong
         if(this.emp.EmployeeCode == '')
             this.emptyCode= true;
         else this.emptyCode= false;
         if(this.emp.FullName == '')
             this.emptyName= true; 
         else this.emptyName= false; 
+
+        //xu ly du lieu radio
+              
+        this.emp.Gender = this.picked;
+        if(this.picked == this.gender.Female){
+            this.emp.GenderName = 'Nữ';
+        }
+        if(this.picked == this.gender.Male){
+            this.emp.GenderName = 'Name';
+        }
+        if(this.picked == this.gender.Other){
+            this.emp.GenderName = 'Khác';
+        }
     },
     methods: {
         /**
@@ -176,7 +201,7 @@ import MCombobox from '@/components/base/MCombobox.vue';
          * hàm lưu dữ liệu
          * author: LTQN(10/9/2022)
          */
-        save(){        
+        save(){   
             if(this.mode == this.Mode.ADD){
                 fetch("https://cukcuk.manhnv.net/api/v1/Employees",{
                     headers: {
@@ -207,6 +232,8 @@ import MCombobox from '@/components/base/MCombobox.vue';
                     console.error('Error:', error);
                 });
             }
+            this.$emit('closeForm');
+            this.$emit('reload');
         },
         /**
          * Hàm lấy giá trị của combobox
@@ -228,8 +255,14 @@ import MCombobox from '@/components/base/MCombobox.vue';
             Mode : {
                 ADD: 1,
                 EDIT: 2
-            }
-            
+            },
+            picked: null, //link đến radio input
+            gender: {
+                Male: 0,
+                Female: 1,
+                Other: 2
+            },
+            dataCombobox: ''
         }
     },
  

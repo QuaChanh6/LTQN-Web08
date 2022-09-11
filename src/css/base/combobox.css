@@ -46,7 +46,10 @@
     padding-left: 8px;
     position: relative;
 }
-
+.combobox-item:focus {
+    outline: 0;
+    /* background-color: rgba(80,184,60,0.1); */
+}
 .combobox-item:hover{
     background-color: rgba(80,184,60,0.1);
 }

@@ -38,12 +38,12 @@
 
 .refresh{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -424px -200px; 
-    /* background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -418px -196px;  */
     height: 24px;
     width: 24px;
     margin-top: 15px;
     margin-left: 12px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .container-table{
