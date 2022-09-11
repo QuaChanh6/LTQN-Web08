@@ -16,45 +16,7 @@
                 </div>
                 <div class="refresh" @click="reload"></div>
             </div>
-            <div class="container-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <td style="border-left: none;" :class="{'text-center': style.center}"><input type="checkbox" name="" id=""></td>
-                            <td>MÃ NHÂN VIÊN</td>
-                            <td>TÊN NHÂN VIÊN</td>
-                            <td>GIỚI TÍNH</td>
-                            <td :class="{'text-center': style.center}">NGÀY SINH</td>
-                            <td :class="{'text-right': style.right}">SỐ CMND</td>
-                            <td>CHỨC DANH</td>
-                            <td>TÊN ĐƠN VỊ</td>
-                            <td>SỐ TÀI KHOẢN</td>
-                            <td>TÊN NGÂN HÀNG</td>
-                            <td>CHI NHÁNH TÀI KHOẢN NGÂN HÀNG</td>
-                            <td style="border-right: none">CHỨC NĂNG</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="(employee, index) in employees" :key="index" @dblclick="editEmployee(employee)">
-                            <td style="border-left: none;" :class="{'text-center': style.center}"><input type="checkbox" name="" id=""></td>
-                            <td>{{employee.EmployeeCode}}</td>
-                            <td>{{employee.FullName}}</td>
-                            <td>{{employee.GenderName}}</td>
-                            <td :class="{'text-center': style.center}">{{formatDate(employee.DateOfBirth)}}</td>
-                            <td :class="{'text-right': style.right}">{{employee.IdentityNumber}}</td>
-                            <td>{{employee.PositionName}}</td>
-                            <td>{{employee.DepartmentName}}</td>
-                            <td>{{employee.PersonalTaxCode}}</td>
-                            <td>{{employee.QualificationName}}</td>
-                            <td>{{employee.EducationalBackground}}</td>
-                            <td style="border-right: none">
-                                <MDropList :employeeID='employee.EmployeeId'  @showPopUp="showPopUp"/>
-                            </td>
-                        </tr>
-                                    
-                    </tbody>
-                </table>
-            </div>
+            <TheTable @editEmployee='editEmployee' @getEmployees='getEmployees' @showPopUp='showPopUp' :key='keyReload'/>
 
             <ThePagination :TotalEmployee="employees.length"/>
         </div>
@@ -68,13 +30,13 @@
 <script>
 import ThePagination from './ThePagination.vue';
 import MButton from '../base/MButton.vue';
-import MDropList from '../base/MDropList.vue';
 import TheForm from '../view/employee/TheForm.vue';
 import MPopup from '../base/MPopup.vue';
+import TheTable from '../view/employee/TheTable.vue';
 
 
 export default {
-    components: { ThePagination, MButton, MDropList, TheForm, MPopup },
+    components: { ThePagination, MButton, TheForm, MPopup, TheTable },
     created(){
         fetch("https://cukcuk.manhnv.net/api/v1/Employees")
         .then(res => res.json())
@@ -83,24 +45,6 @@ export default {
         })
     },
     methods: {
-        /**
-         * Hàm forrmat date
-         * @param {date} dateSrc 
-         * author: LTQN(9/9/2022)
-         */
-        formatDate(dateSrc){
-            if(dateSrc != null){
-                let dateString = dateSrc.slice(0,10);
-                let date = new Date(dateString);
-                let year = date.getFullYear().toString(),
-                month = (date.getMonth() + 1).toString().padStart(2, '0'),
-                day = date.getDate().toString().padStart(2, '0');
-                return `${day}/${month}/${year}`;
-            }
-           
-            return '';
-            
-        },
         /**
          * Ham đóng form
          * author: LTQN(9/9/2022)
@@ -120,10 +64,10 @@ export default {
          * Đưa dữ liệu lên form để sửa
          * author: LTQN(10/9/2022)
          */
-        editEmployee(employee){
-            this.emp = employee;
-            this.showForm = true;
+        editEmployee(e){
+            this.emp = e;
             this.formMode = this.modeOfForm.EDIT;
+            this.showForm = true;
         },
         /**
          * Ham mở form khi thêm mới
@@ -151,7 +95,7 @@ export default {
             .then(res => {
                 //load lại trang
                 let randomKey = Math.floor(Math.random()*10000);
-                this.$emit('loadContent', randomKey);
+                this.keyReload = randomKey;
                 console.log('Thành công'+ res);
             }).catch((error) => {
                console.error('Error:', error);
@@ -164,7 +108,11 @@ export default {
          */
         reload(){
             let randomKey = Math.floor(Math.random()*10000);
-            this.$emit('loadContent', randomKey);
+            this.keyReload = randomKey;
+        },
+
+        getEmployees(e){
+            Object.assign(this.employees, e);
         }
     },
     data() {
@@ -174,7 +122,7 @@ export default {
             emp: {},
             isShowFopup: false,
             deleteEmployeeID: '',
-            modeOfForm: {
+            modeOfForm : {
                 ADD: 1,
                 EDIT: 2
             },
@@ -183,6 +131,7 @@ export default {
                 center: true,
                 right: true
             },
+            keyReload: null
         }
     },
     
@@ -192,11 +141,4 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import url(../../css/layout/content.css);
-@import url(../../css/base/table.css);
-.text-center{
-    text-align: center;
-}
-.text-right{
-    text-align: right;
-}
 </style>

@@ -1,7 +1,8 @@
 <template>
     <div class="content-wrapper">
         <TheTopnav/>
-        <TheContent @loadContent='loadContent' :key='reload'/>
+        <TheContent/>
+        <!-- <TheContent @loadContent='loadContent' :key='reload'/> -->
     </div>
   </template>
   
@@ -11,19 +12,9 @@ import TheContent from '@/components/layout/TheContent.vue';
   export default {
     components: { TheTopnav, TheContent },
     methods: {
-
-      /**
-       * Load lại component
-       * author: LTQN(11/9/2022)
-       * @param {INT} e Key mới
-       */
-      loadContent(e){
-        this.reload = e;
-      }
     },
     data(){
       return{
-        reload: null
       }
     }
   }

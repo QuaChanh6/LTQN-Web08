@@ -2,8 +2,11 @@
         <!-- <combobox id="position" api="https://cukcuk.manhnv.net/api/v1/Positions" text="PositionName" value="PositionId"></combobox> -->
     <div class="combobox-container">
           <div class="input-container">
-              <input type="text" class="combobox input" placeholder="Đơn vị" @keyup="search" v-model="dataSelected" :ref="'input'">
-              <div id ="icon-combobox" class="icon-combobox"  @click="showDataList=!showDataList" tabindex="-1">
+              <input type="text" class="combobox input" placeholder="Đơn vị" 
+              @keyup="search" 
+              v-model="dataSelected" 
+              :ref="'input'">
+              <div id ="icon-combobox" class="icon-combobox"  @click="showDataList=!showDataList" >
                   <div class="icon-drop-combobox"></div>
               </div>
           </div>
@@ -68,6 +71,11 @@
         //     this.isSearch[index] = true;
         // })
         // this.showDataList = false;
+    },
+    beforeUpdate(){
+      if(this.dataSelected == '')
+        this.empty = true;
+      else this.empty = false;
     },
     watch: {
         //ban đầu dataList bị ẩn nên data chưa được render ra
@@ -184,5 +192,8 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   @import url(../../css/base/combobox.css);
+  .empty{
+    border: 1px solid red;
+  }
 </style>
   

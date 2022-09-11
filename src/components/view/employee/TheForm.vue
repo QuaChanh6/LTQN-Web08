@@ -141,6 +141,14 @@
 <script>
 import MButton from '@/components/base/MButton.vue';
 import MCombobox from '@/components/base/MCombobox.vue';
+    /**
+     * Hàm thông bao dữ liệu không đúng định dạng
+     */
+    // function validate(){
+    //     if(this.emp.EmployeeCode == ''){
+
+    //     }
+    // }
   export default {
     components: { MButton, MCombobox },
     props: {
