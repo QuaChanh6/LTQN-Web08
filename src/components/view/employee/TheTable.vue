@@ -50,7 +50,7 @@ import MDropList from '@/components/base/MDropList.vue';
             this.employees = res;
         });
     },
-    mounted() {
+    updated() {
         this.$emit("getEmployees", this.employees);
     },
     methods: {

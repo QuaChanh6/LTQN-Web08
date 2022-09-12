@@ -105,10 +105,12 @@
 
 .form__body .employeeCode{
     width: 40%;
+    position: relative;
 }
 .form__body .name{
     width: 60%;
     margin-left: 8px;
+    position: relative;
 }
 
 .form__body .dateOfBirth{
@@ -141,6 +143,7 @@
 /* dòng 2 */
 .form__body .department{
     width: 100%;
+    position: relative;
 }
 
 
@@ -242,4 +245,20 @@ input[type='radio']:before {
 
 input[type='radio']:checked:before {
     background: #409330;
+}
+
+.notEmpty{
+    position: absolute;
+    z-index: 12;
+    background-color: #000;
+    color: #f7eeee;
+    width: 155px;
+    bottom: -10px;
+    left: 10px;
+    padding-left: 4px;
+    border-radius: 2px;
+    border: 1px solid #a7a2a2;
+}
+.empty{
+    border: 1px solid red;
 }

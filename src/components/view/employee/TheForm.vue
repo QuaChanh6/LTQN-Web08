@@ -24,11 +24,13 @@
                 <div class="col-left">
                     <div class="employeeCode">
                         <label for="">Mã <span> *</span></label>
-                        <input type="text" class="input" placeholder="Mã nhân viên" :ref="'Code'" v-model='emp.EmployeeCode' :class="{empty: emptyCode}">
+                        <input type="text" class="input" placeholder="Mã nhân viên" @focus="validateFocusCode" :ref="'Code'" v-model='emp.EmployeeCode' :class="{'empty': emptyCode}">
+                        <div class="notEmpty" v-show="emptyCode">Không được để trống.</div>
                     </div>
                     <div class="name">
                         <label for="">Tên <span> *</span></label>
-                        <input type="text" class="input" placeholder="Tên nhân viên" v-model='emp.FullName' :class="{empty: emptyName}">
+                        <input type="text" class="input" placeholder="Tên nhân viên" @focus="validateFocusName"  v-model='emp.FullName' :class="{'empty': emptyName}">
+                        <div class="notEmpty" v-show="emptyName">Không được để trống.</div>
                     </div>
                 </div>
                 <div class="col-right">
@@ -141,14 +143,12 @@
 <script>
 import MButton from '@/components/base/MButton.vue';
 import MCombobox from '@/components/base/MCombobox.vue';
-    /**
-     * Hàm thông bao dữ liệu không đúng định dạng
-     */
-    // function validate(){
-    //     if(this.emp.EmployeeCode == ''){
-
-    //     }
-    // }
+   function validate(that, emptyCode){
+        if(emptyCode){ // nếu mã nhân viên rỗng
+            that.$emit('warningEmptyCode');
+            return false;
+        }
+   }
   export default {
     components: { MButton, MCombobox },
     props: {
@@ -160,8 +160,8 @@ import MCombobox from '@/components/base/MCombobox.vue';
         //xử lý dữ liệu date
         if(this.emp.DateOfBirth !=null)
             this.emp.DateOfBirth = this.emp.DateOfBirth.slice(0,10);
-        if(this.emp.identityDate !=null)
-            this.emp.identityDate = this.emp.identityDate.slice(0,10);
+        if(this.emp.IdentityDate !=null)
+            this.emp.IdentityDate = this.emp.identityDate.slice(0,10);
         //xử lý dữ liệu radio
         if(this.emp.Gender !=null)
             this.picked = this.emp.Gender;
@@ -174,18 +174,12 @@ import MCombobox from '@/components/base/MCombobox.vue';
     mounted(){
             //focus vào mã nhân viên
         this.$refs['Code'].focus();
+       
     },
     beforeUpdate(){
-        //kiem tra rong
-        if(this.emp.EmployeeCode == '')
-            this.emptyCode= true;
-        else this.emptyCode= false;
-        if(this.emp.FullName == '')
-            this.emptyName= true; 
-        else this.emptyName= false; 
+        this.validateCode = this.emp.EmployeeCode;
+        this.validateName = this.emp.FullName;
 
-        //xu ly du lieu radio
-              
         this.emp.Gender = this.picked;
         if(this.picked == this.gender.Female){
             this.emp.GenderName = 'Nữ';
@@ -209,39 +203,40 @@ import MCombobox from '@/components/base/MCombobox.vue';
          * hàm lưu dữ liệu
          * author: LTQN(10/9/2022)
          */
-        save(){   
-            if(this.mode == this.Mode.ADD){
+        save(){ 
+            //validate
+            let me = this;
+            let valid = validate(me, this.emptyCode);
+            if(valid){
+                if(this.mode == this.Mode.ADD){ //nếu là thêm
                 fetch("https://cukcuk.manhnv.net/api/v1/Employees",{
-                    headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                    },
+                    headers: {'Accept': 'application/json','Content-Type': 'application/json'},
                     method: "POST",
                     body: JSON.stringify(this.emp)
                 })
                 .then(function(res){ console.log(res) })
                 .catch(function(res){ console.log(res) })
+                }
+                if(this.mode == this.Mode.EDIT){ //nếu là sửa
+                    let url= "https://cukcuk.manhnv.net/api/v1/Employees/" + this.emp.EmployeeId;
+                    fetch(url, {
+                    method: 'PUT',
+                    headers: {'Accept': 'application/json','Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(this.emp),
+                    })
+                    .then((res) => res.json())
+                    .then((res) => {
+                        console.log(res);
+                    })
+                    .catch((error) => {
+                        console.error('Error:', error);
+                    });
+                }
+                this.$emit('closeForm');
+                this.$emit('reload');
             }
-            if(this.mode == this.Mode.EDIT){
-                let url= "https://cukcuk.manhnv.net/api/v1/Employees/" + this.emp.EmployeeId;
-                fetch(url, {
-                method: 'PUT',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(this.emp),
-                })
-                .then((res) => res.json())
-                .then((res) => {
-                    console.log(res);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-            }
-            this.$emit('closeForm');
-            this.$emit('reload');
+           
         },
         /**
          * Hàm lấy giá trị của combobox
@@ -252,6 +247,27 @@ import MCombobox from '@/components/base/MCombobox.vue';
             this.emp.DepartmentId = e.DepartmentId;
             this.emp.DepartmentName = e.DepartmentName;
             this.emp.DepartmentCode = e.DepartmentCode;
+        },
+        /**
+         * Hàm kiểm tra rỗng khi focus vào input employee Code
+         * author: LTQN(10/9/2022)
+         *
+         */
+        validateFocusCode(){
+            if(this.emp.EmployeeCode == undefined){
+            this.emptyCode = true;
+            }else  this.emptyCode = false;
+          
+        },
+        /**
+         * Hàm kiểm tra rỗng khi focus vào input fullname
+         * author: LTQN(10/9/2022)
+         *
+         */
+        validateFocusName(){
+            if(this.emp.FullName == undefined){
+                this.emptyName =true;
+            }else this.emptyName = false;
         }
     },
     data(){
@@ -260,6 +276,8 @@ import MCombobox from '@/components/base/MCombobox.vue';
             date: '',
             emptyCode: false,
             emptyName: false,
+            validateCode: '',
+            validateName: '',
             Mode : {
                 ADD: 1,
                 EDIT: 2
@@ -273,12 +291,29 @@ import MCombobox from '@/components/base/MCombobox.vue';
             dataCombobox: ''
         }
     },
- 
+    watch: {
+        validateCode(oldValue){
+            if(oldValue != undefined){
+                // console.log(oldValue + ":"+ newValue);
+                if(oldValue == ''){
+                    this.emptyCode = true;
+                }else  this.emptyCode = false;
+            }
+        },
+        validateName(oldValue){
+            if(oldValue != undefined){
+                if(oldValue == ''){
+                    this.emptyName =true;
+                }else this.emptyName = false;
+            }
+        }
+    }
 }
 </script>
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   @import url(../../../css/layout/form.css);
+
 </style>
   

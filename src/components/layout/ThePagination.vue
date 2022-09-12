@@ -1,6 +1,6 @@
 <template>
     <div class="pagination">
-        <div class="pagination__left">Tổng số: <span>{{TotalEmployee}}</span> bản ghi</div>
+        <div class="pagination__left">Tổng số: <span>{{numOfEmp}}</span> bản ghi</div>
         <div class="pagination__right">
             <div class="rowOfPage">
                 <TheDropListPage/>
@@ -26,15 +26,15 @@ import TheDropListPage from "./TheDropListPage.vue";
 
   export default {
     components: { TheDropListPage },
-    // beforeUpdate(){
-    //     this.numOfEmp = this.TotalEmployee;
-    // },
+    created(){
+        this.numOfEmp = this.TotalEmployee;
+    },
     props: {
         TotalEmployee: Number
     },
     data(){
         return{
-            // numOfEmp: null
+            numOfEmp: null
         }
     }
 }

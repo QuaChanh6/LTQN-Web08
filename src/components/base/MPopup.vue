@@ -1,7 +1,7 @@
 <template>
      <div class="pop-up-container">
         <div class="container"></div>
-        <div class="pop-up  version1">
+        <div class="pop-up">
             <div class="pop-up-content">
                 <div class="icon">
                     <div class="icon-popUp"></div>

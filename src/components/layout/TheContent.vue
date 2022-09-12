@@ -16,15 +16,20 @@
                 </div>
                 <div class="refresh" @click="reload"></div>
             </div>
-            <TheTable @editEmployee='editEmployee' @getEmployees='getEmployees' @showPopUp='showPopUp' :key='keyReload'/>
+            <TheTable @editEmployee='editEmployee' @getEmployees='getEmployees' @showPopUp='showPopUp' :key='keyReloadTable'/>
 
-            <ThePagination :TotalEmployee="employees.length"/>
+            <ThePagination :TotalEmployee="employees.length" :key='keyReloadPagination'/>
         </div>
         
     </div>
-    <TheForm  v-if="showForm" @closeForm='closeForm' :employee="emp" :mode='formMode' @reload='reload'/>
+    <TheForm  v-if="showForm" 
+    @closeForm='closeForm' 
+    :employee="emp" 
+    :mode='formMode' 
+    @reload='reload'
+    @warningEmptyCode='warningEmptyCode'/>
     <MPopup v-if="isShowFopup" :id='deleteEmployeeID' @closePopup='closePopup' @deleteEmp='deleteEmp'/>
- 
+    <MPopupWarning v-show='isShowWarning' @closeWarning='closeWarning' :text='textWarning'/>
 </template>
 
 <script>
@@ -33,10 +38,11 @@ import MButton from '../base/MButton.vue';
 import TheForm from '../view/employee/TheForm.vue';
 import MPopup from '../base/MPopup.vue';
 import TheTable from '../view/employee/TheTable.vue';
+import MPopupWarning from '../base/MPopupWarning.vue';
 
 
 export default {
-    components: { ThePagination, MButton, TheForm, MPopup, TheTable },
+    components: { ThePagination, MButton, TheForm, MPopup, TheTable, MPopupWarning },
     created(){
         fetch("https://cukcuk.manhnv.net/api/v1/Employees")
         .then(res => res.json())
@@ -94,8 +100,7 @@ export default {
             .then(res => res.json())
             .then(res => {
                 //load lại trang
-                let randomKey = Math.floor(Math.random()*10000);
-                this.keyReload = randomKey;
+                this.keyReloadTable = Math.floor(Math.random()*10000);
                 console.log('Thành công'+ res);
             }).catch((error) => {
                console.error('Error:', error);
@@ -107,17 +112,36 @@ export default {
          * author: LTQN(10/9/2022)
          */
         reload(){
-            let randomKey = Math.floor(Math.random()*10000);
-            this.keyReload = randomKey;
+            this.keyReloadTable = Math.floor(Math.random()*10000);
         },
-
+        /**
+         * Hàm lấy thông tin tất cả employee từ table
+         * author: LTQN(10/9/2022)
+         */
         getEmployees(e){
-            Object.assign(this.employees, e);
+            this.employees = e;
+            this.empLength = e.length;
+        },
+        /**
+         * Hàm đóng cảnh báo
+         * author: LTQN(10/9/2022)
+         */
+        closeWarning(){
+            this.isShowWarning = false;
+        },
+        /**
+         * Hàm hiện cảnh báo mã nhân viên trống
+         * author: LTQN(10/9/2022)
+         */
+        warningEmptyCode(){
+            this.textWarning = 'Mã nhân viên không được để trống';
+            this.isShowWarning = true;
         }
     },
     data() {
         return{
             employees: [],
+            empLength: null,
             showForm: false,
             emp: {},
             isShowFopup: false,
@@ -131,10 +155,17 @@ export default {
                 center: true,
                 right: true
             },
-            keyReload: null
+            keyReloadTable: null,
+            keyReloadPagination: null,
+            isShowWarning: false,
+            textWarning: ''
         }
     },
-    
+    watch: {
+        empLength(){
+            this.keyReloadPagination = Math.floor(Math.random()*100000);
+        }
+    }
 }
 </script>
 

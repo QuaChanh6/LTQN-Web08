@@ -58,22 +58,19 @@
     margin-top: 24px;
 
 }
-.version1 .pop-up-action{
+.pop-up-action{
     justify-content: space-between;
 }
-.version2 .pop-up-action{
+.warning .pop-up-action{
     justify-content: end;
 }
-.version1 .button-pop-up-no{
+.button-pop-up-no{
     background-color: #fff;
     color: #000;
     font-family: misa bold;
     border: 1px solid #a4a2a2;
 }
-.version1 .button-pop-up-no:hover{
+.button-pop-up-no:hover{
     background-color: #a4a2a2;
 }
 
-.version2 .button-pop-up-no{
-    display: none;
-}
