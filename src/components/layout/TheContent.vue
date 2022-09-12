@@ -3,9 +3,7 @@
         <div class="content-header">
             <div class="title">Nhân viên</div>
             <div class="tool-bar">
-                <!-- <button class="button add-employee">Thêm mới nhân viên</button> -->
                 <MButton class="add-employee" :text= "'Thêm mới nhân viên'" @click="addEmployee()"/>
-                <!-- <MSCombobox :url="'https://cukcuk.manhnv.net/api/v1/Positions'" :propValue='PositionId' :propText='PositionName'/> -->
             </div>
         </div>
         <div class="container-grid">
@@ -23,11 +21,11 @@
         
     </div>
     <TheForm  v-if="showForm" 
-    @closeForm='closeForm' 
-    :employee="emp" 
-    :mode='formMode' 
+    @closeForm='closeForm' :employee="emp" :mode='formMode' 
     @reload='reload'
-    @warningEmptyCode='warningEmptyCode'/>
+    @warningEmptyCode = 'warningEmptyCode'
+    @warningEmptyName = 'warningEmptyName'
+    @warningEmptyDepartment = 'warningEmptyDepartment'/>
     <MPopup v-if="isShowFopup" :id='deleteEmployeeID' @closePopup='closePopup' @deleteEmp='deleteEmp'/>
     <MPopupWarning v-show='isShowWarning' @closeWarning='closeWarning' :text='textWarning'/>
 </template>
@@ -112,7 +110,7 @@ export default {
          * author: LTQN(10/9/2022)
          */
         reload(){
-            this.keyReloadTable = Math.floor(Math.random()*10000);
+            this.keyReloadTable = Math.floor(Math.random()*90000);
         },
         /**
          * Hàm lấy thông tin tất cả employee từ table
@@ -131,10 +129,27 @@ export default {
         },
         /**
          * Hàm hiện cảnh báo mã nhân viên trống
-         * author: LTQN(10/9/2022)
+         * author: LTQN(11/9/2022)
          */
         warningEmptyCode(){
-            this.textWarning = 'Mã nhân viên không được để trống';
+            this.textWarning = 'Mã nhân viên không được để trống.';
+            this.isShowWarning = true;
+        },
+
+        /**
+         * Hàm hiện cảnh báo mã nhân viên trống
+         * author: LTQN(12/9/2022)
+         */
+         warningEmptyName(){
+            this.textWarning = 'Tên không được để trống.';
+            this.isShowWarning = true;
+        },
+        /**
+         * Hàm hiện cảnh báo đơn vị trống
+         * author: LTQN(12/9/2022)
+         */
+        warningEmptyDepartment(){
+            this.textWarning = 'Đơn vị không được để trống.';
             this.isShowWarning = true;
         }
     },

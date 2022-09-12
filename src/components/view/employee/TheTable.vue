@@ -39,16 +39,21 @@
         </table>
     </div>
 </template>
-  
-  <script>
+
+
+<script>
 import MDropList from '@/components/base/MDropList.vue';
+    async function getUserAsync() {
+        let response = await fetch('https://cukcuk.manhnv.net/api/v1/Employees');
+        let data = await response.json()
+        return data;
+    }
   export default {
     created() {
-        fetch("https://cukcuk.manhnv.net/api/v1/Employees")
-            .then(res => res.json())
-            .then(res => {
-            this.employees = res;
-        });
+        getUserAsync().then(data =>{
+            Object.assign(this.employees, data);
+        });  
+
     },
     updated() {
         this.$emit("getEmployees", this.employees);

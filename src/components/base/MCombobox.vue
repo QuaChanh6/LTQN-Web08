@@ -11,7 +11,6 @@
               </div>
           </div>
           <div class="combobox-value" v-if="showDataList" :ref="'dataList'">
-              <!-- <div class="combobox-item combobox-item-active" value="0">Nữ<div class="icon-tick"></div></div> -->
               <div class="combobox-item" v-for="(item, index) in items" :key="index" 
               @click="selectedDataCombobox(item, index)" 
               :class="{'combobox-item-active': selected == index}"
@@ -21,7 +20,6 @@
               tabindex="0" >
               {{item[this.text]}}
                 <div class="icon-tick" v-show="selected==index"></div></div>
-              <!-- <div class="combobox-item" value="2">Khác</div> -->
           </div>
       </div>
   </template>
@@ -65,17 +63,10 @@
       
         //render data khi ấn nút sửa
         this.dataSelected = this.valueRender;
-        //hiển thị dữ liệu DataList
-        // this.showDataList = true;
-        // this.items.forEach((item, index) => {
-        //     this.isSearch[index] = true;
-        // })
-        // this.showDataList = false;
+
     },
     beforeUpdate(){
-      if(this.dataSelected == '')
-        this.empty = true;
-      else this.empty = false;
+      
     },
     watch: {
         //ban đầu dataList bị ẩn nên data chưa được render ra
@@ -149,6 +140,10 @@
             break;
         }    
       },
+      /**
+       * Hàm tìm kiếm
+       * author: LTQN(10/9/2022)
+       */
       search(){
         this.showDataList = true;
         if(this.dataSelected != ''){
@@ -168,8 +163,11 @@
             this.isSearch[index] = true;
           })
           this.selected= null;
+          //gửi về 1 object rỗng
+          this.$emit("objectItemCombobox", {});
         }
-      }
+      },
+
     },
     props: {
       url: String,
@@ -192,8 +190,6 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   @import url(../../css/base/combobox.css);
-  .empty{
-    border: 1px solid red;
-  }
+
 </style>
   

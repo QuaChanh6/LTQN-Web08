@@ -57,7 +57,8 @@
                         <MCombobox :url="'https://cukcuk.manhnv.net/api/v1/Departments'" 
                         :text="'DepartmentName'" 
                         @objectItemCombobox='objectItemCombobox'
-                        :valueRender='dataCombobox'/>
+                        :valueRender='dataCombobox'
+                        :key = 'keyCombobox'/>
                      
                     </div>
                 </div>
@@ -69,7 +70,7 @@
                     </div>
                     <div class="identityIssuedDate">
                         <label for="">Ngày cấp</label>
-                        <input type="date" class="input" v-model="emp.identityDate">
+                        <input type="date" class="input" v-model="emp.IdentityDate">
                     </div>
                 </div>
                 
@@ -130,8 +131,8 @@
                 <MButton class="btn-cancle" :text="'Hủy'" @click="sendMessageClose"/>
             </div>
             <div class="save">
-                <MButton class="btn-save" :text="'Cất'" @click="save"/>
-                <MButton class="btn-saveAndAdd" :text="'Cất và thêm'"/>
+                <MButton class="btn-save" :text="'Cất'" @click="save(SaveForm.Save)"/>
+                <MButton class="btn-saveAndAdd" :text="'Cất và thêm'" @click="save(SaveForm.SaveAndAdd)"/>
             </div>
         </div>
     </div>
@@ -143,11 +144,40 @@
 <script>
 import MButton from '@/components/base/MButton.vue';
 import MCombobox from '@/components/base/MCombobox.vue';
-   function validate(that, emptyCode){
+    /**
+     * Hàm validate
+     * author: LTQN(12/9/2022)
+     * @param {*} that: con trỏ vue
+     * @param {boolean} emptyCode 
+     * @param {boolean} emptyName 
+     * @param {boolean} emptyDepartment 
+     * @
+     */
+   function validate(that, emptyCode, emptyName, emptyDepartment){
         if(emptyCode){ // nếu mã nhân viên rỗng
             that.$emit('warningEmptyCode');
             return false;
         }
+        if(emptyName){
+            that.$emit('warningEmptyName');
+            return false;
+        }
+        if(emptyDepartment){
+            that.$emit('warningEmptyDepartment');
+            return false;
+        }
+        /**
+         * Kiểm tra định dạng email
+         */
+        // if(email != '' || email != undefined){
+        //     //eslint-disable-next-line
+        //     let regexEmail= /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        //     if(!regexEmail.test(email)){
+        //         return false;
+        //     }
+        // }
+        
+        return true;
    }
   export default {
     components: { MButton, MCombobox },
@@ -176,9 +206,10 @@ import MCombobox from '@/components/base/MCombobox.vue';
         this.$refs['Code'].focus();
        
     },
-    beforeUpdate(){
+    updated(){
         this.validateCode = this.emp.EmployeeCode;
         this.validateName = this.emp.FullName;
+
 
         this.emp.Gender = this.picked;
         if(this.picked == this.gender.Female){
@@ -202,38 +233,37 @@ import MCombobox from '@/components/base/MCombobox.vue';
         /**
          * hàm lưu dữ liệu
          * author: LTQN(10/9/2022)
+         * @param {int} mode: cất/ cất và thêm
          */
-        save(){ 
+        async save(mode){ 
             //validate
             let me = this;
-            let valid = validate(me, this.emptyCode);
+            let valid = validate(me, this.emptyCode, this.emptyName, this.emptyDepartment);
             if(valid){
                 if(this.mode == this.Mode.ADD){ //nếu là thêm
-                fetch("https://cukcuk.manhnv.net/api/v1/Employees",{
+                    await fetch("https://cukcuk.manhnv.net/api/v1/Employees",{
                     headers: {'Accept': 'application/json','Content-Type': 'application/json'},
                     method: "POST",
                     body: JSON.stringify(this.emp)
-                })
-                .then(function(res){ console.log(res) })
-                .catch(function(res){ console.log(res) })
+                    })
                 }
                 if(this.mode == this.Mode.EDIT){ //nếu là sửa
                     let url= "https://cukcuk.manhnv.net/api/v1/Employees/" + this.emp.EmployeeId;
-                    fetch(url, {
+                    await fetch(url, {
                     method: 'PUT',
                     headers: {'Accept': 'application/json','Content-Type': 'application/json',
                     },
                     body: JSON.stringify(this.emp),
                     })
-                    .then((res) => res.json())
-                    .then((res) => {
-                        console.log(res);
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
                 }
-                this.$emit('closeForm');
+                if(mode == this.SaveForm.SaveAndAdd){
+                    this.emp = {};
+                    this.dataCombobox = '';
+                    this.keyCombobox =  Math.floor(Math.random()*100000);
+                }
+                if(mode == this.SaveForm.Save){
+                    this.$emit('closeForm');
+                }
                 this.$emit('reload');
             }
            
@@ -247,6 +277,13 @@ import MCombobox from '@/components/base/MCombobox.vue';
             this.emp.DepartmentId = e.DepartmentId;
             this.emp.DepartmentName = e.DepartmentName;
             this.emp.DepartmentCode = e.DepartmentCode;
+            this.empDepartmentName = this.emp.DepartmentName;
+               
+            // kiểm tra rỗng
+            if(this.emp.DepartmentName == undefined || this.emp.DepartmentName == ''){
+                this.emptyDepartment = true;
+            }else  this.emptyDepartment = false;
+ 
         },
         /**
          * Hàm kiểm tra rỗng khi focus vào input employee Code
@@ -254,7 +291,7 @@ import MCombobox from '@/components/base/MCombobox.vue';
          *
          */
         validateFocusCode(){
-            if(this.emp.EmployeeCode == undefined){
+            if(this.emp.EmployeeCode == undefined || this.emp.EmployeeCode == ''){
             this.emptyCode = true;
             }else  this.emptyCode = false;
           
@@ -265,7 +302,7 @@ import MCombobox from '@/components/base/MCombobox.vue';
          *
          */
         validateFocusName(){
-            if(this.emp.FullName == undefined){
+            if(this.emp.FullName == undefined || this.emp.FullName == ''){
                 this.emptyName =true;
             }else this.emptyName = false;
         }
@@ -273,9 +310,9 @@ import MCombobox from '@/components/base/MCombobox.vue';
     data(){
         return{
             emp:{}, //đối tượng được chọn
-            date: '',
             emptyCode: false,
             emptyName: false,
+            emptyDepartment: true,
             validateCode: '',
             validateName: '',
             Mode : {
@@ -288,7 +325,12 @@ import MCombobox from '@/components/base/MCombobox.vue';
                 Female: 1,
                 Other: 2
             },
-            dataCombobox: ''
+            dataCombobox: '',
+            SaveForm :{
+                Save: 1,
+                SaveAndAdd: 2
+            },
+            keyCombobox: null
         }
     },
     watch: {
@@ -306,7 +348,7 @@ import MCombobox from '@/components/base/MCombobox.vue';
                     this.emptyName =true;
                 }else this.emptyName = false;
             }
-        }
+        },
     }
 }
 </script>
