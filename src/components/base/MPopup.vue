@@ -6,7 +6,7 @@
                 <div class="icon">
                     <div class="icon-popUp"></div>
                 </div>
-                <div class="pop-up-text">Bạn có thực sự muốn xóa nhân viên không?</div>
+                <div class="pop-up-text">{{content}}</div>
             </div>
             <div class="pop-up-action">
                 <MButton class="button-pop-up-no" :text= 'button.No' @click="sendMessageClose()"/>
@@ -21,7 +21,8 @@
 import MButton from './MButton.vue';
   export default {
     props: {
-      id:String
+      id:String,
+      content: String
     },
     data() {
         return {

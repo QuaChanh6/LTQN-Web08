@@ -5,7 +5,7 @@
 <script>
   export default {
     props: {
-        perform: String, //button thực hiện chức năng gì
+        //button thực hiện chức năng gì
         text: String
     }
   }

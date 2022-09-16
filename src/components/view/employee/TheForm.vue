@@ -3,12 +3,12 @@
     <div class="form-container">
         <div class="container"></div>
         <div class="form" >
-        <div class="form__header">
+        <div class="form-header">
             <div class="icon-form">
                 <div class="info-more"></div>
                 <div class="icon-x" @click="sendMessageClose"></div>
             </div>
-            <div class="form__title">
+            <div class="form-title">
                 <div class="title-employee">Thông tin nhân viên</div>
                 <div class="customer">
                     <input type="checkbox" name="" id="">Là khách hàng
@@ -19,31 +19,36 @@
             </div>
         </div>
         
-        <div class="form__body">
+        <div class="form-body">
             <div class="row">
                 <div class="col-left">
-                    <div class="employeeCode">
+                    <div class="employee-code">
                         <label for="">Mã <span> *</span></label>
-                        <input type="text" class="input" placeholder="Mã nhân viên" @focus="validateFocusCode" :ref="'Code'" v-model='emp.EmployeeCode' :class="{'empty': emptyCode}">
-                        <div class="notEmpty" v-show="emptyCode">Không được để trống.</div>
+                        <input type="text" class="input" placeholder="Mã nhân viên" 
+                        @keyup = 'validateFocusCode'
+                        @focus = 'validateFocusCode'
+                        :ref="'Code'" v-model='emp.EmployeeCode' :class="{'border-red': emptyCode}">
+                        <div class="not-empty" v-show="emptyCode">Không được để trống.</div>
                     </div>
                     <div class="name">
                         <label for="">Tên <span> *</span></label>
-                        <input type="text" class="input" placeholder="Tên nhân viên" @focus="validateFocusName"  v-model='emp.FullName' :class="{'empty': emptyName}">
-                        <div class="notEmpty" v-show="emptyName">Không được để trống.</div>
+                        <input type="text" class="input" placeholder="Tên nhân viên"
+                        @focus = 'validateFocusName' 
+                        @keyup="validateFocusName"  v-model='emp.FullName' :class="{'border-red': emptyName}">
+                        <div class="not-empty" v-show="emptyName">Không được để trống.</div>
                     </div>
                 </div>
                 <div class="col-right">
-                    <div class="dateOfBirth">
+                    <div class="date-of-birth">
                         <label for="">Ngày sinh</label>
-                        <input type="date" class="input" v-model="emp.DateOfBirth">
+                        <input type="date" class="input" v-model="emp.DateOfBirth" placeholder="ngày/tháng/năm">
                     </div>
                     <div class="gender">
                         <label for="">Giới tính</label>
                         <div class="radio">
-                            <input type="radio" name="gender" value="0" v-model="picked">Nam
-                            <input type="radio" name="gender" value="1"  v-model="picked">Nữ
-                            <input type="radio" name="gender" value="2"  v-model="picked">Khác
+                            <input class="input-radio" type="radio" name="gender" value="0" v-model="picked">Nam
+                            <input class="input-radio" type="radio" name="gender" value="1"  v-model="picked">Nữ
+                            <input class="input-radio" type="radio" name="gender" value="2"  v-model="picked">Khác
                         </div>
                     </div>
                 </div>
@@ -63,12 +68,12 @@
                     </div>
                 </div>
                 <div class="col-right">
-                    <div class="identifyNumber">
+                    <div class="identify-number">
                         <label for="">Số CMND</label>
                         <input type="text" class="input" placeholder="Số chứng mình nhân dân" v-model="emp.IdentityNumber">
                   
                     </div>
-                    <div class="identityIssuedDate">
+                    <div class="identity-issued-date">
                         <label for="">Ngày cấp</label>
                         <input type="date" class="input" v-model="emp.IdentityDate">
                     </div>
@@ -84,7 +89,7 @@
                     </div>
                 </div>
                 <div class="col-right">
-                    <div class="identityIssuedPlace">
+                    <div class="identity-issued-place">
                         <label for="">Nơi cấp</label>
                         <input type="text" class="input" placeholder="Nơi cấp chứng minh nhân dân" v-model="emp.IdentityPlace">
                     </div>
@@ -98,11 +103,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="phoneNumber">
+                <div class="phone-number">
                     <label for="">Điện thoại di động</label>
                     <input type="text" class="input" placeholder="Số điện thoại di động" v-model="emp.PhoneNumber">
                 </div>
-                <div class="landlinePhone">
+                <div class="landline-phone">
                     <label for="">Điện thoại cố định</label>
                     <input type="text" class="input" placeholder="Số điện thoại cố định" v-model="emp.PhoneNumber">
                 </div>
@@ -112,27 +117,27 @@
                 </div>
             </div>
             <div class="row">
-                <div class="accountBank">
+                <div class="account-bank">
                     <label for="">Tài khoản ngân hàng</label>
                     <input type="text" class="input" placeholder="Tài khoản ngân hàng" v-model="emp.PersonalTaxCode">
                 </div>
-                <div class="nameOfBank">
+                <div class="name-of-bank">
                     <label for="">Tên ngân hàng</label>
                     <input type="text" class="input" placeholder="Tên nhân hàng" v-model="emp.QualificationName">
                 </div>
-                <div class="branchOfBank">
+                <div class="branch-of-bank">
                     <label for="">Chi nhánh</label>
                     <input type="text" class="input" placeholder="Chi nhánh ngân hàng" v-model="emp.EducationalBackground">
                 </div>
             </div>
         </div>
-        <div class="form__footer">
-            <div class="cancle">
-                <MButton class="btn-cancle" :text="'Hủy'" @click="sendMessageClose"/>
+        <div class="form-footer">
+            <div class="cancel">
+                <MButton class="btn-cancel" :text="'Hủy'" @click="sendMessageClose"/>
             </div>
             <div class="save">
-                <MButton class="btn-save" :text="'Cất'" @click="save(SaveForm.Save)"/>
-                <MButton class="btn-saveAndAdd" :text="'Cất và thêm'" @click="save(SaveForm.SaveAndAdd)"/>
+                <MButton class="btn-save" :text="'Cất'" @click="save(enumeration.SaveForm.Save)"/>
+                <MButton class="btn-save-and-add" :text="'Cất và thêm'" @click="save(enumeration.SaveForm.SaveAndAdd)"/>
             </div>
         </div>
     </div>
@@ -144,28 +149,26 @@
 <script>
 import MButton from '@/components/base/MButton.vue';
 import MCombobox from '@/components/base/MCombobox.vue';
+import format from '@/common/formatData';
+import Enumeration from '@/common/Enumeration';
+import Resource from '../../../common/Resource';
     /**
      * Hàm validate
-     * author: LTQN(12/9/2022)
-     * @param {*} that: con trỏ vue
-     * @param {boolean} emptyCode 
-     * @param {boolean} emptyName 
-     * @param {boolean} emptyDepartment 
-     * @
+     * author: LTQN(14/9/2022)
+     * @param {*} form: con trỏ vue
+     * @param {object} objectEmpty {emptyCode, emptyName, emptyDepartment} 
+
+     * 
      */
-   function validate(that, emptyCode, emptyName, emptyDepartment){
-        if(emptyCode){ // nếu mã nhân viên rỗng
-            that.$emit('warningEmptyCode');
-            return false;
+    function validate(form, objectEmpty){
+        for(let key in objectEmpty){
+            if(objectEmpty[key]){
+                form.$emit(`warning${key}`);
+                return false;
+            }
         }
-        if(emptyName){
-            that.$emit('warningEmptyName');
-            return false;
-        }
-        if(emptyDepartment){
-            that.$emit('warningEmptyDepartment');
-            return false;
-        }
+        return true;
+
         /**
          * Kiểm tra định dạng email
          */
@@ -177,7 +180,7 @@ import MCombobox from '@/components/base/MCombobox.vue';
         //     }
         // }
         
-        return true;
+        // return true;
    }
   export default {
     components: { MButton, MCombobox },
@@ -186,18 +189,24 @@ import MCombobox from '@/components/base/MCombobox.vue';
         mode: Number
     },
     created(){
+
+        this.enumeration = Enumeration;
         this.emp = this.employee;
         //xử lý dữ liệu date
-        if(this.emp.DateOfBirth !=null)
+        if(!format.checkEmptyData(this.emp.DateOfBirth))
             this.emp.DateOfBirth = this.emp.DateOfBirth.slice(0,10);
-        if(this.emp.IdentityDate !=null)
-            this.emp.IdentityDate = this.emp.identityDate.slice(0,10);
+        if(!format.checkEmptyData(this.emp.identityDate)){
+            this.emp.identityDate = this.emp.identityDate.slice(0,10);
+        }
         //xử lý dữ liệu radio
-        if(this.emp.Gender !=null)
+        if(!format.checkEmptyData(this.emp.Gender))
             this.picked = this.emp.Gender;
         //xử lý dữ liệu combobox
-        if(this.emp.DepartmentName !=null)
+        if(!format.checkEmptyData(this.emp.DepartmentName)){
             this.dataCombobox = this.emp.DepartmentName;
+            this.emptyDepartment = false;
+        }
+           
 
         
     },
@@ -207,18 +216,15 @@ import MCombobox from '@/components/base/MCombobox.vue';
        
     },
     updated(){
-        this.validateCode = this.emp.EmployeeCode;
-        this.validateName = this.emp.FullName;
-
 
         this.emp.Gender = this.picked;
-        if(this.picked == this.gender.Female){
+        if(this.picked == Enumeration.gender.Female){
             this.emp.GenderName = 'Nữ';
         }
-        if(this.picked == this.gender.Male){
+        if(this.picked == Enumeration.gender.Male){
             this.emp.GenderName = 'Name';
         }
-        if(this.picked == this.gender.Other){
+        if(this.picked == Enumeration.gender.Other){
             this.emp.GenderName = 'Khác';
         }
     },
@@ -238,33 +244,52 @@ import MCombobox from '@/components/base/MCombobox.vue';
         async save(mode){ 
             //validate
             let me = this;
-            let valid = validate(me, this.emptyCode, this.emptyName, this.emptyDepartment);
+            let objectEmpty = {
+                EmptyCode : this.emptyCode, EmptyName : this.emptyName, EmptyDepartment : this.emptyDepartment
+            }
+            let valid = validate(me, objectEmpty);
             if(valid){
-                if(this.mode == this.Mode.ADD){ //nếu là thêm
+                if(this.mode == Enumeration.Mode.ADD){ //nếu là thêm
                     await fetch("https://cukcuk.manhnv.net/api/v1/Employees",{
                     headers: {'Accept': 'application/json','Content-Type': 'application/json'},
                     method: "POST",
                     body: JSON.stringify(this.emp)
+                    }).then(res => res.json())
+                        .then(res => {
+                        this.$emit('openToast', Resource.ToastMessage.success);
+                        this.$emit('reload');
+                        console.log(res);
+                    }).catch(error => {
+                        this.$emit('openToast', Resource.ToastMessage.error);
+                        console.log(error);
                     })
                 }
-                if(this.mode == this.Mode.EDIT){ //nếu là sửa
+                if(this.mode == Enumeration.Mode.EDIT){ //nếu là sửa
                     let url= "https://cukcuk.manhnv.net/api/v1/Employees/" + this.emp.EmployeeId;
                     await fetch(url, {
                     method: 'PUT',
                     headers: {'Accept': 'application/json','Content-Type': 'application/json',
                     },
                     body: JSON.stringify(this.emp),
+                    }).then(res => res.json())
+                        .then(res => {
+                        this.$emit('openToast', Resource.ToastMessage.success);
+                        this.$emit('reload');
+                        console.log(res);
+                    }).catch(error => {
+                        this.$emit('openToast', Resource.ToastMessage.error);
+                        console.log(error);
                     })
                 }
-                if(mode == this.SaveForm.SaveAndAdd){
+                if(mode == Enumeration.SaveForm.SaveAndAdd){ //nếu là cất
                     this.emp = {};
                     this.dataCombobox = '';
                     this.keyCombobox =  Math.floor(Math.random()*100000);
                 }
-                if(mode == this.SaveForm.Save){
+                if(mode == Enumeration.SaveForm.Save){ //nếu là cất và thêm
                     this.$emit('closeForm');
                 }
-                this.$emit('reload');
+                
             }
            
         },
@@ -280,7 +305,7 @@ import MCombobox from '@/components/base/MCombobox.vue';
             this.empDepartmentName = this.emp.DepartmentName;
                
             // kiểm tra rỗng
-            if(this.emp.DepartmentName == undefined || this.emp.DepartmentName == ''){
+            if(format.checkEmptyData(this.emp.DepartmentName)){
                 this.emptyDepartment = true;
             }else  this.emptyDepartment = false;
  
@@ -291,7 +316,7 @@ import MCombobox from '@/components/base/MCombobox.vue';
          *
          */
         validateFocusCode(){
-            if(this.emp.EmployeeCode == undefined || this.emp.EmployeeCode == ''){
+            if(format.checkEmptyData(this.emp.EmployeeCode)){
             this.emptyCode = true;
             }else  this.emptyCode = false;
           
@@ -302,10 +327,11 @@ import MCombobox from '@/components/base/MCombobox.vue';
          *
          */
         validateFocusName(){
-            if(this.emp.FullName == undefined || this.emp.FullName == ''){
-                this.emptyName =true;
+            if(format.checkEmptyData(this.emp.FullName)){
+                this.emptyName = true;
             }else this.emptyName = false;
-        }
+        },
+
     },
     data(){
         return{
@@ -313,43 +339,14 @@ import MCombobox from '@/components/base/MCombobox.vue';
             emptyCode: false,
             emptyName: false,
             emptyDepartment: true,
-            validateCode: '',
-            validateName: '',
-            Mode : {
-                ADD: 1,
-                EDIT: 2
-            },
             picked: null, //link đến radio input
-            gender: {
-                Male: 0,
-                Female: 1,
-                Other: 2
-            },
             dataCombobox: '',
-            SaveForm :{
-                Save: 1,
-                SaveAndAdd: 2
-            },
-            keyCombobox: null
+            keyCombobox: null,
+            format: {},
+            enumeration: {}
         }
     },
-    watch: {
-        validateCode(oldValue){
-            if(oldValue != undefined){
-                // console.log(oldValue + ":"+ newValue);
-                if(oldValue == ''){
-                    this.emptyCode = true;
-                }else  this.emptyCode = false;
-            }
-        },
-        validateName(oldValue){
-            if(oldValue != undefined){
-                if(oldValue == ''){
-                    this.emptyName =true;
-                }else this.emptyName = false;
-            }
-        },
-    }
+    
 }
 </script>
   

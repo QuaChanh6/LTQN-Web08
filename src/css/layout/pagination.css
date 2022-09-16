@@ -31,9 +31,10 @@
     height: 24px;
     padding-left: 8px;
     padding-right: 8px;
+    padding-top: 1px;
 }
 .numberList .active{
-    border: 1px solid #E7F5EC;
+    border: 1px solid var(--color--border);
 }
 .prev{
     margin-left: 16px;

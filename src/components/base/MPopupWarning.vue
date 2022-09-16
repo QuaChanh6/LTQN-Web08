@@ -9,7 +9,7 @@
                     <div class="pop-up-text">{{text}}</div>
                 </div>
                 <div class="pop-up-action">
-                    <button class="button" @click="closeWarning">Đóng</button>
+                    <button class="button" @click="closeWarning">{{textClose}}</button>
                 </div>
             </div>
                 
@@ -23,7 +23,7 @@
         },
         data(){
             return{
-
+                textClose: 'Đóng'
             }
         },
         methods: {

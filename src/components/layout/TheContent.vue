@@ -16,7 +16,7 @@
             </div>
             <TheTable @editEmployee='editEmployee' @getEmployees='getEmployees' @showPopUp='showPopUp' :key='keyReloadTable'/>
 
-            <ThePagination :TotalEmployee="employees.length" :key='keyReloadPagination'/>
+            <ThePagination :TotalEmployee="employees.length" :key='keyReloadPagination' :pagination='pagination'/>
         </div>
         
     </div>
@@ -25,9 +25,18 @@
     @reload='reload'
     @warningEmptyCode = 'warningEmptyCode'
     @warningEmptyName = 'warningEmptyName'
-    @warningEmptyDepartment = 'warningEmptyDepartment'/>
-    <MPopup v-if="isShowFopup" :id='deleteEmployeeID' @closePopup='closePopup' @deleteEmp='deleteEmp'/>
+    @warningEmptyDepartment = 'warningEmptyDepartment'
+    @openToast = 'openToast'/>
+    <MPopup v-if="isShowFopup" :id='deleteEmployeeID' 
+    @closePopup='closePopup' @deleteEmp='deleteEmp' :content= "'Bạn có thực sự muốn xóa nhân viên không'"/>
     <MPopupWarning v-show='isShowWarning' @closeWarning='closeWarning' :text='textWarning'/>
+    <!-- <MToastMessage v-show="isShowToast" @closeToast='closeToast'/> -->
+    <transition name="toast-message">
+        <MToastMessage v-show='isShowToast' :content = 'contentOfToastMessage' 
+        @closeToastMessage='closeToastMessage' :class='{"toast-success": isError = false, "toast-error": isError}'/>
+    </transition>
+  
+
 </template>
 
 <script>
@@ -37,10 +46,14 @@ import TheForm from '../view/employee/TheForm.vue';
 import MPopup from '../base/MPopup.vue';
 import TheTable from '../view/employee/TheTable.vue';
 import MPopupWarning from '../base/MPopupWarning.vue';
+import MToastMessage from '../base/MToastMessage.vue';
+import Resource from '../../common/Resource';
+// import Enumeration from '../../common/Enumeration';
+// import MToastMessage from '../base/MToastMessage.vue';
 
 
 export default {
-    components: { ThePagination, MButton, TheForm, MPopup, TheTable, MPopupWarning },
+    components: { ThePagination, MButton, TheForm, MPopup, TheTable, MPopupWarning, MToastMessage },
     created(){
         fetch("https://cukcuk.manhnv.net/api/v1/Employees")
         .then(res => res.json())
@@ -99,7 +112,8 @@ export default {
             .then(res => {
                 //load lại trang
                 this.keyReloadTable = Math.floor(Math.random()*10000);
-                console.log('Thành công'+ res);
+                this.isShowToast = true;
+                console.log(res);
             }).catch((error) => {
                console.error('Error:', error);
             })
@@ -151,6 +165,28 @@ export default {
         warningEmptyDepartment(){
             this.textWarning = 'Đơn vị không được để trống.';
             this.isShowWarning = true;
+        },
+        /**
+         * Hàm đóng toastmessage
+         * author: LTQN(15/9/2022)
+         */
+         closeToastMessage(){
+            this.isShowToast = false;
+        },
+        /**
+         * Hàm mở toastmessage
+         * author: LTQN(15/9/2022)
+         */
+        openToast(msg){ 
+            let me=this;
+            me.contentOfToastMessage = msg;
+            me.isShowToast = true;
+            if(msg == Resource.ToastMessage.success)
+                me.isError = false;
+            else me.isError = true;
+            setTimeout(function(){
+                me.isShowToast = false;
+            }, 2000);
         }
     },
     data() {
@@ -172,8 +208,17 @@ export default {
             },
             keyReloadTable: null,
             keyReloadPagination: null,
-            isShowWarning: false,
-            textWarning: ''
+            isShowWarning: false, //hiện/ẩn pop up
+            textWarning: '', //nội dung hiện pop up cảnh báo
+            isShowToast: false, //hiện ẩn toast message
+            contentOfToastMessage: '', //nội dung toast message
+            isError: '', //Lỗi hay không để hiển thị toast
+            pagination: {
+                first: '1',
+                second: '2',
+                third: '3',
+                last: null,
+            }
         }
     },
     watch: {

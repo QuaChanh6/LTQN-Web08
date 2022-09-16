@@ -1,9 +1,29 @@
+@import url(../css/controller/focus.css);
+@import url(../css/controller/hover.css);
+
+:root{
+    --color--light--green: #50B83C;
+    --light--green--900: #10250C; 
+    --light--green--800: #204918; 
+    --light--green--700: #306F24; 
+    --light--green--600: #409330; 
+    --light--green--400: #73C663; 
+    --light--green--300: #96D58A; 
+    --light--green--200: #B9E2B1; 
+    --light--green--100: #DCF1D8; 
+    --light--green--50: #EEF8EC; 
+    --white: #fff;
+    --black: #000;
+    --color--placeholder: #99A1B2;
+    --color--border--table: #E0E0E0;
+    --color--border: #E6E6E6;
+    --red: #ef1717;
+}
 body{
     font-family: misa;
     font-size: 14px;
     margin: 0;
     display: flex;
-    overflow: auto;
     height: 100vh;
 }
 
@@ -42,20 +62,21 @@ body *{
 
 ::-webkit-scrollbar {
     width: 8px;
-  }
-  ::-webkit-scrollbar-track {
+    height: 8px;
+}
+::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 4px;
-  }
+}
   
   /* Handle */
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #bbb;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
+
+.border-red{
+    border: 1px solid #f24343 !important;
+}
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #99A1B2;
-  }

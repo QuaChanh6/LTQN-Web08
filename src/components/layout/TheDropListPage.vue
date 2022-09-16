@@ -1,18 +1,13 @@
 <template>
-    <div class="dropList--v2">
-        <div class="dropList__text">{{text}}</div>
-        <div class="dropList__data" v-show="isShow">
+    <div class="dropList-page">
+        <div class="dropList-text">{{text}}</div>
+        <div class="dropList-data" v-show="isShow">
             <div class="data-item" v-for="(textNumPage, index) in textNumPages" :key="index" 
             @click="selectNumOfPage(textNumPage, index)"
             :class="{'dropList-choose': choose==index}">{{textNumPage.textData}}</div>
-            <!-- <div class="data-item" @click="selectNumOfPage('10')" :class="{'dropList-choose': choose==numPage['10']}">{{textNumPage['10']}}</div>
-            <div class="data-item" @click="selectNumOfPage('20')" :class="{'dropList-choose': choose==numPage['20']}">{{textNumPage['20']}}</div>
-            <div class="data-item" @click="selectNumOfPage('30')" :class="{'dropList-choose': choose==numPage['30']}">{{textNumPage['30']}}</div>
-            <div class="data-item" @click="selectNumOfPage('50')" :class="{'dropList-choose': choose==numPage['50']}">{{textNumPage['50']}}</div>
-            <div class="data-item" @click="selectNumOfPage('100')" :class="{'dropList-choose': choose==numPage['100']}">{{textNumPage['100']}}</div> -->
         </div>
-        <div class="dropList__icon" @click="isShow =! isShow">
-            <div class="dropList_icon-drop"></div>
+        <div class="dropList-icon" @click="isShow =! isShow">
+            <div class="dropList-icon-drop"></div>
         </div>
     </div>
 </template>

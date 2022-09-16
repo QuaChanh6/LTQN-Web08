@@ -12,7 +12,7 @@
     position: absolute;
     /* display: none; */
     z-index: 20;
-    background-color: #fff;
+    background-color: var(--white);
     min-width: 800px;
     max-width: 950px;
     border-radius: 4px;
@@ -44,7 +44,7 @@
     cursor: pointer;
 }
 
-.form__title{
+.form-title{
     display: flex;
     margin-top: -16px;
 }
@@ -55,7 +55,7 @@
     width: 250px;
     height: 32px;
 }
-.form__title input{
+.form-title input{
     margin-right: 10px;
 }
 .customer, .producer{
@@ -68,9 +68,10 @@
 }
 
 /* body */
-.form__body{
+.form-body{
     padding-bottom: 24px;
-    border-bottom: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E0E0E0;
+    /* border-bottom: 1px solid #E6E6E6; */
 }
 .row input{
     margin-top: 8px;
@@ -93,7 +94,7 @@
     font-family: misa medium;
 }
 .row span{
-    color: rgb(226, 19, 19);
+    color: var(--red);
 }
 /* dòng 1 */
 
@@ -104,24 +105,24 @@
     display: flex;
 }
 
-.form__body .employeeCode{
+.form-body .employee-code{
     width: 40%;
     position: relative;
 }
-.form__body .name{
+.form-body .name{
     width: 60%;
     margin-left: 8px;
     position: relative;
 }
 
-.form__body .dateOfBirth{
+.form-body .date-of-birth{
     width: 45%;
     margin-left: 24px;
 }
-.form__body .gender{
+.form-body .gender{
     width: 55%;
 }
-.form__body .gender input{
+.form-body .gender input{
     height: 16px;
     width: 16px;
     margin-right: 10px;
@@ -129,7 +130,7 @@
     margin-bottom: 8px;
 }
 
-.form__body .gender label{
+.form-body .gender label{
     margin-left: 16px;
 }
 
@@ -142,59 +143,59 @@
 }
 
 /* dòng 2 */
-.form__body .department{
+.form-body .department{
     width: 100%;
     position: relative;
 }
 
 
-.form__body .identifyNumber{
+.form-body .identify-number{
     margin-left: 24px;
     width: 60%;
 }
 
-.form__body .identityIssuedDate{
+.form-body .identity-issued-date{
     margin-left: 8px;
     width: 40%;
 }
 
-.form__body .position{
+.form-body .position{
     width: 100%;
 }
 
-.form__body .identityIssuedPlace{
+.form-body .identity-issued-place{
     margin-left: 24px;
     width: 100%;
 }
 
-.form__body .address{
+.form-body .address{
     width: 100%;
 }
 
-.form__body .phoneNumber{
+.form-body .phone-number{
     width: 25%;
 }
 
-.form__body .landlinePhone{
+.form-body .landline-phone{
     margin-left: 8px;
     width: 25%;
 }
 
-.form__body .email{
+.form-body .email{
     margin-left: 8px;
     width: 25%;
 }
 
-.form__body .accountBank{
+.form-body .account-bank{
     width: 25%;
 }
 
-.form__body .nameOfBank{
+.form-body .name-of-bank{
     margin-left: 8px;
     width: 25%;
 }
 
-.form__body .branchOfBank{
+.form-body .branch-of-bank{
     margin-left: 8px;
     width: 25%;
 }
@@ -202,7 +203,7 @@
 
 /* footer */
 
-.form__footer{
+.form-footer{
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -212,15 +213,15 @@
 
 .btn-save{
     margin-right: 8px;
-    background-color: #fff;
-    border: 1px solid #E6E6E6;
-    color: #000;
+    background-color: var(--white);
+    border: 1px solid var(--color--border);
+    color: var(--black);
     width: 80px;
 }
 .btn-cancle{
-    background-color: #fff;
-    border: 1px solid #E6E6E6;
-    color: #000;
+    background-color: var(--white);
+    border: 1px solid var(--color--border);
+    color: var(--black);
     width: 80px;
 }
 
@@ -228,14 +229,14 @@
 
 
 /* radio */
-input[type='radio'] {
+.input-radio{
     -webkit-appearance: none;
     border-radius: 50%;
     outline: none;
     box-shadow: 0 0 0 2px #409330;
 }
 
-input[type='radio']:before {
+.input-radio:before {
     content: '';
     display: block;
     width: 65%;
@@ -244,11 +245,11 @@ input[type='radio']:before {
     border-radius: 50%;
 }
 
-input[type='radio']:checked:before {
+.input-radio:checked:before {
     background: #409330;
 }
 
-.notEmpty{
+.not-empty{
     position: absolute;
     z-index: 12;
     background-color: #000;
@@ -259,8 +260,5 @@ input[type='radio']:checked:before {
     padding-left: 4px;
     border-radius: 2px;
     border: 1px solid #a7a2a2;
-}
-.empty {
-    border: 1px solid red !important;
 }
 

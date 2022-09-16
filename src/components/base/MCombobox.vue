@@ -146,7 +146,7 @@
        */
       search(){
         this.showDataList = true;
-        if(this.dataSelected != ''){
+        if(this.dataSelected != '' || this.dataSelected == undefined){
           let textInput = processData(this.dataSelected);
           this.items.forEach((item, index) => {
               this.isSearch[index] = false;

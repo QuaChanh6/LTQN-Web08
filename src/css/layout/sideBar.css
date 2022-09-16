@@ -1,10 +1,10 @@
 .side-bar{
-    background-color: #10250C;
+    background-color: var(--light--green--900);
     width: 200px;
     min-height: 775px;
     height: 100%;
 }
-.side-bar__title{
+.side-bar-title{
     height: 56px;
     margin-left: 16px;
     display: flex;
@@ -32,7 +32,7 @@
     padding-right: 12px;
 }
 
-.side-bar__item{
+.side-bar-item{
     height: 40px;
     width: 176px;
     margin-top: 4px;
@@ -40,59 +40,63 @@
     align-items: center;
     border-radius: 4px;
 }
-.side-bar__icon{
+.side-bar-icon{
     height: 24px;
     width: 24px;
     margin-left: 12px;
 }
-.icon--total{
+.icon-total{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -30px -1628px;
 }
-.icon--money{
+.icon-money{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -73px -1628px;
 }
-.icon--money-send{
+.icon-money-send{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -117px -1628px;
 }
-.icon--buy{
+.icon-buy{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -161px -1628px;
 }
-.icon--sale{
+.icon-sale{
 	background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -204px -1630px;
 }
-.icon--bills{
+.icon-bills{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -248px -1628px;
 }
-.icon--warehouse{
+.icon-warehouse{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -290px -1630px;
 }
-.icon--tools{
+.icon-tools{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -336px -1628px;
 }
-.icon--asset{
+.icon-asset{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -378px -1628px;
 }
-.icon--taxt{
+.icon-taxt{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -423px -1628px;
 }
-.icon--price{
+.icon-price{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -467px -1628px;
 }
-.icon--general{
+.icon-general{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -510px -1628px;
 }
-.icon--fund{
+.icon-fund{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -378px -1660px;
 }
-.icon--report{
+.icon-report{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -547px -1628px;
 }
-.icon--analysis{
+.icon-analysis{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -203px -1660px;
 }
 .item-name{
     margin-left: 12px;
     color: #D1D4D9;
+}
+
+a{
+    text-decoration: none;
 }
 
 

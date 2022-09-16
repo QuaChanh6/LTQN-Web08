@@ -22,7 +22,7 @@
 .combobox-value{
     width: 100%;
     padding: 8px;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 4px;
     position: absolute;
     z-index: 100;
@@ -37,26 +37,19 @@
 
 }
 .combobox-item{
-    background-color: #fff;
+    background-color: var(--white);
     width: 100%;
     height: 36px;
     border-radius: 4px;
     padding-top: 8px;
-    color: #000;
+    color: var(--black);
     padding-left: 8px;
     position: relative;
-}
-.combobox-item:focus {
-    outline: 0;
-    /* background-color: rgba(80,184,60,0.1); */
-}
-.combobox-item:hover{
-    background-color: rgba(80,184,60,0.1);
 }
 
 .combobox-item-active{
     /* background-color: #96D58A; */
-    color: #73C663;
+    color: var(--light--green--400);
 }
 
 .combobox-item .icon-tick{

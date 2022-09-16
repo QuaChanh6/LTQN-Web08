@@ -9,11 +9,11 @@
             <div class="paging">
                 <div class="prev" >Trước</div>
                 <div class="numberList">
-                    <div class="1 number active">1</div>
-                    <div class="2 number">2</div>
-                    <div class="3 number">3</div>
+                    <div class="first number active">{{pagination.first}}</div>
+                    <div class="second number">{{pagination.second}}</div>
+                    <div class="third number">{{pagination.third}}</div>
                     <div class="dot">...</div>
-                    <div class="numberLast number">52</div>
+                    <div class="last number">{{pagination.last}}</div>
                 </div>
                 <div class="next">Sau</div>
             </div>
@@ -25,12 +25,18 @@
 import TheDropListPage from "./TheDropListPage.vue";
 
   export default {
+    props: {
+        pagination :{
+            first: Number,
+            second: Number,
+            third: Number,
+            last: Number,
+        },
+        TotalEmployee : Number
+    },
     components: { TheDropListPage },
     created(){
         this.numOfEmp = this.TotalEmployee;
-    },
-    props: {
-        TotalEmployee: Number
     },
     data(){
         return{

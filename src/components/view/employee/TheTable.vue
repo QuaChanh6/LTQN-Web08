@@ -14,64 +14,75 @@
                     <td>SỐ TÀI KHOẢN</td>
                     <td>TÊN NGÂN HÀNG</td>
                     <td>CHI NHÁNH TÀI KHOẢN NGÂN HÀNG</td>
-                    <td style="border-right: none">CHỨC NĂNG</td>
+                    <td style="border-right: none;" class="sticky-col header-sticky-col">CHỨC NĂNG</td>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(employee, index) in employees" :key="index" @dblclick="editEmployee(employee)">
+                <tr v-for="(employee, index) in employees" :key="index" 
+                @dblclick="editEmployee(employee)" 
+                @mouseover="colorHover[index] = true" @mouseleave="colorHover[index] = false">
                     <td style="border-left: none;" :class="{'text-center': style.center}"><input type="checkbox" name="" id=""></td>
                     <td>{{employee.EmployeeCode}}</td>
                     <td>{{employee.FullName}}</td>
                     <td>{{employee.GenderName}}</td>
-                    <td :class="{'text-center': style.center}">{{formatDate(employee.DateOfBirth)}}</td>
+                    <td :class="{'text-center': style.center}">{{format(employee.DateOfBirth)}}</td>
                     <td :class="{'text-right': style.right}">{{employee.IdentityNumber}}</td>
                     <td>{{employee.PositionName}}</td>
                     <td>{{employee.DepartmentName}}</td>
                     <td>{{employee.PersonalTaxCode}}</td>
                     <td>{{employee.QualificationName}}</td>
                     <td>{{employee.EducationalBackground}}</td>
-                    <td style="border-right: none">
-                        <MDropList :employeeID='employee.EmployeeId'  @showPopUp="showPopUp"/>
+                    <td class="sticky-col" style="border-right: none" :ref="'col_'+index" v-on:dblclick.stop :class="{'color-hover':colorHover[index]}">
+                        <div class="tool">
+                            <div class="textTool">Sửa</div>
+                            <div class="icon-drop" 
+                            @click="getPositionTop(index)"
+                            :class="{'icon-drop-click': isShowDataDropList[index]}"></div>
+
+                        </div>
                     </td>
-                </tr>
+                      
+                    <MDropList  v-show="isShowDataDropList[index]" :style="{'top': `${topDropList}px`}"  
+                    :dataDropList = "dataDropList" @tool = 'tool' :emp='employee'/> 
+                </tr>  
                             
             </tbody>
         </table>
+        <!-- @click="getPositionTop(isShowDataDropList[index], index)"
+                            :class="{'icon-drop-click': isShowDataDropList[index]}"></div> -->
     </div>
+
 </template>
 
 
 <script>
-import MDropList from '@/components/base/MDropList.vue';
+import MDropList from '../../base/MDropList.vue';
+import format from '@/common/formatData';
     async function getUserAsync() {
         let response = await fetch('https://cukcuk.manhnv.net/api/v1/Employees');
         let data = await response.json()
         return data;
     }
+
   export default {
     created() {
         getUserAsync().then(data =>{
             Object.assign(this.employees, data);
-        });  
-
+        });
+        
     },
     updated() {
         this.$emit("getEmployees", this.employees);
     },
     methods: {
+
         /**
-         * Hàm forrmat date
-         * @param {date} dateSrc
-         * author: LTQN(9/9/2022)
+         * Hàm format date ngày/tháng/năm
+         * author: (14/9/2022)
+         * @param {String} date 
          */
-        formatDate(dateSrc) {
-            if (dateSrc != null) {
-                let dateString = dateSrc.slice(0, 10);
-                let date = new Date(dateString);
-                let year = date.getFullYear().toString(), month = (date.getMonth() + 1).toString().padStart(2, "0"), day = date.getDate().toString().padStart(2, "0");
-                return `${day}/${month}/${year}`;
-            }
-            return "";
+        format(date){
+            return format.formatDate(date);
         },
         /**
         * Đưa dữ liệu lên form để sửa
@@ -81,9 +92,31 @@ import MDropList from '@/components/base/MDropList.vue';
             this.emp = employee;
             this.$emit("editEmployee", this.emp);
         },
-        showPopUp(e){
-            this.$emit('showPopUp', e);
+        /**
+         * Hàm xóa/ nhân bản/ ngừng sử dụng
+         * author: LTQN (15/9/2022)
+         */
+        tool(e){
+            if(e.tool == this.toolDropList.Delete){
+                this.$emit('showPopUp', e.emp.EmployeeId);
+            }
+        },
+
+        /**
+         * author: LTQN (14/9/2022)
+         * Hàm set top cho droplist
+         * @param {int} index : vị trí trong mảng employee
+         */
+        getPositionTop(index){
+            this.isShowDataDropList[index] = !this.isShowDataDropList[index];
+            let [td] = this.$refs['col_'+index];
+            this.topDropList = td.getBoundingClientRect().top + 35;
+        },
+
+        setColorHover(){
+            this.colorHover = true;
         }
+
     },
     data() {
         return {
@@ -93,9 +126,31 @@ import MDropList from '@/components/base/MDropList.vue';
                 center: true,
                 right: true
             },
+            isShowDataDropList: [],
+            dataDropList: [
+                {
+                    type: 'Duplicate',
+                    text: 'Nhân bản'
+                },
+                {
+                    type: 'Delete',
+                    text: 'Xóa'
+                },
+                {
+                    type: 'Stop',
+                    text: 'Ngừng sử dụng'
+                }
+            ],
+            toolDropList: {
+                Duplacate: 'Duplicate',
+                Delete: 'Delete',
+                Stop: 'Stop'
+            },
+            topDropList: null,
+            colorHover: [] //set màu sắc hover cho col sticky
         };
     },
-    components: { MDropList }
+    components: { MDropList}
 }
   </script>
   
@@ -109,3 +164,7 @@ import MDropList from '@/components/base/MDropList.vue';
         text-align: right;
     }
   </style>
+
+
+
+

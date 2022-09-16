@@ -1,0 +1,40 @@
+.button:hover{
+    background-color: var(--light--green--400);
+}
+
+/* combobox */ /* drop list */
+.combobox-item:hover, .data:hover, .data-item:hover{
+    background-color: var(--light--green--50);
+}
+
+
+/* input */
+.input:hover{
+    border-color: var(--light--green--100);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #99A1B2;
+}
+
+/* sidebar */
+.side-bar-item:hover{
+    background-color: var(--light--green--700);
+    color: var(--white);
+}
+
+
+/* dấu x đóng */
+.close-icon:hover{
+    cursor: pointer;
+}
+
+/* tabe */
+tr:hover, .sticky-col:hover{
+    background-color: var(--light--green--50);
+}
+
+.color-hover{
+    background-color: var(--light--green--50);
+}

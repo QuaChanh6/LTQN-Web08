@@ -14,7 +14,7 @@
 
 .pop-up{
     border-radius: 5px;
-    background-color: #fff;
+    background-color: var(--white);
     height: 200px;
     width: 480px;
     position: absolute;
@@ -65,7 +65,7 @@
     justify-content: end;
 }
 .button-pop-up-no{
-    background-color: #fff;
+    background-color: var(--white);
     color: #000;
     font-family: misa bold;
     border: 1px solid #a4a2a2;

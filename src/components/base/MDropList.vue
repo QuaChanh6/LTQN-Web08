@@ -1,15 +1,7 @@
 <template>
-    <div class="dropList">
-        <div class="text">Sửa</div>
-        <div class="icon-drop" @click="isShowDropList =! isShowDropList" :class="{'icon-drop-click': isShowDropList}"></div>
-        <div class="list-data" v-show="isShowDropList">
-            <div class="data"  @click="indexChoose=index.Duplicate" :class="{'drop-data-choose': indexChoose==index.Duplicate}">Nhân bản</div>
-            <div class="data delete" @click="sendMessageDelete(this.employeeID)" :class="{'drop-data-choose': indexChoose==index.Delete}">Xóa</div>
-            <div class="data">Ngừng sử dụng</div>
-        </div>
-        
+    <div class="list-data" >
+        <div class="data" v-for="(data, index) in dataDropList" :key="index" @click="sendMessage(data.type)" >{{data.text}}</div>
     </div>
-    <!-- <MPopup :id='ID' v-if='isShow'/> -->
  
 </template>
   
@@ -17,27 +9,19 @@
 
 
 export default {
+
     props: {
-        employeeID: String
+        emp: Object,
+        dataDropList: Array
     },
-    methods: {
-        // ấn nút xóa
-        sendMessageDelete(id) {
-            this.indexChoose=this.index.Delete;
-            this.isShowDropList=false;
-            this.$emit('showPopUp', id);
-        }
+
+    methods: {        
+        sendMessage(tool) { //tool: xóa, nhân bản, ngừng sử dụng
+            this.$emit('tool', {tool: tool, emp: this.emp});
+        },
     },
     data() {
         return {
-            isShowDropList: false,
-            indexChoose: null,
-            index: {
-                Duplicate: 1,
-                Delete: 2,
-                Stop: 3
-            },
-            isShow: false
         };
     },
     components: {}

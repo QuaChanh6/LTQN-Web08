@@ -1,18 +1,14 @@
 .button{
     border-radius: 4px;
-    background-color: #409330;
+    background-color: var(--light--green--600);
     height: 36px;
-    color: #fff;
+    color: var(--white);
     padding: 0px 24px 0px 24px;
     border: none;
     cursor: pointer;
     box-sizing: border-box;
 }
 
-.button:hover{
-    background-color: #73C663;
-}
-
 .button:active{
-    background-color: #306F24;
+    background-color: var(--light--green--700);
 }

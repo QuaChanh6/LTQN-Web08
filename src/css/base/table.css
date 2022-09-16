@@ -1,26 +1,23 @@
 table{
     border-collapse: collapse ;
-    width: 100%;
-
+    width: 1600px;
 }
 
 thead td{
     font-family: misa bold;
     font-size: 11px;
     text-align: left;
-    box-shadow: -1px 1px 1px #E3DCDC;
 }
-thead{
+/* thead{
     position: sticky;
     position: -webkit-sticky;
     top: 0;
     z-index: 12;
-}
+} */
 
 
 thead tr{
-    background-color: #DCF1D8;
-
+    background-color: var(--light--green--100);
 }
 td input{
     height: 16px;
@@ -28,18 +25,60 @@ td input{
     margin-right: 14px;
 }
 tr{
-    border-bottom: 1px solid #E0E0E0;
+    border-bottom: 1px solid var(--color--border--table);
     height: 44px;
+    position: relative;
 }
+
+
 td{
-    border-right: 1px solid #E0E0E0;
+    border-right: 1px solid var(--color--border--table);
     padding-left: 16px;
     padding-right: 8px;
 }
 
 .choose-tr{
-    background-color: #EEF8EC;
+    background-color: var(--light--green--50);
 }
+
+
+.sticky-col {
+    position: -webkit-sticky;
+    position: sticky;
+    right: 0;
+    background-color: var(--white);
+    z-index: 1;
+    box-shadow: inset 1px 1px 0 var(--color--border--table);
+}
+
+
+.header-sticky-col {
+    background-color: var(--light--green--100);
+    box-shadow: inset 1px 0 var(--color--border--table);
+}
+
+
+.tool{
+    display: flex;
+    position: relative;
+}
+.text{
+    margin-right: 10px;
+    color: #044EFF;
+}
+.icon-drop{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -893px -360px;
+    height: 16px;
+    width: 24px;
+    border: none;
+    margin-top: 2px;
+    margin-left: 5px;
+    cursor: pointer;
+
+}
+
+
+
 
 
 
