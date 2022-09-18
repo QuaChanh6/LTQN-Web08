@@ -7,9 +7,7 @@
   
 <script>
 
-
 export default {
-
     props: {
         emp: Object,
         dataDropList: Array
@@ -22,6 +20,7 @@ export default {
     },
     data() {
         return {
+
         };
     },
     components: {}

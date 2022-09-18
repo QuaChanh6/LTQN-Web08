@@ -43,7 +43,7 @@
                     </td>
                       
                     <MDropList  v-show="isShowDataDropList[index]" :style="{'top': `${topDropList}px`}"  
-                    :dataDropList = "dataDropList" @tool = 'tool' :emp='employee'/> 
+                    @tool = 'tool' :emp='employee' :dataDropList = 'dataDropList'/> 
                 </tr>  
                             
             </tbody>
@@ -58,6 +58,8 @@
 <script>
 import MDropList from '../../base/MDropList.vue';
 import format from '@/common/formatData';
+import Resource from '../../../common/Resource';
+
     async function getUserAsync() {
         let response = await fetch('https://cukcuk.manhnv.net/api/v1/Employees');
         let data = await response.json()
@@ -65,14 +67,19 @@ import format from '@/common/formatData';
     }
 
   export default {
+
     created() {
+        this.$emit('loading', true);
         getUserAsync().then(data =>{
+            this.$emit('loading', false)
             Object.assign(this.employees, data);
         });
-        
     },
     updated() {
         this.$emit("getEmployees", this.employees);
+    },
+    beforeUnmount(){
+        
     },
     methods: {
 
@@ -89,17 +96,27 @@ import format from '@/common/formatData';
         * author: LTQN(10/9/2022)
         */
         editEmployee(employee) {
-            this.emp = employee;
-            this.$emit("editEmployee", this.emp);
+            try {
+                this.emp = employee;
+                this.$emit("editEmployee", this.emp);
+            } catch (error) {
+                console.log(error);
+            }
+
         },
         /**
          * Hàm xóa/ nhân bản/ ngừng sử dụng
          * author: LTQN (15/9/2022)
          */
         tool(e){
-            if(e.tool == this.toolDropList.Delete){
+            try {
+                if(e.tool == Resource.toolDropList.Delete){ //nếu là xóa
                 this.$emit('showPopUp', e.emp.EmployeeId);
+            } 
+            } catch (error) {
+                console.log(error);
             }
+            
         },
 
         /**
@@ -108,11 +125,19 @@ import format from '@/common/formatData';
          * @param {int} index : vị trí trong mảng employee
          */
         getPositionTop(index){
-            this.isShowDataDropList[index] = !this.isShowDataDropList[index];
-            let [td] = this.$refs['col_'+index];
-            this.topDropList = td.getBoundingClientRect().top + 35;
-        },
+            try {
+                this.isShowDataDropList[index] = !this.isShowDataDropList[index];
+                let [td] = this.$refs['col_'+index];
+                this.topDropList = td.getBoundingClientRect().top + 35;
+            } catch (error) {
+                console.log(error);
+            }
 
+        },
+        /**
+         * Hàm set màu khi hover của cột sticky
+         * authorL LTQN(16/9/2022)
+         */
         setColorHover(){
             this.colorHover = true;
         }
@@ -127,25 +152,7 @@ import format from '@/common/formatData';
                 right: true
             },
             isShowDataDropList: [],
-            dataDropList: [
-                {
-                    type: 'Duplicate',
-                    text: 'Nhân bản'
-                },
-                {
-                    type: 'Delete',
-                    text: 'Xóa'
-                },
-                {
-                    type: 'Stop',
-                    text: 'Ngừng sử dụng'
-                }
-            ],
-            toolDropList: {
-                Duplacate: 'Duplicate',
-                Delete: 'Delete',
-                Stop: 'Stop'
-            },
+            dataDropList: Resource.dataDropList,
             topDropList: null,
             colorHover: [] //set màu sắc hover cho col sticky
         };

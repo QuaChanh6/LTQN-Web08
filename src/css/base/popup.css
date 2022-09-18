@@ -13,7 +13,7 @@
 
 
 .pop-up{
-    border-radius: 5px;
+    border-radius: var(--border--radius);
     background-color: var(--white);
     height: 200px;
     width: 480px;

@@ -18,6 +18,8 @@
     --color--border--table: #E0E0E0;
     --color--border: #E6E6E6;
     --red: #ef1717;
+    --blue: #044EFF;
+    --border--radius: 4px;
 }
 body{
     font-family: misa;
@@ -66,17 +68,26 @@ body *{
 }
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
-    border-radius: 4px;
+    border-radius: var(--border--radius);
+
 }
   
   /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #bbb;
-    border-radius: 4px;
+    border-radius: var(--border--radius);
     cursor: pointer;
 }
 
+.scroller {
+    overflow-y: scroll;
+    scrollbar-color: #0A4C95 #C2D2E4;
+  }
+
 .border-red{
-    border: 1px solid #f24343 !important;
+    border: 1px solid var(--red) !important;
 }
+
+
+
   

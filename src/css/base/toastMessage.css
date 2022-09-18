@@ -25,14 +25,14 @@
     background-color: var(--red);
 }
 .toast-error .icon{
-    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -536px -144px;
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -1935px -205px;
 }
 .toast-success .icon{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -1290px -409px;
 }
 .container-toast .icon{
-	width: 14px;
-	height: 14px;
+	width: 16px;
+	height: 16px;
 }
 .toast-message-icon{
     width: 16px;

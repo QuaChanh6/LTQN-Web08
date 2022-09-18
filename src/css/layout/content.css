@@ -54,3 +54,23 @@
     height: 500px;
     overflow: auto;
 }
+/* 
+css loading */
+
+.loading{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 30;
+    top: 0;
+    left: 0;
+}
+
+.img-load{
+    /* background-image: url(../../../src/assets/loading.svg); */
+    position: absolute;
+    top: calc(50% - 18px);
+    left: calc(50% - 10px);
+    height: 32px;
+    width: 32px;
+}

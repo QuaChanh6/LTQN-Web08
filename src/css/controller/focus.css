@@ -6,3 +6,7 @@
 .input:focus{
     border-color: var(--light--green--300);
 }
+
+.button:focus{
+    outline-color: var(--light--green--800);
+}

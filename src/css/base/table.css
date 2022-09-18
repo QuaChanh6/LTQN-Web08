@@ -64,7 +64,7 @@ td{
 }
 .text{
     margin-right: 10px;
-    color: #044EFF;
+    color: var(--blue);
 }
 .icon-drop{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -893px -360px;
@@ -75,6 +75,10 @@ td{
     margin-left: 5px;
     cursor: pointer;
 
+}
+
+.icon-drop-click{
+    border: 1px solid var(--blue);
 }
 
 

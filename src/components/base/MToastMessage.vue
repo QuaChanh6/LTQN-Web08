@@ -1,5 +1,5 @@
 <template>
-    <div class="container-toast toast-success">
+    <div class="container-toast">
         <div class="toast-message-container">
             <div class="toast-message-icon"><div class="icon"></div></div>
             <div class="toast-message-content">{{content}}</div>

@@ -13,6 +13,7 @@
 </template>
   
 <script>
+import Resource from '@/common/Resource';
   export default {
     methods: {
       selectNumOfPage(textNumPage, index){
@@ -24,35 +25,7 @@
     data(){
       return{
         isShow: false,
-        // numPage: {'10': '10', '20': '20', '30': '30', '50': '50', '100': '100'},
-        textNumPages: [
-          {
-            num: '10',
-            textData: '10 bản ghi trên một trang'
-          },
-          {
-            num: '20',
-            textData: '20 bản ghi trên một trang'
-          },
-          {
-            num: '30',
-            textData: '30 bản ghi trên một trang'
-          },
-          {
-            num: '50',
-            textData: '50 bản ghi trên một trang'
-          },
-          {
-            num: '100',
-            textData: '100 bản ghi trên một trang'
-          },
-        ],
-      
-          // '10': '10 bản ghi trên một trang',
-          // '20': '20 bản ghi trên một trang',
-          // '30': '30 bản ghi trên một trang',
-          // '50': '50 bản ghi trên một trang',
-          // '100': '100 bản ghi trên một trang'
+        textNumPages: Resource.textNumPages,
 
         choose: null,
         text: '-- Tùy chọn --'

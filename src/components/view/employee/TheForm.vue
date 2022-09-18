@@ -11,11 +11,12 @@
             <div class="form-title">
                 <div class="title-employee">Thông tin nhân viên</div>
                 <div class="customer">
-                    <input type="checkbox" name="" id="">Là khách hàng
+                    <input type="checkbox" value="0" v-model="checkedEmployee">Là khách hàng
                 </div>
                 <div class="producer">
-                    <input type="checkbox" name="" id="">Là nhà cung cấp
+                    <input type="checkbox" value="1" v-model="checkedEmployee">Là nhà cung cấp
                 </div>
+ 
             </div>
         </div>
         
@@ -41,7 +42,8 @@
                 <div class="col-right">
                     <div class="date-of-birth">
                         <label for="">Ngày sinh</label>
-                        <input type="date" class="input" v-model="emp.DateOfBirth" placeholder="ngày/tháng/năm">
+                        <input type="date" class="input" v-model="emp.DateOfBirth" name="date">
+
                     </div>
                     <div class="gender">
                         <label for="">Giới tính</label>
@@ -59,7 +61,7 @@
                 <div class="col-left">
                     <div class="department">
                         <label for="">Đơn vị <span> *</span></label>
-                        <MCombobox :url="'https://cukcuk.manhnv.net/api/v1/Departments'" 
+                        <MCombobox :url="Url + 'Departments'" 
                         :text="'DepartmentName'" 
                         @objectItemCombobox='objectItemCombobox'
                         :valueRender='dataCombobox'
@@ -143,7 +145,7 @@
     </div>
 
     </div>
-    
+
 </template>
   
 <script>
@@ -152,6 +154,9 @@ import MCombobox from '@/components/base/MCombobox.vue';
 import format from '@/common/formatData';
 import Enumeration from '@/common/Enumeration';
 import Resource from '../../../common/Resource';
+
+
+
     /**
      * Hàm validate
      * author: LTQN(14/9/2022)
@@ -163,7 +168,8 @@ import Resource from '../../../common/Resource';
     function validate(form, objectEmpty){
         for(let key in objectEmpty){
             if(objectEmpty[key]){
-                form.$emit(`warning${key}`);
+                // form.$emit(`warningEmpty${key}`);
+                form.$emit('warningEmpty', key);
                 return false;
             }
         }
@@ -183,32 +189,36 @@ import Resource from '../../../common/Resource';
         // return true;
    }
   export default {
-    components: { MButton, MCombobox },
+    components: { MButton, MCombobox},
     props: {
         employee: Object,
         mode: Number
     },
     created(){
-
-        this.enumeration = Enumeration;
-        this.emp = this.employee;
-        //xử lý dữ liệu date
-        if(!format.checkEmptyData(this.emp.DateOfBirth))
-            this.emp.DateOfBirth = this.emp.DateOfBirth.slice(0,10);
-        if(!format.checkEmptyData(this.emp.identityDate)){
-            this.emp.identityDate = this.emp.identityDate.slice(0,10);
-        }
-        //xử lý dữ liệu radio
-        if(!format.checkEmptyData(this.emp.Gender))
-            this.picked = this.emp.Gender;
-        //xử lý dữ liệu combobox
-        if(!format.checkEmptyData(this.emp.DepartmentName)){
-            this.dataCombobox = this.emp.DepartmentName;
-            this.emptyDepartment = false;
-        }
-           
-
-        
+        try {
+            this.enumeration = Enumeration;
+            this.emp = this.employee;
+            //lấy mã nhân viên lớn nhất
+            // if(this.mode == Enumeration.Mode.ADD)
+            //     this.getMaxCode();
+            
+            //xử lý dữ liệu date
+            if(!format.checkEmptyData(this.emp.DateOfBirth))
+                this.emp.DateOfBirth = this.emp.DateOfBirth.slice(0,10);
+            if(!format.checkEmptyData(this.emp.identityDate)){
+                this.emp.identityDate = this.emp.identityDate.slice(0,10);
+            }
+            //xử lý dữ liệu radio
+            if(!format.checkEmptyData(this.emp.Gender))
+                this.picked = this.emp.Gender;
+            //xử lý dữ liệu combobox
+            if(!format.checkEmptyData(this.emp.DepartmentName)){
+                this.dataCombobox = this.emp.DepartmentName;
+                this.emptyDepartment = false;
+            }
+        } catch (error) {
+            console.log(error)
+        }    
     },
     mounted(){
             //focus vào mã nhân viên
@@ -216,17 +226,21 @@ import Resource from '../../../common/Resource';
        
     },
     updated(){
+        try {
+            this.emp.Gender = this.picked;
+            if(this.picked == Enumeration.gender.Female){
+                this.emp.GenderName = 'Nữ';
+            }
+            if(this.picked == Enumeration.gender.Male){
+                this.emp.GenderName = 'Name';
+            }
+            if(this.picked == Enumeration.gender.Other){
+                this.emp.GenderName = 'Khác';
+            }
+        } catch (error) {
+            console.log(error)
+        }
 
-        this.emp.Gender = this.picked;
-        if(this.picked == Enumeration.gender.Female){
-            this.emp.GenderName = 'Nữ';
-        }
-        if(this.picked == Enumeration.gender.Male){
-            this.emp.GenderName = 'Name';
-        }
-        if(this.picked == Enumeration.gender.Other){
-            this.emp.GenderName = 'Khác';
-        }
     },
     methods: {
         /**
@@ -242,72 +256,73 @@ import Resource from '../../../common/Resource';
          * @param {int} mode: cất/ cất và thêm
          */
         async save(mode){ 
-            //validate
-            let me = this;
-            let objectEmpty = {
-                EmptyCode : this.emptyCode, EmptyName : this.emptyName, EmptyDepartment : this.emptyDepartment
-            }
-            let valid = validate(me, objectEmpty);
-            if(valid){
-                if(this.mode == Enumeration.Mode.ADD){ //nếu là thêm
-                    await fetch("https://cukcuk.manhnv.net/api/v1/Employees",{
-                    headers: {'Accept': 'application/json','Content-Type': 'application/json'},
-                    method: "POST",
-                    body: JSON.stringify(this.emp)
-                    }).then(res => res.json())
-                        .then(res => {
+            try {
+                 //validate
+                let me = this;
+                let response = {};
+                let objectEmpty = {
+                    'EmptyCode' : this.emptyCode, 'EmptyName' : this.emptyName, 'EmptyDepartment' : this.emptyDepartment
+                }
+                let valid = validate(me, objectEmpty);
+                if(valid){
+                    if(this.mode == Enumeration.Mode.ADD){ //nếu là thêm
+                        response = await fetch(`${this.Url}Employees`,{
+                        headers: {'Accept': 'application/json','Content-Type': 'application/json'},
+                        method: "POST",
+                        body: JSON.stringify(this.emp)
+                        })
+                    }
+                    if(this.mode == Enumeration.Mode.EDIT){ //nếu là sửa
+                        let url= `${this.Url}Employees/` + this.emp.EmployeeId;
+                        response = await fetch(url, {
+                        method: 'PUT',
+                        headers: {'Accept': 'application/json','Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(this.emp),
+                        })                 
+                    }
+
+                    if(response.ok){
                         this.$emit('openToast', Resource.ToastMessage.success);
                         this.$emit('reload');
-                        console.log(res);
-                    }).catch(error => {
+                    }else{ //lỗi khác: >=400 && <600
                         this.$emit('openToast', Resource.ToastMessage.error);
-                        console.log(error);
-                    })
+                    }
+                    if(mode == Enumeration.SaveForm.SaveAndAdd){ //nếu là cất
+                        this.emp = {};
+                        this.dataCombobox = '';
+                        this.keyCombobox =  Math.floor(Math.random()*100000);
+                    }
+                    if(mode == Enumeration.SaveForm.Save){ //nếu là cất và thêm
+                        this.$emit('closeForm');
+                    }
+                    
                 }
-                if(this.mode == Enumeration.Mode.EDIT){ //nếu là sửa
-                    let url= "https://cukcuk.manhnv.net/api/v1/Employees/" + this.emp.EmployeeId;
-                    await fetch(url, {
-                    method: 'PUT',
-                    headers: {'Accept': 'application/json','Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(this.emp),
-                    }).then(res => res.json())
-                        .then(res => {
-                        this.$emit('openToast', Resource.ToastMessage.success);
-                        this.$emit('reload');
-                        console.log(res);
-                    }).catch(error => {
-                        this.$emit('openToast', Resource.ToastMessage.error);
-                        console.log(error);
-                    })
-                }
-                if(mode == Enumeration.SaveForm.SaveAndAdd){ //nếu là cất
-                    this.emp = {};
-                    this.dataCombobox = '';
-                    this.keyCombobox =  Math.floor(Math.random()*100000);
-                }
-                if(mode == Enumeration.SaveForm.Save){ //nếu là cất và thêm
-                    this.$emit('closeForm');
-                }
-                
+            } catch (error) {
+                console.log(error)
             }
            
+           
         },
-        /**
-         * Hàm lấy giá trị của combobox
-         * author: LTQN(10/9/2022)
-         *
-         */
+
+         /**Hàm lấy giá trị của combobox
+          * author: LTQN(10/9/2022)
+          * @param {*} e : giá trị selected trong combobox
+          */
         objectItemCombobox(e){
-            this.emp.DepartmentId = e.DepartmentId;
-            this.emp.DepartmentName = e.DepartmentName;
-            this.emp.DepartmentCode = e.DepartmentCode;
-            this.empDepartmentName = this.emp.DepartmentName;
-               
-            // kiểm tra rỗng
-            if(format.checkEmptyData(this.emp.DepartmentName)){
-                this.emptyDepartment = true;
-            }else  this.emptyDepartment = false;
+            try {
+                this.emp.DepartmentId = e.DepartmentId;
+                this.emp.DepartmentName = e.DepartmentName;
+                this.emp.DepartmentCode = e.DepartmentCode;
+                this.empDepartmentName = this.emp.DepartmentName;
+                
+                // kiểm tra rỗng
+                if(format.checkEmptyData(this.emp.DepartmentName)){
+                    this.emptyDepartment = true;
+                }else  this.emptyDepartment = false;
+            } catch (error) {
+                console.log(error)
+            }
  
         },
         /**
@@ -316,10 +331,14 @@ import Resource from '../../../common/Resource';
          *
          */
         validateFocusCode(){
-            if(format.checkEmptyData(this.emp.EmployeeCode)){
-            this.emptyCode = true;
-            }else  this.emptyCode = false;
-          
+            try {       
+                if(format.checkEmptyData(this.emp.EmployeeCode)){
+                this.emptyCode = true;
+                }else  this.emptyCode = false;
+            } catch (error) {
+                console.log(error)
+            }
+
         },
         /**
          * Hàm kiểm tra rỗng khi focus vào input fullname
@@ -327,10 +346,37 @@ import Resource from '../../../common/Resource';
          *
          */
         validateFocusName(){
-            if(format.checkEmptyData(this.emp.FullName)){
+            try {        
+                if(format.checkEmptyData(this.emp.FullName)){
                 this.emptyName = true;
-            }else this.emptyName = false;
+                }else this.emptyName = false;
+            } catch (error) {
+                console.log(error)
+            }
         },
+
+        /**
+         * Hàm lấy mã nhân viên mới nhất
+         */
+        // getMaxCode(){
+        //     try {
+
+        //         fetch('')
+        //         .then(res => res.text())
+        //         .then(data => {
+        //             this.emp.EmployeeCode = data;
+        //             this.emptyCode = false;
+        //             console.log(data)
+        //         })
+        //         .catch(error => {
+        //             console.log(error);
+        //             return null;
+        //         });
+               
+        //     } catch (error) {
+        //         console.log(error)
+        //     }
+        // }
 
     },
     data(){
@@ -343,7 +389,10 @@ import Resource from '../../../common/Resource';
             dataCombobox: '',
             keyCombobox: null,
             format: {},
-            enumeration: {}
+            enumeration: {},
+            Url: Resource.Url,
+            checkedEmployee: [] //check box
+            
         }
     },
     
