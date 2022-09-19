@@ -9,7 +9,7 @@
                 <div class="notify"></div>
                 <div class="avatar"></div>
                 <div class="name">Nguyễn Văn Mạnh</div>
-                <div class="arrow-down-icon--emp"></div>
+                <div class="arrow-down-icon-emp"></div>
             </div>
 
         </div>

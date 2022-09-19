@@ -29,14 +29,14 @@
                         @keyup = 'validateFocusCode'
                         @focus = 'validateFocusCode'
                         :ref="'Code'" v-model='emp.EmployeeCode' :class="{'border-red': emptyCode}">
-                        <div class="not-empty" v-show="emptyCode">Không được để trống.</div>
+                        <div class="not-empty emptyCode" v-show="emptyCode">Không được để trống.</div>
                     </div>
                     <div class="name">
                         <label for="">Tên <span> *</span></label>
                         <input type="text" class="input" placeholder="Tên nhân viên"
                         @focus = 'validateFocusName' 
                         @keyup="validateFocusName"  v-model='emp.FullName' :class="{'border-red': emptyName}">
-                        <div class="not-empty" v-show="emptyName">Không được để trống.</div>
+                        <div class="not-empty emptyName" v-show="emptyName">Không được để trống.</div>
                     </div>
                 </div>
                 <div class="col-right">
@@ -174,19 +174,6 @@ import Resource from '../../../common/Resource';
             }
         }
         return true;
-
-        /**
-         * Kiểm tra định dạng email
-         */
-        // if(email != '' || email != undefined){
-        //     //eslint-disable-next-line
-        //     let regexEmail= /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        //     if(!regexEmail.test(email)){
-        //         return false;
-        //     }
-        // }
-        
-        // return true;
    }
   export default {
     components: { MButton, MCombobox},
@@ -198,9 +185,10 @@ import Resource from '../../../common/Resource';
         try {
             this.enumeration = Enumeration;
             this.emp = this.employee;
+            console.log(this.employee);
             //lấy mã nhân viên lớn nhất
-            // if(this.mode == Enumeration.Mode.ADD)
-            //     this.getMaxCode();
+            if(this.mode == Enumeration.Mode.ADD)
+                this.getMaxCode();
             
             //xử lý dữ liệu date
             if(!format.checkEmptyData(this.emp.DateOfBirth))
@@ -211,6 +199,7 @@ import Resource from '../../../common/Resource';
             //xử lý dữ liệu radio
             if(!format.checkEmptyData(this.emp.Gender))
                 this.picked = this.emp.Gender;
+
             //xử lý dữ liệu combobox
             if(!format.checkEmptyData(this.emp.DepartmentName)){
                 this.dataCombobox = this.emp.DepartmentName;
@@ -288,12 +277,10 @@ import Resource from '../../../common/Resource';
                     }else{ //lỗi khác: >=400 && <600
                         this.$emit('openToast', Resource.ToastMessage.error);
                     }
-                    if(mode == Enumeration.SaveForm.SaveAndAdd){ //nếu là cất
-                        this.emp = {};
-                        this.dataCombobox = '';
-                        this.keyCombobox =  Math.floor(Math.random()*100000);
+                    if(mode == Enumeration.SaveForm.SaveAndAdd){ //nếu là cất và thêm
+                        this.$emit('reLoadForm');
                     }
-                    if(mode == Enumeration.SaveForm.Save){ //nếu là cất và thêm
+                    if(mode == Enumeration.SaveForm.Save){ //nếu là cất
                         this.$emit('closeForm');
                     }
                     
@@ -357,26 +344,27 @@ import Resource from '../../../common/Resource';
 
         /**
          * Hàm lấy mã nhân viên mới nhất
+         * author: LTQN(19/9/2022)
          */
-        // getMaxCode(){
-        //     try {
+        getMaxCode(){
+            try {
 
-        //         fetch('')
-        //         .then(res => res.text())
-        //         .then(data => {
-        //             this.emp.EmployeeCode = data;
-        //             this.emptyCode = false;
-        //             console.log(data)
-        //         })
-        //         .catch(error => {
-        //             console.log(error);
-        //             return null;
-        //         });
+                fetch( this.Url + 'Employees/NewEmployeeCode')
+                .then(res => res.text())
+                .then(data => {
+                    this.emp.EmployeeCode = data;
+                    this.emptyCode = false;
+                    console.log(data)
+                })
+                .catch(error => {
+                    console.log(error);
+                    return null;
+                });
                
-        //     } catch (error) {
-        //         console.log(error)
-        //     }
-        // }
+            } catch (error) {
+                console.log(error)
+            }
+        }
 
     },
     data(){

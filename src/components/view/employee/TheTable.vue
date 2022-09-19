@@ -13,13 +13,13 @@
                     <td>TÊN ĐƠN VỊ</td>
                     <td>SỐ TÀI KHOẢN</td>
                     <td>TÊN NGÂN HÀNG</td>
-                    <td>CHI NHÁNH TÀI KHOẢN NGÂN HÀNG</td>
+                    <td  style="border-right: none;">CHI NHÁNH TÀI KHOẢN NGÂN HÀNG</td>
                     <td style="border-right: none;" class="sticky-col header-sticky-col">CHỨC NĂNG</td>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(employee, index) in employees" :key="index" 
-                @dblclick="editEmployee(employee)" 
+                @dblclick="editEmployee(employee)"
                 @mouseover="colorHover[index] = true" @mouseleave="colorHover[index] = false">
                     <td style="border-left: none;" :class="{'text-center': style.center}"><input type="checkbox" name="" id=""></td>
                     <td>{{employee.EmployeeCode}}</td>
@@ -31,8 +31,8 @@
                     <td>{{employee.DepartmentName}}</td>
                     <td>{{employee.PersonalTaxCode}}</td>
                     <td>{{employee.QualificationName}}</td>
-                    <td>{{employee.EducationalBackground}}</td>
-                    <td class="sticky-col" style="border-right: none" :ref="'col_'+index" v-on:dblclick.stop :class="{'color-hover':colorHover[index]}">
+                    <td style="border-right: none">{{employee.EducationalBackground}}</td>
+                    <td class="sticky-col" :ref="'col_'+index" v-on:dblclick.stop :class="{'color-hover':colorHover[index]}">
                         <div class="tool">
                             <div class="textTool">Sửa</div>
                             <div class="icon-drop" 
@@ -60,27 +60,49 @@ import MDropList from '../../base/MDropList.vue';
 import format from '@/common/formatData';
 import Resource from '../../../common/Resource';
 
-    async function getUserAsync() {
-        let response = await fetch('https://cukcuk.manhnv.net/api/v1/Employees');
-        let data = await response.json()
-        return data;
+    async function getUserAsync(url) {
+        try {
+            let response = await fetch(url);
+            let data = await response.json();
+            return data;
+        } catch (error) {   
+            console.log(error);
+            return [];
+        }
+        
     }
 
   export default {
-
+    props: {
+        searchEmployee : String
+    },
     created() {
-        this.$emit('loading', true);
-        getUserAsync().then(data =>{
-            this.$emit('loading', false)
-            Object.assign(this.employees, data);
-        });
+        try {
+            let url = '';
+            this.$emit('loading', true);
+            if(this.searchEmployee != ''){ // thực hiện tìm kiếm
+                url = Resource.Url+'Employees/filter?employeeFilter=' + this.searchEmployee;
+                getUserAsync(url).then(data =>{
+                    this.$emit('loading', false)
+                    Object.assign(this.employees, data.Data);
+                })
+            }else{ //Hiển thị tất cả nhân viên
+                url = Resource.Url+'Employees';
+                getUserAsync(url).then(data =>{
+                    this.$emit('loading', false)
+                    Object.assign(this.employees, data);
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        
+       
     },
     updated() {
-        this.$emit("getEmployees", this.employees);
+        this.$emit("getEmployees", this.employees); //tahy đổi dữ liệu -> cập nhật lại số bản ghi
     },
-    beforeUnmount(){
-        
-    },
+
     methods: {
 
         /**
@@ -111,7 +133,8 @@ import Resource from '../../../common/Resource';
         tool(e){
             try {
                 if(e.tool == Resource.toolDropList.Delete){ //nếu là xóa
-                this.$emit('showPopUp', e.emp.EmployeeId);
+                this.$emit('showPopUp', e.emp);
+                this.isShowDataDropList = [];
             } 
             } catch (error) {
                 console.log(error);
@@ -127,8 +150,10 @@ import Resource from '../../../common/Resource';
         getPositionTop(index){
             try {
                 this.isShowDataDropList[index] = !this.isShowDataDropList[index];
-                let [td] = this.$refs['col_'+index];
-                this.topDropList = td.getBoundingClientRect().top + 35;
+                let td = this.$refs['col_'+index];
+                this.topDropList = td[0].getBoundingClientRect().top + 35;
+                // console.log(td);
+                // console.log([td]);
             } catch (error) {
                 console.log(error);
             }

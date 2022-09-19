@@ -9,15 +9,15 @@ Enumeration.gender = {
 
 
 Enumeration.SaveForm = {
-    Save: 1,
-    SaveAndAdd: 2
+    Save: 1, //lưu
+    SaveAndAdd: 2 //lưu và thêm
 }
 
-Enumeration. Mode = {
-    ADD: 1,
-    EDIT: 2
+Enumeration.Mode = {
+    ADD: 1, //thêm
+    EDIT: 2 //sửa
 }
-Enumeration.keyCode = {
+Enumeration.keyCode = { //sk bàn phím
     LEFT: 37,
     UP: 38,
     RIGHT: 39,

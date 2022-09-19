@@ -9,14 +9,15 @@
         <div class="container-grid">
             <div class="filter">
                 <div class="search input-icon">
-                    <input type="text" class="input" placeholder="Tìm theo mã, tên nhân viên">
+                    <input type="text" class="input" placeholder="Tìm theo mã, tên nhân viên" v-model="search" @keyup="searchEmployee">
                     <div class="icon-search"></div>
                 </div>
                 <div class="refresh" @click="reload"></div>
             </div>
-            <TheTable @editEmployee='editEmployee' 
-            @getEmployees='getEmployees' @showPopUp='showPopUp' 
-            :key='keyReloadTable' @loading='loading'/>
+            <TheTable @editEmployee ='editEmployee' 
+            @getEmployees ='getEmployees' @showPopUp ='showPopUp' 
+            :key ='keyReloadTable' @loading ='loading'
+            :searchEmployee = 'search'/>
 
             <ThePagination :TotalEmployee="employees.length" :key='keyReloadPagination' :pagination='pagination'/>
         </div>
@@ -25,10 +26,11 @@
     <TheForm  v-if="showForm" 
     @closeForm='closeForm' :employee="emp" :mode='formMode' 
     @reload='reload'
+    @reLoadForm = 'reLoadForm'
     @warningEmpty = 'warningEmpty'
-    @openToast = 'openToast'/>
-    <MPopup v-if="isShowFopup" :id='deleteEmployeeID' 
-    @closePopup='closePopup' @deleteEmp='deleteEmp' :content= "'Bạn có thực sự muốn xóa nhân viên không?'"/>
+    @openToast = 'openToast'
+    :key = 'keyForm'/>
+    <MPopup v-if="isShowFopup" :deleteEmployee='deleteEmployee' @closePopup='closePopup' @deleteEmp='deleteEmp'/>
     <MPopupWarning v-show='isShowWarning' @closeWarning='closeWarning' :text='textWarning'/>
     <!-- <MToastMessage v-show="isShowToast" @closeToast='closeToast'/> -->
     <transition name="toast-message">
@@ -51,7 +53,7 @@ import TheTable from '../view/employee/TheTable.vue';
 import MPopupWarning from '../base/MPopupWarning.vue';
 import MToastMessage from '../base/MToastMessage.vue';
 import Resource from '../../common/Resource';
-// import Enumeration from '../../common/Enumeration';
+import Enumeration from '../../common/Enumeration';
 // import MToastMessage from '../base/MToastMessage.vue';
 
 
@@ -77,7 +79,7 @@ export default {
          * author: LTQN(10/9/2022)
          */
         showPopUp(e){
-            this.deleteEmployeeID=e;
+            this.deleteEmployee=e;
             this.isShowFopup = true;
         },
         /**
@@ -87,7 +89,7 @@ export default {
         editEmployee(e){
             try {
                 this.emp = e;
-                this.formMode = this.modeOfForm.EDIT;
+                this.formMode = Enumeration.Mode.EDIT;
                 this.showForm = true;
             } catch (error) {
                 console.log(error)
@@ -102,7 +104,7 @@ export default {
             try {
                 this.emp = {};
                 this.showForm = true;
-                this.formMode = this.modeOfForm.ADD;
+                this.formMode = Enumeration.Mode.ADD;
             } catch (error) {
                 console.log(error)
             }
@@ -133,6 +135,7 @@ export default {
                console.error('Error:', error);
                this.openToast(Resource.ToastMessage.error);
             })
+            
             this.isShowFopup = false;
         },
         /**
@@ -221,19 +224,40 @@ export default {
             this.isLoading = msg;
         },
 
+        /**
+         * Hàm tìm kiếm theo họ tên
+         * author: LTQN(19/9/2022)
+         * @param {*} event sk bàn phím
+         */
+        searchEmployee(event){
+            if(event.keyCode == Enumeration.keyCode.ENTER){
+                this.reload();
+            }
+        },
+
+        /**
+         * Hàm reload lại form khi ấn cất và thêm
+         * author: LTQN(19/9/2022)
+         */
+        reLoadForm(){
+            try {
+                this.formMode = Enumeration.Mode.ADD;
+                this.emp = {};
+                this.keyForm = Math.floor(Math.random()*90000);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
     },
     data() {
         return{
             employees: [],
             empLength: null,
             showForm: false,
-            emp: {},
+            emp: {}, //khi sửa
             isShowFopup: false,
-            deleteEmployeeID: '',
-            modeOfForm : {
-                ADD: 1,
-                EDIT: 2
-            },
+            deleteEmployee: '',
             formMode: null,
             style: {
                 center: true,
@@ -241,6 +265,7 @@ export default {
             },
             keyReloadTable: null,
             keyReloadPagination: null,
+            keyForm: null,
             isShowWarning: false, //hiện/ẩn pop up
             textWarning: '', //nội dung hiện pop up cảnh báo
             isShowToast: false, //hiện ẩn toast message
@@ -252,7 +277,8 @@ export default {
                 third: '3',
                 last: null,
             },
-            isLoading: false
+            isLoading: false,
+            search: '', //nội dung tìm kiếm
         }
     },
     watch: {

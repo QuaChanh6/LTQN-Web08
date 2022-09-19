@@ -58,10 +58,16 @@ import Enumeration from '@/common/Enumeration';
        * Hàm chọn dữ liệu
        * author: LTQN(10/9/2022)
        */
+
+      /**
+       * 
+       * @param {*} item : data trong combobox
+       * @param {*} index : vị trí data
+       */
       selectedDataCombobox(item, index){
         try {
           this.selected = index;
-          this.dataSelected = item[this.text];
+          this.dataSelected = item[this.text]; //text: Department
           this.showDataList = false;
           //gửi đối tượng được chọn
           this.$emit('objectItemCombobox', item);
@@ -158,7 +164,7 @@ import Enumeration from '@/common/Enumeration';
     },
     props: {
       url: String,
-      text: String,
+      text: String, //DepartmentID
       valueRender: String//ID render lên combobox
     },
     data(){

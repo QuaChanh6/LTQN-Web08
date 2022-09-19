@@ -230,7 +230,7 @@
 
 
 /* radio */
-.input-radio{
+/* .input-radio{
     -webkit-appearance: none;
     border-radius: 50%;
     outline: none;
@@ -248,7 +248,7 @@
 
 .input-radio:checked:before {
     background: #409330;
-}
+} */
 
 .not-empty{
     position: absolute;
@@ -256,10 +256,17 @@
     background-color: #000;
     color: #f7eeee;
     width: 155px;
-    bottom: -10px;
-    left: 10px;
+    bottom: -12px;
     padding-left: 4px;
     border-radius: 2px;
     border: 1px solid #a7a2a2;
+}
+
+.emptyCode{
+   left: 7px;
+}
+
+.emptyName{
+    left: 45px;
 }
 

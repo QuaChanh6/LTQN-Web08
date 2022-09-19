@@ -6,7 +6,8 @@
                 <div class="icon">
                     <div class="icon-popUp"></div>
                 </div>
-                <div class="pop-up-text">{{content}}</div>
+                
+                <div class="pop-up-text">{{text}}</div>
             </div>
             <div class="pop-up-action">
                 <MButton class="button-pop-up-no" :text= 'button.No' @click="sendMessageClose()"/>
@@ -21,7 +22,7 @@
 import MButton from './MButton.vue';
   export default {
     props: {
-      id:String,
+      deleteEmployee: Object,
       content: String
     },
     data() {
@@ -30,7 +31,8 @@ import MButton from './MButton.vue';
                 No: "Không",
                 Yes: "Có"
             },
-            text:'',
+            text:`Bạn có thực sự muốn xóa nhân viên <${this.deleteEmployee.EmployeeCode}> không?`,
+
         };
     },
     methods: {
@@ -46,7 +48,7 @@ import MButton from './MButton.vue';
        * author: LTQN(10/9/2022)
        */
       sendMessageDelete(){
-        this.$emit('deleteEmp', this.id);
+        this.$emit('deleteEmp', this.deleteEmployee.EmployeeId);
       }
     },
     components: { MButton }
