@@ -3,10 +3,10 @@
     <div class="combobox-container">
           <div class="input-container">
               <input type="text" class="combobox input" placeholder="Đơn vị" 
-              @keyup="searchDataCombobox" 
+              @keyup="searchDataCombobox"
               v-model="dataSelected" 
               :ref="'input'">
-              <div id ="icon-combobox" class="icon-combobox"  @click="showDataList=!showDataList" >
+              <div id ="icon-combobox" class="icon-combobox"  @click="showDataList =! showDataList" >
                   <div class="icon-drop-combobox"></div>
               </div>
           </div>
@@ -25,23 +25,40 @@
   </template>
   
 <script>
-
 import format from '@/common/formatData';
 import Enumeration from '@/common/Enumeration';
+
+
   export default {
     created(){
-      fetch(this.url)
-        .then(res => res.json())
-        .then(res => {
-            this.items=res;
-        })
+      try {
+        //nếu đã có dữ liệu trong localstorage
+        if(!format.checkEmptyData(localStorage.getItem('departments'))){
+          this.items=JSON.parse(localStorage.getItem('departments'));
+        }
+        else{//chưa có dữ liệu trong localstorage
+            fetch(this.url)
+            .then(res => res.json())
+            .then(res => {
+                this.items = res;              
+                localStorage.setItem('departments', JSON.stringify(this.items));
+            })  
 
+        }
         //render data khi ấn nút sửa
         this.dataSelected = this.valueRender;
 
+      } catch (error) {
+        console.log(error)
+      }
+ 
     },
     beforeUpdate(){
-      
+      // if(this.showDataList){
+      //   console.log('hey');
+        
+
+      // }
     },
     watch: {
         //ban đầu dataList bị ẩn nên data chưa được render ra
@@ -51,16 +68,12 @@ import Enumeration from '@/common/Enumeration';
             this.isSearch[index] = true;
           })
         }
-
     },
     methods: {
+
       /**
        * Hàm chọn dữ liệu
        * author: LTQN(10/9/2022)
-       */
-
-      /**
-       * 
        * @param {*} item : data trong combobox
        * @param {*} index : vị trí data
        */
@@ -83,7 +96,7 @@ import Enumeration from '@/common/Enumeration';
        */
       directItemDownUp(event){
         try {
-          if(this.selected == null) this.selected = -1;
+          if(this.selected === null) this.selected = -1;
           let key = event.keyCode;
           let selectedCurrent = this.selected;
           switch(key){
@@ -93,7 +106,7 @@ import Enumeration from '@/common/Enumeration';
                 selectedCurrent++;
                 while(!this.isSearch[selectedCurrent]){ //nếu bị ẩn
                   selectedCurrent++;
-                  if(selectedCurrent == this.items.length){
+                  if(selectedCurrent === this.items.length){
                     selectedCurrent = this.selected;
                     break;
                   }
@@ -106,7 +119,7 @@ import Enumeration from '@/common/Enumeration';
                 selectedCurrent--;
                 while(!this.isSearch[selectedCurrent]){ //nếu bị ẩn
                   selectedCurrent--;
-                  if(selectedCurrent == -1){
+                  if(selectedCurrent === -1){
                     selectedCurrent = this.selected;
                     break;
                   }
@@ -136,7 +149,7 @@ import Enumeration from '@/common/Enumeration';
       searchDataCombobox(){
         try {
           this.showDataList = true;
-          if(this.dataSelected != '' || this.dataSelected == undefined){
+          if(this.dataSelected != '' || this.dataSelected === undefined){
             let textInput = format.processData(this.dataSelected);
             this.items.forEach((item, index) => {
                 this.isSearch[index] = false;
@@ -159,7 +172,7 @@ import Enumeration from '@/common/Enumeration';
         } catch (error) {
           console.log(error)
         } 
-      }
+      },
        
     },
     props: {
@@ -177,6 +190,7 @@ import Enumeration from '@/common/Enumeration';
           isSearch: [],
         }
     },
+
   }
 </script>
   

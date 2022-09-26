@@ -45,8 +45,13 @@
 .icon{
     margin-right: 24px;
 }
-.icon-validate .icon-popUp{
+.warning .icon-popUp-info{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -752px -462px;
+	width: 36px;
+	height: 36px;
+}
+.warning .icon-popUp-waring{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -598px -463px;
 	width: 36px;
 	height: 36px;
 }

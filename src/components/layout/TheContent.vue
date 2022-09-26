@@ -15,23 +15,25 @@
                 <div class="refresh" @click="reload"></div>
             </div>
             <TheTable @editEmployee ='editEmployee' 
-            @getEmployees ='getEmployees' @showPopUp ='showPopUp' 
+             @showPopUp ='showPopUp' 
             :key ='keyReloadTable' @loading ='loading'
-            :searchEmployee = 'search'/>
+            :searchEmployee = 'search'
+            :pageSize = 'pageSize' :pageNumber='pageNumber'
+            @dataFromTable = 'dataFromTable'/>
 
-            <ThePagination :TotalEmployee="employees.length" :key='keyReloadPagination' :pagination='pagination'/>
+            <ThePagination :totalRecord="totalRecord" :key='keyReloadPagination' :totalPage='totalPage'
+            @changePage='changePage' @recordOfPage='recordOfPage'/>
         </div>
         
     </div>
     <TheForm  v-if="showForm" 
     @closeForm='closeForm' :employee="emp" :mode='formMode' 
-    @reload='reload'
-    @reLoadForm = 'reLoadForm'
-    @warningEmpty = 'warningEmpty'
+    @reload='reload' @reLoadForm = 'reLoadForm'
+    @warningEmpty = 'warningEmpty' @warningEmail = 'warningEmail' @warningErrorSql = "warningErrorSql"
     @openToast = 'openToast'
     :key = 'keyForm'/>
     <MPopup v-if="isShowFopup" :deleteEmployee='deleteEmployee' @closePopup='closePopup' @deleteEmp='deleteEmp'/>
-    <MPopupWarning v-show='isShowWarning' @closeWarning='closeWarning' :text='textWarning'/>
+    <MPopupWarning v-show='isShowWarning' @closeWarning='closeWarning' :text='textWarning' :icon='iconPopup'/>
     <!-- <MToastMessage v-show="isShowToast" @closeToast='closeToast'/> -->
     <transition name="toast-message">
         <MToastMessage v-show='isShowToast' :content = 'contentOfToastMessage' 
@@ -59,13 +61,7 @@ import Enumeration from '../../common/Enumeration';
 
 export default {
     components: { ThePagination, MButton, TheForm, MPopup, TheTable, MPopupWarning, MToastMessage },
-    created(){
-        fetch(`${Resource.Url}Employees`)
-        .then(res => res.json())
-        .then(res => {
-            this.employees=res;
-        })
-    },
+
     methods: {
         /**
          * Ham đóng form
@@ -122,7 +118,7 @@ export default {
          * author: LTQN(10/9/2022)
          */
         deleteEmp(e){
-            let url = `${Resource.Url}Employees/` + e;
+            let url = `${process.env.VUE_APP_URL}Employees/` + e;
             fetch(url, {method: 'DELETE'})
             .then(res => res.json())
             .then(res => {
@@ -145,14 +141,7 @@ export default {
         reload(){
             this.keyReloadTable = Math.floor(Math.random()*90000);
         },
-        /**
-         * Hàm lấy thông tin tất cả employee từ table
-         * author: LTQN(10/9/2022)
-         */
-        getEmployees(e){
-            this.employees = e;
-            this.empLength = e.length;
-        },
+
         /**
          * Hàm đóng cảnh báo
          * author: LTQN(10/9/2022)
@@ -168,6 +157,7 @@ export default {
          warningEmpty(msg){
             try {
                 this.isShowWarning = true;
+                this.iconPopup = 'icon-popUp-info';
                 switch(msg){
                     case Resource.popupWarning.EmptyCode.name:
                         this.textWarning = Resource.popupWarning.EmptyCode.content;
@@ -186,7 +176,26 @@ export default {
             }
            
         },
+        /**
+         * Validate email
+         * author: LTQN(23/9/2022)
+         */
+        warningEmail(){
+            this.textWarning = 'Email không đúng định dạng';
+            this.iconPopup = 'icon-popUp-info';
+            this.isShowWarning = true;
+        },
 
+        /**
+         * thông báo bị trùng mã nhân viên
+         * author: LTQN(25/9/2022)
+         * @param {string} text : nội dung cảnh báo
+         */
+         warningErrorSql(text){
+            this.textWarning = text;
+            this.iconPopup = 'icon-popUp-waring';
+            this.isShowWarning = true;
+        },
         /**
          * Hàm đóng toastmessage
          * author: LTQN(15/9/2022)
@@ -230,7 +239,7 @@ export default {
          * @param {*} event sk bàn phím
          */
         searchEmployee(event){
-            if(event.keyCode == Enumeration.keyCode.ENTER){
+            if(event.keyCode === Enumeration.keyCode.ENTER){
                 this.reload();
             }
         },
@@ -247,6 +256,36 @@ export default {
             } catch (error) {
                 console.log(error)
             }
+        },
+
+        /**
+         * Hàm load lại table khi chọn trnag mới
+         * author: LTQN(20/9/2022)
+         * @param {int} page : Trang được chọn
+         */
+        changePage(page){
+            this.pageNumber = page;
+            this.reload();
+        },
+        
+        /**
+         * Hàm lấy thông tin từ API truyền vào pagination
+         * author: LTQN(20/9/2022)
+         * @param {Object} data {totalRecord: Tổng số bản ghi, ttalPage: Tổng trang}
+         */
+        dataFromTable(data){
+            this.totalRecord = data.TotalRecord;
+            this.totalPage = data.TotalPage;
+        },
+
+        /**
+         * Hàm chọn số bản ghi trong 1 trang
+         * author: LTQN(20/9/2022)
+         * @param {int} numRecord : Sô bản ghi trong 1 trang
+         */
+        recordOfPage(numRecord){
+            this.pageSize = numRecord;
+            this.reload();
         }
 
     },
@@ -268,24 +307,18 @@ export default {
             keyForm: null,
             isShowWarning: false, //hiện/ẩn pop up
             textWarning: '', //nội dung hiện pop up cảnh báo
+            iconPopup: '', //icon tương ứng với các pop up
             isShowToast: false, //hiện ẩn toast message
             contentOfToastMessage: '', //nội dung toast message
             isError: '', //Lỗi hay không để hiển thị toast
-            pagination: {
-                first: '1',
-                second: '2',
-                third: '3',
-                last: null,
-            },
+            totalPage: null, // tổng số trang
+            totalRecord: null, //tổng số bản ghi
             isLoading: false,
             search: '', //nội dung tìm kiếm
+            pageSize: 20,
+            pageNumber: 1,
         }
     },
-    watch: {
-        empLength(){
-            this.keyReloadPagination = Math.floor(Math.random()*100000);
-        }
-    }
 }
 </script>
 

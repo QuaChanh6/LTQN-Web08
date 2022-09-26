@@ -2,7 +2,7 @@
     <div class="dropList-page">
         <div class="dropList-text">{{text}}</div>
         <div class="dropList-data" v-show="isShow">
-            <div class="data-item" v-for="(textNumPage, index) in textNumPages" :key="index" 
+            <div class="data-item" v-for="(textNumPage, index) in contentPage" :key="index" 
             @click="selectNumOfPage(textNumPage, index)"
             :class="{'dropList-choose': choose==index}">{{textNumPage.textData}}</div>
         </div>
@@ -13,19 +13,23 @@
 </template>
   
 <script>
-import Resource from '@/common/Resource';
+
   export default {
+    props: {
+      contentPage: Array // Mảng chứa lựa chọn số lượng bản ghi
+    },
     methods: {
       selectNumOfPage(textNumPage, index){
         this.choose = index;
         this.text = textNumPage.textData;
+        this.$emit("numberRecordOfPage", textNumPage.num);
         this.isShow = false;
       }
     },
     data(){
       return{
         isShow: false,
-        textNumPages: Resource.textNumPages,
+        textNumPages: null,
 
         choose: null,
         text: '-- Tùy chọn --'

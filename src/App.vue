@@ -1,5 +1,4 @@
 <template>
-  
   <TheSidebar/>
   <TheContentWrapper/>
   <TheContainer/>
@@ -10,12 +9,8 @@ import TheSidebar from './components/layout/TheSidebar.vue';
 import TheContentWrapper from './components/view/employee/TheContentWrapper.vue';
 import TheContainer from './components/view/employee/TheContainer.vue';
 export default {
-  name: 'App',
-  components: {
-    TheSidebar,
-    TheContentWrapper,
-    TheContainer
-}
+    name: "App",
+    components: { TheSidebar,  TheContentWrapper, TheContainer}
 }
 </script>
 

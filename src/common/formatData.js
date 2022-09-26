@@ -1,7 +1,7 @@
 let format = {};
 
 format.checkEmptyData = (data) =>{
-    if(data === '' || data == undefined || data == null){
+    if(data === '' || data === undefined || data === null){
         return true;
     }       
     else{
@@ -64,8 +64,9 @@ format.Email = (email) => {
         if(regexEmail.test(email)){
             return true;
         }
+        return false
       }
-    return false;
+    return true;
 }
 
 

@@ -13,6 +13,11 @@
     border-color: var(--light--green--100);
 }
 
+/* input datepicker */
+.datepicker input:hover{
+    border-color: var(--light--green--100);
+}
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #99A1B2;
@@ -31,10 +36,20 @@
 }
 
 /* tabe */
-tr:hover, .sticky-col:hover{
+
+tbody tr:hover .sticky-col{
+    background-color: var(--light--green--50);
+}
+tbody tr:hover{
     background-color: var(--light--green--50);
 }
 
-.color-hover{
-    background-color: var(--light--green--50);
+
+/* tooltip */
+th:hover .tooltip{
+    visibility: visible;
+}
+
+.info-more:hover .tooltip{
+    visibility: visible;
 }

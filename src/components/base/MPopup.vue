@@ -31,7 +31,7 @@ import MButton from './MButton.vue';
                 No: "Không",
                 Yes: "Có"
             },
-            text:`Bạn có thực sự muốn xóa nhân viên <${this.deleteEmployee.EmployeeCode}> không?`,
+            text:`Bạn có thực sự muốn xóa nhân viên <${this.deleteEmployee.employeeCode}> không?`,
 
         };
     },
@@ -48,7 +48,7 @@ import MButton from './MButton.vue';
        * author: LTQN(10/9/2022)
        */
       sendMessageDelete(){
-        this.$emit('deleteEmp', this.deleteEmployee.EmployeeId);
+        this.$emit('deleteEmp', this.deleteEmployee.employeeID);
       }
     },
     components: { MButton }

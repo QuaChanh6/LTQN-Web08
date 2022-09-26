@@ -16,14 +16,13 @@
     --black: #000;
     --color--placeholder: #99A1B2;
     --color--border--table: #E0E0E0;
-    --color--shadow--border: #F2F0F0;
+    --color--shadow--border: #e7e2e2;
     --color--border: #E6E6E6;
     --red: #ef1717;
     --blue: #044EFF;
     --border--radius: 4px;
 }
 body{
-    font-family: misa;
     font-size: 14px;
     margin: 0;
     display: flex;
@@ -32,6 +31,7 @@ body{
 
 body *{
     box-sizing: border-box;
+    font-family: misa;
 }
 
 @font-face {
@@ -66,6 +66,8 @@ body *{
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
+    position: relative;
+    top: 100px;
 }
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
@@ -80,10 +82,10 @@ body *{
     cursor: pointer;
 }
 
-.scroller {
+/* .scroller {
     overflow-y: scroll;
     scrollbar-color: #0A4C95 #C2D2E4;
-  }
+} */
 
 .border-red{
     border: 1px solid var(--red) !important;

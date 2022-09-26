@@ -3,40 +3,41 @@
         <table>
             <thead>
                 <tr>
-                    <td style="border-left: none;" :class="{'text-center': style.center}"><input type="checkbox" name="" id=""></td>
-                    <td>MÃ NHÂN VIÊN</td>
-                    <td>TÊN NHÂN VIÊN</td>
-                    <td>GIỚI TÍNH</td>
-                    <td :class="{'text-center': style.center}">NGÀY SINH</td>
-                    <td :class="{'text-right': style.right}">SỐ CMND</td>
-                    <td>CHỨC DANH</td>
-                    <td>TÊN ĐƠN VỊ</td>
-                    <td>SỐ TÀI KHOẢN</td>
-                    <td>TÊN NGÂN HÀNG</td>
-                    <td  style="border-right: none;">CHI NHÁNH TÀI KHOẢN NGÂN HÀNG</td>
-                    <td style="border-right: none;" class="sticky-col header-sticky-col">CHỨC NĂNG</td>
+                    <th class="checkbox" :class="{'text-center': style.center}"><input type="checkbox" name="" id=""></th>
+                    <th class="employeeCode">MÃ NHÂN VIÊN</th>
+                    <th class="employeeName">TÊN NHÂN VIÊN</th>
+                    <th class="genderName">GIỚI TÍNH</th>
+                    <th class="dateOfBirth" :class="{'text-center': style.center}">NGÀY SINH</th>
+                    <th class="identityNumber" :class="{'text-right': style.right}"><MTooltip :content="'Chứng minh nhân dân'" :stand="'down'"/>
+                        SỐ CMND
+                    </th>
+                    <th class="position">CHỨC DANH</th>
+                    <th class="departmentName">TÊN ĐƠN VỊ</th>
+                    <th class="accountBank">SỐ TÀI KHOẢN</th>
+                    <th class="nameOfBank">TÊN NGÂN HÀNG</th>
+                    <th class="branchOfBank">CHI NHÁNH TÀI KHOẢN NGÂN HÀNG</th>
+                    <th class="sticky-col header-sticky-col">CHỨC NĂNG</th>
                 </tr>
             </thead>
             <tbody>
+                
                 <tr v-for="(employee, index) in employees" :key="index" 
-                @dblclick="editEmployee(employee)"
-                @mouseover="colorHover[index] = true" @mouseleave="colorHover[index] = false">
-                    <td style="border-left: none;" :class="{'text-center': style.center}"><input type="checkbox" name="" id=""></td>
-                    <td>{{employee.EmployeeCode}}</td>
-                    <td>{{employee.FullName}}</td>
-                    <td>{{employee.GenderName}}</td>
-                    <td :class="{'text-center': style.center}">{{format(employee.DateOfBirth)}}</td>
-                    <td :class="{'text-right': style.right}">{{employee.IdentityNumber}}</td>
-                    <td>{{employee.PositionName}}</td>
-                    <td>{{employee.DepartmentName}}</td>
-                    <td>{{employee.PersonalTaxCode}}</td>
-                    <td>{{employee.QualificationName}}</td>
-                    <td style="border-right: none">{{employee.EducationalBackground}}</td>
-                    <td class="sticky-col" :ref="'col_'+index" v-on:dblclick.stop :class="{'color-hover':colorHover[index]}">
+                @dblclick="editEmployee(employee)">
+                    <td class="checkbox" :class="{'text-center': style.center}"><input type="checkbox" name="" id=""></td>
+                    <td class="employeeCode">{{employee.employeeCode}}</td>
+                    <td class="employeeName">{{employee.employeeName}}</td>
+                    <td class="genderName">{{employee.genderName}}</td>
+                    <td class="dateOfBirth" :class="{'text-center': style.center}">{{format(employee.dateOfBirth)}}</td>
+                    <td class="identityNumber" :class="{'text-right': style.right}">{{employee.identityNumber}}</td>
+                    <td class="position">{{employee.position}}</td>
+                    <td class="departmentName">{{employee.departmentName}}</td>
+                    <td class="accountBank">{{employee.accountBank}}</td>
+                    <td class="nameOfBank">{{employee.nameOfBank}}</td>
+                    <td class="branchOfBank">{{employee.branchOfBank}}</td>
+                    <td class="sticky-col" @click="getPositionTop(index)" :ref="'col_'+index" v-on:dblclick.stop>
                         <div class="tool">
                             <div class="textTool">Sửa</div>
                             <div class="icon-drop" 
-                            @click="getPositionTop(index)"
                             :class="{'icon-drop-click': isShowDataDropList[index]}"></div>
 
                         </div>
@@ -59,6 +60,7 @@
 import MDropList from '../../base/MDropList.vue';
 import format from '@/common/formatData';
 import Resource from '../../../common/Resource';
+import MTooltip from '@/components/base/MTooltip.vue';
 
     async function getUserAsync(url) {
         try {
@@ -74,25 +76,22 @@ import Resource from '../../../common/Resource';
 
   export default {
     props: {
-        searchEmployee : String
+        searchEmployee : String,
+        pageSize: Number,
+        pageNumber: Number
     },
     created() {
         try {
-            let url = '';
+            let url = process.env.VUE_APP_URL+'Employees/filter?limit='+this.pageSize+'&pageNumber='+this.pageNumber;
             this.$emit('loading', true);
-            if(this.searchEmployee != ''){ // thực hiện tìm kiếm
-                url = Resource.Url+'Employees/filter?employeeFilter=' + this.searchEmployee;
-                getUserAsync(url).then(data =>{
-                    this.$emit('loading', false)
-                    Object.assign(this.employees, data.Data);
-                })
-            }else{ //Hiển thị tất cả nhân viên
-                url = Resource.Url+'Employees';
-                getUserAsync(url).then(data =>{
-                    this.$emit('loading', false)
-                    Object.assign(this.employees, data);
-                });
+            if(!format.checkEmptyData(this.searchEmployee)){ // thực hiện tìm kiếm
+                url = url +'&keyword=' + this.searchEmployee;
             }
+            getUserAsync(url).then(data =>{
+                this.$emit('loading', false);
+                this.$emit('dataFromTable', {TotalRecord: data.totalCount, TotalPage: Math.ceil(data.totalCount/this.pageSize)});
+                this.employees = data.data;
+            });
         } catch (error) {
             console.log(error);
         }
@@ -132,7 +131,7 @@ import Resource from '../../../common/Resource';
          */
         tool(e){
             try {
-                if(e.tool == Resource.toolDropList.Delete){ //nếu là xóa
+                if(e.tool === Resource.toolDropList.Delete){ //nếu là xóa
                 this.$emit('showPopUp', e.emp);
                 this.isShowDataDropList = [];
             } 
@@ -179,10 +178,9 @@ import Resource from '../../../common/Resource';
             isShowDataDropList: [],
             dataDropList: Resource.dataDropList,
             topDropList: null,
-            colorHover: [] //set màu sắc hover cho col sticky
         };
     },
-    components: { MDropList}
+    components: { MDropList, MTooltip }
 }
   </script>
   

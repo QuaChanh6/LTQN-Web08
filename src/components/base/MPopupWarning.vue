@@ -3,8 +3,8 @@
             <div class="container"></div>
             <div class="pop-up">
                 <div class="pop-up-content">
-                    <div class="icon icon-validate">
-                        <div class="icon-popUp"></div>
+                    <div class="icon">
+                        <div :class='icon'></div>
                     </div>
                     <div class="pop-up-text">{{text}}</div>
                 </div>
@@ -19,7 +19,8 @@
 <script>
     export default {
         props: {
-            text: String
+            text: String,
+            icon: String
         },
         data(){
             return{

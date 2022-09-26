@@ -2,8 +2,8 @@ var Enumeration = {};
 
 // Giới tính
 Enumeration.gender = {
-    Female: 0, // Nữ
-    Male: 1,   // Nam
+    Male: 0, // Nam
+    Female: 1,   // Nữ
     Other: 2   // Khác
 }
 
@@ -23,6 +23,7 @@ Enumeration.keyCode = { //sk bàn phím
     RIGHT: 39,
     DOWN: 40,
     ENTER: 13
-  }
+}
+
 
 export default Enumeration;

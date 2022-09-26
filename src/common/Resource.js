@@ -23,23 +23,23 @@ Resource.dataDropList = [ //các chức ăng
 
 Resource. textNumPages = [
   {
-    num: '10',
+    num: 10,
     textData: '10 bản ghi trên một trang'
   },
   {
-    num: '20',
+    num: 20,
     textData: '20 bản ghi trên một trang'
   },
   {
-    num: '30',
+    num: 30,
     textData: '30 bản ghi trên một trang'
   },
   {
-    num: '50',
+    num: 50,
     textData: '50 bản ghi trên một trang'
   },
   {
-    num: '100',
+    num: 100,
     textData: '100 bản ghi trên một trang'
   },
 ],
@@ -66,5 +66,5 @@ Resource.popupWarning = {
 }
 
 
-Resource.Url = 'https://cukcuk.manhnv.net/api/v1/';
+
 export default Resource;

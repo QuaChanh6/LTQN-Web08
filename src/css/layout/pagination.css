@@ -20,6 +20,7 @@
 .paging{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .numberList{
@@ -46,5 +47,6 @@
 }
 .dot{
     margin-left: 12px;
+    margin-right: 12px;
 }
 
