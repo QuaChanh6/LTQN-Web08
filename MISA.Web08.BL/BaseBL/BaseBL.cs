@@ -1,0 +1,104 @@
+﻿using MISA.QTKD.Common.Entities;
+using MISA.QTKD.DL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MISA.Web08.BL
+{
+    /// <summary>
+    /// Base business layer
+    /// CreatedBy: LTQN(28/9/2022)
+    /// </summary>
+    /// <typeparam name="T">Generic</typeparam>
+    public class BaseBL<T> : IBaseBL<T>
+    {
+        #region Fields
+        private IBaseDL<T> _baseDl;
+
+        #endregion
+        #region constructor
+        public BaseBL(IBaseDL<T> baseDL)
+        {
+            _baseDl = baseDL;
+        }
+        #endregion
+
+        #region methods
+
+
+        /// <summary>
+        /// Xóa 1 bản ghi
+        /// Createdby: LTQN(29/9/2022)
+        /// </summary>
+        /// <param name="employeeID">id bản ghi cần xóa</param>
+        /// <returns>id bản ghi</returns>
+        public Guid Delete(Guid employeeID)
+        {
+            return _baseDl.Delete(employeeID);
+        }
+
+        /// <summary>
+        /// Sửa 1 bản ghi
+        /// Createdby: LTQN(29/9/2022)
+        /// </summary>
+        /// <param name="record">Bản ghi sửa</param>
+        /// <param name="id">id của bản ghi cần sửa</param>
+        /// <returns>id bản ghi</returns>
+        public Guid Edit(T record, Guid id)
+        {
+            return _baseDl.Edit(record, id);
+        }
+
+
+        /// <summary>
+        /// Lọc/ tìm kiếm/ phân trang trong 1 bảng
+        /// Createdby: LTQN(29/9/2022)
+        /// </summary>
+        /// <param name="keyword">Từ cần tìm</param>
+        /// <param name="sort">sắp xếp</param>
+        /// <param name="limit">Số lượng bản ghi trong 1 trang</param>
+        /// <param name="pageNumber">số trang</param>
+        /// <returns></returns>
+        public PagingData<T> Filter(string? keyword, string? sort, int limit, int pageNumber)
+        {
+            return _baseDl.Filter(keyword, sort, limit, pageNumber);
+        }
+
+        /// <summary>
+        /// Lấy danh sách bản ghi trong 1 bảng
+        /// Createdby: LTQN(29/9/2022)
+        /// </summary>
+        /// <returns>danh sách các bản ghi</returns>
+        public IEnumerable<T> GetAll()
+        {
+            return _baseDl.GetAll();
+        }
+
+        /// <summary>
+        /// Lấy bản ghi thông qua Id
+        /// Createdby: LTQN(29/9/2022)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IEnumerable<T> GetById(Guid id)
+        {
+            return _baseDl.GetById(id);
+        }
+
+
+        /// <summary>
+        /// Thêm 1 bản ghi
+        /// Createdby: LTQN(29/9/2022)
+        /// </summary>
+        /// <param name="record">Bản ghi cần thêm</param>
+        /// <returns>id bản ghi</returns>
+        public Guid Insert(T record)
+        {
+            return _baseDl.Insert(record);
+        } 
+        #endregion
+    }
+}

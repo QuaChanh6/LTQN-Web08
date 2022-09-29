@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mGq2IGM6NL9eWpfbqya+s9LCqejSgOW9Frx69OtfRSnR5srfLQmfpJPWxAr/4KksnXLWcTkAGHYFepeJK/zseQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Chanh\\source\\repos\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\MISA.QTKD.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Chanh\\.nuget\\packages\\mysqlconnector\\2.1.13\\mysqlconnector.2.1.13.nupkg.sha512"
+  ],
+  "logs": []
+}

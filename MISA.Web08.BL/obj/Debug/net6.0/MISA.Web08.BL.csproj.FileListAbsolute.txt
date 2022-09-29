@@ -1,0 +1,17 @@
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\bin\Debug\net6.0\MISA.Web08.BL.deps.json
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\bin\Debug\net6.0\MISA.Web08.BL.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\bin\Debug\net6.0\MISA.Web08.BL.pdb
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\bin\Debug\net6.0\MISA.QTKD.Common.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\bin\Debug\net6.0\MISA.QTKD.DL.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\bin\Debug\net6.0\MISA.QTKD.DL.pdb
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\bin\Debug\net6.0\MISA.QTKD.Common.pdb
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\obj\Debug\net6.0\MISA.Web08.BL.csproj.AssemblyReference.cache
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\obj\Debug\net6.0\MISA.Web08.BL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\obj\Debug\net6.0\MISA.Web08.BL.AssemblyInfoInputs.cache
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\obj\Debug\net6.0\MISA.Web08.BL.AssemblyInfo.cs
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\obj\Debug\net6.0\MISA.Web08.BL.csproj.CoreCompileInputs.cache
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\obj\Debug\net6.0\MISA.Web08.BL.csproj.CopyComplete
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\obj\Debug\net6.0\MISA.Web08.BL.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\obj\Debug\net6.0\refint\MISA.Web08.BL.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\obj\Debug\net6.0\MISA.Web08.BL.pdb
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.BL\obj\Debug\net6.0\ref\MISA.Web08.BL.dll

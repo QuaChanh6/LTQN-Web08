@@ -1,0 +1,27 @@
+ -------------- Error (2022-09-29 22:32:22.3761) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Data too long
+  DserMsg: Dữ liệu quá dài, vui lòng nhập lại.
+  DoreInfo: "https://openapi.misa.com.vn/errorcode"
+
+
+ -------------- Error (2022-09-29 22:40:48.9433) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Additional Info: Lỗi: AccountErrorCode: DataTooLong
+  DevMsg: Data too long
+  DserMsg: Dữ liệu quá dài, vui lòng nhập lại.
+  DoreInfo: "https://openapi.misa.com.vn/errorcode"
+
+
+ -------------- Error (2022-09-29 22:50:11.3307) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  DoreInfo: "https://openapi.misa.com.vn/errorcode"
+
+
