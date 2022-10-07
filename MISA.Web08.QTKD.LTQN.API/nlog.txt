@@ -1,27 +1,238 @@
- -------------- Error (2022-09-29 22:32:22.3761) --------------
+ -------------- Error (2022-10-06 15:37:23.9126) --------------
  
  Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
- Additional Info: Lỗi: AccountErrorCode: Exception
-  DevMsg: Data too long
-  DserMsg: Dữ liệu quá dài, vui lòng nhập lại.
-  DoreInfo: "https://openapi.misa.com.vn/errorcode"
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống.
+  TraceID: 0HML7ELPDMJ0L:00000007
 
-
- -------------- Error (2022-09-29 22:40:48.9433) --------------
+ -------------- Error (2022-10-06 15:37:45.2782) --------------
  
  Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
- Additional Info: Lỗi: AccountErrorCode: DataTooLong
-  DevMsg: Data too long
-  DserMsg: Dữ liệu quá dài, vui lòng nhập lại.
-  DoreInfo: "https://openapi.misa.com.vn/errorcode"
-
-
- -------------- Error (2022-09-29 22:50:11.3307) --------------
- 
- Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
  Additional Info: Lỗi: AccountErrorCode: DuplicateCode
   DevMsg: Duplicate EmployeeCode
-  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
-  DoreInfo: "https://openapi.misa.com.vn/errorcode"
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML7ELPDMJ0M:00000003
 
+ -------------- Error (2022-10-06 15:42:46.6577) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Ngày cấp không được lớn hơn hiện tại.
+  TraceID: 0HML7ELPDMJ0O:00000002
+
+ -------------- Error (2022-10-06 15:44:34.4304) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Duplicate entry 'NV9973' for key 'employee.IX_employee_employeeCode'
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML7ERHAOOP9:00000003
+
+ -------------- Error (2022-10-06 15:44:34.4658) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Duplicate entry 'NV9973' for key 'employee.IX_employee_employeeCode'
+ Additional Info: hrg
+
+ -------------- Error (2022-10-06 15:45:17.1121) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Duplicate entry 'NV9973' for key 'employee.IX_employee_employeeCode'
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML7ESARFSJD:00000003
+
+ -------------- Error (2022-10-06 18:08:49.0040) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống.
+  TraceID: 0HML7ESARFSJT:0000000B
+
+ -------------- Error (2022-10-06 18:10:12.1361) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống.
+  TraceID: 0HML7ESARFSJT:00000017
+
+ -------------- Error (2022-10-06 18:15:50.4547) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống.
+  TraceID: 0HML7ESARFSJV:00000007
+
+ -------------- Error (2022-10-06 18:15:52.5923) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống.
+  TraceID: 0HML7ESARFSJV:00000009
+
+ -------------- Error (2022-10-06 18:17:08.7620) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống.
+  TraceID: 0HML7ESARFSJV:0000000D
+
+ -------------- Error (2022-10-06 18:17:23.9792) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống.
+  TraceID: 0HML7ESARFSJV:00000011
+
+ -------------- Error (2022-10-06 18:17:36.0315) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Duplicate entry 'NV9973' for key 'employee.IX_employee_employeeCode'
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML7ESARFSJV:0000001D
+
+ -------------- Error (2022-10-06 21:55:18.0993) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống.
+  TraceID: 0HML7ESARFSKC:0000000F
+
+ -------------- Error (2022-10-07 21:17:34.7552) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidOperationException
+ Exception Message: This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML8DPMR5U61:00000001
+
+ -------------- Error (2022-10-07 21:18:02.8726) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidOperationException
+ Exception Message: This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML8DPMR5U60:0000001B
+
+ -------------- Error (2022-10-07 21:20:46.5778) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidOperationException
+ Exception Message: This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML8DRJ7F3SP:00000001
+
+ -------------- Error (2022-10-07 21:27:41.8202) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidOperationException
+ Exception Message: This MySqlConnection is already in use. See https://fl.vu/mysql-conn-reuse
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML8E09BP7IG:00000001
+
+ -------------- Error (2022-10-07 21:51:24.9927) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidOperationException
+ Exception Message: Connection is not open.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML8EDHII9CU:00000001
+
+ -------------- Error (2022-10-07 22:00:29.5917) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống.
+  TraceID: 0HML8EEEVROKF:00000007
+
+ -------------- Error (2022-10-07 22:36:49.5352) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Không đúng định dạng email
+  TraceID: 0HML8F5B3GNJK:00000011
+
+ -------------- Error (2022-10-07 22:36:55.2896) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Không đúng định dạng email
+  TraceID: 0HML8F5B3GNJK:00000015
 

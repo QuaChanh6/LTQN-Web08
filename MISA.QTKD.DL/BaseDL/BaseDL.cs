@@ -2,7 +2,6 @@
 using MISA.QTKD.Common.Attributes;
 using MISA.QTKD.Common.Entities;
 using MISA.QTKD.Common.Resources;
-using MISA.QTKD.DL.Connection;
 using MySqlConnector;
 using System.Reflection;
 
@@ -15,14 +14,6 @@ namespace MISA.QTKD.DL
     /// <typeparam name="T">Generic</typeparam>
     public class BaseDL<T> : IBaseDL<T>
     {
-        #region Field
-        /// <summary>
-        /// Kết nối đến db
-        /// CreatedBy: LTQN(29/9/2022)
-        /// </summary>
-        /// <returns>Kết nối db</returns>
-        private Connection<T>? _connect;
-        #endregion
 
         #region Method
         /// <summary>
@@ -36,8 +27,6 @@ namespace MISA.QTKD.DL
 
             //string storedProceduceName = "Proc_employee_DeleteEmployee";
             string storedProceduceName = String.Format(Resource.Proc_Delete, typeof(T).Name);
-            // khởi tạo kết nối
-            _connect = new Connection<T>();
 
             var parameters = new DynamicParameters();
 
@@ -45,20 +34,41 @@ namespace MISA.QTKD.DL
             //parameters.Add("v_EmployeeID", ID);
             parameters.Add(id, ID);
 
-
-            int numberOfAffectedRows = _connect.ExecuteProc(storedProceduceName, parameters);
-
-            _connect.CloseConnect();
-
-            //Xử lý kết quả trả về từ DB
-            if (numberOfAffectedRows > 0) //nếu thành công
+            MySqlTransaction transaction = null;
+            //khởi tạo kết nối tới db
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
             {
-                return ID;
+                connect.Open();
+                transaction = connect.BeginTransaction();
+
+                try
+                {
+                    int numberOfAffectedRows = connect.Execute(storedProceduceName, parameters, transaction, commandType: System.Data.CommandType.StoredProcedure); ;
+
+                    transaction.Commit();
+
+                    //Xử lý kết quả trả về từ DB
+                    if (numberOfAffectedRows > 0) //nếu thành công
+                    {
+                        return ID;
+                    }
+                    else // nếu thất bại
+                    {
+                        return Guid.Empty;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    return Guid.Empty;
+                }
+                finally
+                {
+                    connect.Close();
+                }
             }
-            else // nếu thất bại
-            {
-                return Guid.Empty;
-            }
+
         }
 
         /// <summary>
@@ -66,9 +76,8 @@ namespace MISA.QTKD.DL
         /// CreatedBy: LTQN(29/9/2022)
         /// </summary>
         /// <param name="record">thông tin sửa</param>
-        /// <param name="id">id bản ghi cần sửa</param>
         /// <returns>thành công: id, thất bại: rỗng</returns>
-        public Guid Edit(T record, Guid id)
+        public Guid Edit(T record)
         {
             //khai báo store proceduce
             string storedProceduceName = String.Format(Resource.Proc_Edit, typeof(T).Name);
@@ -76,7 +85,8 @@ namespace MISA.QTKD.DL
             //chuẩn bị tham số đầu vào
             var parameters = new DynamicParameters();
             var props = typeof(T).GetProperties();
-
+            //lấy id
+            Guid id = Guid.Empty;
             foreach (var prop in props)
             {
                 string propName = prop.Name;
@@ -84,30 +94,58 @@ namespace MISA.QTKD.DL
 
                 //lấy attr primarykey
                 var isPrimarykey = (PrimarykeyAttribute?)Attribute.GetCustomAttribute(prop, typeof(PrimarykeyAttribute));
-                if (isPrimarykey != null)
+                if (isPrimarykey != null && propValue != null)
                 {
-                    propValue = id;
+                    id = (Guid)propValue;
+                }
+
+                // lấy attr ngày sửa
+                var ModifiedDate = (ModifiedDateAttribute?)Attribute.GetCustomAttribute(prop, typeof(ModifiedDateAttribute));
+                if (ModifiedDate != null)
+                {
+                    propValue = DateTime.Now;
                 }
                 string input = $"v_{propName}";
                 parameters.Add(input, propValue);
 
             }
-            //kết nối đến db
-            _connect = new Connection<T>();
 
-            //thực hiện gọi vào db để chạy procedure
-            var numberOfAffectedRows = _connect.ExecuteProc(storedProceduceName, parameters);
+            //MySqlTransaction transaction = null;
+            //khởi tạo kết nối tới db
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+                //connect.Open();
+                //transaction = connect.BeginTransaction();
 
-            //xử lý dữ liệu trả về
-            // th1: thành công
-            if (numberOfAffectedRows > 0)
-            {
-                return id;
+                //try
+                //{
+                    int recordsEffected = connect.Execute(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+                    
+                    //transaction.Commit();
+                    //xử lý dữ liệu trả về
+                    // th1: thành công
+                    if (recordsEffected > 0)
+                    {
+                        return id;
+                    }
+                    else  //th2: thất bại
+                    {
+                        return Guid.Empty;
+                    }
+
+                //}
+                //catch (Exception)
+                //{
+                //    transaction.Rollback();
+                   
+                //    return Guid.Empty;
+                //}
+                //finally
+                //{
+                //    connect.Close();
+                //}
             }
-            else  //th2: thất bại
-            {
-                return Guid.Empty;
-            }
+
         }
 
         /// <summary>
@@ -142,30 +180,33 @@ namespace MISA.QTKD.DL
             string whereClause = string.Join(" AND ", whereConditions);
             parameters.Add("v_Where", whereClause);
 
+
             //kết nối đến db
-            _connect = new Connection<T>();
-
-            // Thực hiện gọi vào DB để chạy stored procedure với tham số đầu vào
-            var multipleResults = _connect.QueryMultipleProc(storedProceduceName, parameters);
-
-            // Xử lý kết quả trả về từ DB
-            if (multipleResults != null)
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
             {
-                var records = multipleResults.Read<T>();
-                var totalCount = multipleResults.Read<int>().Single();
 
-                _connect.CloseConnect();
+                // Thực hiện gọi vào DB để chạy stored procedure với tham số đầu vào
+                var multipleResults = connect.QueryMultiple(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
 
-                return new PagingData<T>()
+                // Xử lý kết quả trả về từ DB
+                if (multipleResults != null)
                 {
-                    Data = records.ToList(),
-                    TotalCount = totalCount
-                };
+                    var records = multipleResults.Read<T>();
+                    var totalCount = multipleResults.Read<int>().Single();
+
+                    return new PagingData<T>()
+                    {
+                        Data = records.ToList(),
+                        TotalCount = totalCount
+                    };
+                }
+                else
+                {
+                    return new PagingData<T>();
+                }
             }
-            else
-            {
-                return new PagingData<T>();
-            }
+
+          
         }
 
         /// <summary>
@@ -179,15 +220,36 @@ namespace MISA.QTKD.DL
             //khai báo store proceduce
             string storedProceduceName = String.Format(Resource.Proc_GetAll, typeof(T).Name);
 
+
+            MySqlTransaction transaction = null;
             //khởi tạo kết nối tới db
-            _connect = new Connection<T>();
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+                connect.Open();
+                transaction = connect.BeginTransaction();
 
-            //thực hiện gọi db
-            var records = _connect.QueryProc(storedProceduceName, null);
+                try
+                {
+                    var records = connect.Query<T>(storedProceduceName, null, transaction, commandType: System.Data.CommandType.StoredProcedure);
 
-            _connect.CloseConnect();
+                    transaction.Commit();
+                    //xử lý dữ liệu trả về
+                    // th1: thành công
+                   
+                       return records;
 
-            return records;
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                    return Enumerable.Empty<T>();
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
+ 
         }
 
         /// <summary>
@@ -207,15 +269,36 @@ namespace MISA.QTKD.DL
             string IdInput = $"v_{typeof(T).Name}ID";
             parameters.Add(IdInput, id);
 
-
+            MySqlTransaction transaction = null;
             //khởi tạo kết nối tới db
-            _connect = new Connection<T>();
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+                connect.Open();
+                transaction = connect.BeginTransaction();
 
-            //thực hiện gọi db
-            var record = _connect.QueryProc(storedProceduceName, parameters);
+                try
+                {
+     
+                    //thực hiện gọi db
+                    var record = connect.Query<T>(storedProceduceName, parameters, transaction, commandType: System.Data.CommandType.StoredProcedure);
 
-            _connect.CloseConnect();
-            return record;
+                    transaction.Commit();
+                    //xử lý dữ liệu trả về
+
+                    return record;
+
+                }
+                catch (Exception )
+                {
+                    transaction.Rollback();
+                    return Enumerable.Empty<T>();
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
+
 
         }
 
@@ -245,28 +328,54 @@ namespace MISA.QTKD.DL
                 {
                     propValue = newID;
                 }
+                // lấy attr ngày sửa
+                var ModifiedDate = (ModifiedDateAttribute?)Attribute.GetCustomAttribute(prop, typeof(ModifiedDateAttribute));
+                if (ModifiedDate != null)
+                {
+                    propValue = DateTime.Now;
+                }
                 string input = $"v_{propName}";
                 parameters.Add(input, propValue);
 
             }
 
-
+            //MySqlTransaction transaction = null;
             //khởi tạo kết nối tới db
-            _connect = new Connection<T>();
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+                //connect.Open();
+                //transaction = connect.BeginTransaction();
 
-            var numberOfAffectedRows = _connect.ExecuteProc(storedProceduceName, parameters);
-            //xử lý dữ liệu trả về
-            // th1: thành công
-            if (numberOfAffectedRows > 0)
-            {
-                return newID;
-            }
-            else  //th2: thất bại
-            {
-                return Guid.Empty;
+                //try
+                //{
+                    var numberOfAffectedRows = connect.Execute(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+                    //transaction.Commit();
+                    //xử lý dữ liệu trả về
+                    // th1: thành công
+                    if (numberOfAffectedRows > 0)
+                    {
+                        return newID;
+                    }
+                    else  //th2: thất bại
+                    {
+                        return Guid.Empty;
+                    }
+
+                //}
+                //catch (Exception)
+                //{
+                //    transaction.Rollback();
+                //    return Guid.Empty;
+                //}
+                //finally
+                //{
+                //    connect.Close();
+                //}
             }
 
         } 
         #endregion
     }
+
+
 }

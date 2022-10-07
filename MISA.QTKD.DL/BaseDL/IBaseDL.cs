@@ -53,9 +53,8 @@ namespace MISA.QTKD.DL
         /// Createdby: LTQN(29/9/2022)
         /// </summary>
         /// <param name="record">Bản ghi sửa</param>
-        /// <param name="id">id của bản ghi cần sửa</param>
         /// <returns>id bản ghi</returns>
-        public Guid Edit(T record, Guid id);
+        public Guid Edit(T record);
 
         /// <summary>
         /// Xóa 1 bản ghi

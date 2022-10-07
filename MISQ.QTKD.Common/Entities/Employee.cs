@@ -1,5 +1,6 @@
 ﻿using MISA.QTKD.Common.Attributes;
 using MISA.QTKD.Common.Enum;
+using MISA.QTKD.Common.Enums;
 
 namespace MISA.QTKD.Common.Entities
 {   /// <summary>
@@ -17,18 +18,19 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Mã nhân viên
         /// </summary>
-        [IsNotNullOrEmpty("Mã nhân viên không được để trống"), IsNotCode("Mã nhân viên phải kết thúc là một số")]
+        [IsNotNullOrEmpty("Mã nhân viên không được để trống."), IsNotCode("Mã nhân viên phải kết thúc là một số."), Export("Mã nhân viên")]
         public string? EmployeeCode { get; set; }
 
         /// <summary>
         /// Tên nhân viên
         /// </summary>
-        [IsNotNullOrEmpty("Tên nhân viên không được để trống")]
+        [IsNotNullOrEmpty("Tên nhân viên không được để trống."), Export("Tên nhân viên")]
         public string? EmployeeName { get; set; }
 
         /// <summary>
         /// Ngày sinh
         /// </summary>
+        [Date("Ngày sinh không được lớn hơn hiện tại."), Export("Ngày sinh")]
         public DateTime? DateOfBirth { get; set; }
 
         /// <summary>
@@ -39,11 +41,13 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Giới tính
         /// </summary>
+        [Export("Giới tính")]
         public string? GenderName { get; set; }
 
         /// <summary>
         /// Số chứng minh nhân dân/ căn cước công dân
         /// </summary>
+        [Export("Chứng minh nhân dân")]
         public string? IdentityNumber { get; set; }
 
 
@@ -55,7 +59,14 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Tên đơn vị
         /// </summary>
+        [Export("Tên đơn vị")]
         public string? DepartmentName { get; set; }
+
+        /// <summary>
+        /// Chức vụ
+        /// </summary>
+        [Export("Chức vụ")]
+        public string? Position { get; set; }
 
         /// <summary>
         /// Nơi cấp chứng minh nhân dân
@@ -65,6 +76,7 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Ngày cấp chúng minh nhân dân
         /// </summary>
+        [Date("Ngày cấp không được lớn hơn hiện tại.")]
         public DateTime? IdentityDate { get; set; }
 
         /// <summary>
@@ -91,16 +103,19 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Tài khoản ngân hàng
         /// </summary>
+        [Export("Tài khoản ngân hàng")]
         public string? AccountBank { get; set; }
 
         /// <summary>
         /// Tên ngân hàng
         /// </summary>
+        [Export("Tên ngân hàng")]
         public string? NameOfBank { get; set; }
 
         /// <summary>
         /// Chi nhánh ngân hàng
         /// </summary>
+        [Export("Chi nhánh ngân hàng")]
         public string? BranchOfBank { get; set; }
 
         /// <summary>
@@ -122,6 +137,7 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Ngày sửa
         /// </summary>
+        [ModifiedDate]
         public DateTime? ModifiedDate { get; set; } = DateTime.Now;
 
         /// <summary>
@@ -130,10 +146,8 @@ namespace MISA.QTKD.Common.Entities
         public string? ModifiedBy { get; set; } = "LTQN";
 
         /// <summary>
-        /// Chức vụ
+        /// Trạng thái
         /// </summary>
-        public string? Position { get; set; }
-
-
+        public Status Status { get; set; }
     }
 }

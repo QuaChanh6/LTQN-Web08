@@ -52,4 +52,38 @@
         }
     }
 
+    /// <summary>
+    /// Attribute xác định ngày sửa
+    /// </summary>
+    public class ModifiedDateAttribute : Attribute
+    {
+    }
+
+    /// <summary>
+    /// Attribute validate ngày tháng
+    /// </summary>
+
+    public class DateAttribute : Attribute
+    {
+
+        public string msg;
+
+        public DateAttribute(string msg)
+        {
+            this.msg = msg;
+        }
+    }
+
+    /// <summary>
+    /// Atribute xuất khẩu
+    /// </summary>
+    public class ExportAttribute : Attribute
+    {
+        public string msg;
+
+        public ExportAttribute(string msg)
+        {
+            this.msg = msg;
+        }
+    }
 }

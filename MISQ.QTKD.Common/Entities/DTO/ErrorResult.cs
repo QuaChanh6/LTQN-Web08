@@ -44,9 +44,9 @@ namespace MISA.QTKD.Common.Entities
         #endregion
 
         #region Method
-        public string ToStringMsg()
+        public string ToStringMsg(string traceid)
         {
-            string msg = $"Lỗi: AccountErrorCode: {ErrorCode}\n  DevMsg: {DevMsg}\n  DserMsg: {UserMsg}\n  DoreInfo: {MoreInfo}\n";
+            string msg = $"Lỗi: AccountErrorCode: {ErrorCode}\n  DevMsg: {DevMsg}\n  DserMsg: {UserMsg}\n  MoreInfo: {MoreInfo}\n  TraceID: {traceid}";
             return msg;
         } 
         #endregion

@@ -36,3 +36,14 @@ C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\obj\De
 C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\obj\Debug\net6.0\MISA.Web08.QTKD.API.genruntimeconfig.cache
 C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\obj\Debug\net6.0\ref\MISA.Web08.QTKD.API.dll
 C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\bin\Debug\net6.0\nlog.config
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\bin\Debug\net6.0\ClosedXML.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\bin\Debug\net6.0\DocumentFormat.OpenXml.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\bin\Debug\net6.0\ExcelNumberFormat.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\bin\Debug\net6.0\System.IO.Packaging.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.0\System.Drawing.Common.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\System.Drawing.Common.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\obj\Debug\net6.0\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISA.Web08.QTKD.LTQN.API\obj\Debug\net6.0\MISA.Web08.QTKD.API.csproj.ResolveComReference.cache

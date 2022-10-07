@@ -182,35 +182,35 @@
     <comment>Message cho User khi nhập dữ liệu dài</comment>
   </data>
   <data name="UserMsg_DeleteFailed" xml:space="preserve">
-    <value>Xóa nhân viên thất bại</value>
+    <value>Xóa nhân viên thất bại.</value>
     <comment>Message cho User khi xóa thất bại</comment>
   </data>
   <data name="UserMsg_DuplicateCode" xml:space="preserve">
-    <value>Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.</value>
+    <value>Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.</value>
     <comment>Message cho User khi bị trùng mã nhân viên</comment>
   </data>
   <data name="UserMsg_Exception" xml:space="preserve">
-    <value>Có lỗi xảy ra! vui lòng liên hệ với MISA</value>
+    <value>Có lỗi xảy ra! vui lòng liên hệ với MISA.</value>
     <comment>Message cho User đọc khi gặp exception</comment>
   </data>
   <data name="UserMsg_FilterFailed" xml:space="preserve">
-    <value>Lọc thất bại</value>
+    <value>Lọc thất bại.</value>
     <comment>Message cho User khi lọc thất bại</comment>
   </data>
   <data name="UserMsg_GetRecordFailed" xml:space="preserve">
-    <value>Lấy dữ liệu thất bại</value>
+    <value>Lấy dữ liệu thất bại.</value>
     <comment>Message cho User khi lấy bản ghi thất bại</comment>
   </data>
   <data name="UserMsg_InsertFailed" xml:space="preserve">
-    <value>Thâm bản ghi thất bại</value>
+    <value>Thêm bản ghi thất bại.</value>
     <comment>Message cho User đọc khi thêm bản ghi thất bại</comment>
   </data>
   <data name="UserMsg_UpdateFailed" xml:space="preserve">
-    <value>Sửa bản ghi thất bại</value>
+    <value>Sửa bản ghi thất bại.</value>
     <comment>Message cho User khi sửa thất bại</comment>
   </data>
   <data name="UserMsg_ValidateFailed" xml:space="preserve">
-    <value>Dữ liệu đầu vào không hợp lệ</value>
+    <value>Dữ liệu đầu vào không hợp lệ.</value>
     <comment>Message cho User khi validate dữ liệu đầu vào thất bại</comment>
   </data>
 </root>

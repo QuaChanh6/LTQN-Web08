@@ -205,7 +205,7 @@ namespace MISA.QTKD.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Xóa nhân viên thất bại.
+        ///   Looks up a localized string similar to Xóa nhân viên thất bại..
         /// </summary>
         public static string UserMsg_DeleteFailed {
             get {
@@ -214,7 +214,7 @@ namespace MISA.QTKD.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại..
+        ///   Looks up a localized string similar to Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại..
         /// </summary>
         public static string UserMsg_DuplicateCode {
             get {
@@ -223,7 +223,7 @@ namespace MISA.QTKD.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Có lỗi xảy ra! vui lòng liên hệ với MISA.
+        ///   Looks up a localized string similar to Có lỗi xảy ra! vui lòng liên hệ với MISA..
         /// </summary>
         public static string UserMsg_Exception {
             get {
@@ -232,7 +232,7 @@ namespace MISA.QTKD.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lọc thất bại.
+        ///   Looks up a localized string similar to Lọc thất bại..
         /// </summary>
         public static string UserMsg_FilterFailed {
             get {
@@ -241,7 +241,7 @@ namespace MISA.QTKD.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lấy dữ liệu thất bại.
+        ///   Looks up a localized string similar to Lấy dữ liệu thất bại..
         /// </summary>
         public static string UserMsg_GetRecordFailed {
             get {
@@ -250,7 +250,7 @@ namespace MISA.QTKD.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Thâm bản ghi thất bại.
+        ///   Looks up a localized string similar to Thêm bản ghi thất bại..
         /// </summary>
         public static string UserMsg_InsertFailed {
             get {
@@ -259,7 +259,7 @@ namespace MISA.QTKD.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sửa bản ghi thất bại.
+        ///   Looks up a localized string similar to Sửa bản ghi thất bại..
         /// </summary>
         public static string UserMsg_UpdateFailed {
             get {
@@ -268,7 +268,7 @@ namespace MISA.QTKD.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dữ liệu đầu vào không hợp lệ.
+        ///   Looks up a localized string similar to Dữ liệu đầu vào không hợp lệ..
         /// </summary>
         public static string UserMsg_ValidateFailed {
             get {

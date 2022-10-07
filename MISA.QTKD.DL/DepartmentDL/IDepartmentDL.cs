@@ -13,6 +13,6 @@ namespace MISA.QTKD.DL
     /// </summary>
     public interface IDepartmentDL : IBaseDL<Department>
     {
-        
+ 
     }
 }
