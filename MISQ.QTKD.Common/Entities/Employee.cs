@@ -18,7 +18,7 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Mã nhân viên
         /// </summary>
-        [IsNotNullOrEmpty("Mã nhân viên không được để trống."), IsNotCode("Mã nhân viên phải kết thúc là một số."), Export("Mã nhân viên")]
+        [IsNotNullOrEmpty("Mã nhân viên không được để trống."), IsNotCode("Mã nhân viên phải kết thúc là một số."), Export("Mã nhân viên"), Duplicate]
         public string? EmployeeCode { get; set; }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Tên đơn vị
         /// </summary>
-        [Export("Tên đơn vị")]
+        [IsNotNullOrEmpty("Đơn vị không được để trống."), Export("Tên đơn vị")]
         public string? DepartmentName { get; set; }
 
         /// <summary>
@@ -148,6 +148,6 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Trạng thái
         /// </summary>
-        public Status Status { get; set; }
+        public Status Status { get; set; } = Status.Use;
     }
 }

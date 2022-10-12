@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Office.Interop.Excel;
+using MISA.QTKD.Common;
 using MISA.QTKD.Common.Entities;
 using MISA.QTKD.Common.Enum;
 using MISA.QTKD.Common.Enums;
@@ -53,7 +54,7 @@ namespace MISA.Web08.QTKD.API.Controllers
                 ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
                 handleError.SaveError(ex, er.ToStringMsg(HttpContext.TraceIdentifier));
 
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
             }
 
 
@@ -79,7 +80,7 @@ namespace MISA.Web08.QTKD.API.Controllers
                 ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
                 handleError.SaveError(ex, er.ToStringMsg(HttpContext.TraceIdentifier));
 
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
             }
         }
 
@@ -100,7 +101,7 @@ namespace MISA.Web08.QTKD.API.Controllers
                 PagingData<T> emp = _baseBL.Filter(keyword, sort, limit, pageNumber);
 
                 // Xử lý kết quả trả về từ DB
-                if (emp != null)
+                if (emp.Data.Count > 0)
                 {
                     return StatusCode(StatusCodes.Status200OK, emp);
                 }
@@ -116,7 +117,7 @@ namespace MISA.Web08.QTKD.API.Controllers
                 ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
                 handleError.SaveError(ex, er.ToStringMsg(HttpContext.TraceIdentifier));
 
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
             }
 
 
@@ -135,44 +136,57 @@ namespace MISA.Web08.QTKD.API.Controllers
         {
             try
             {
-
                 var recordID = _baseBL.Insert(record);
 
                 // dữ liệu hợp lệ
-                if (Object.ReferenceEquals(recordID.GetType(), typeof(Guid)))
+                if (Object.ReferenceEquals(recordID.GetType(), typeof(Response)))
                 {   
-                    if((Guid)recordID != Guid.Empty)
-                        return StatusCode(StatusCodes.Status201Created, recordID);
-                    else return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_InsertFailed);
+
+                    Response res = (Response)recordID;
+                    //sửa thành công
+                    if (res.Id != Guid.Empty)
+                    {
+                        return StatusCode(StatusCodes.Status201Created, res.Id);
+                    }
+                    //sửa thất bại
+                    else
+                    {
+                        //bắt exception
+                        if (res.Ex != null)
+                        {
+                            MySqlException mySqlException = (MySqlException)res.Ex;
+                            ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
+
+                            if (mySqlException.ErrorCode == MySqlErrorCode.DataTooLong)
+                            {
+                                er = handleError.setErrorCode(TypeOfError.DataTooLong, Resource.MoreInfo);
+                                handleError.SaveError(mySqlException, er.ToStringMsg(HttpContext.TraceIdentifier));
+
+                                return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_DataTooLong);
+                            }
+
+                        }
+
+                        return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_InsertFailed);
+                    }
                 }
                 else //dữ liệu không hợp lệ 
                 {
-                    ErrorResult er = handleError.setErrorCode(TypeOfError.ValidateFailed, string.Join(", ", (List<string>)recordID));
-                    handleError.SaveError(null, er.ToStringMsg(HttpContext.TraceIdentifier));
-                    return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_ValidateFailed);
+                    if (Object.ReferenceEquals(recordID.GetType(), typeof(string))) // check mã trùng
+                    {
+                        ErrorResult er = handleError.setErrorCode(TypeOfError.DuplicateCode, Resource.MoreInfo);
+                        handleError.SaveError(null, er.ToStringMsg(HttpContext.TraceIdentifier));
+                        return StatusCode(StatusCodes.Status400BadRequest, recordID);
+                    }
+                    else
+                    {
+                        ErrorResult er = handleError.setErrorCode(TypeOfError.ValidateFailed, string.Join(", ", (List<string>)recordID));
+                        handleError.SaveError(null, er.ToStringMsg(HttpContext.TraceIdentifier));
+                        return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_ValidateFailed);
+                    }
+
                 }
 
-            }
-            catch (MySqlException mySqlException)
-            {
-                ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
-                if (mySqlException.ErrorCode == MySqlErrorCode.DuplicateKeyEntry)
-                {
-                    er = handleError.setErrorCode(TypeOfError.DuplicateCode, Resource.MoreInfo);
-                    handleError.SaveError(mySqlException, er.ToStringMsg(HttpContext.TraceIdentifier));
-                    return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_DuplicateCode);
-                }
-                if (mySqlException.ErrorCode == MySqlErrorCode.DataTooLong)
-                {
-                    er = handleError.setErrorCode(TypeOfError.DataTooLong, Resource.MoreInfo);
-                    handleError.SaveError(mySqlException, er.ToStringMsg(HttpContext.TraceIdentifier));
-
-                    return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_DataTooLong);
-                }
-
-                handleError.SaveError(mySqlException, er.ToStringMsg(HttpContext.TraceIdentifier));
-
-                return StatusCode(StatusCodes.Status500InternalServerError);
             }
 
             catch (Exception ex)
@@ -180,7 +194,7 @@ namespace MISA.Web08.QTKD.API.Controllers
                 ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
                 handleError.SaveError(ex, er.ToStringMsg(HttpContext.TraceIdentifier));
 
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
 
 
             }
@@ -206,53 +220,57 @@ namespace MISA.Web08.QTKD.API.Controllers
                 var recordID = _baseBL.Edit(record);
 
                 // dữ liệu hợp lệ
-                if (Object.ReferenceEquals(recordID.GetType(), typeof(Guid)))
-                {   //sửa thành công
-                    if ((Guid)recordID != Guid.Empty)
+                if (Object.ReferenceEquals(recordID.GetType(), typeof(Response)))
+                {
+                    Response res = (Response)recordID;
+                    //sửa thành công
+                    if (res.Id != Guid.Empty)
                     {
-                        return StatusCode(StatusCodes.Status201Created, recordID);
+
+                        return StatusCode(StatusCodes.Status200OK, res.Id);
                     }
                     //sửa thất bại
                     else
                     {
+                        //bắt exception
+                        if(res.Ex != null)
+                        {
+                            MySqlException mySqlException = (MySqlException)res.Ex;
+                            ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
+                            if (mySqlException.ErrorCode == MySqlErrorCode.DataTooLong)
+                            {
+                                er = handleError.setErrorCode(TypeOfError.DataTooLong, Resource.MoreInfo);
+                                handleError.SaveError(mySqlException, er.ToStringMsg(HttpContext.TraceIdentifier));
+
+                                return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_DataTooLong);
+                            }
+
+                        }
+
                         return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_UpdateFailed);
                     }
                 }
                 else //dữ liệu không hợp lệ 
                 {
-                    ErrorResult er = handleError.setErrorCode(TypeOfError.ValidateFailed, string.Join(", ", (List<string>)recordID));
-                    handleError.SaveError(null, er.ToStringMsg(HttpContext.TraceIdentifier));
-                    return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_ValidateFailed);
+                    if (Object.ReferenceEquals(recordID.GetType(), typeof(string))) // check mã trùng
+                    {
+                        ErrorResult er = handleError.setErrorCode(TypeOfError.DuplicateCode, Resource.MoreInfo);
+                        handleError.SaveError(null, er.ToStringMsg(HttpContext.TraceIdentifier));
+                        return StatusCode(StatusCodes.Status400BadRequest, recordID);
+                    }
+                    else
+                    {
+                        ErrorResult er = handleError.setErrorCode(TypeOfError.ValidateFailed, string.Join(", ", (List<string>)recordID));
+                        handleError.SaveError(null, er.ToStringMsg(HttpContext.TraceIdentifier));
+                        return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_ValidateFailed);
+                    }
                 }
-
-      
-            }
-            catch (MySqlException mySqlException)
-            {
-                ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
-                if (mySqlException.ErrorCode == MySqlErrorCode.DuplicateKeyEntry)
-                {
-                    er = handleError.setErrorCode(TypeOfError.DuplicateCode, Resource.MoreInfo);
-                    handleError.SaveError(mySqlException, er.ToStringMsg(HttpContext.TraceIdentifier));
-                    return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_DuplicateCode);
-                }
-                if (mySqlException.ErrorCode == MySqlErrorCode.DataTooLong)
-                {
-                    er = handleError.setErrorCode(TypeOfError.DataTooLong, Resource.MoreInfo);
-                    handleError.SaveError(mySqlException, er.ToStringMsg(HttpContext.TraceIdentifier));
-
-                    return StatusCode(StatusCodes.Status400BadRequest, Resource.UserMsg_DataTooLong);
-                }
-
-                handleError.SaveError(mySqlException, er.ToStringMsg(HttpContext.TraceIdentifier));
-
-                return StatusCode(StatusCodes.Status500InternalServerError);
             }
             catch (Exception ex)
             {
                 ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
                 handleError.SaveError(ex, er.ToStringMsg(HttpContext.TraceIdentifier));
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
             }
 
         }
@@ -294,7 +312,7 @@ namespace MISA.Web08.QTKD.API.Controllers
                 ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
                 handleError.SaveError(ex,er.ToStringMsg(HttpContext.TraceIdentifier));
 
-                return StatusCode(StatusCodes.Status500InternalServerError);
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
             }
         }
         #endregion 

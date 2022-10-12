@@ -86,4 +86,11 @@
             this.msg = msg;
         }
     }
+
+    /// <summary>
+    /// trùng mã
+    /// </summary>
+    public class DuplicateAttribute : Attribute
+    {
+    }
 }

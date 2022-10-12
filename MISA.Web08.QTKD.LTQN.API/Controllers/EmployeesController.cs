@@ -10,6 +10,7 @@ using MISA.Web08.BL;
 using MySqlConnector;
 using NLog;
 using NLog.Web;
+using System.Globalization;
 
 namespace MISA.Web08.QTKD.API.Controllers
 {
@@ -77,17 +78,21 @@ namespace MISA.Web08.QTKD.API.Controllers
                 using (var workbook = new XLWorkbook())
                 {
                     IXLWorksheet worksheet =
-                    workbook.Worksheets.Add("Employee");
+                    workbook.Worksheets.Add("Nhân viên");
 
                     worksheet.Cell("A1").Value = "DANH SÁCH NHÂN VIÊN";
-                    var range = worksheet.Range("A1:I1");
-                    worksheet.Range("A1:I1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                    var range = worksheet.Range("A1:K1");
+                    worksheet.Range("A1:K1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
                     range.Merge().Style.Font.SetBold().Font.FontSize = 24;
 
                    // range.Style.Alignment.Vertical = XLAlignmentVerticalValues.Center;
                     var props = typeof(Employee).GetProperties();
 
-                    int column = 0;
+                    int column = 1;
+                    int row = 0;
+                    //cột stt
+                    worksheet.Cell(3, column).Value = "STT";
+                    worksheet.Cell(3, column).Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                     //ghi header
                     for (int i = 0; i < props.Length; i++)
                     {
@@ -95,20 +100,22 @@ namespace MISA.Web08.QTKD.API.Controllers
                         if (isExport != null)
                         {
                             column++;
-                            worksheet.Cell(3, column).Value = props[i].Name;
-                            //set đường viền
-                           // worksheet.Cell(3, column).Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
-                            //worksheet.Cell(3, column).Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
+                            worksheet.Cell(3, column).Value = isExport.msg;
+                            worksheet.Cell(3, column).Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+
                         }
 
                     }
                     //set background
                    
-                    worksheet.Range("A3:J3").Style.Fill.BackgroundColor = XLColor.Gainsboro;
+                    worksheet.Range("A3:K3").Style.Fill.BackgroundColor = XLColor.Gainsboro;
                     List<Employee> listRecords = records.ToList();
                     for (int i = 0; i < listRecords.Count; i++) //duyệt bản ghi
                     {
-                        column = 0;
+                        column = 1;
+                        row++;
+                        worksheet.Cell(i + 4, column).Value = row;
+                        worksheet.Cell(i + 4, column).Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                         for (int j = 0; j < props.Length; j++) //duyệt từn prop
                         {
                             var isExport = (ExportAttribute?)Attribute.GetCustomAttribute(props[j], typeof(ExportAttribute));
@@ -116,16 +123,34 @@ namespace MISA.Web08.QTKD.API.Controllers
                             {
                                 column++;
                                 var propValue = props[j].GetValue(listRecords[i], null);
+                                
+                                var date = (DateAttribute?)Attribute.GetCustomAttribute(props[j], typeof(DateAttribute));
+                                if(date != null && propValue != null)
+                                {
+                                    string? dateOfBirth = propValue.ToString();
+                                    if(dateOfBirth != null)
+                                    {
+                                        string[] dateString = dateOfBirth.Split('/'); 
+                                        string day = dateString[1];
+                                        string month = dateString[0];
+                                        string year = dateString[2].Remove(4);
+
+                                        propValue = day + "/" + month + "/" + year;
+
+                                    }
+
+                                }
 
                                 worksheet.Cell(i + 4, column).Value = propValue?.ToString();
 
                                 //set đường viền
-                               // worksheet.Cell(i + 4, column).Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                               worksheet.Cell(i + 4, column).Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                                 
                             }
 
                         }
                     }
+                    worksheet.Column("D").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
                     //set chiều rộng ứng với độ dài giá trị
                     worksheet.Columns().AdjustToContents();
                     using (var stream = new MemoryStream())

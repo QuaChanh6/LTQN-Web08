@@ -1,5 +1,6 @@
 ﻿using MISA.QTKD.Common.Attributes;
 using MISA.QTKD.Common.Entities;
+using MISA.QTKD.Common.Resources;
 using MISA.QTKD.DL;
 using System;
 using System.Collections.Generic;
@@ -52,7 +53,14 @@ namespace MISA.Web08.BL
         {
             
             List<string> validation = Validate(record);
-            if(validation.Count == 0)
+
+            Guid id = _baseDl.checkDuplicateEmployeeCode(record);
+            if (id != Guid.Empty)
+            {
+                return Resource.UserMsg_DuplicateCode;
+
+            }
+            if (validation.Count == 0)
             {
                 return _baseDl.Edit(record);
             }
@@ -111,6 +119,12 @@ namespace MISA.Web08.BL
         {
 
             List<string> validation = Validate(record);
+            Guid id = _baseDl.checkDuplicateEmployeeCode(record);
+            if(id != Guid.Empty)
+            {
+                return Resource.UserMsg_DuplicateCode;
+
+            }
             if (validation.Count == 0)
             {
                 return _baseDl.Insert(record);

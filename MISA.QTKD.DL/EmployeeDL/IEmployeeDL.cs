@@ -20,10 +20,13 @@ namespace MISA.QTKD.DL
 
         /// <summary>
         /// Xóa nhiều bản ghi
+        /// CreatedBy: LTQN(27/9/2022)
         /// </summary>
         /// <param name="ids">chuỗi id</param>
         /// <returns>số bản ghi bị ảnh hưởng</returns>
         public int DeleteMultiple(String ids);
+
+        
 
     }
 }

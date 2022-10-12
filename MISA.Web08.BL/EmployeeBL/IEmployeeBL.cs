@@ -23,5 +23,6 @@ namespace MISA.Web08.BL
         /// <returns>số bản ghi bị ảnh hưởng</returns>
         public int DeleteMultiple(string ids);
 
+
     }
 }

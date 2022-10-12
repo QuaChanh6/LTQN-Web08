@@ -236,3 +236,872 @@
   MoreInfo: Không đúng định dạng email
   TraceID: 0HML8F5B3GNJK:00000015
 
+ -------------- Error (2022-10-07 23:28:55.7534) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Duplicate entry 'NV9974' for key 'employee.IX_employee_employeeCode'
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML8G3U1IM6A:00000009
+
+ -------------- Error (2022-10-08 15:00:23.1045) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DeleteFailed
+  DevMsg: Delete failed
+  DserMsg: Xóa nhân viên thất bại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML90C3B951C:00000003
+
+ -------------- Error (2022-10-08 16:08:36.4969) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Duplicate entry 'NV9974' for key 'employee.IX_employee_employeeCode'
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML91IGJGQR9:00000003
+
+ -------------- Error (2022-10-08 20:59:58.7155) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'MISA.QTKD.Common.Response' to type 'System.Collections.Generic.List`1[System.String]'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML92NI66KRU:00000009
+
+ -------------- Error (2022-10-08 21:00:59.4901) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'MISA.QTKD.Common.Response' to type 'System.Collections.Generic.List`1[System.String]'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML92NI66KRU:00000011
+
+ -------------- Error (2022-10-08 21:03:25.7896) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'MISA.QTKD.Common.Response' to type 'System.Collections.Generic.List`1[System.String]'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML92NI66KRU:0000001F
+
+ -------------- Error (2022-10-08 21:04:41.5882) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'MISA.QTKD.Common.Response' to type 'System.Collections.Generic.List`1[System.String]'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML92NI66KRU:00000027
+
+ -------------- Error (2022-10-08 21:11:51.3548) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Duplicate entry 'NV9974' for key 'employee.IX_employee_employeeCode'
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML92NI66KRU:00000051
+
+ -------------- Error (2022-10-08 21:12:04.4673) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'MISA.QTKD.Common.Response' to type 'System.Collections.Generic.List`1[System.String]'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML92NI66KRU:00000057
+
+ -------------- Error (2022-10-08 21:20:46.5881) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'MISA.QTKD.Common.Response' to type 'System.Collections.Generic.List`1[System.String]'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML971121SQP:00000003
+
+ -------------- Error (2022-10-08 21:25:16.7193) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Data too long for column 'v_EmployeeName' at row 1
+ Additional Info: Lỗi: AccountErrorCode: DataTooLong
+  DevMsg: Data too long
+  DserMsg: Dữ liệu quá dài, vui lòng nhập lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML971PUU3H1:00000003
+
+ -------------- Error (2022-10-08 21:25:54.8264) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Duplicate entry 'NV9974' for key 'employee.IX_employee_employeeCode'
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML971PUU3H2:00000003
+
+ -------------- Error (2022-10-09 14:45:19.5412) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống.
+  TraceID: 0HML9P1Q71GUS:00000009
+
+ -------------- Error (2022-10-09 14:45:27.5542) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DeleteFailed
+  DevMsg: Delete failed
+  DserMsg: Xóa nhân viên thất bại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9P1Q71GUT:00000009
+
+ -------------- Error (2022-10-09 14:45:35.6699) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DeleteFailed
+  DevMsg: Delete failed
+  DserMsg: Xóa nhân viên thất bại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9P1Q71GUU:00000003
+
+ -------------- Error (2022-10-09 14:45:46.8069) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DeleteFailed
+  DevMsg: Delete failed
+  DserMsg: Xóa nhân viên thất bại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9P1Q71GUV:00000003
+
+ -------------- Error (2022-10-09 14:49:23.8735) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DeleteFailed
+  DevMsg: Delete failed
+  DserMsg: Xóa nhân viên thất bại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9P1Q71GV1:00000003
+
+ -------------- Error (2022-10-09 17:15:12.3079) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9RNMMSHD7:0000000D
+
+ -------------- Error (2022-10-09 17:18:10.6948) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9RNMMSHD7:0000001F
+
+ -------------- Error (2022-10-09 17:18:16.5821) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9RNMMSHD7:00000023
+
+ -------------- Error (2022-10-09 17:20:01.0453) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9RNMMSHD7:00000033
+
+ -------------- Error (2022-10-09 17:20:23.3935) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9RNMMSHD9:00000005
+
+ -------------- Error (2022-10-09 17:21:46.2030) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9RNMMSHDA:0000000B
+
+ -------------- Error (2022-10-09 17:29:47.9472) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9S2614OD9:00000003
+
+ -------------- Error (2022-10-09 17:35:58.0571) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9S842IGHG:00000005
+
+ -------------- Error (2022-10-09 17:36:49.1509) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9S842IGHH:00000005
+
+ -------------- Error (2022-10-09 18:05:23.1775) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9SO09QKKA:00000003
+
+ -------------- Error (2022-10-09 18:05:40.3256) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9SO09QKKB:00000003
+
+ -------------- Error (2022-10-09 18:07:50.8217) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9SO09QKKC:00000005
+
+ -------------- Error (2022-10-09 18:12:55.1920) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9SR267JMQ:00000003
+
+ -------------- Error (2022-10-09 18:12:57.3860) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9SR267JMQ:00000005
+
+ -------------- Error (2022-10-09 18:13:07.0811) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Cannot add or update a child row: a foreign key constraint fails (`misa.web08.qtkd.ltqn`.`employee`, CONSTRAINT `FK_employee_department_departmentID` FOREIGN KEY (`DepartmentID`) REFERENCES `department` (`DepartmentID`))
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HML9SR267JMR:00000007
+
+ -------------- Error (2022-10-09 18:18:34.0095) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Đơn vị không được để trống.
+  TraceID: 0HML9SVU3ET2O:00000007
+
+ -------------- Error (2022-10-09 18:18:50.5841) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống., Đơn vị không được để trống.
+  TraceID: 0HML9SVU3ET2Q:0000000B
+
+ -------------- Error (2022-10-09 22:19:14.4988) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Data too long for column 'v_EmployeeName' at row 1
+ Additional Info: Lỗi: AccountErrorCode: DataTooLong
+  DevMsg: Data too long
+  DserMsg: Dữ liệu quá dài, vui lòng nhập lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLA083MFLOG:0000001D
+
+ -------------- Error (2022-10-09 22:29:27.2480) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.DateTime' to type 'System.String'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLA1BM7317K:00000001
+
+ -------------- Error (2022-10-09 22:30:35.1855) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.DateTime' to type 'System.String'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLA1CHJ4QJN:00000001
+
+ -------------- Error (2022-10-09 22:32:01.3895) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.DateTime' to type 'System.String'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLA1DGED7UT:00000003
+
+ -------------- Error (2022-10-09 22:43:40.3388) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.FormatException
+ Exception Message: String '3/15/1952 12:00:00 AM' was not recognized as a valid DateTime.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLA1K1EQ9KF:00000003
+
+ -------------- Error (2022-10-09 23:06:00.6475) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.FormatException
+ Exception Message: String '3/15/1952 ' was not recognized as a valid DateTime.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLA20GPDA2O:00000005
+
+ -------------- Error (2022-10-09 23:10:36.1206) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.FormatException
+ Exception Message: The DateTime represented by the string '03/15/1952' is not supported in calendar 'System.Globalization.GregorianCalendar'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLA2346466S:00000003
+
+ -------------- Error (2022-10-09 23:23:10.5282) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.FormatException
+ Exception Message: String '003/15/195' was not recognized as a valid DateTime.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLA29DBLDE1:00000005
+
+ -------------- Error (2022-10-10 00:01:56.3638) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống., Đơn vị không được để trống.
+  TraceID: 0HMLA2O1M9MC8:00000009
+
+ -------------- Error (2022-10-10 14:45:55.0104) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống., Đơn vị không được để trống.
+  TraceID: 0HMLAH8N1SI34:00000003
+
+ -------------- Error (2022-10-10 14:45:59.6912) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống., Đơn vị không được để trống.
+  TraceID: 0HMLAH8N1SI34:00000007
+
+ -------------- Error (2022-10-10 22:16:33.6987) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Tên nhân viên không được để trống., Đơn vị không được để trống.
+  TraceID: 0HMLAPATM1F7E:00000007
+
+ -------------- Error (2022-10-10 23:35:55.0791) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-20' at line 1
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLAPATM1F7T:00000001
+
+ -------------- Error (2022-10-10 23:35:56.7941) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-20' at line 1
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLAPATM1F7U:00000001
+
+ -------------- Error (2022-10-10 23:47:58.4129) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLARSGHQLD7:00000001
+
+ -------------- Error (2022-10-10 23:49:13.6223) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLARSGHQLD8:00000001
+
+ -------------- Error (2022-10-10 23:50:27.4086) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLARSGHQLD9:00000001
+
+ -------------- Error (2022-10-10 23:50:42.9309) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLARSGHQLDA:00000001
+
+ -------------- Error (2022-10-10 23:50:52.1739) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLARSGHQLDA:00000003
+
+ -------------- Error (2022-10-11 14:34:24.8086) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBB8JAHO1U:00000001
+
+ -------------- Error (2022-10-11 14:35:00.6251) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBB8JAHO20:00000001
+
+ -------------- Error (2022-10-11 21:18:44.9938) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBID0F3SG4:00000003
+
+ -------------- Error (2022-10-11 21:20:10.3862) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIEPDF5C7:00000003
+
+ -------------- Error (2022-10-11 21:20:20.3647) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIEPDF5C7:0000000D
+
+ -------------- Error (2022-10-11 21:22:42.8915) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIG458VJE:00000005
+
+ -------------- Error (2022-10-11 21:22:52.9593) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIG458VJF:00000009
+
+ -------------- Error (2022-10-11 21:29:48.0215) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIJSUTRR8:00000003
+
+ -------------- Error (2022-10-11 21:29:57.9768) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIJSUTRR8:0000000D
+
+ -------------- Error (2022-10-11 21:34:41.3070) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'MISA.QTKD.Common.Entities.Employee' to type 'System.String'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIMSFLJ0R:00000003
+
+ -------------- Error (2022-10-11 21:34:50.3527) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'MISA.QTKD.Common.Entities.Employee' to type 'System.String'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIMSFLJ0R:0000000D
+
+ -------------- Error (2022-10-11 21:37:37.3397) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'MISA.QTKD.Common.Entities.Employee' to type 'System.String'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIOFT4BUJ:00000003
+
+ -------------- Error (2022-10-11 21:37:47.5377) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'MISA.QTKD.Common.Entities.Employee' to type 'System.String'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIOFT4BUJ:0000000D
+
+ -------------- Error (2022-10-11 21:39:23.6914) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.NotSupportedException
+ Exception Message: The member v_EmployeeCode of type MISA.QTKD.Common.Entities.Employee cannot be used as a parameter value
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBIPDO0JC4:00000003
+
+ -------------- Error (2022-10-11 21:47:25.3751) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  TraceID: 0HMLBISH5SIMF:00000003
+
+ -------------- Error (2022-10-11 21:55:28.2689) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBJ2D753G7:00000005
+
+ -------------- Error (2022-10-11 21:56:20.1343) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBJ2D753G7:0000000F
+
+ -------------- Error (2022-10-11 22:00:12.6003) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBJ533CK12:00000009
+
+ -------------- Error (2022-10-11 22:00:19.3809) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBJ533CK12:0000000D
+
+ -------------- Error (2022-10-11 22:05:12.0263) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.ArgumentException' to type 'MySqlConnector.MySqlException'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBJ7SI3NRI:00000009
+
+ -------------- Error (2022-10-11 22:06:12.5506) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.ArgumentException' to type 'MySqlConnector.MySqlException'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBJ7SI3NRJ:00000005
+
+ -------------- Error (2022-10-11 22:11:59.8193) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBJACPAQAD:00000003
+
+ -------------- Error (2022-10-11 22:12:14.1765) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DuplicateCode
+  DevMsg: Duplicate EmployeeCode
+  DserMsg: Mã nhân viên đã tồn tại trong hệ thống, vui lòng kiểm tra lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLBJACPAQAD:00000009
+
+ -------------- Error (2022-10-12 13:39:20.8059) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLC3GUR45HR:00000002
+
+ -------------- Error (2022-10-12 13:39:25.4726) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLC3GUR45HR:00000003
+
+ -------------- Error (2022-10-12 13:54:21.9669) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Data too long for column 'v_EmployeeName' at row 1
+ Additional Info: Lỗi: AccountErrorCode: DataTooLong
+  DevMsg: Data too long
+  DserMsg: Dữ liệu quá dài, vui lòng nhập lại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLC3GUR45I1:00000003
+

@@ -1,9 +1,5 @@
-﻿using MISA.QTKD.Common.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MISA.QTKD.Common;
+using MISA.QTKD.Common.Entities;
 
 namespace MISA.QTKD.DL
 {
@@ -46,7 +42,7 @@ namespace MISA.QTKD.DL
         /// </summary>
         /// <param name="record">Bản ghi cần thêm</param>
         /// <returns>id bản ghi</returns>
-        public Guid Insert(T record);
+        public Response Insert(T record);
 
         /// <summary>
         /// Sửa 1 bản ghi
@@ -54,7 +50,7 @@ namespace MISA.QTKD.DL
         /// </summary>
         /// <param name="record">Bản ghi sửa</param>
         /// <returns>id bản ghi</returns>
-        public Guid Edit(T record);
+        public Response Edit(T record);
 
         /// <summary>
         /// Xóa 1 bản ghi
@@ -63,5 +59,13 @@ namespace MISA.QTKD.DL
         /// <param name="employeeID">id bản ghi cần xóa</param>
         /// <returns>id bản ghi</returns>
         public Guid Delete(Guid employeeID);
+
+        /// <summary>
+        /// Kiểm tra mã trùng
+        /// CreatedBy: LTQN(9/10/2022)
+        /// </summary>
+        /// <param name="record">bản ghi nhân viên</param>
+        /// <returns>IDs nếu bị trùng</returns>
+        public Guid checkDuplicateEmployeeCode(T record);
     }
 }

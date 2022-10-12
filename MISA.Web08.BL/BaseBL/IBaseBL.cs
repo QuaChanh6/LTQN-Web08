@@ -1,9 +1,6 @@
-﻿using MISA.QTKD.Common.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MISA.QTKD.Common;
+using MISA.QTKD.Common.Entities;
+
 
 namespace MISA.Web08.BL
 {
