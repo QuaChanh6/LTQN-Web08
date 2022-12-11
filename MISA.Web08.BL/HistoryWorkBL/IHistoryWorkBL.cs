@@ -11,7 +11,7 @@ namespace MISA.Web08.BL
     {
         public IEnumerable<HistoryWork> GetAllWork(string? code);
 
-        public int Update(string employeeCode, Employee e);
+        public void Update(string employeeCode, Employee e);
 
     }
 }

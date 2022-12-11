@@ -22,9 +22,9 @@ namespace MISA.Web08.BL
             return _historyWorkDL.GetAllWork(code);
         }
 
-        public int Update(string employeeCode, Employee e)
+        public void Update(string employeeCode, Employee e)
         {
-            return _historyWorkDL.Update(employeeCode, e);
+            _historyWorkDL.Update(employeeCode, e);
         }
     }
 }

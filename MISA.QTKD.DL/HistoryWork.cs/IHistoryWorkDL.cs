@@ -11,6 +11,6 @@ namespace MISA.QTKD.DL
     {
         public IEnumerable<HistoryWork> GetAllWork(string? code);
 
-        public int Update(string employeeCode, Employee e);
+        public void Update(string employeeCode, Employee e);
     }
 }

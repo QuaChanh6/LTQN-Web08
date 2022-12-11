@@ -29,7 +29,7 @@ namespace MISA.QTKD.DL
             }
         }
 
-        public int Update(string employeeCode, Employee e)
+        public void Update(string employeeCode, Employee e)
         {
 
             //khai báo store proceduce
@@ -48,7 +48,6 @@ namespace MISA.QTKD.DL
             {
                 var records = connect.QueryFirstOrDefault(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
 
-                return records;
             }
         }
     

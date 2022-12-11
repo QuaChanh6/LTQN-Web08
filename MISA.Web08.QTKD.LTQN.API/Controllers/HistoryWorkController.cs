@@ -7,7 +7,7 @@ using MISA.Web08.BL;
 
 namespace MISA.Web08.QTKD.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class HistoryWorkController : BaseController<HistoryWork>
     {
@@ -37,18 +37,15 @@ namespace MISA.Web08.QTKD.API.Controllers
             }
         }
 
-        [HttpPut("{employeeCode}")]
+        [HttpPut("Work/{employeeCode}")]
         public IActionResult Update([FromRoute] string employeeCode, [FromBody] Employee e)
         {
             try
             {
-                var records = _hisBL.Update(employeeCode, e);
-                if (records > 0)
-                {
-                return StatusCode(StatusCodes.Status200OK, records);
+                _hisBL.Update(employeeCode, e);
+ 
+                return StatusCode(StatusCodes.Status200OK);
 
-                }
-                return StatusCode(StatusCodes.Status400BadRequest, "Có lỗi xảy ra.");
 
             }
             catch (Exception ex)
