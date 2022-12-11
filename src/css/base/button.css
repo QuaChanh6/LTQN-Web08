@@ -7,8 +7,69 @@
     border: none;
     cursor: pointer;
     box-sizing: border-box;
+    min-width: 71px;
 }
 
 .button:active{
     background-color: var(--light--green--700);
 }
+
+
+
+/* ------------------------------ button-icon */
+.button-oval{
+    height: 36px;
+    border: 2px solid var(--light--green--800);
+    color: var(--black);
+    border-radius: var(--border--radius);
+    min-width: 195px;
+    margin-top: 12px;
+    margin-left: 16px;
+    background-color: var(--white);
+}
+
+.button-oval-icon{
+    position: absolute;
+    height: 34px;
+    width: 32px;
+    top: 14px;
+    right: 0;
+}
+
+.button-icon-drop{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -560px -360px;
+    height: 16px;
+    width: 16px;
+    margin-top: 9px;
+    margin-left: 8px;
+    border-radius: var(--border--radius);
+    border: none;
+}
+
+.button-text{
+    /* text-align: center; */
+    margin-top: 6px;
+    margin-right: 8px;
+    margin-left: 16px;
+    font-family: misa bold;
+    width: 145px;
+}
+
+.delete-button{
+    height: 34px;
+    width: 100px;
+    background-color: var(--white);
+    color: var(--black);
+    position: absolute;
+    border: 1px solid  #d1d1d3;
+    padding: 5px 10px;
+    right: 0;
+    top: 50px;
+    z-index: 30;
+}
+
+.container-button-oval{
+    position: relative;
+    cursor: pointer;
+}
+

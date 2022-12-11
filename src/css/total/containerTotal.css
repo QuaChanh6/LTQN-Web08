@@ -1,0 +1,30 @@
+.container-total{
+    background-color:  var(--light--green--50);
+    height: calc(100% - 56px);
+    padding-top: 16px;
+    padding-right: 24px;
+    padding-left: 24px;
+}
+.container-overview{
+    display: flex;
+    margin-top: 24px;
+}
+
+.employee{
+    background-color: var(--light--green--600);
+}
+.container-overview .position{
+    background-color: #afb75b;
+}
+
+.total{
+    margin-right: 40px;
+}
+
+.chartTotal{
+    display: flex;
+}
+
+.gender{
+    margin-right: 100px;
+}

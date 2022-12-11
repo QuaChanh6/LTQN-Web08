@@ -1,0 +1,30 @@
+.container-statistic{
+    background-color:  var(--light--green--50);
+    height: calc(100% - 50px);
+    padding-top: 16px;
+    padding-right: 24px;
+    padding-left: 24px;
+}
+
+.content-statistic-detail{
+   background-color: #fff;
+   margin-top: 16px;
+   height: 600px;
+}
+
+.import{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -483px -203px;
+	width: 24px;
+	height: 24px;
+    margin-top: 18px;
+    margin-left: 12px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.import:hover{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -483px -259px;
+  
+}
+.fileImport{
+    width: 0px;
+}

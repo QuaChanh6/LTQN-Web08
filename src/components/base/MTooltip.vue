@@ -1,16 +1,14 @@
 <template>
-    <div class="tooltip"  :class="stand">
+    <div class="tooltip">
       <div class="tooltip-content">{{content}}</div>
-      <div class="arrow"></div>
     </div>
-  </template>
+</template>
   
 <script>
 export default {
   props: {
     content: String,
-    stand: String //đứng trên/dưới/trái/phải
-  }
+  },
 }
 </script>
   

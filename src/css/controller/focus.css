@@ -8,5 +8,13 @@
 }
 
 .button:focus{
-    outline-color: var(--light--green--800);
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: var(--light--green--700);
+    background-color: var(--light--green--700);
+    
+}
+
+.pop-up:focus{
+    outline: 0;
 }

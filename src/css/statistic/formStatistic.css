@@ -1,0 +1,59 @@
+.container-form-statistic{
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.form-statistic{
+    background-color: #fff;
+    position: absolute;
+    z-index: 22;
+    min-width: 550px;
+    padding: 14px 24px;
+    top: calc(50% - 240px);
+    left: calc(50% - 350px);
+}
+/* --------------------------
+header */
+.form-statistic .form-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-statistic .form-header .icon-x{
+    margin: 0;
+}
+
+/* ----------------------------------
+body */
+.form-statistic .nameEmp{
+    font-family: misa bold;
+    font-size: 14px;
+}
+
+.nameEmp span{
+    margin-left: 30px;
+    font-family: misa bold;
+    font-size: 18px;
+}
+
+
+.form-statistic label{
+    width: 40%;
+    padding-top: 14px;
+    margin-right: 20px;
+}
+
+.right{
+    width: 50%;
+    margin-right: 18px;
+}
+.left{
+    width: 50%;
+}
+
+.branch-bank{
+    width: 70%;
+}

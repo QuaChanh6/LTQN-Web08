@@ -1,23 +1,22 @@
 .top-nav{
     background-color: var(--white);
-    height: 56px;
+    height: 50px;
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .top-nav__left{
     display: flex;
     margin-left: 16px;
-    height: 36px;
-    margin-top: 12px;
+    margin-top: 8px;
     align-items: center;
 }
 
 .top-nav__right{
     display: flex;
     margin-right: 16px;
-    margin-top: 12px;
-    height: 36px;
+    margin-top: 8px;
     align-items: center;
 }
 
@@ -51,12 +50,5 @@
     height: 24px;
     width: 24px;
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -460px -405px;
-    cursor: pointer;
-}
-
-.notify{
-    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -787px -30px;
-    height: 24px;
-    width: 24px;
     cursor: pointer;
 }

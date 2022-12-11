@@ -53,3 +53,32 @@ th:hover .tooltip{
 .info-more:hover .tooltip{
     visibility: visible;
 }
+
+
+.refresh:hover{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -1098px -90px;
+}
+
+.export:hover{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -705px -258px;
+}
+
+.hoverEmptyDepartment:hover .emptyCombobox{
+    display: block;
+}
+
+
+/* button oval */
+.delete-button:hover{
+    background-color: var(--light--green--50);
+}
+
+.button-oval:hover{
+    background-color: var(--light--green--50);
+
+}
+.delete-button:hover .button-oval{
+    background-color: #fff;
+}
+
+

@@ -9,15 +9,15 @@
             <div class="paging">
                 <div class="prev" @click="prev">Trước</div>
                 <div class="numberList">
-                    <div class="first number" v-show="lastPage" @click="chooseNumber(1)" :class="{'active': choose === 1}">1</div>
-                    <div class="dot" v-show="viewLast">...</div>
-                    <div class="second number" @click="chooseNumber(second)" :class="{'active': choose === second}" v-show="viewFirst">{{second}}</div>
-                    <div class="third number" @click="chooseNumber(third)" :class="{'active': choose === third}" v-show="viewMiddle">{{third}}</div>
-                    <div  class="fourth number" @click="chooseNumber(fourth)" :class="{'active': choose === fourth}" v-show="viewLast">{{fourth}}</div>
-                    <div class="dot" v-show="viewFirst">...</div>
-                    <div class="last number" v-show="lastPage" @click="chooseNumber(totalPage)" :class="{'active': choose === totalPage}">{{totalPage}}</div>
+                    <div class="first number" v-if="lastPage" @click="chooseNumber(1)" :class="{'active': choose === 1}">1</div>
+                    <div class="dot" v-if="viewLast">...</div>
+                    <div class="second number" @click="chooseNumber(second)" :class="{'active': choose === second}" v-if="viewFirst">{{second}}</div>
+                    <div class="third number" @click="chooseNumber(third)" :class="{'active': choose === third}" v-if="viewMiddle">{{third}}</div>
+                    <div  class="fourth number" @click="chooseNumber(fourth)" :class="{'active': choose === fourth}" v-if="viewLast">{{fourth}}</div>
+                    <div class="dot" v-if="viewFirst">...</div>
+                    <div class="last number" v-if="lastPage" @click="chooseNumber(totalPage)" :class="{'active': choose === totalPage}">{{totalPage}}</div>
                 </div>
-                <div class="next" @click="next">Sau</div>
+                <div class="next" @click="next" v-show="isNext">Sau</div>
             </div>
         </div>
     </div>
@@ -25,13 +25,30 @@
 
 <script>
 import TheDropListPage from "./TheDropListPage.vue";
-import Resource from "@/common/Resource";
+import resource from "@/common/resource";
   export default {
     props: {
         totalPage : Number, //tổng trang
         totalRecord : Number, //tổng bản ghi
+        pageBeforeLoad: Number
     },
     components: { TheDropListPage },
+    created(){
+        if(sessionStorage.getItem("viewPagination") != undefined){
+            let obj = JSON.parse(sessionStorage.getItem("viewPagination"));
+            // đặt lại view trước khi load trang
+            this.second = obj.second;
+            this.third = obj.third;
+            this.fourth = obj.fourth;
+            this.choose = Number(sessionStorage.getItem("page"));
+            this.viewFirst = obj.viewFirst;
+            this.viewLast = obj.viewLast;
+            this.viewMiddle = obj.viewMiddle;
+
+            this.totalPageBeforeLoad = obj.page;
+        }
+    },
+
     methods: {
         /**
          * Chọn trang
@@ -40,7 +57,9 @@ import Resource from "@/common/Resource";
          */
         chooseNumber(numberPage){
             this.choose = numberPage; 
-            this.$emit('changePage', this.choose);    
+            this.$emit('changePage', this.choose);  
+            sessionStorage.setItem('page', numberPage);
+      
         },
         /**
          * Thay đổi giao diện khi ở giữa trang
@@ -95,6 +114,7 @@ import Resource from "@/common/Resource";
          */
         numberRecordOfPage(num){
             this.$emit('recordOfPage', num);
+
         }
     },
     data(){
@@ -103,12 +123,13 @@ import Resource from "@/common/Resource";
             lastPage: true, //giao diện ẩn hiện cho trang đầu và cuối
             viewLast: false, // giao diện khi ở các trang cuối
             viewMiddle: true, //ẩn hiện cho vị trí trang ở chính giữa
-            pageChoose: 1, //trang hiện tại đang chọn
             second: 2,
             third: 3,
             fourth: null,
             choose: 1, //trang được chọn
-            contentPage: Resource.textNumPages, //Nội dung lựa chọn số bản ghi 1 trang
+            contentPage: resource.textNumPages, //Nội dung lựa chọn số bản ghi 1 trang
+            totalPageBeforeLoad: null,
+            isNext: true, //ẩn hiện: Sau
     
         }
     },
@@ -121,7 +142,7 @@ import Resource from "@/common/Resource";
                     this.viewFirst = true;
                     this.changeViewNumberFirst();
                 }
-                if((this.totalPage - 3) >= newChoose && newChoose > 2){
+                if(((this.totalPage - 3) >= newChoose) && newChoose > 2){
                     this.viewFirst = true; // hiện giao diện khi ở các trang giữa
                     this.viewLast = true;
                     this.changeViewNumberMiddle(newChoose);
@@ -132,10 +153,19 @@ import Resource from "@/common/Resource";
                     this.changeViewNumberLast();
 
                 }
+                if(newChoose === this.totalPage){
+                    this.isNext = false;
+                }else this.isNext = true;
             }
+            sessionStorage.setItem('viewPagination', 
+                JSON.stringify({second :this.second,                                           
+                    third : this.third, fourth: this.fourth,
+                viewFirst: this.viewFirst, viewLast: this.viewLast, viewMiddle: this.viewMiddle} ));
         },
 
-        totalPage(newPage){ //hiển thị lại giao diện khi số trang thay đổi
+        totalPage(newPage, oldPage){ //hiển thị lại giao diện khi số trang thay đổi
+            if(oldPage != null){
+                this.choose = 1;
             if(newPage > 3){
                 this.viewFirst = true;
                 this.viewLast = false;
@@ -162,7 +192,11 @@ import Resource from "@/common/Resource";
                     this.third = 2;
                 }
             }
-        }
+            }
+          
+            
+        },
+
     }
 }
   </script>

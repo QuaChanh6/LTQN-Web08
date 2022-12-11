@@ -1,5 +1,5 @@
 <template>
-    <div class="container-toast">
+    <div class="container-toast" :class="type">
         <div class="toast-message-container">
             <div class="toast-message-icon"><div class="icon"></div></div>
             <div class="toast-message-content">{{content}}</div>
@@ -15,7 +15,8 @@
     },
     props: {
         show: Boolean,
-        content: String
+        content: String,
+        type: String
     },
     methods: {
         closeToast(){

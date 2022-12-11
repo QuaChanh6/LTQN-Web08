@@ -4,7 +4,7 @@
     background-color: #fff;
     border: 1px solid #E0E0E0;
     width: 150px;
-    right: 65px;
+    right: 70px;
     z-index: 12;
 }
 
@@ -12,6 +12,7 @@
     padding-left: 16px;
     padding-top: 10px;
     padding-bottom: 10px;
+    cursor: pointer;
 }
 
 
@@ -28,6 +29,7 @@
     width: 230px;
     padding-left: 12px;
     position: relative;
+    cursor: pointer;
 }
 .dropList-text{
     margin-top: 8px;
@@ -58,7 +60,6 @@
     margin-left: 10px;
     border-radius: var(--border--radius);
     border: none;
-    cursor: pointer;
 }
 
 .dropList-icon-drop-rotate{

@@ -21,6 +21,7 @@
     --red: #ef1717;
     --blue: #044EFF;
     --border--radius: 4px;
+    --loading: #eaebe9;
 }
 body{
     font-size: 14px;
@@ -91,6 +92,10 @@ body *{
     border: 1px solid var(--red) !important;
 }
 
+.box{
+    width: calc(100% - 220px);
+    height: 100%;
+}
 
 
   

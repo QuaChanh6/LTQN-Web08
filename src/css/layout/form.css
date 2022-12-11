@@ -14,7 +14,7 @@
     z-index: 20;
     background-color: var(--white);
     min-width: 800px;
-    max-width: 950px;
+    max-width: 1000px;
     border-radius: var(--border--radius);
     padding-left: 32px;
     padding-right: 32px;
@@ -31,6 +31,8 @@
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -731px -30px;
     width: 24px;
     height: 24px;
+    cursor: pointer;
+
 }
 
 .icon-x{
@@ -39,8 +41,6 @@
     height: 24px;
     margin-left: 10px;
     margin-right: -16px;
-}
-.icon-x:hover{
     cursor: pointer;
 }
 
@@ -52,7 +52,7 @@
 .title-employee{
     font-size: 24px;
     font-family: misa bold;
-    width: 250px;
+    margin-right: 16px;
     height: 32px;
 }
 .form-title input{
@@ -67,6 +67,10 @@
 .producer{
     margin-left: 20px;
 }
+
+
+
+
 
 /* body */
 .form-body{
@@ -86,15 +90,23 @@
     width: 100%;
 }
 .row{
-
     margin-top: 14px;
-    margin-right: 25px;
     display: flex;
 }
 .row label{
     font-family: misa medium;
 }
-.row span{
+
+.container-labelWork{
+    display: flex;
+    margin-top: 12px;
+}
+.labelWork{
+    font-family: misa medium;
+    margin-right: 12px;
+    cursor: pointer;
+}
+.row .require{
     color: var(--red);
 }
 /* dòng 1 */
@@ -151,55 +163,36 @@
 
 
 .form-body .identify-number{
-    margin-left: 24px;
-    width: 55%;
+    width: 100%;
 }
 
-.form-body .identity-issued-date{
-    margin-left: 8px;
-    width: 45%;
-}
+
 
 .form-body .position{
     width: 100%;
+    position: relative;
+    margin-left: 24px;
 }
 
-.form-body .identity-issued-place{
-    margin-left: 24px;
-    width: 100%;
-}
+
 
 .form-body .address{
     width: 100%;
+    margin-left: 24px;
 }
 
 .form-body .phone-number{
     width: 25%;
 }
 
-.form-body .landline-phone{
-    margin-left: 8px;
-    width: 25%;
-}
+
 
 .form-body .email{
     margin-left: 8px;
-    width: 25%;
+    width: 40%;
 }
 
-.form-body .account-bank{
-    width: 25%;
-}
 
-.form-body .name-of-bank{
-    margin-left: 8px;
-    width: 25%;
-}
-
-.form-body .branch-of-bank{
-    margin-left: 8px;
-    width: 25%;
-}
 
 
 /* footer */
@@ -230,11 +223,11 @@
 
 
 /* radio */
-/* .input-radio{
+.input-radio{
     -webkit-appearance: none;
     border-radius: 50%;
     outline: none;
-    box-shadow: 0 0 0 2px #409330;
+    box-shadow: 0 0 0 1px #409330;
 }
 
 .input-radio:before {
@@ -248,25 +241,50 @@
 
 .input-radio:checked:before {
     background: #409330;
-} */
+}
 
 .not-empty{
     position: absolute;
     z-index: 12;
     background-color: #000;
     color: #f7eeee;
-    width: 155px;
+    min-width: 155px;
     bottom: -12px;
     padding-left: 4px;
-    border-radius: 2px;
+    border-radius: var(--border--radius);
     border: 1px solid #a7a2a2;
 }
 
 .emptyCode{
-   left: 7px;
+   left: 9px;
+   display: none;
 }
 
 .emptyName{
-    left: 45px;
+    left: 40px;
+    display: none;
 }
+
+.hoverEmptyName:hover .emptyName{
+    display: block;
+
+}
+
+.hoverEmptyCode:hover .emptyCode{
+    display: block;
+
+}
+
+
+.form-title input{
+    width: 16px;
+    height: 16px;
+    margin-left: 12px;
+}
+
+
+
+
+
+
 

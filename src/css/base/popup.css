@@ -38,19 +38,18 @@
 
 }
 .icon-popUp{
-    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -598px -463px;
 	width: 36px;
 	height: 36px;
 }
 .icon{
     margin-right: 24px;
 }
-.warning .icon-popUp-info{
+.warning .icon-info{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -752px -462px;
 	width: 36px;
 	height: 36px;
 }
-.warning .icon-popUp-waring{
+.warning .icon-warning{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -598px -463px;
 	width: 36px;
 	height: 36px;
@@ -75,7 +74,27 @@
     font-family: misa bold;
     border: 1px solid #a4a2a2;
 }
-.button-pop-up-no:hover{
-    background-color: #a4a2a2;
+
+
+.button-no{
+    margin-right: 8px;
 }
 
+/* ----------------type popup */
+
+.icon-warning .icon-popUp{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -598px -463px;
+}
+.icon-warning .three-button{
+    display: none;
+}
+
+
+.icon-question .icon-popUp{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -832px -462px;
+
+}
+
+.icon-question .two-button{
+    display: none;
+}

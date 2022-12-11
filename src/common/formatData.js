@@ -1,5 +1,11 @@
 let format = {};
 
+/**
+ * Hàm kiểm tra rỗng/null/undefined
+ * LTQN(9/9/2022)
+ * @param {*} data 
+ * @returns true/false
+ */
 format.checkEmptyData = (data) =>{
     if(data === '' || data === undefined || data === null){
         return true;
@@ -16,7 +22,7 @@ format.checkEmptyData = (data) =>{
  * author: LTQN(9/9/2022)
  */
 format.formatDate = (dateSrc) => {
-    if (dateSrc != null) {
+    if (dateSrc != null && dateSrc.length > 10) {
         let dateString = dateSrc.slice(0, 10);
         let date = new Date(dateString);
         let year = date.getFullYear().toString(), month = (date.getMonth() + 1).toString().padStart(2, "0"), day = date.getDate().toString().padStart(2, "0");
@@ -68,6 +74,30 @@ format.Email = (email) => {
       }
     return true;
 }
+
+/**
+ * Hàm so sánh ngày tháng
+ * @param {string} date1, date2
+ * @returns 
+ */
+format.checkDate = (date1, date2) => {
+  date1 = new Date(date1);
+  date2 = new Date(date2);
+    if(!format.checkEmptyData(date1) && !format.checkEmptyData(date2)){
+      if(date1.getTime() > date2.getTime())
+        return false;
+    }
+    return true;
+}
+
+format.formatMoney = money =>{
+  if(money && !isNaN(money)){
+
+      return money.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1.");
+  }else{
+      return money;
+  }
+};
 
 
 export default format;

@@ -1,0 +1,12 @@
+.container-department{
+    background-color:  var(--light--green--50);
+    height: calc(100% - 56px);
+    padding-top: 16px;
+    padding-right: 24px;
+    padding-left: 24px;
+}
+
+.content-department-detail{
+    background-color: #fff;
+    padding: 24px;
+}

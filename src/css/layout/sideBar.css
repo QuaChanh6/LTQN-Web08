@@ -1,14 +1,17 @@
 .side-bar{
     background-color: var(--light--green--900);
-    width: 200px;
+    width: 220px;
     min-height: 775px;
     height: 100%;
 }
 .side-bar-title{
-    height: 56px;
-    margin-left: 16px;
     display: flex;
-    /* align-items: center; */
+}
+.title-bar{
+    font-size: 20px;
+    color: #fff;
+    margin-top: 12px;
+    margin-left: 12px
 }
 .select-option-icon{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -424px -88px;
@@ -16,14 +19,9 @@
     height: 24px;
     margin-top: 16px;
     cursor: pointer;
+    margin-left: 12px;
 }
-.logo{
-    height: 36px;
-    width: 140px;
-    margin-top: 10px;
-    margin-left: 16px;
-    background-image: url(../../assets/img/Logo_Module_TiengViet_White.66947422.svg);
-}
+
 
 .side-bar-list{
     display: flex;
@@ -35,7 +33,7 @@
 
 .side-bar-item{
     height: 40px;
-    width: 176px;
+    width: 190px;
     margin-top: 4px;
     display: flex;
     align-items: center;

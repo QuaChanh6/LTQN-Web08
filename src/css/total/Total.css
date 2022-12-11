@@ -1,0 +1,40 @@
+.overView{
+    height: 100px;
+    width: 250px;
+    border-radius: 4px;
+    padding-top: 12px;
+    padding-left: 12px;
+    position: relative;
+    overflow: hidden;
+}
+.overView-employee{
+    background-color: #df6d6d;
+}
+
+.overView-department{
+    background-color: #df6d6d;
+
+}
+
+.overView-position{
+    background-color: #df6d6d;
+
+}
+
+.content-text{
+    font-size: 18px;
+    font-family: misa bold;
+}
+
+.icon-totalView{
+    position: absolute;
+    right: 15px;
+    bottom: -15px;
+    opacity: .6;
+}
+
+.content-number{
+    font-size: 30px;
+    font-family: misa bold;
+    margin-left: 10px;
+}

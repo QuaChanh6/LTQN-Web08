@@ -4,12 +4,12 @@
             <div class="pop-up">
                 <div class="pop-up-content">
                     <div class="icon">
-                        <div :class='icon'></div>
+                        <div :class='type'></div>
                     </div>
                     <div class="pop-up-text">{{text}}</div>
                 </div>
                 <div class="pop-up-action">
-                    <button class="button" @click="closeWarning">{{textClose}}</button>
+                    <button class="button" @click="closeWarning" ref="focus" tabindex="-1">{{textClose}}</button>
                 </div>
             </div>
                 
@@ -20,7 +20,10 @@
     export default {
         props: {
             text: String,
-            icon: String
+            type: String
+        },
+        mounted(){
+            this.$refs.focus.focus();
         },
         data(){
             return{
