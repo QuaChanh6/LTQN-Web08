@@ -24,9 +24,10 @@ namespace MISA.QTKD.DL
         /// </summary>
         /// <param name="ids">chuỗi id</param>
         /// <returns>số bản ghi bị ảnh hưởng</returns>
-        public int DeleteMultiple(String ids);
+        public int DeleteMultiple(List<string> ids);
 
-        
+        public IEnumerable<GenderCount> getCountGender();
+        public IEnumerable<StatusCount> getCountStatus();
 
     }
 }

@@ -41,11 +41,11 @@ namespace MISA.Web08.QTKD.API.Controllers
         /// <returns>Danh sách 1 bảng</returns>
         [HttpGet]
         [Route("")]
-        public IActionResult Records()
+        public IActionResult Records([FromQuery] string? keyword)
         {
             try
             {
-                var records = _baseBL.GetAll();
+                var records = _baseBL.GetAll(keyword);
 
                 return StatusCode(StatusCodes.Status200OK, records);
             }
@@ -66,12 +66,12 @@ namespace MISA.Web08.QTKD.API.Controllers
         /// </summary>
         /// <param name="employeeID">ID nhân viên</param>
         /// <returns>thông tin một nhân viên</returns>
-        [HttpGet("{employeeID}")]
-        public IActionResult Records([FromRoute] Guid employeeID)
+        [HttpGet("{id}")]
+        public IActionResult Records([FromRoute] Guid id)
         {
             try
             {
-                var employee = _baseBL.GetById(employeeID);
+                var employee = _baseBL.GetById(id);
 
                 return StatusCode(StatusCodes.Status200OK, employee);
             }
@@ -94,11 +94,11 @@ namespace MISA.Web08.QTKD.API.Controllers
         /// <returns>PagingData: Danh sách nhân viên thỏa mãn điều kiện/ Tổng số bản ghi</returns>
         [HttpGet("filter")]
         public IActionResult Records([FromQuery] string? keyword, [FromQuery] string? sort,
-            [FromQuery] int limit, [FromQuery] int pageNumber)
+            [FromQuery] int limit, [FromQuery] int pageNumber, [FromQuery] string? department, [FromQuery] string? position)
         {
             try
             {
-                PagingData<T> emp = _baseBL.Filter(keyword, sort, limit, pageNumber);
+                PagingData<T> emp = _baseBL.Filter(keyword, sort, limit, pageNumber, department, position);
 
                 // Xử lý kết quả trả về từ DB
                 if (emp.Data.Count > 0)

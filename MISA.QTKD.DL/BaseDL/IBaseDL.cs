@@ -15,7 +15,7 @@ namespace MISA.QTKD.DL
         /// Createdby: LTQN(29/9/2022)
         /// </summary>
         /// <returns>danh sách các bản ghi</returns>
-        public IEnumerable<T> GetAll();
+        public IEnumerable<T> GetAll(string? keyword);
 
         /// <summary>
         /// Lấy bản ghi thông qua Id
@@ -34,7 +34,7 @@ namespace MISA.QTKD.DL
         /// <param name="limit">Số lượng bản ghi trong 1 trang</param>
         /// <param name="pageNumber">số trang</param>
         /// <returns></returns>
-        public PagingData<T> Filter(string? keyword, string? sort, int limit, int pageNumber);
+        public PagingData<T> Filter(string? keyword, string? sort, int limit, int pageNumber, string? department, string? position);
 
         /// <summary>
         /// Thêm 1 bản ghi

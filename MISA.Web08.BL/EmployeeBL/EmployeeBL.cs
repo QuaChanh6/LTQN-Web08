@@ -33,9 +33,19 @@ namespace MISA.Web08.BL
         /// </summary>
         /// <param name="ids">chuỗi id</param>
         /// <returns>số bản ghi bị ảnh hưởng</returns>
-        public int DeleteMultiple(string ids)
+        public int DeleteMultiple(List<string> ids)
         {
             return _employeeDL.DeleteMultiple(ids);
+        }
+
+        public IEnumerable<GenderCount> getCountGender()
+        {
+            return _employeeDL.getCountGender();
+        }
+
+        public IEnumerable<StatusCount> getCountStatus()
+        {
+            return _employeeDL.getCountStatus();
         }
     }
 }

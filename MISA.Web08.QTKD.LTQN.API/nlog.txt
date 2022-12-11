@@ -1105,3 +1105,850 @@
   MoreInfo: "https://openapi.misa.com.vn/errorcode"
   TraceID: 0HMLC3GUR45I1:00000003
 
+ -------------- Error (2022-10-13 02:17:04.5078) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Ngày cấp không được lớn hơn hiện tại.
+  TraceID: 0HMLCGOIU355K:00000004
+
+ -------------- Error (2022-10-13 02:17:20.3278) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Ngày cấp không được lớn hơn hiện tại.
+  TraceID: 0HMLCGOIU355K:00000005
+
+ -------------- Error (2022-10-13 02:18:50.9141) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Ngày cấp không được lớn hơn hiện tại.
+  TraceID: 0HMLCGOIU355K:00000006
+
+ -------------- Error (2022-10-13 09:24:05.7855) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.NotSupportedException' to type 'MySqlConnector.MySqlException'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLCO7HPE0F6:00000003
+
+ -------------- Error (2022-10-13 09:25:10.5211) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.NotSupportedException' to type 'MySqlConnector.MySqlException'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLCO8FOGA1A:00000003
+
+ -------------- Error (2022-10-13 09:28:16.6414) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.NotSupportedException' to type 'MySqlConnector.MySqlException'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLCO9EFECI5:00000003
+
+ -------------- Error (2022-10-14 20:59:14.4433) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE misa.web08.qtkd.ltqn.Proc_Salary_GetAll does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDTGV42SO5:00000023
+
+ -------------- Error (2022-10-14 20:59:47.7644) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE misa.web08.qtkd.ltqn.Proc_Salary_GetAll does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDTGV42SO5:00000025
+
+ -------------- Error (2022-10-14 21:01:53.2218) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE misa.web08.qtkd.ltqn.Proc_Salary_GetAll does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDTGV42SO5:0000003B
+
+ -------------- Error (2022-10-14 21:04:22.9321) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 0 (SalaryID=NV0017 - String)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDTIMD7U0N:00000023
+
+ -------------- Error (2022-10-14 21:17:36.2499) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.NotSupportedException
+ Exception Message: Parameter type Object is not supported; see https://fl.vu/mysql-param-type. Value: System.Object
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDTR038V4D:00000025
+
+ -------------- Error (2022-10-14 21:21:13.1044) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.Object' to type 'System.Guid'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDTT56TKII:0000001B
+
+ -------------- Error (2022-10-14 21:26:24.0270) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.Object' to type 'System.Guid'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDTVP3OMGQ:0000001B
+
+ -------------- Error (2022-10-14 21:29:42.1280) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.Object' to type 'System.String'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDU21KSKPV:0000001B
+
+ -------------- Error (2022-10-14 22:01:28.1506) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDUJMFH5P7:0000001B
+
+ -------------- Error (2022-10-14 22:03:35.5958) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDUKUV8NUS:0000001B
+
+ -------------- Error (2022-10-14 22:34:39.9031) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDV65Q6QGT:0000001B
+
+ -------------- Error (2022-10-14 22:50:55.0396) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDV65Q6QGV:0000000F
+
+ -------------- Error (2022-10-14 22:51:50.3987) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDV65Q6QGV:00000011
+
+ -------------- Error (2022-10-14 22:51:53.4076) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDV65Q6QGV:00000013
+
+ -------------- Error (2022-10-14 23:05:38.7491) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDVNF5QDEG:00000019
+
+ -------------- Error (2022-10-14 23:06:24.2017) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDVNF5QDEG:0000001B
+
+ -------------- Error (2022-10-14 23:06:26.0737) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLDVNF5QDEG:0000001D
+
+ -------------- Error (2022-10-15 01:03:49.8635) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLE16LEP3BC:00000007
+
+ -------------- Error (2022-10-15 01:04:18.3014) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLE16LEP3BC:00000013
+
+ -------------- Error (2022-10-15 14:13:24.5433) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEFESAIT48:00000003
+
+ -------------- Error (2022-10-15 14:32:35.6323) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEFESAIT4A:00000007
+
+ -------------- Error (2022-10-15 14:53:56.0804) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEFESAIT4G:00000003
+
+ -------------- Error (2022-10-15 14:55:53.6393) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEFESAIT4G:00000007
+
+ -------------- Error (2022-10-15 14:56:00.0060) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEFESAIT4G:0000000B
+
+ -------------- Error (2022-10-15 14:57:39.4473) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEFESAIT4H:00000003
+
+ -------------- Error (2022-10-15 15:03:51.7691) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEFESAIT4I:00000003
+
+ -------------- Error (2022-10-15 15:04:47.9343) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEFESAIT4I:00000007
+
+ -------------- Error (2022-10-15 15:05:50.4211) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEFESAIT4I:0000000B
+
+ -------------- Error (2022-10-15 15:36:28.7825) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEFESAIT4L:00000007
+
+ -------------- Error (2022-10-15 16:18:19.4643) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEHNK5756N:0000001B
+
+ -------------- Error (2022-10-15 16:25:20.0880) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.ArgumentException' to type 'MySqlConnector.MySqlException'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEHSLMHNI1:00000003
+
+ -------------- Error (2022-10-15 16:25:36.1814) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.ArgumentException' to type 'MySqlConnector.MySqlException'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEHSLMHNI3:00000007
+
+ -------------- Error (2022-10-15 16:39:58.2226) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEHVNIBLER:00000009
+
+ -------------- Error (2022-10-15 20:03:48.2351) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEHVNIBLES:00000001
+
+ -------------- Error (2022-10-15 20:04:02.6677) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.Data.DataException
+ Exception Message: Error parsing column 17 (PositionID=75cce5a6-4f7f-3671-3cf3-eb0223d0a4f7 - Object)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEHVNIBLET:0000000F
+
+ -------------- Error (2022-10-15 20:59:17.1931) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLELPNF3BAE:00000003
+
+ -------------- Error (2022-10-15 21:49:07.5319) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Table 'ptit.nga.positons' doesn't exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLENHEKP3S7:00000017
+
+ -------------- Error (2022-10-15 22:02:15.7428) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLENHEKP3SD:00000003
+
+ -------------- Error (2022-10-15 22:02:26.1776) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLENHEKP3SE:00000003
+
+ -------------- Error (2022-10-15 22:07:16.2432) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLENHEKP3SG:00000007
+
+ -------------- Error (2022-10-15 22:08:02.7856) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLENHEKP3SH:00000003
+
+ -------------- Error (2022-10-15 22:08:08.3776) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLENHEKP3SH:00000007
+
+ -------------- Error (2022-10-15 22:31:06.8681) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_employee_FindCode does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEO0VAVPDL:00000003
+
+ -------------- Error (2022-10-15 23:31:28.0843) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEP1AN0SA8:0000000F
+
+ -------------- Error (2022-10-15 23:31:41.4677) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEP1AN0SA8:00000017
+
+ -------------- Error (2022-10-15 23:32:28.0734) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEPBAIE828:00000003
+
+ -------------- Error (2022-10-15 23:32:36.0208) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEPBAIE828:00000007
+
+ -------------- Error (2022-10-15 23:33:13.4877) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_0900_ai_ci,IMPLICIT) for operation '='
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEPBAIE828:0000000B
+
+ -------------- Error (2022-10-16 00:36:34.7140) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DeleteFailed
+  DevMsg: Delete failed
+  DserMsg: Xóa nhân viên thất bại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEPKLEAJUQ:00000017
+
+ -------------- Error (2022-10-16 00:44:04.8310) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DeleteFailed
+  DevMsg: Delete failed
+  DserMsg: Xóa nhân viên thất bại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEPKLEAJUU:00000003
+
+ -------------- Error (2022-10-16 01:04:19.7440) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DeleteFailed
+  DevMsg: Delete failed
+  DserMsg: Xóa nhân viên thất bại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEQUH0IO0D:00000003
+
+ -------------- Error (2022-10-16 01:04:27.1823) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: DeleteFailed
+  DevMsg: Delete failed
+  DserMsg: Xóa nhân viên thất bại.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLEQUH0IO0D:00000007
+
+ -------------- Error (2022-10-23 01:55:25.2745) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_Where' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLKBROM8H0J:00000017
+
+ -------------- Error (2022-11-05 21:43:40.1592) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLV7A6TBKVF:00000002
+
+ -------------- Error (2022-11-05 21:52:20.8781) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLV7A6TBKVG:00000007
+
+ -------------- Error (2022-11-05 22:22:26.1458) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLV7A6TBKVI:00000003
+
+ -------------- Error (2022-11-05 22:25:07.3156) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLV877TQ6UI:00000003
+
+ -------------- Error (2022-11-05 22:28:33.0851) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLV89CQF33J:00000003
+
+ -------------- Error (2022-11-05 22:31:34.8585) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLV8B4FOO65:00000003
+
+ -------------- Error (2022-11-05 22:36:53.6830) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLV8DABF6BG:00000003
+
+ -------------- Error (2022-11-05 22:43:19.2943) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeCode' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMLV8HNOFV5B:00000003
+
+ -------------- Error (2022-11-23 23:05:32.6633) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: PROCEDURE ptit.nga.Proc_HistoryWork_GetAll does not exist
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMDD7RCPV1A:00000002
+
+ -------------- Error (2022-12-04 17:45:23.1946) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: InvalidInput
+  DevMsg: One or more validation errors occurred
+  DserMsg: Dữ liệu đầu vào không hợp lệ.
+  MoreInfo: Mã nhân viên phải kết thúc là một số., Không đúng định dạng email
+  TraceID: 0HMMLPUNVOG2E:00000002
+
+ -------------- Error (2022-12-10 19:54:13.2135) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Unknown column 'DepartmentCode' in 'where clause'
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMQLGQB8KJ0:00000003
+
+ -------------- Error (2022-12-10 19:56:34.9575) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Unknown column 'DepartmentCode' in 'where clause'
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMQLGQB8KJ9:00000003
+
+ -------------- Error (2022-12-10 19:56:53.3952) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'dự án ORDER BY ModifiedDate DESC LIMIT 20 OFFSET 0' at line 1
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMQLGQB8KJA:00000003
+
+ -------------- Error (2022-12-10 20:03:07.5901) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMQLQ7299FO:00000003
+
+ -------------- Error (2022-12-11 02:31:28.9886) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'viên tư vấn, Phòng hành chính, 8/30/1995 3:20:16 PM); INSERT INTO history' at line 1
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMQSKEP679T:00000002
+
+ -------------- Error (2022-12-11 02:37:40.1119) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Incorrect date value: '8/30/1995 3:20:16 PM' for column 'DateStart' at row 1
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMQSLJTR8CO:00000002
+
+ -------------- Error (2022-12-11 02:40:06.0101) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Incorrect date value: '8/30/1995 3:20:16 PM' for column 'DateStart' at row 1
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMQSOHHHVEP:00000002
+
+ -------------- Error (2022-12-11 02:43:41.9697) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Incorrect datetime value: '8/30/1995' for column 'DateStart' at row 1
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMQSR9SQJU1:00000002
+

@@ -12,3 +12,17 @@ C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6
 C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\refint\MISA.QTKD.Common.dll
 C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\MISA.QTKD.Common.pdb
 C:\Users\Chanh\source\repos\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\ref\MISA.QTKD.Common.dll
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\bin\Debug\net6.0\MISA.QTKD.Common.deps.json
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\bin\Debug\net6.0\MISA.QTKD.Common.dll
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\bin\Debug\net6.0\MISA.QTKD.Common.pdb
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\MISA.QTKD.Common.csproj.AssemblyReference.cache
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\MISA.QTKD.Common.Resources.Resource.resources
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\MISA.QTKD.Common.csproj.GenerateResource.cache
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\MISA.QTKD.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\MISA.QTKD.Common.AssemblyInfoInputs.cache
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\MISA.QTKD.Common.AssemblyInfo.cs
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\MISA.QTKD.Common.csproj.CoreCompileInputs.cache
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\MISA.QTKD.Common.dll
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\refint\MISA.QTKD.Common.dll
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\MISA.QTKD.Common.pdb
+D:\doAn\be\MISA.Web08.QTKD.LTQN\MISQ.QTKD.Common\obj\Debug\net6.0\ref\MISA.QTKD.Common.dll

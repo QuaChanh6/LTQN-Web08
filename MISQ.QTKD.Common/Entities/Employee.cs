@@ -54,7 +54,7 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Mã đơn vị
         /// </summary>
-        public Guid DepartmentID   { get; set; }
+        public Guid DepartmentID { get; set; }
 
         /// <summary>
         /// Tên đơn vị
@@ -66,18 +66,13 @@ namespace MISA.QTKD.Common.Entities
         /// Chức vụ
         /// </summary>
         [Export("Chức vụ")]
-        public string? Position { get; set; }
+        public string? PositionName { get; set; }
 
         /// <summary>
-        /// Nơi cấp chứng minh nhân dân
+        /// ID chức vụ
         /// </summary>
-        public string? IdentityPlace { get; set; }
+        public Guid? PositionID { get; set; }
 
-        /// <summary>
-        /// Ngày cấp chúng minh nhân dân
-        /// </summary>
-        [Date("Ngày cấp không được lớn hơn hiện tại.")]
-        public DateTime? IdentityDate { get; set; }
 
         /// <summary>
         /// Địa chỉ
@@ -90,38 +85,11 @@ namespace MISA.QTKD.Common.Entities
         public string? PhoneNumber { get; set; }
         
         /// <summary>
-        /// Số điện thoại cố định
-        /// </summary>
-        public string? LandlinePhone { get; set; }
-
-        /// <summary>
         /// Email
         /// </summary>
-        [IsNotEmail("Không đúng định dạng email")]
+        [Export("Email")]
+        [IsNotEmail("Không đúng định dạng email"),]
         public string? Email { get; set; }
-
-        /// <summary>
-        /// Tài khoản ngân hàng
-        /// </summary>
-        [Export("Tài khoản ngân hàng")]
-        public string? AccountBank { get; set; }
-
-        /// <summary>
-        /// Tên ngân hàng
-        /// </summary>
-        [Export("Tên ngân hàng")]
-        public string? NameOfBank { get; set; }
-
-        /// <summary>
-        /// Chi nhánh ngân hàng
-        /// </summary>
-        [Export("Chi nhánh ngân hàng")]
-        public string? BranchOfBank { get; set; }
-
-        /// <summary>
-        /// Bổn phận
-        /// </summary>
-        public Duty? Duty { get; set; }
 
         /// <summary>
         /// Ngày tạo
@@ -148,6 +116,12 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Trạng thái
         /// </summary>
-        public Status Status { get; set; } = Status.Use;
+        public Status Status { get; set; }
+
+        [Export("Tình trạng công việc")]
+        public string StatusName   { get; set; }
+
+        [Salary]
+        public Guid SalaryID { get; set; }
     }
 }

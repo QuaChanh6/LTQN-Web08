@@ -20,8 +20,15 @@
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.96.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    <PackageReference Include="Google.Apis.Auth.Mvc" Version="1.58.0" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.58.0.2859" />
+    <PackageReference Include="Google.Apis.Oauth2.v2" Version="1.58.0.1869" />
+    <PackageReference Include="Google.Apis.Storage.v1" Version="1.58.0.2742" />
+    <PackageReference Include="HiNetCloud.NetCloudCore.ExcelDataReader.DataSet" Version="22.11.2.8" />
     <PackageReference Include="NLog" Version="5.0.4" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="5.1.4" />
+    <PackageReference Include="NPOI" Version="2.6.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 

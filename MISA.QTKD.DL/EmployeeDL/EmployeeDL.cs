@@ -13,13 +13,11 @@ namespace MISA.QTKD.DL
         /// </summary>
         /// <param name="ids">chuỗi id</param>
         /// <returns>số bản ghi bị ảnh hưởng</returns>
-        public int DeleteMultiple(string ids)
+        public int DeleteMultiple(List<string> ids)
         {
-            //chuẩn bị tham số đầu vào
-            var parameters = new DynamicParameters();
-            parameters.Add("v_listID", ids);
+ 
             //khai báo store proceduce
-            string storedProceduceName = "Proc_employee_DeleteMultiple";
+            string storedProceduceName = "Proc_employee_Delete";
 
             MySqlTransaction transaction = null;
             //khởi tạo kết nối tới db
@@ -27,12 +25,19 @@ namespace MISA.QTKD.DL
             {
                 connect.Open();
                 transaction = connect.BeginTransaction();
- 
+               
                 try
                 {
-                    int recordsEffected = connect.Execute(storedProceduceName, parameters, transaction, commandType: System.Data.CommandType.StoredProcedure);
+                    foreach (var id in ids)
+                    {
+                        //chuẩn bị tham số đầu vào
+                        var parameters = new DynamicParameters();
+                        parameters.Add("v_EmployeeID", new Guid(id));
+                        int recordsEffected = connect.Execute(storedProceduceName, parameters, transaction, commandType: System.Data.CommandType.StoredProcedure);   
+
+                    }
                     transaction.Commit();
-                    return recordsEffected;
+                    return ids.Count;
                  
                 }
                 catch (Exception)
@@ -78,7 +83,39 @@ namespace MISA.QTKD.DL
 
         }
 
-        
+        public IEnumerable<GenderCount> getCountGender()
+        {
+            //khai báo store proceduce
+            string storedProceduceName = "Proc_employee_GetCountGender";
+
+            //kết nối đến db
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+                //thực hiện câu lệnh 
+                var result = connect.Query<GenderCount>(storedProceduceName, null, commandType: System.Data.CommandType.StoredProcedure);
+
+                // Trả về dữ liệu cho client
+                return result;
+
+            }
+        }
+
+        public IEnumerable<StatusCount> getCountStatus()
+        {
+            //khai báo store proceduce
+            string storedProceduceName = "Proc_employee_GetCountStatus";
+
+            //kết nối đến db
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+                //thực hiện câu lệnh 
+                var result = connect.Query<StatusCount>(storedProceduceName, null, commandType: System.Data.CommandType.StoredProcedure);
+
+                // Trả về dữ liệu cho client
+                return result;
+
+            }
+        }
     }
 
 }

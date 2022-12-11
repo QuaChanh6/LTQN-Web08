@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Chanh\\source\\repos\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\MISA.QTKD.Common.csproj": {}
+    "D:\\doAn\\be\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\MISA.QTKD.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Chanh\\source\\repos\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\MISA.QTKD.Common.csproj": {
+    "D:\\doAn\\be\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\MISA.QTKD.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Chanh\\source\\repos\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\MISA.QTKD.Common.csproj",
+        "projectUniqueName": "D:\\doAn\\be\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\MISA.QTKD.Common.csproj",
         "projectName": "MISA.QTKD.Common",
-        "projectPath": "C:\\Users\\Chanh\\source\\repos\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\MISA.QTKD.Common.csproj",
+        "projectPath": "D:\\doAn\\be\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\MISA.QTKD.Common.csproj",
         "packagesPath": "C:\\Users\\Chanh\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Chanh\\source\\repos\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\obj\\",
+        "outputPath": "D:\\doAn\\be\\MISA.Web08.QTKD.LTQN\\MISQ.QTKD.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Chanh\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -12,13 +12,18 @@ namespace MISA.QTKD.Common.Enums
     public enum Status
     {
         /// <summary>
-        /// Ngừng sủ dụng
+        /// Đang làm việc
         /// </summary>
-        Stop = 0,
+        Work = 0,
 
         /// <summary>
-        /// Sử dụng
+        /// Tạm nghỉ
         /// </summary>
-        Use = 1
+        Pause = 1,
+
+        /// <summary>
+        /// Đang thử việc
+        /// </summary>
+        TryingOut = 2
     }
 }

@@ -47,12 +47,12 @@ namespace MISA.QTKD.DL
 
                     transaction.Commit();
 
-                    //Xử lý kết quả trả về từ DB
-                    if (numberOfAffectedRows > 0) //nếu thành công
+                  
+                    if (numberOfAffectedRows >= 0) 
                     {
                         return ID;
                     }
-                    else // nếu thất bại
+                    else 
                     {
                         return Guid.Empty;
                     }
@@ -85,6 +85,8 @@ namespace MISA.QTKD.DL
             //chuẩn bị tham số đầu vào
             var parameters = new DynamicParameters();
             var props = typeof(T).GetProperties();
+
+
             //lấy id
             Guid id = Guid.Empty;
             foreach (var prop in props)
@@ -97,6 +99,13 @@ namespace MISA.QTKD.DL
                 if (isPrimarykey != null && propValue != null)
                 {
                     id = (Guid)propValue;
+                }
+
+                //tự tạo id nếu là sửa việc làm
+                var idWork = (idForRecordAttribute?)Attribute.GetCustomAttribute(prop, typeof(idForRecordAttribute));
+                if (idWork != null && propValue != null)
+                {
+                    id = new Guid();
                 }
 
                 // lấy attr ngày sửa
@@ -157,7 +166,7 @@ namespace MISA.QTKD.DL
         /// <param name="limit">Số lượng bản ghi trong 1 trang</param>
         /// <param name="pageNumber">Số trang</param>
         /// <returns></returns>
-        public PagingData<T> Filter(string? keyword, string? sort, int limit, int pageNumber)
+        public PagingData<T> Filter(string? keyword, string? sort, int limit, int pageNumber, string? department, string? position)
         {
             //khai báo store proceduce
             string storedProceduceName = String.Format(Resource.Proc_Filter, typeof(T).Name);
@@ -176,7 +185,14 @@ namespace MISA.QTKD.DL
             {
                 whereConditions.Add($"{code} LIKE '%{keyword}%' OR {name} LIKE '%{keyword}%'");
             }
-
+            if(department != null)
+            {
+                whereConditions.Add($"departmentName ='{department}'");
+            }
+            if (position != null)
+            {
+                whereConditions.Add($"positionName ='{position}'");
+            }
             string whereClause = string.Join(" AND ", whereConditions);
             parameters.Add("v_Where", whereClause);
 
@@ -209,23 +225,34 @@ namespace MISA.QTKD.DL
           
         }
 
+
         /// <summary>
         /// Lấy danh sách bản ghi trong 1 bảng
         /// Createdby: LTQN(29/9/2022)
         /// </summary>
         /// <returns>danh sách các bản ghi</returns>
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? keyword)
         {
 
             //khai báo store proceduce
             string storedProceduceName = String.Format(Resource.Proc_GetAll, typeof(T).Name);
-
+            var parameters = new DynamicParameters();
+            if (keyword != null)
+            {
+                string whereClause = $"EmployeeName LIKE '%{keyword}%'";
+                parameters.Add("v_Where", whereClause);
+            }
+            else
+            {
+                parameters.Add("v_Where", "");
+            }
+             
 
             //MySqlTransaction transaction = null;
             //khởi tạo kết nối tới db
             using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
             {
-                    var records = connect.Query<T>(storedProceduceName, null, commandType: System.Data.CommandType.StoredProcedure);
+                    var records = connect.Query<T>(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
                    
                     return records;
             }
@@ -249,12 +276,28 @@ namespace MISA.QTKD.DL
             string IdInput = $"v_{typeof(T).Name}ID";
             parameters.Add(IdInput, id);
 
+
             //khởi tạo kết nối tới db
             using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
             {
      
                     //thực hiện gọi db
                     var record = connect.Query<T>(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+
+
+                //if(Object.ReferenceEquals(typeof(T), typeof(Employee)))
+                //{
+                //    IEnumerable<Employee> emps = (IEnumerable<Employee>)this.GetAll("");
+                //    string query = "";
+                //    foreach (Employee emp in emps)
+                //    {
+                //        query = query + "INSERT INTO historyWork ( EmployeeCode, PositionW, DepartmentW, DateStart)" +
+                //                $"VALUES('{emp.EmployeeCode}', '{emp.PositionName}', '{emp.DepartmentName}', now()); ";
+                //    }
+                //    //thực hiện câu lệnh 
+                //    var result1 = connect.Execute(query);
+
+                //}
 
                     return record;
             }
@@ -272,7 +315,7 @@ namespace MISA.QTKD.DL
         {
             //khai báo store proceduce
             string storedProceduceName = String.Format(Resource.Proc_Insert, typeof(T).Name);
-
+            
             //chuẩn bị tham số đầu vào
             var parameters = new DynamicParameters();
             var props = typeof(T).GetProperties();
@@ -289,10 +332,17 @@ namespace MISA.QTKD.DL
                     propValue = newID;
                 }
                 // lấy attr ngày sửa
-                var ModifiedDate = (ModifiedDateAttribute?)Attribute.GetCustomAttribute(prop, typeof(ModifiedDateAttribute));
-                if (ModifiedDate != null)
+                var modifiedDate = (ModifiedDateAttribute?)Attribute.GetCustomAttribute(prop, typeof(ModifiedDateAttribute));
+                if (modifiedDate != null)
                 {
                     propValue = DateTime.Now;
+                }
+
+                // lấy attr ngày sửa
+                var salary = (SalaryAttribute?)Attribute.GetCustomAttribute(prop, typeof(SalaryAttribute));
+                if (salary != null)
+                {
+                    propValue = Guid.NewGuid();
                 }
                 string input = $"v_{propName}";
                 parameters.Add(input, propValue);

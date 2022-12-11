@@ -10,8 +10,17 @@ namespace MISA.Web08.BL.DepartmentBL
 {
     public class DepartmentBL : BaseBL<Department>, IDepartmentBL
     {
-        public DepartmentBL(IBaseDL<Department> baseDL) : base(baseDL)
+
+        private IDepartmentDL _depDL;
+
+        public DepartmentBL(IDepartmentDL depDL) : base(depDL)
         {
+            _depDL = depDL;
+        }
+
+        public IEnumerable<DepartmentCount> getCountEmployee()
+        {
+            return _depDL.getCountEmployee();
         }
     }
 }

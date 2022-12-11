@@ -93,4 +93,12 @@
     public class DuplicateAttribute : Attribute
     {
     }
+
+    public class SalaryAttribute : Attribute
+    {
+    }
+
+    public class idForRecordAttribute : Attribute
+    {
+    }
 }

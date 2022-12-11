@@ -54,7 +54,12 @@ namespace MISA.Web08.BL
             
             List<string> validation = Validate(record);
 
-            Guid id = _baseDl.checkDuplicateEmployeeCode(record);
+            Guid id = Guid.Empty;
+            if (Object.ReferenceEquals(typeof(T), typeof(Employee)))
+            {
+            id = _baseDl.checkDuplicateEmployeeCode(record);
+
+            }
             if (id != Guid.Empty)
             {
                 return Resource.UserMsg_DuplicateCode;
@@ -82,9 +87,9 @@ namespace MISA.Web08.BL
         /// <param name="limit">Số lượng bản ghi trong 1 trang</param>
         /// <param name="pageNumber">số trang</param>
         /// <returns></returns>
-        public PagingData<T> Filter(string? keyword, string? sort, int limit, int pageNumber)
+        public PagingData<T> Filter(string? keyword, string? sort, int limit, int pageNumber, string? department, string? position)
         {
-            return _baseDl.Filter(keyword, sort, limit, pageNumber);
+            return _baseDl.Filter(keyword, sort, limit, pageNumber, department, position);
         }
 
         /// <summary>
@@ -92,9 +97,9 @@ namespace MISA.Web08.BL
         /// Createdby: LTQN(29/9/2022)
         /// </summary>
         /// <returns>danh sách các bản ghi</returns>
-        public IEnumerable<T> GetAll()
+        public IEnumerable<T> GetAll(string? keyword)
         {
-            return _baseDl.GetAll();
+            return _baseDl.GetAll(keyword);
         }
 
         /// <summary>
@@ -117,22 +122,29 @@ namespace MISA.Web08.BL
         /// <returns>id bản ghi</returns>
         public Object Insert(T record)
         {
-
-            List<string> validation = Validate(record);
-            Guid id = _baseDl.checkDuplicateEmployeeCode(record);
-            if(id != Guid.Empty)
+            if (Object.ReferenceEquals(typeof(Employee), typeof(T)))
             {
-                return Resource.UserMsg_DuplicateCode;
+                List<string> validation = Validate(record);
+                Guid id = _baseDl.checkDuplicateEmployeeCode(record);
+                if (id != Guid.Empty)
+                {
+                    return Resource.UserMsg_DuplicateCode;
 
-            }
-            if (validation.Count == 0)
-            {
-                return _baseDl.Insert(record);
+                }
+                if (validation.Count == 0)
+                {
+                    return _baseDl.Insert(record);
+                }
+                else
+                {
+                    return validation;
+                }
             }
             else
             {
-                return validation;
+                return _baseDl.Insert(record);
             }
+           
             //return _baseDl.Insert(record);
         }
 
