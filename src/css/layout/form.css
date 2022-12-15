@@ -105,6 +105,7 @@
     font-family: misa medium;
     margin-right: 12px;
     cursor: pointer;
+    display: flex;
 }
 .row .require{
     color: var(--red);
@@ -281,6 +282,24 @@
     height: 16px;
     margin-left: 12px;
 }
+
+.icon-pen{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -1656px -88px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-right: 7px;
+    margin-top: -3px;
+}
+
+.icon-view{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -1194px -566px;
+    width: 24px;
+    cursor: pointer;
+    margin-top: 4px;
+    margin-left: 15px;
+}
+
 
 
 

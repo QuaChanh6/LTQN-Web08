@@ -112,7 +112,7 @@ import enumeration from '@/common/enumeration';
         listIdDelete: Array,
         listCheckAllOfPage: Array,
         conditionPos: String,
-        conditionDep: String
+        conditionDep: String,
     },
     created() {
         try {
@@ -125,20 +125,27 @@ import enumeration from '@/common/enumeration';
             const me = this;
             let url = process.env.VUE_APP_URL+'Employees/filter?limit='+this.pageSize+'&pageNumber=';
 
+            
             if(sessionStorage.getItem("page") != undefined){
                 url = url + Number(sessionStorage.getItem("page"));
             }else url = url + this.pageNumber;
-
+            if(sessionStorage.getItem("role") == '2'){
+                url = url +'&department=' + sessionStorage.getItem("managedep").toString();
+            }else{
+                if(!format.checkEmptyData(this.conditionDep)){
+                url = url +'&department=' + this.conditionDep;
+            }
+            }
+            
             this.isLoadTable = true;
             if(!format.checkEmptyData(this.searchEmployee)){ // thực hiện tìm kiếm
                 url = url +'&keyword=' + this.searchEmployee;
             }
-            if(!format.checkEmptyData(this.conditionDep)){
-                url = url +'&department=' + this.conditionDep;
-            }
+
             if(!format.checkEmptyData(this.conditionPos)){
                 url = url +'&position=' + this.conditionPos;
             }
+            
             this.urlTemp = url;
             getUserAsync(url, me).then(data =>{
                 this.isLoadTable = false;

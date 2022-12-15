@@ -5,30 +5,40 @@
             <div class="title-bar"> QUẢN LÝ HỒ SƠ</div>
         </div>
         <div class="side-bar-list">
-            <div class="side-bar-item">
+            <div class="side-bar-item" v-if="role == 0">
                 <div class="icon-total side-bar-icon"></div>
                 <router-link to="/total" class="item-name">Tổng quan</router-link>
 
             </div>
+            
+            <div class="side-bar-item" v-if="role == 1 || role == 2">
+                <div class="icon-money side-bar-icon"></div>
+                <router-link to="/employeeDetail" class="item-name">Thông tin cá nhân</router-link>
+            </div>
 
-            <div class="side-bar-item">
+            <div class="side-bar-item" v-if="role == 1 || role == 2">
+                <div class="icon-money side-bar-icon"></div>
+                <router-link to="/appForm" class="item-name">Quản lý đơn từ</router-link>
+            </div>
+
+            <div class="side-bar-item" v-if="role == 0 || role == 2">
                 <div class="icon-money side-bar-icon"></div>
                 <router-link to="/employee" class="item-name">Nhân viên</router-link>
             </div>
 
-            <div class="side-bar-item">
+            <div class="side-bar-item" v-if="role == 0">
                 <div class="icon-taxt side-bar-icon"></div>
                 <router-link to="/department" class="item-name">Phòng ban</router-link>
             </div>
 
-            <div class="side-bar-item">
+            <div class="side-bar-item" v-if="role == 0">
                 <div class="icon-bills side-bar-icon"></div>
                 <router-link to="/position" class="item-name">Chức vụ</router-link>
             </div>
 
-            <div class="side-bar-item">
+            <div class="side-bar-item"  v-if="role == 0 || role == 2">
                 <div class="icon-analysis side-bar-icon"></div>
-                <router-link to="/statistic" class="item-name">Phân tích tài chính</router-link>
+                <router-link to="/statistic" class="item-name">Lương nhân viên</router-link>
             </div>
         </div>
         
@@ -37,6 +47,11 @@
   
   <script>
   export default {
+    props:{
+        name: String,
+      role: Number,
+      code: String
+    },
     methods: {
         /**
          * Lấy vị trí con chuột

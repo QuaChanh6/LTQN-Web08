@@ -44,7 +44,7 @@ export default {
         redirect: 'follow'
         };
 
-        fetch("https://localhost:7271/api/HistoryWork/AllWork/"+ this.employeeCode, requestOptions)
+        fetch("https://localhost:7271/api/v1/HistoryWork/AllWork/"+ this.employeeCode, requestOptions)
         .then(response => response.json())
         .then(result => {
             this.works = result;

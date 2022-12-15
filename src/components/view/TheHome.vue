@@ -1,8 +1,8 @@
 <template>
-    <TheSidebar @hideTooltip= "hideTooltip" @showTooltip= "showTooltip"/>
+    <TheSidebar @hideTooltip= "hideTooltip" @showTooltip= "showTooltip" :name="name" :role="role"/>
     <div class="box">
-    <TheTopnav @hideTooltip= "hideTooltip" @showTooltip= "showTooltip" :nameOfUser="nameOfUser" @userLogOut='userLogOut'/>
-    <router-view></router-view>
+    <TheTopnav @hideTooltip= "hideTooltip" @showTooltip= "showTooltip" :nameOfUser="name" @userLogOut='userLogOut'/>
+    <router-view  :code="code"></router-view>
     </div>
   </template>
   
@@ -12,8 +12,23 @@ import TheTopnav from '../layout/TheTopnav.vue';
   export default {
     components: { TheSidebar, TheTopnav },
     props:{
-      nameOfUser:String
+      user: Object
     },
+    created(){
+      this.name = sessionStorage.getItem("user");
+      this.role = sessionStorage.getItem("role");
+      this.code = sessionStorage.getItem("code");
+      // if(this.role == 1){
+      //   this.$router.push('/');
+      // }
+    },
+    data() {
+        return {
+          name: '',
+          role: '',
+          code: ''
+        }
+      },
     inheritAttrs: false,
     methods: {
 

@@ -1,0 +1,78 @@
+.employee-detail{
+    background-color: #eeeff1;
+    height: calc(100% - 50px);
+    padding: 16px;
+    overflow-y: auto;
+}
+.detail{
+    margin: auto;
+    background-color: white;
+    border-radius: 16px;
+    padding: 24px;
+    padding-left: 40px;
+}
+.input-detail{
+    border: 1px solid var(--light--green--800);
+    height: 36px;
+    width: 300px;
+    padding-left: 16px;
+}
+.input-detail:focus{
+    border: 1px solid var(--light--green--800);
+
+}
+
+.input-detail:disabled{
+    border: none;
+    border-bottom: 1px solid var(--light--green--800);
+    background-color: white;
+}
+
+.edit-detail .input-detail:disabled{
+    background-color: #f3f3f3;
+}
+.edit-detail  .input-detail{
+    border-radius: 4px;
+    border: 1px solid #d3c3c3;
+}
+.container-input{
+    display: flex;
+    height: 50px;
+    margin-bottom: 16px;
+    align-items: center;
+    width: 100%;
+}
+.container-input .input-radio{
+    height: 12px;
+    width: 12px;
+    margin-left: 10px;
+}
+.label{
+    margin-right: 50px;
+    width: 150px;
+    font-weight: 600;
+}
+
+.column{
+    display: flex;
+    width: 100%;
+}
+.column1{
+    width: 50%;
+}
+.column2{
+    width: 50%;
+}
+
+.buttom-action{
+    display: flex;
+    justify-content: end;
+}
+
+.employee-detail .datepicker{
+    width: 46%;
+
+}
+.employee-detail .datepicker input{
+    border: 1px solid #d3c3c3;
+}

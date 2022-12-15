@@ -91,8 +91,8 @@
                 </div>
             </div>
             <div class="container-labelWork">
-                <label class="labelWork" @click="isShowEditWork =! isShowEditWork">Sửa thông tin vị trí công việc</label>
-                <label class="labelWork" v-if="mode == 2" @click="showWork(emp.employeeCode)">Xem thông tin lịch sử công việc</label>
+                <label class="labelWork" @click="isShowEditWork =! isShowEditWork"><div class="icon-pen"></div>Sửa thông tin vị trí công việc</label>
+                <label class="labelWork" v-if="mode == 2" @click="showWork(emp.employeeCode)"><div class="icon-view"></div>Xem thông tin lịch sử công việc</label>
             </div>
            <!-- <div @click="showFile =! showFile"><label>Bằng cấp đính kèm</label></div> -->
 
@@ -251,11 +251,12 @@ import TheAttachFileVue from './TheAttachFile.vue';
             if(!format.checkEmptyData(this.emp.departmentName)){
                 this.dataCombobox = {id: this.emp.departmentID, name: this.emp.departmentName};
                 this.emptyDepartment = false;
+                this.oldValueDep = this.emp.departmentName;
             }
               //xử lý dữ liệu combobox
               if(!format.checkEmptyData(this.emp.positionName)){
                 this.dataComboboxPosition = {id: this.emp.positionID, name: this.emp.positionName};
-           
+                this.oldValuePos = this.emp.positionName;
             }
             
             Object.assign(this.oldEmp, this.emp);
@@ -373,7 +374,7 @@ import TheAttachFileVue from './TheAttachFile.vue';
                         headers: {'Accept': 'application/json','Content-Type': 'application/json'},
                         body: JSON.stringify(this.emp),
                         }) 
-
+                        this.saveHistoryWork();
                     }
                     //xử lý kết quả trả về
                     me.mode = mode;
@@ -386,6 +387,21 @@ import TheAttachFileVue from './TheAttachFile.vue';
             }
            
            
+        },
+
+        async saveHistoryWork(){
+            let me=this;
+            if(this.oldValueDep != this.emp.departmentName || this.oldValuePos != this.emp.positionName){
+                let url= `${this.Url}HistoryWork/Work/` + this.emp.employeeCode;
+                let response = await fetch(url, {
+                        method: 'PUT',
+                        headers: {'Accept': 'application/json','Content-Type': 'application/json'},
+                        body: JSON.stringify(this.emp),
+                }) 
+                handleResponse(response, me);
+                this.oldValueDep = this.emp.departmentName;
+                this.oldValuePos = this.emp.positionName;
+            }
         },
 
         /**
@@ -573,7 +589,9 @@ import TheAttachFileVue from './TheAttachFile.vue';
             isShowEditWork: false,
             isShowWork:false,
             employeeCode: null,
-            showFile: false
+            showFile: false,
+            oldValuePos: "",
+            oldValueDep:""
         }
     },
     watch:{

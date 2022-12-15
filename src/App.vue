@@ -1,5 +1,5 @@
 <template>
-      <router-view  @userlogin="userlogin" :nameOfUser="nameOfUser" @userLogOut="userLogOut"></router-view>
+      <router-view  @userlogin="userlogin" :user="user" @userLogOut="userLogOut"></router-view>
 </template>
 <script>
 
@@ -16,8 +16,9 @@ export default {
     },
     methods: {
       userlogin(e){
+        this.user.nameOfUser = e.nameOfUser;
+        this.user.role = e.role;
         this.isUser = true;
-        this.nameOfUser = e;
       },
         /**
          * Ẩn tooltip
@@ -51,7 +52,11 @@ export default {
             posYTooltip: 0,
             posXTooltip: 0,
             isUser: false,
-            nameOfUser: '',
+            user: {
+              nameOfUser: '',
+              role: null
+
+            }
    
         };
     },

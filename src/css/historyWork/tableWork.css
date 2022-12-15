@@ -1,7 +1,7 @@
 .container-work{
     position: absolute !important;
     z-index: 50;
-    top: calc(50% - 200px);
+    top: calc(50% - 246px);
     right: calc(50% - 450px);
     max-width: 1000px !important;
     min-width: 10px !important;

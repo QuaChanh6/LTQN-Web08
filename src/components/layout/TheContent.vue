@@ -24,7 +24,7 @@
                                 <MFilter :url="Url + 'LoPositions'" :textName="'position'" @objectItemCombobox="filterPosition"
                                 :placeholder="'Lọc theo Chức vụ'" :clear="clearPos"/>
                                 <div class="icon-filter" @click="filterPos"></div>    
-                                <div class="cancel-filter" v-show="isCancelFilterPos">x</div> 
+                                <div class="cancel-filter pos" v-show="isCancelFilterPos">x</div> 
                             </div>
                         </div>
                     </div>

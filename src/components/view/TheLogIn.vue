@@ -14,7 +14,9 @@
 export default {
     emits: ["userlogin"],
     props:{
-        load:Boolean
+        load:Boolean,
+        name: String,
+        role: Number
     },
     mounted(){
         if(sessionStorage.getItem("user") != undefined){
@@ -35,8 +37,10 @@ export default {
                 })
                 if(response.ok){
                     let data =  await response.json();
-                    sessionStorage.setItem('user', data);
-                    this.$emit('userlogin', data);
+                    sessionStorage.setItem('user', data[0].nameOfUser);
+                    sessionStorage.setItem('role', data[0].role);
+                    sessionStorage.setItem('code', data[0].employeeCode);
+                    this.$emit('userlogin', data[0]);
                     this.$router.go(0);
                 }else{
                     this.isShowValid= true;
