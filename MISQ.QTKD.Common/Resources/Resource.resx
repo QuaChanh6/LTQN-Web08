@@ -169,6 +169,9 @@
     <value>Proc_{0}_GetAll</value>
     <comment>Template lấy tất cả bản ghi trong 1 bảng</comment>
   </data>
+  <data name="Proc_GetCode" xml:space="preserve">
+    <value>Proc_{0}_GetCode</value>
+  </data>
   <data name="Proc_GetRecord" xml:space="preserve">
     <value>Proc_{0}_Get</value>
     <comment>Template lấy thông tin 1 bản ghi trong 1 bảng</comment>

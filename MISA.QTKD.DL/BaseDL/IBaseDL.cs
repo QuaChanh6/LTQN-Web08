@@ -67,5 +67,8 @@ namespace MISA.QTKD.DL
         /// <param name="record">bản ghi nhân viên</param>
         /// <returns>IDs nếu bị trùng</returns>
         public Guid checkDuplicateEmployeeCode(T record);
+
+
+        public IEnumerable<T> GetByCode(string code);
     }
 }

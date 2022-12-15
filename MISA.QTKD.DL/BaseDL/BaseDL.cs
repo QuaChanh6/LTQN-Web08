@@ -305,6 +305,31 @@ namespace MISA.QTKD.DL
 
         }
 
+        public IEnumerable<T> GetByCode(string code)
+        {
+
+            //khai báo store proceduce
+            string storedProceduceName = String.Format(Resource.Proc_GetCode, typeof(T).Name);
+
+            //chuẩn bị tham số đầu vào theo câu lênh
+            var parameters = new DynamicParameters();
+            string IdInput = $"v_{typeof(T).Name}Code";
+            parameters.Add(IdInput, code);
+
+
+            //khởi tạo kết nối tới db
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+
+                //thực hiện gọi db
+                var record = connect.Query<T>(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+
+                return record;
+            }
+
+
+        }
+
         /// <summary>
         /// Thêm bản ghi
         /// CreatedBy: LTQN(29/9/2022)

@@ -84,6 +84,25 @@ namespace MISA.Web08.QTKD.API.Controllers
             }
         }
 
+
+        [HttpGet("code/{code}")]
+        public IActionResult RecordCode([FromRoute] string code)
+        {
+            try
+            {
+                var employee = _baseBL.GetByCode(code);
+
+                return StatusCode(StatusCodes.Status200OK, employee);
+            }
+            catch (Exception ex)
+            {
+                ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
+                handleError.SaveError(ex, er.ToStringMsg(HttpContext.TraceIdentifier));
+
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
+            }
+        }
+
         /// <summary>
         /// Lọc thông tin/ phân trang/ tìm kiếm
         /// </summary>

@@ -11,7 +11,7 @@ namespace MISA.Web08.BL
             _user = user;
         }
 
-        public string Login(string username, string password)
+        public object Login(string username, string password)
         {
             return _user.Login(username, password);
         }

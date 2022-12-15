@@ -8,6 +8,6 @@ namespace MISA.QTKD.DL
 {
     public interface IUserDL
     {
-        public string Login(string username, string passwword);
+        public object Login(string username, string passwword);
     }
 }

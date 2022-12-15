@@ -1974,3 +1974,47 @@
   MoreInfo: "https://openapi.misa.com.vn/errorcode"
   TraceID: 0HMMR6R1KUMSE:00000005
 
+ -------------- Error (2022-12-15 16:07:23.1469) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_EmployeeID' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMUFESI2GO7:00000005
+
+ -------------- Error (2022-12-15 23:10:43.5179) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMUMKTI79GC:00000002
+
+ -------------- Error (2022-12-15 23:11:11.4046) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMUMKTI79GG:00000002
+
+ -------------- Error (2022-12-15 23:11:37.3641) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: 
+ Exception Message: 
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMMUMKTI79GH:00000002
+

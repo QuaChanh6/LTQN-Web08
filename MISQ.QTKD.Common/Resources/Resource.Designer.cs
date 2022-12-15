@@ -178,6 +178,15 @@ namespace MISA.QTKD.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Proc_{0}_GetCode.
+        /// </summary>
+        public static string Proc_GetCode {
+            get {
+                return ResourceManager.GetString("Proc_GetCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Proc_{0}_Get.
         /// </summary>
         public static string Proc_GetRecord {

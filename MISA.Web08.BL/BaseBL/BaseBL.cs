@@ -113,6 +113,10 @@ namespace MISA.Web08.BL
             return _baseDl.GetById(id);
         }
 
+        public IEnumerable<T> GetByCode(string code)
+        {
+            return _baseDl.GetByCode(code);
+        }
 
         /// <summary>
         /// Thêm 1 bản ghi

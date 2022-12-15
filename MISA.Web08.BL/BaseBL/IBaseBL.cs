@@ -55,5 +55,7 @@ namespace MISA.Web08.BL
         /// <param name="employeeID">id bản ghi cần xóa</param>
         /// <returns>id bản ghi</returns>
         public Guid Delete(Guid employeeID);
+
+        public IEnumerable<T> GetByCode(string code);
     }
 }

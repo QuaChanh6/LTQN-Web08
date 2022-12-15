@@ -22,17 +22,22 @@ namespace MISA.Web08.QTKD.API.Controllers
         {
             try
             {
-                string result = _userBL.Login(user.UserName, user.PassWord);
+                if(user.UserName != null && user.PassWord != null)
+                {
+                    var result = _userBL.Login(user.UserName, user.PassWord);
+                    if (result != null)
+                    {
+                        // Trả về dữ liệu cho client
+                        return StatusCode(StatusCodes.Status200OK, result);
+                    }
+                    else
+                    {
+                        return StatusCode(StatusCodes.Status400BadRequest, "Tên đăng nhập hoặc mật khẩu không đúng!");
+                    }
 
-                if (result != "")
-                {
-                    // Trả về dữ liệu cho client
-                    return StatusCode(StatusCodes.Status200OK, result);
                 }
-                else
-                {
-                    return StatusCode(StatusCodes.Status400BadRequest, "Tên đăng nhập hoặc mật khẩu không đúng!");
-                }
+                return StatusCode(StatusCodes.Status400BadRequest, "Tên đăng nhập hoặc mật khẩu không đúng!");
+
             }
             catch (Exception ex)
             {

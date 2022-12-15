@@ -10,7 +10,7 @@ namespace MISA.QTKD.DL.User
 {
     public class UserDL : IUserDL
     {
-        public string Login(string username, string passwword)
+        public object Login(string username, string passwword)
         {
             //khai báo store proceduce
             string storedProceduceName = "Proc_user_Login";
@@ -24,7 +24,7 @@ namespace MISA.QTKD.DL.User
             using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
             {
                 //thực hiện câu lệnh 
-                string user = connect.QueryFirstOrDefault<string>(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+                var user = connect.Query(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
 
                 if(user != null)
                 {
