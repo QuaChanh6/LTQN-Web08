@@ -90,6 +90,15 @@ format.checkDate = (date1, date2) => {
     return true;
 }
 
+format.distanceDate = (date1, date2) => {
+  date1 = new Date(date1);
+  date2 = new Date(date2);
+  let ms1 = date1.getTime();
+  let ms2 = date2.getTime();
+  return Math.ceil((ms2 - ms1) / (24*60*60*1000));
+}
+
+
 format.formatMoney = money =>{
   if(money && !isNaN(money)){
 

@@ -22,7 +22,7 @@
                             </div>
                             <div class="container-input">
                                 <div  class="label">Ngày sinh</div>
-                            <input disabled v-if="stateForm==0" type="text" class="input-detail" :placeholder="emp.dateOfBirth.slice(0,10)">
+                            <input disabled v-if="stateForm==0" type="text" class="input-detail" :placeholder="formatDate(emp.dateOfBirth)">
                             <Datepicker v-if="stateForm==1" class="datepicker" :enableTimePicker="false" 
                             v-model="emp.dateOfBirth" placeholder="DD-MM-YYYY" textInput
                             format = 'dd-MM-yyyy' locale="vi" autoApply
@@ -255,6 +255,11 @@ import TheTableHistoryWorkVue from '../historyWork/TheTableHistoryWork.vue';
         },
         cancelSalary(){
             this.stateFormSalary = 0;
+        },
+        formatDate(e){
+            if(!format.checkEmptyData(e)){
+                return format.formatDate(e);
+            }
         },
         async saveSalary(){
             let url= process.env.VUE_APP_URL +"Salaries/" + this.sal.salaryID;

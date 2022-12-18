@@ -9,6 +9,7 @@ import TheContainerTotal from './components/view/total/TheContainerTotal.vue'
 import TheHome from './components/view/TheHome.vue'
 import TheLogIn from './components/view/TheLogIn.vue'
 import TheDetail from './components/view/employee/TheDetail.vue'
+import TheAppForm from './components/view/employee/TheAppForm.vue'
 //import material-icon scss
 import "font-awesome/css/font-awesome.min.css";
 
@@ -22,7 +23,8 @@ const routes = [
           { path: '/employee', component:  TheContainerEmployee},
           { path: '/department', component:  TheContainerDepartment},
           { path: '/position', component:  TheContainerPosition},
-          { path: '/employeeDetail', component: TheDetail}
+          { path: '/employeeDetail', component: TheDetail},
+          { path: '/appForm', component: TheAppForm}
         ],
       
     },

@@ -53,7 +53,7 @@ import TheTopnav from '../layout/TheTopnav.vue';
             this.isShowTooltip = true;
         },
         userLogOut(){
-          this.$emit('userLogOut');
+          this.$emit('userLogOut', this.role);
         }
     },
 }

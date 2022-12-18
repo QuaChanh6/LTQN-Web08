@@ -1,0 +1,23 @@
+
+
+.app-form-table{
+    width:100%;
+    height: 200px;
+}
+.app-form-table .column2{
+    width: 40% !important;
+}
+
+.app-x{
+    color: red;
+}
+
+.app-v{
+    color: green;
+}
+
+.approve{
+    margin-left: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}

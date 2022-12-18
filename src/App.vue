@@ -65,7 +65,15 @@ export default {
         if(!this.isUser){
           this.$router.push('/login');
         }else{
-          this.$router.push('/total');
+         
+          switch(this.user.role){
+            case 0:
+            this.$router.push('/total');
+            break;
+            default:
+            this.$router.push('/employeeDetail');
+            break;
+          }
         }
       }
     },
