@@ -193,7 +193,7 @@ namespace MISA.QTKD.DL
             {
                 whereConditions.Add($"positionName ='{position}'");
             }
-            string whereClause = string.Join(" AND ", whereConditions);
+                string whereClause = string.Join(" AND ", whereConditions);
             parameters.Add("v_Where", whereClause);
 
 
@@ -314,6 +314,11 @@ namespace MISA.QTKD.DL
             //chuẩn bị tham số đầu vào theo câu lênh
             var parameters = new DynamicParameters();
             string IdInput = $"v_{typeof(T).Name}Code";
+            if (Object.ReferenceEquals(typeof(T), typeof(AppForm)))
+            {
+                IdInput = "v_employeeCode";
+
+            }
             parameters.Add(IdInput, code);
 
 

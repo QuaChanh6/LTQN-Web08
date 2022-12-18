@@ -1,6 +1,8 @@
 using MISA.QTKD.DL;
+using MISA.QTKD.DL.AppFormDL;
 using MISA.QTKD.DL.User;
 using MISA.Web08.BL;
+using MISA.Web08.BL.AppFormBL;
 using MISA.Web08.BL.DepartmentBL;
 using MISA.Web08.BL.SalaryBL;
 
@@ -34,6 +36,8 @@ builder.Services.AddScoped<IHistoryWorkDL, HistoryWorkDL>();
 builder.Services.AddScoped<IHistoryWorkBL, HistoryWorkBL>();
 builder.Services.AddScoped<ISalaryDL, SalaryDL>();
 builder.Services.AddScoped<ISalaryBL, SalaryBL>();
+builder.Services.AddScoped<IAppFormDL, AppFormDL>();
+builder.Services.AddScoped<IAppFormBL, AppFormBL>();
 
 builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
 builder.Services.AddScoped(typeof(IBaseBL<>), typeof(BaseBL<>));
