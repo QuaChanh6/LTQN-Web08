@@ -2227,3 +2227,91 @@
   MoreInfo: "https://openapi.misa.com.vn/errorcode"
   TraceID: 0HMN0Q0ISGUV2:00000015
 
+ -------------- Error (2022-12-22 17:15:22.7684) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Unknown column 'v_department' in 'where clause'
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN40KUO5JNT:00000003
+
+ -------------- Error (2022-12-22 17:18:13.2383) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Unknown column 'v_department' in 'where clause'
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN40MKTV1EQ:00000003
+
+ -------------- Error (2022-12-22 17:18:55.8977) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fc4-7875-78d6-7d32-6a1673ffca7c AND 1=1 ORDER BY s.ModifiedDate DESC' at line 4
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN40MKTV1ER:00000004
+
+ -------------- Error (2022-12-22 17:22:50.5680) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'fc4-7875-78d6-7d32-6a1673ffca7c AND 1=1 ORDER BY s.ModifiedDate DESC' at line 4
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN40MKTV1ES:00000004
+
+ -------------- Error (2022-12-22 17:33:26.2165) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Column 'EmployeeName' in where clause is ambiguous
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN40VMAKMBU:00000005
+
+ -------------- Error (2022-12-22 17:33:41.6848) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Column 'EmployeeName' in where clause is ambiguous
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN40VMAKMBV:00000003
+
+ -------------- Error (2022-12-22 17:33:45.9852) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Column 'EmployeeName' in where clause is ambiguous
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN40VMAKMBV:00000005
+
+ -------------- Error (2022-12-22 17:33:51.4358) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Column 'EmployeeName' in where clause is ambiguous
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với MISA.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN40VMAKMC0:00000003
+

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using MISA.QTKD.Common.Entities;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
@@ -6,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MISA.QTKD.DL.User
+namespace MISA.QTKD.DL
 {
-    public class UserDL : IUserDL
+    public class UserDL : BaseDL<User>, IUserDL
     {
         public object Login(string username, string passwword)
         {

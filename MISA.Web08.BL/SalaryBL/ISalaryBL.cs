@@ -11,5 +11,7 @@ namespace MISA.Web08.BL.SalaryBL
     public interface ISalaryBL : IBaseBL<Salary>
     {
         public int setDataImport(List<List<string>> data);
+
+        public IEnumerable<Salary> GetAllSalary(Guid department, string? keyword);
     }
 }

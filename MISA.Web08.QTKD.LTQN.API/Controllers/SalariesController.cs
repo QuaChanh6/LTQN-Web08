@@ -3,6 +3,8 @@ using ExcelDataReader;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MISA.QTKD.Common.Entities;
+using MISA.QTKD.Common.Enums;
+using MISA.QTKD.Common.Resources;
 using MISA.Web08.BL;
 using MISA.Web08.BL.SalaryBL;
 using NPOI.SS.UserModel;
@@ -96,5 +98,25 @@ namespace MISA.Web08.QTKD.API.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("SalaryManager/{deparment}")]
+        public IActionResult RecordsManager ([FromRoute] Guid deparment, [FromQuery] string? keyword)
+        {
+            try
+            {
+                var records = _salBL.GetAllSalary(deparment, keyword);
+
+                return StatusCode(StatusCodes.Status200OK, records);
+            }
+            catch (Exception ex)
+            {
+                ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
+                handleError.SaveError(ex, er.ToStringMsg(HttpContext.TraceIdentifier));
+
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
+            }
+
+
+        }
     }
 }

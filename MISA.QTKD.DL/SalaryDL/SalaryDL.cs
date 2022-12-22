@@ -36,5 +36,35 @@ namespace MISA.QTKD.DL
 
             }
         }
+
+        public IEnumerable<Salary> GetAllSalary(Guid department, string? keyword)
+        {
+
+            //khai báo store proceduce
+            string storedProceduceName = "Proc_salary_getSalaryOfManager";
+            var parameters = new DynamicParameters();
+            parameters.Add("v_department", department);
+            if (keyword != null)
+            {
+                string whereClause = $"s.EmployeeName LIKE '%{keyword}%' OR s.SalaryCode LIKE '%{keyword}%'";
+                parameters.Add("v_Where", whereClause);
+            }
+            else
+            {
+                parameters.Add("v_Where", "");
+            }
+ 
+
+
+            //MySqlTransaction transaction = null;
+            //khởi tạo kết nối tới db
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+                var records = connect.Query<Salary>(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+
+                return records;
+            }
+
+        }
     }
 }

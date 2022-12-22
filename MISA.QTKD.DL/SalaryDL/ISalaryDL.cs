@@ -11,5 +11,7 @@ namespace MISA.QTKD.DL
     public interface ISalaryDL : IBaseDL<Salary>
     {
         public int setDataImport(List<List<string>> data);
+
+        public IEnumerable<Salary> GetAllSalary(Guid department, string? keyword);
     }
 }

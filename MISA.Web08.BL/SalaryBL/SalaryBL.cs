@@ -19,5 +19,10 @@ namespace MISA.Web08.BL.SalaryBL
         {
             return _salDL.setDataImport(data);
         }
+
+        public IEnumerable<Salary> GetAllSalary(Guid department, string? keyword)
+        {
+            return _salDL.GetAllSalary(department, keyword);
+        }
     }
 }

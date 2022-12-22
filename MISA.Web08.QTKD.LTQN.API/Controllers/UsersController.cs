@@ -8,13 +8,13 @@ namespace MISA.Web08.QTKD.API.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseController<User>
     {
         private IUserBL _userBL;
 
-        public UsersController(IUserBL userBL)
+        public UsersController(IUserBL salBL) : base(salBL)
         {
-            _userBL = userBL;
+            _userBL = salBL;
         }
 
         [HttpPost("login")]
@@ -44,5 +44,7 @@ namespace MISA.Web08.QTKD.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
             }
         }
+
+
     }
 }

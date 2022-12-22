@@ -1,12 +1,13 @@
-﻿using MISA.QTKD.DL;
+﻿using MISA.QTKD.Common.Entities;
+using MISA.QTKD.DL;
 
 
 namespace MISA.Web08.BL
 {
-    public class UserBL : IUserBL
+    public class UserBL : BaseBL<User>, IUserBL
     {
         private IUserDL _user;
-        public UserBL(IUserDL user)
+        public UserBL(IUserDL user) : base(user)
         {
             _user = user;
         }

@@ -239,7 +239,16 @@ namespace MISA.QTKD.DL
             var parameters = new DynamicParameters();
             if (keyword != null)
             {
-                string whereClause = $"EmployeeName LIKE '%{keyword}%'";
+                string whereClause;
+                if (Object.ReferenceEquals(typeof(T), typeof(User)))
+                {
+                    whereClause = $"u.nameOfUser LIKE '%{keyword}%' OR u.employeeCode LIKE '%{keyword}%'";
+                }
+                else
+                {
+                 whereClause = $"EmployeeName LIKE '%{keyword}%'";
+
+                }
                 parameters.Add("v_Where", whereClause);
             }
             else

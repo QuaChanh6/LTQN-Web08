@@ -1,6 +1,5 @@
 using MISA.QTKD.DL;
 using MISA.QTKD.DL.AppFormDL;
-using MISA.QTKD.DL.User;
 using MISA.Web08.BL;
 using MISA.Web08.BL.AppFormBL;
 using MISA.Web08.BL.DepartmentBL;
