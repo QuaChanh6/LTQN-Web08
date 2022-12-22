@@ -11,7 +11,7 @@
                 <div class="import" @click="importSalary()"></div>
                 <input   :key="keyUpLoad" ref="file" class="fileImport" style="visibility: hidden;" @change="handleFileUpload()"  type="file"/>
           </div>
-          <TheTableStatistic @showForm='showFormEdit' :key='keyReloadTable' :search='search'/>
+          <TheTableStatistic @showForm='showFormEdit' :key='keyReloadTable' :search='search' :role="role"/>
       </div>
     </div>
     <TheFormStatistic v-if='isShowFrom' @closeForm='closeForm' :salary='salary' @openToast='openToast' @reload='reload'/>
@@ -145,7 +145,9 @@ async function handleResponse(res, pointer){
         typeToast: null,
         search: '',
         keyReloadTable: null,
-        keyUpLoad: null
+        keyUpLoad: null,
+        code: null,
+        role: null
       }
     },
   

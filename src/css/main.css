@@ -93,7 +93,7 @@ body *{
 }
 
 .box{
-    width: calc(100% - 220px);
+    width: calc(100% - 250px);
     height: 100%;
 }
 

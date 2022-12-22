@@ -19,6 +19,7 @@ import resource from '@/common/resource';
 import format from '../../../common/formatData';
 import TheChart from '@/components/layout/TheChart.vue';
 
+
 async function getUserAsync(url) {
         try {
             let response = await fetch(url);

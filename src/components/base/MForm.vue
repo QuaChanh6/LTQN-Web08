@@ -25,7 +25,7 @@
                 </div>
                 <div class="container-b-input" v-if="typeForm == 2">
                     <label>Số tiền muốn ứng</label>
-                    <input type="text" class="input" placeholder="Nhập số tiền"  v-model="money">
+                    <input type="text" class="input" placeholder="Nhập số tiền"  v-model="ap.money">
                 </div>
                 <div class="container-b-input">
                     <label>Lý do</label>
@@ -64,6 +64,7 @@
               // thực hiện thành công
             if(res.ok){
                 pointer.closeForm();
+                pointer.$emit("reload");
             } //thực hiện thất bại
             else{ //lỗi khác: >=400 && <600
                 

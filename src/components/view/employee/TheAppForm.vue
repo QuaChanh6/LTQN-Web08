@@ -38,7 +38,7 @@
                     </div>
             </div>
            
-            <div class="func" :hidden="role != 2">
+            <div class="func" v-if="role == 2">
                 <div class="mine fuct" :class="{'selected-form': func == 1}" @click="changeFuc(1)">Đơn của tôi</div>
                 <div class="them fuct" :class="{'selected-form': func == 2}" @click="changeFuc(2)">Phê duyệt đơn</div>
             </div>
@@ -51,7 +51,7 @@
         </div>
         
     </div>
-    <MForm @closeForm="closeAppForm" v-if="isAppForm" :typeForm="typeAppForm"></MForm>
+    <MForm @closeForm="closeAppForm" v-if="isAppForm" :typeForm="typeAppForm" @reload="reload"></MForm>
 
 </template>
 

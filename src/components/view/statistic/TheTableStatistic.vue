@@ -58,20 +58,46 @@ import format from '@/common/formatData';
 
   export default {
     props:{
-        search:String
+        search:String,
     },
     created(){
         try {
-            let url = process.env.VUE_APP_URL+'Salaries';
-            if(this.search !=  ''){
-               url = url + "?keyword="+this.search;
-            }
+            this.code = sessionStorage.getItem("code");
+            this.role = sessionStorage.getItem("role");
+            let url = process.env.VUE_APP_URL + "Employees/code/" + this.code;
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+                    this.department = res[0].departmentID;  
+                    if(this.role == 2){
+                        url = process.env.VUE_APP_URL+'Salaries/SalaryManager/' + this.department;
+                        if(!format.checkEmptyData(this.search)){
+                            url =  url + "?keyword=" + this.search;
+                        }
+                        getUserAsync(url).then(data =>{
+                            this.isLoadTable = false;
+                            this.salaries = data;
 
-            getUserAsync(url).then(data =>{
-                this.isLoadTable = false;
-                this.salaries = data;
+                        }); 
+                    } 
 
-            });
+                              
+                }).catch(error => {
+                console.log(error);
+            }) 
+            
+            if(this.role == 0){
+                url = process.env.VUE_APP_URL+'Salaries';
+                if(!format.checkEmptyData(this.search)){
+                    url =  url + "?keyword=" + this.search;
+                }
+                getUserAsync(url).then(data =>{
+                            this.isLoadTable = false;
+                            this.salaries = data;
+
+                        });      
+            }  
+           
 
 
         } catch (error) {
@@ -97,6 +123,9 @@ import format from '@/common/formatData';
             chooseTr: null,
             salary: {},
             isLoadTable: false, // load table
+            department: null,
+            code: null,
+            role:null
         }
     },
 

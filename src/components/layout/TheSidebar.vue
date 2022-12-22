@@ -1,8 +1,15 @@
 <template>
     <div class="side-bar" @mousemove="getPosition" @mouseleave="hideTooltip">
         <div class="side-bar-title">
-            <div class="select-option-icon"></div>
+            <!-- <div class="select-option-icon"></div> -->
+            <div class="logo"></div>
             <div class="title-bar"> QUẢN LÝ HỒ SƠ</div>
+        </div>
+        <div class="info-user">
+            <div class="avt"></div>
+            <div class="name-user">Xin chào, {{name}}</div>
+            <div class="employeeCode-user">{{code}}</div>
+
         </div>
         <div class="side-bar-list">
             <div class="side-bar-item" v-if="role == 0">
@@ -24,6 +31,10 @@
             <div class="side-bar-item" v-if="role == 0 || role == 2">
                 <div class="icon-money side-bar-icon"></div>
                 <router-link to="/employee" class="item-name">Nhân viên</router-link>
+            </div>
+            <div class="side-bar-item" v-if="role == 0">
+                <div class="icon-money side-bar-icon"></div>
+                <router-link to="/user" class="item-name">Quản lý tài khoản</router-link>
             </div>
 
             <div class="side-bar-item" v-if="role == 0">
@@ -93,5 +104,14 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
    @import url(../../css/layout/sideBar.css);
+
+   .logo{
+    background-image: url("../../../public/favicon.ico");
+    height: 32px;
+    width: 32px;
+    background-size: cover;
+    margin-top: 10px;
+    margin-left: 16px;
+   }
   </style>
   

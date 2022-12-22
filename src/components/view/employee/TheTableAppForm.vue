@@ -6,9 +6,11 @@
                     <th class="type af">LOẠI ĐƠN</th>
                     <th class="sDate af">TỪ NGÀY</th>
                     <th class="eDate af">ĐẾN NGÀY</th>
-                    <th class="numDate af">TỔNG NGÀY</th>
+                    <th class="numDate af" v-if="func!=2">TỔNG NGÀY</th>
+                    <th class="numDate af" v-if="func==2">NHÂN VIÊN</th>
                     <th class="reason af">LÝ DO</th>
                     <th class="type af" >NGÀY TẠO</th>
+                    <th class="sal af">ỨNG TIỀN (nếu có)</th>
                     <th class="statusApp af">TÌNH TRẠNG</th>
                 </tr>
             </thead>           
@@ -17,9 +19,11 @@
                     <td class="type">{{handleType(app.type)}}</td>
                     <td class="sDate">{{formatDate(app.dateStart)}}</td>
                     <td class="eDate">{{formatDate(app.dateEnd)}}</td>
-                    <td class="numDate">{{handleNumberDate(app.dateStart, app.dateEnd)}}</td>
+                    <td class="numDate" v-if="func!=2">{{handleNumberDate(app.dateStart, app.dateEnd)}}</td>
+                    <td class="emloyee" v-if="func==2">{{app.employeeName}}</td>
                     <td class="reason">{{app.reason}}</td>
                     <td class="type" >{{formatDate(app.createdDate)}}</td>
+                    <td class="type" >{{app.money}}</td>
                     <td class="statusApp">{{handleStatus(app.status)}}
                     <span :hidden="func != 2 || app.status != 0" class="approve app-x" @click="approve(0, app)">x</span>
                     <span :hidden="func != 2 || app.status != 0" class="approve app-v" @click="approve(1, app)">v</span>
@@ -57,13 +61,14 @@ export default {
         fetch(url, requestOptions)
         .then(response => response.json())
         .then(result => {
-            Object.assign(this.appform0, result.filter(x => x.type != 2));
-            Object.assign(this.appform1, result.filter(x => x.type == 2));
+            // Object.assign(this.appform0, result.filter(x => x.type != 2));
+            // Object.assign(this.appform1, result.filter(x => x.type == 2));
+            Object.assign(this.appform0, result);
+
             console.log(result);
         })
         .catch(error => console.log('error', error));
     
-        console.log(this.appform0);
     },
     methods:{
           /**
@@ -91,6 +96,8 @@ export default {
                     return "Làm thêm giờ";
                 case 0:
                     return "Nghỉ phép";
+                case 2:
+                    return "Ứng lương";
             }
         },
         handleStatus(e){
@@ -136,9 +143,10 @@ export default {
                     this.sal = result[0];
                     if(appform.type != 2){
                         this.sal.dayoff = this.sal.dayoff + Number(this.handleNumberDate(appform.dateStart, appform.dateEnd));
-
-                        this.editSalary();
+                    }else{
+                        this.sal.advanceMoney = this.sal.advanceMoney + appform.money;
                     }
+                    this.editSalary();
                 })
             }
         },

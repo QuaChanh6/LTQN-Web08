@@ -17,7 +17,7 @@ export default {
     methods: {
       userlogin(e){
         this.user.nameOfUser = e.nameOfUser;
-        this.user.role = e.role;
+        this.user.role = sessionStorage.getItem("role");
         this.isUser = true;
       },
         /**
@@ -67,12 +67,12 @@ export default {
         }else{
          
           switch(this.user.role){
-            case 0:
+            case '0':
             this.$router.push('/total');
             break;
             default:
             this.$router.push('/employeeDetail');
-            break;
+
           }
         }
       }

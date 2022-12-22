@@ -1,5 +1,5 @@
 <template>
-    <TheSidebar @hideTooltip= "hideTooltip" @showTooltip= "showTooltip" :name="name" :role="role"/>
+    <TheSidebar @hideTooltip= "hideTooltip" @showTooltip= "showTooltip" :name="name" :role="role" :code="code"/>
     <div class="box">
     <TheTopnav @hideTooltip= "hideTooltip" @showTooltip= "showTooltip" :nameOfUser="name" @userLogOut='userLogOut'/>
     <router-view  :code="code"></router-view>
@@ -18,9 +18,10 @@ import TheTopnav from '../layout/TheTopnav.vue';
       this.name = sessionStorage.getItem("user");
       this.role = sessionStorage.getItem("role");
       this.code = sessionStorage.getItem("code");
-      // if(this.role == 1){
-      //   this.$router.push('/');
-      // }
+      if(this.code == "null"){
+        this.code = "Quản trị hệ thống"
+      }
+
     },
     data() {
         return {

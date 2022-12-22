@@ -1,6 +1,6 @@
 .side-bar{
     background-color: var(--light--green--900);
-    width: 220px;
+    width: 250px;
     min-height: 775px;
     height: 100%;
 }
@@ -34,6 +34,7 @@
 .side-bar-item{
     height: 40px;
     width: 190px;
+    margin: auto;
     margin-top: 4px;
     display: flex;
     align-items: center;
@@ -99,3 +100,28 @@ a{
 }
 
 
+.info-user{
+    color: white;
+    margin-top: 44px;
+}
+
+.avt{
+    background-image: url("../../assets/img/default-avatar.jpg");
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.name-user{
+    text-align: center;
+    margin-top: 16px;
+
+}
+
+.employeeCode-user{
+    text-align: center;
+    margin-top: 8px;
+
+}

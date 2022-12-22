@@ -106,7 +106,7 @@
                         </div>
                         <div class="container-input">
                                 <div  class="label">Lương thưởng</div>
-                            <input disabled type="text" class="input-detail" v-model="sal.advanceMoney">
+                            <input disabled type="text" class="input-detail" v-model="sal.bonus">
 
                         </div>
                         <div class="container-input">
