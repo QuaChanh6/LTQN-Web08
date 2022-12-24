@@ -6,7 +6,7 @@
             <input type="text" class="input" placeholder="Tìm theo mã, tên nhân viên"  v-model="search" @keyup="searchEmployee">
             <div class="icon-search" @click="searchEmployee"></div>
         </div>
-        <TheTableUser :key="keyReloadTable" :search='search'></TheTableUser>
+        <TheTableUser :key="keyReloadTable" :search='search' @reload="reload"></TheTableUser>
       </div>
     </div>
   </template>

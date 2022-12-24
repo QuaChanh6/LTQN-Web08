@@ -20,7 +20,7 @@ thead tr{
     font-size: 11px;
     text-align: left;
     box-shadow: -1px -1px var(--color--border--table);
-    background-color: var(--light--green--100);
+    background-color: #eeeff1;
 }
 th{
     padding: 0 16px;
@@ -92,7 +92,7 @@ td{
 }
 
 .header-sticky-col {
-    background-color: var(--light--green--100);
+    background-color: #eeeff1;
     box-shadow: inset 1px 0 var(--color--border--table);
 }
 
@@ -121,11 +121,11 @@ td{
 }
 
 .chooseTr{
-    background-color: var(--light--green--200);
+    background-color: #F0E6FF;
 }
 
 .chooseTr .sticky-col{
-    background-color: var(--light--green--200);
+    background-color: #F0E6FF;
 }
 
 

@@ -3,7 +3,7 @@
     padding-top: 16px;
     padding-right: 24px;
     padding-left: 24px;
-    background-color: var(--light--green--50);
+    background-color: #eeeff1;
     min-height: 719px;
     height: calc(100% - 56px);
     overflow: hidden;

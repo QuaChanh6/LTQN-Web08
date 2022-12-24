@@ -164,6 +164,12 @@ import resource from "@/common/resource";
         },
 
         totalPage(newPage, oldPage){ //hiển thị lại giao diện khi số trang thay đổi
+            if(newPage == 2 && oldPage == null){
+                this.viewMiddle = false;
+                    this.lastPage = true;
+                    this.viewFirst = false;
+                this.viewLast = false;
+            }
             if(oldPage != null){
                 this.choose = 1;
             if(newPage > 3){

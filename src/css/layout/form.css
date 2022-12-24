@@ -228,7 +228,7 @@
     -webkit-appearance: none;
     border-radius: 50%;
     outline: none;
-    box-shadow: 0 0 0 1px #409330;
+    box-shadow: 0 0 0 1px #2b4a25;
 }
 
 .input-radio:before {
@@ -241,7 +241,7 @@
 }
 
 .input-radio:checked:before {
-    background: #409330;
+    background: #2b4a25;
 }
 
 .not-empty{

@@ -26,11 +26,7 @@ resource.dataDropList = [ //các chức năng
       type: 'Delete',
       text: 'Xóa'
     },
-    {
-      type: 'Stop',
-      text: 'Ngừng sử dụng'
-      }
-    ,
+   
 
 ]
 
@@ -66,7 +62,7 @@ resource. textNumPages = [
 resource.toolDropList = {
   Duplicate: 'Duplicate',
   Delete: 'Delete',
-  Stop: 'Stop',
+
 }
 
 /**
@@ -109,5 +105,23 @@ resource.overView = {
   department: 'overView-department',
   position: 'overView-position'
 }
+
+resource.role = {
+  Manager: "Manager",
+  Employee: "Employee"
+}
+
+
+resource.datarole = [ 
+    {
+      type: 'Manager',
+      text: "Nhân viên quản lý"
+    },
+    {
+      type: 'Employee',
+      text: 'Nhân viên'
+    },
+
+]
 
 export default resource;

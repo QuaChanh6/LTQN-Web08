@@ -413,7 +413,11 @@ export default {
          * author: LTQN(2/10/2022)
          */
         exportEmployee(){
+            let role = sessionStorage.getItem("role");
             let url = `${process.env.VUE_APP_URL}Employees/data-export`;
+            if(role == '2'){
+                url = url + "?deparment="+sessionStorage.getItem("managedep");
+            }
             this.isLoading = true;
             fetch(url).then(response => response.blob())
             .then(blob => {

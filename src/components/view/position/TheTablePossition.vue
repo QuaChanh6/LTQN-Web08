@@ -6,7 +6,7 @@
                     <th class="positionCode">MÃ CHỨC VỤ</th>
                     <th class="positionName">TÊN CHỨC VỤ</th>
                     <th class="numberOfEmployee">SỐ LƯỢNG NHÂN VIÊN</th>
-                    <th class="manager">QUẢN LÝ</th>
+                    <th class="manager">LƯƠNG VỊ TRÍ</th>
                 </tr>
             </thead>           
             <tbody>
@@ -14,7 +14,7 @@
                     <td class="positionCode">{{position.positionCode}}</td>
                     <td class="positionName">{{position.positionName}}</td>
                     <td class="numberOfEmployee">{{getCountOfPosition(position.positionID)}}</td>
-                    <td class="manager">{{position.manager}}</td>
+                    <td class="manager">{{position.salary}}</td>
                 </tr>  
                             
             </tbody>
