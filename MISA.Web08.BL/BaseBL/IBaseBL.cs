@@ -11,7 +11,7 @@ namespace MISA.Web08.BL
         /// Createdby: LTQN(29/9/2022)
         /// </summary>
         /// <returns>danh sách các bản ghi</returns>
-        public IEnumerable<T> GetAll(string? keyword);
+        public IEnumerable<T> GetAll(string? keyword, string? department);
 
         /// <summary>
         /// Lấy bản ghi thông qua Id

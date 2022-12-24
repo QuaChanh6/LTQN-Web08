@@ -71,11 +71,11 @@ namespace MISA.Web08.QTKD.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("data-export")]
-        public IActionResult FileExport()
+        public IActionResult FileExport([FromQuery] string? deparment)
         {
             try
             {
-                var records = _employeeBL.GetAll("");
+                var records = _employeeBL.GetAll(null, deparment);
 
                 string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
                 string fileName = "emp.xlsx";

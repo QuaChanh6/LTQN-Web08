@@ -231,7 +231,7 @@ namespace MISA.QTKD.DL
         /// Createdby: LTQN(29/9/2022)
         /// </summary>
         /// <returns>danh sách các bản ghi</returns>
-        public IEnumerable<T> GetAll(string? keyword)
+        public IEnumerable<T> GetAll(string? keyword, string? department)
         {
 
             //khai báo store proceduce
@@ -255,7 +255,13 @@ namespace MISA.QTKD.DL
             {
                 parameters.Add("v_Where", "");
             }
+
+            if (Object.ReferenceEquals(typeof(T), typeof(Employee)))
+            {
+                  parameters.Add("v_department", department);
+            }
              
+
 
             //MySqlTransaction transaction = null;
             //khởi tạo kết nối tới db

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using MISA.QTKD.Common;
 using MISA.QTKD.Common.Entities;
 using MySqlConnector;
 using System;
@@ -37,6 +38,44 @@ namespace MISA.QTKD.DL
             }
             //khởi tạo kết nối tới db
             //Connection<Employee> connect = new Connection<Employee>();
+        }
+
+        public int EditRoleUser(User record)
+        {
+            //khai báo store proceduce
+            string storedProceduceName = "Proc_user_Edit";
+            //chuẩn bị tham số đầu vào
+            var parameters = new DynamicParameters();
+            parameters.Add("v_username", record.UserName);
+            parameters.Add("v_role", record.role);
+
+            MySqlTransaction transaction = null;
+            //khởi tạo kết nối tới db
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+                connect.Open();
+                transaction = connect.BeginTransaction();
+
+                try
+                {
+                    int recordsEffected = connect.Execute(storedProceduceName, parameters, transaction, commandType: System.Data.CommandType.StoredProcedure);
+
+                    transaction.Commit();
+                    //xử lý dữ liệu trả về
+                        return recordsEffected;
+
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+
+                    return 0;
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
         }
     }
 }

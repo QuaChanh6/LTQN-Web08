@@ -45,7 +45,7 @@ namespace MISA.Web08.QTKD.API.Controllers
         {
             try
             {
-                var records = _baseBL.GetAll(keyword);
+                var records = _baseBL.GetAll(keyword, null);
 
                 return StatusCode(StatusCodes.Status200OK, records);
             }

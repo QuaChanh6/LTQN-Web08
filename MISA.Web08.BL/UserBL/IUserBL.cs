@@ -10,5 +10,6 @@ namespace MISA.Web08.BL
     public interface IUserBL : IBaseBL<User>
     {
         public object Login(string username, string password);
+        public int EditRoleUser(User record);
     }
 }

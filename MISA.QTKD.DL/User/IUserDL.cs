@@ -10,5 +10,7 @@ namespace MISA.QTKD.DL
     public interface IUserDL : IBaseDL<User>
     {
         public object Login(string username, string passwword);
+
+        public int EditRoleUser(User record);
     }
 }

@@ -50,6 +50,6 @@ namespace MISA.QTKD.Common.Entities
         /// <summary>
         /// Quản lý
         /// </summary>
-        public string Manager { get; set; }
+        public int? Salary { get; set; }
     }
 }

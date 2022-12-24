@@ -45,6 +45,28 @@ namespace MISA.Web08.QTKD.API.Controllers
             }
         }
 
+        [HttpPut("Role")]
+        public IActionResult Usernew([FromBody] User user)
+        {
+            try
+            {
+                    var result = _userBL.EditRoleUser(user);
+                    if (result != 0)
+                    {
+                        // Trả về dữ liệu cho client
+                        return StatusCode(StatusCodes.Status200OK, result);
+                    }
+                    else
+                    {
+                        return StatusCode(StatusCodes.Status400BadRequest, "Sửa bản ghi thất bại!");
+                    }
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_UpdateFailed);
+            }
+        }
 
     }
 }
