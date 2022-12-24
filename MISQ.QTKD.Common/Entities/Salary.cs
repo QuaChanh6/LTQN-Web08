@@ -53,5 +53,7 @@ namespace MISA.QTKD.Common.Entities
         public string? ModifiedBy { get; set; } = "LTQN";
 
         public int? Dayoff { get; set; }
+
+        public int? Allowance { get; set; }
     }
 }

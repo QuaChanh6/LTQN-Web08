@@ -193,7 +193,7 @@
     <comment>Message cho User khi bị trùng mã nhân viên</comment>
   </data>
   <data name="UserMsg_Exception" xml:space="preserve">
-    <value>Có lỗi xảy ra! vui lòng liên hệ với MISA.</value>
+    <value>Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.</value>
     <comment>Message cho User đọc khi gặp exception</comment>
   </data>
   <data name="UserMsg_FilterFailed" xml:space="preserve">

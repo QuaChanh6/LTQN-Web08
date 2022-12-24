@@ -232,7 +232,7 @@ namespace MISA.QTKD.Common.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Có lỗi xảy ra! vui lòng liên hệ với MISA..
+        ///   Looks up a localized string similar to Có lỗi xảy ra! vui lòng liên hệ với quản trị viên..
         /// </summary>
         public static string UserMsg_Exception {
             get {
