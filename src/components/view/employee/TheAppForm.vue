@@ -23,7 +23,7 @@
                     </div>
                     <div class="container-input">
                         <div  class="label">Số ngày làm thêm</div>
-                        <h2 class="input-detail">{{hour}}</h2>
+                        <h2 class="input-detail">{{sal.bonusDate}}</h2>
 
                     </div>
                     <div class="container-input">

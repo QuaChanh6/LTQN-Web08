@@ -141,9 +141,13 @@ export default {
                 .then(response => response.json())
                 .then(result => {
                     this.sal = result[0];
-                    if(appform.type != 2){
+                    if(appform.type == 0){
                         this.sal.dayoff = this.sal.dayoff + Number(this.handleNumberDate(appform.dateStart, appform.dateEnd));
-                    }else{
+                    }
+                    if(appform.type == 1){
+                        this.sal.bonusDate = this.sal.bonusDate + Number(this.handleNumberDate(appform.dateStart, appform.dateEnd));
+                    }
+                    if(appform.type == 2){
                         this.sal.advanceMoney = this.sal.advanceMoney + appform.money;
                     }
                     this.editSalary();

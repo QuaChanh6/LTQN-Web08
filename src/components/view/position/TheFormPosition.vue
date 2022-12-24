@@ -18,8 +18,8 @@
 
                 </div>
                 <div class="row name-managar">
-                    <label>Tên quản lý:</label>
-                    <input type="text" class="input" placeholder="Tên quản lý" v-model="pos.Manager">
+                    <label>Lương khởi điểm:</label>
+                    <input type="text" class="input" placeholder="Lương khởi điểm" v-model="pos.Salary">
 
                 </div>
             </div>

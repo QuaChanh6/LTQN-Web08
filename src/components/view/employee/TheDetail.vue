@@ -115,6 +115,11 @@
 
                         </div>
                         <div class="container-input">
+                                <div  class="label">Phụ cấp (Tiền vé gửi xe)</div>
+                            <input disabled type="text" class="input-detail" v-model="sal.allowance">
+
+                        </div>
+                        <div class="container-input">
                                 <div  class="label">Ngày công</div>
                             <input disabled type="text" class="input-detail" v-model="sal.numberWork">
 

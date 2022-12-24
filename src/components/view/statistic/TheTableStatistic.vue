@@ -10,6 +10,7 @@
                     <th class="numWork">SỐ NGÀY LÀM THÊM</th>
                     <th class="bonus">LƯƠNG THƯỞNG</th>
                     <th class="advance-money">ỨNG TRƯỚC</th>
+                    <th class="advance-money">PHỤ CẤP(vé xe)</th>
                     <th class="total-money">TỔNG LƯƠNG</th>
                     <th class="accountBank">SỐ TÀI KHOẢN</th>
                     <th class="nameOfBank">TÊN NGÂN HÀNG</th>
@@ -26,7 +27,8 @@
                     <td class="bonusDate">{{sal.bonusDate}}</td>
                     <td class="bonus">{{formatMoney(sal.bonus)}}</td>
                     <td class="advance-money">{{formatMoney(sal.advanceMoney)}}</td>
-                    <td class="total-money">{{formatMoney(formatTotal(sal.salaryMonthly,sal.numberWork,sal.bonusDate, sal.bonus, sal.advanceMoney))}}</td>
+                    <td class="advance-money">{{formatMoney(sal.allowance)}}</td>
+                    <td class="total-money">{{formatMoney(formatTotal(sal.salaryMonthly,sal.numberWork,sal.bonusDate, sal.bonus, sal.advanceMoney, sal.allowance))}}</td>
                     <td class="accountBank">{{sal.accountBank}}</td>
                     <td class="nameOfBank">{{sal.nameOfBank}}</td>
                     <td class="branchOfBank">{{sal.branchOfBank}}</td>
@@ -105,8 +107,8 @@ import format from '@/common/formatData';
         }
     },
     methods: {
-        formatTotal(salaryMonthly,NumberWork,bonusDate, bonus, advanceMoney){
-            let tong = Math.round((salaryMonthly/22).toFixed(0) * (NumberWork + bonusDate + bonusDate*0.5)) + bonus - advanceMoney;
+        formatTotal(salaryMonthly,NumberWork,bonusDate, bonus, advanceMoney, allowance){
+            let tong = Math.round((salaryMonthly/22).toFixed(0) * (NumberWork + bonusDate + bonusDate*0.5)) + bonus - advanceMoney + allowance;
             return tong;
         },
         //hiển thị form
