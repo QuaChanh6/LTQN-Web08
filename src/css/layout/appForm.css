@@ -20,6 +20,7 @@
 
 .container-table-app-form{
     width: 100%;
+    margin-top: 16px;
 }
 
 .action-app-form{
@@ -30,6 +31,7 @@
     border-radius: 16px;
     padding: 16px;
     margin-top: 24px;
+    padding-top: 0px;
     display: flex;
     justify-content: space-between;
     width: 100%;

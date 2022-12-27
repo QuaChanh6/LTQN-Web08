@@ -43,7 +43,7 @@
                 <div class="them fuct" :class="{'selected-form': func == 2}" @click="changeFuc(2)">Phê duyệt đơn</div>
             </div>
             <div class="detail-app-form">
-                <div class="container-table-app-form">
+                <div class="container-table-app-form" style="margin-top: 16px;">
                 <TheTableAppForm  :key ="keyTable" :employeeCode="code" :func="func" :name="nameUser"></TheTableAppForm>
                 </div>
             </div>

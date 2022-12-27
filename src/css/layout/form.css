@@ -292,6 +292,14 @@
     margin-top: -3px;
 }
 
+.icon-pen-small{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -416px -312px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
 .icon-view{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -1194px -566px;
     width: 24px;

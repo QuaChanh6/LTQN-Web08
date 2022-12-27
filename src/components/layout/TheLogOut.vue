@@ -4,6 +4,10 @@
         <vue-fontawesome :icon="'sign-out'" size="1"></vue-fontawesome>
         <div>Đăng xuất</div>
     </div>
+    <div  class="content-log-out" style="margin-top: 8px;" @click="password()">
+      <div class="icon-pen-small"></div>
+      <div>Đổi mật khẩu</div>
+    </div>
 </div>
 </template>
 
@@ -42,6 +46,9 @@ export default {
         },
         hideLogOut(){
             this.$emit('hideLogOut');
+        },
+        password(){
+          this.$emit('pass');
         }
     }
 }

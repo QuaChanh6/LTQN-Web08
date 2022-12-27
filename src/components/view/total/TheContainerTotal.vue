@@ -7,8 +7,8 @@
         <MTotal class="department total" :number="posLength" :text="'Số lượng phòng ban'" :type="typeOverViewposition" :icon="'briefcase'"/>
       </div>
       <div class="chartTotal">
-        <TheChart class="gender" :type="'gender'" :label="labelChart" :color="'#f87979'"></TheChart>
-        <TheChart :type="'status'" :label="labelStatus" :color="'#204918'"></TheChart>
+        <TheChart class="gender" :type="'gender'" :label="labelChart" :color="'#53668f'"></TheChart>
+        <TheChart :type="'status'" :label="labelStatus" :color="'#c0c9d9 '"></TheChart>
       </div>
     </div>
 </template>

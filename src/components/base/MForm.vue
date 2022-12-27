@@ -29,12 +29,14 @@
                 </div>
                 <div class="container-b-input">
                     <label>Lý do</label>
-                    <textarea class="input"  v-model="ap.reason"></textarea>
+                    <textarea class="text-area" rows="4" cols="27"  v-model="ap.reason"></textarea>
                 </div>
                 <div class="container-b-input">
                     <label>Người quản lý</label>
                     <input disabled type="text" class="input" v-model="manager.employeeName">
                 </div>
+                <label v-if="isValid" style="color:red;">Ngày tháng không hợp lệ!</label>
+
             </div>
             <div class="form-footer" style="justify-content: end;">
             <div class="cancel" style="margin-right: 16px">
@@ -52,6 +54,7 @@
   <script>
 
   import MButton from './MButton.vue';
+  import format from '@/common/formatData';
 
    /**
      * hàm xử lý kết quả trả về
@@ -124,13 +127,36 @@
             this.ap.employeeName = this.emp.employeeName;
             this.ap.employeeCode = this.emp.employeeCode;
             this.ap.manager = this.manager.employeeName;
-            let response = await fetch(`${this.Url}AppForms`,{
-            headers: {'Accept': 'application/json','Content-Type': 'application/json'},
-            method: "POST",
-            body: JSON.stringify(this.ap)
-            })
+            if(this.validate()){
+                let response = await fetch(`${this.Url}AppForms`,{
+                headers: {'Accept': 'application/json','Content-Type': 'application/json'},
+                method: "POST",
+                body: JSON.stringify(this.ap)
+                })
 
-            handleResponse(response, this);
+                handleResponse(response, this);
+                this.isValid = false;
+            }else{
+                this.isValid = true;
+            }
+            
+        },
+        validate(){
+            if(!format.checkEmptyData(this.ap.dateEnd) && !format.checkEmptyData(this.ap.dateEnd)){
+                let check1= format.checkDate(this.ap.dateEnd, this.ap.dateStart);
+                let check2 = format.checkDate(this.ap.dateEnd, new Date());
+                let check3 = format.checkDate(this.ap.dateStart, new Date());
+                if(check1 == true || check2 == true || check3 == true){
+                    return false;
+                }
+                return true;
+            }
+            if(format.checkEmptyData(this.ap.dateEnd) && format.checkEmptyData(this.ap.dateEnd) && this.typeForm == 2){
+                return true;
+
+            }
+            return false;
+
         }
     },
     data(){
@@ -141,7 +167,8 @@
             manager: {},
             Url: process.env.VUE_APP_URL,
             title: '',
-            money: ''
+            money: '',
+            isValid: false
         }
     }
   }

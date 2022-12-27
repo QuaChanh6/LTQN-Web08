@@ -13,11 +13,13 @@
             </div>
 
         </div>
-<TheLogOut @hideLogOut="hideLogOut" v-show="isShowLogOut" @logOut="logOut"></TheLogOut>
+<TheLogOut @hideLogOut="hideLogOut" v-show="isShowLogOut" @logOut="logOut" @pass="pass"></TheLogOut>
+<TheChangePass v-if="showChangePass" @closeChange="closeChange"></TheChangePass>
 </template>
   
 <script>
 import TheLogOut from "./TheLogOut.vue"
+import TheChangePass from "./TheChangePass.vue";
   export default {
     props:{
       nameOfUser: String
@@ -57,6 +59,12 @@ import TheLogOut from "./TheLogOut.vue"
         logOut(){
           sessionStorage.removeItem('user');
           this.$emit('userLogOut');
+        },
+        pass(){
+          this.showChangePass= true;
+        },
+        closeChange(){
+          this.showChangePass = false;
         }
        
     },
@@ -67,10 +75,11 @@ import TheLogOut from "./TheLogOut.vue"
             contentOfToastMessage: "",
             isShowToast: false,
             typeToast: "",
-            isShowLogOut: false
+            isShowLogOut: false,
+            showChangePass: false
         };
     },
-    components: { TheLogOut}
+    components: { TheLogOut, TheChangePass}
 }
 </script>
   

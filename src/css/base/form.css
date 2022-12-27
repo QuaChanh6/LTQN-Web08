@@ -13,13 +13,13 @@
 }
 .b-form-container{
     background-color: white;
-    padding: 16px;
+    padding: 24px;
     border-radius: 8px;
     position: absolute;
     z-index: 15;
-    width: 700px;
+    width: 465px;
     top: calc(50% - 250px);
-    left: calc(50% - 300px);
+    left: calc(50% - 200px);
 
 }
 

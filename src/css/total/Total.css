@@ -8,16 +8,16 @@
     overflow: hidden;
 }
 .overView-employee{
-    background-color: #df6d6d;
+    background-color: white !important;
 }
 
 .overView-department{
-    background-color: #df6d6d;
+    background-color: white !important;
 
 }
 
 .overView-position{
-    background-color: #df6d6d;
+    background-color: white !important;
 
 }
 
