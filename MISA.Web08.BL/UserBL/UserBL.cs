@@ -21,5 +21,10 @@ namespace MISA.Web08.BL
         {
             return _user.EditRoleUser(record);
         }
+
+        public int EditPassword(User user)
+        {
+            return _user.EditPassword(user);
+        }
     }
 }

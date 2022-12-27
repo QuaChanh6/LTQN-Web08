@@ -17,5 +17,7 @@ namespace MISA.QTKD.Common.Entities
 
         public string? employeeCode { get; set; }
 
+        public string? oldPass { get; set; }
+
     }
 }

@@ -11,5 +11,7 @@ namespace MISA.Web08.BL
     {
         public object Login(string username, string password);
         public int EditRoleUser(User record);
+
+        public int EditPassword(User user);
     }
 }

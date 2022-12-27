@@ -12,5 +12,7 @@ namespace MISA.QTKD.DL
         public object Login(string username, string passwword);
 
         public int EditRoleUser(User record);
+
+        public int EditPassword(User user);
     }
 }

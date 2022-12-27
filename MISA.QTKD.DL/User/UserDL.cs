@@ -77,5 +77,44 @@ namespace MISA.QTKD.DL
                 }
             }
         }
+
+        public int EditPassword(User user)
+        {
+            //khai báo store proceduce
+            string storedProceduceName = "Proc_user_password";
+            //chuẩn bị tham số đầu vào
+            var parameters = new DynamicParameters();
+            parameters.Add("v_employeeName", user.NameOfUser);
+            parameters.Add("v_passWord", user.PassWord);
+            parameters.Add("v_oldPassWord", user.oldPass);
+
+            MySqlTransaction transaction = null;
+            //khởi tạo kết nối tới db
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+                connect.Open();
+                transaction = connect.BeginTransaction();
+
+                try
+                {
+                    int recordsEffected = connect.Execute(storedProceduceName, parameters, transaction, commandType: System.Data.CommandType.StoredProcedure);
+
+                    transaction.Commit();
+                    //xử lý dữ liệu trả về
+                    return recordsEffected;
+
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+
+                    return 0;
+                }
+                finally
+                {
+                    connect.Close();
+                }
+            }
+        }
     }
 }

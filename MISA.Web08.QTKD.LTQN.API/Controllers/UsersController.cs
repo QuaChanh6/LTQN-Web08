@@ -68,5 +68,29 @@ namespace MISA.Web08.QTKD.API.Controllers
             }
         }
 
+        [HttpPost("PassWord/{employeeCode}")]
+        public IActionResult Pass([FromRoute] String employeeCode, [FromBody] User user)
+        {
+            try
+            {
+                var result = _userBL.EditPassword(user);
+                if (result != 0)
+                {
+                    // Trả về dữ liệu cho client
+                    return StatusCode(StatusCodes.Status200OK, result);
+                }
+                else
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, "Mật khẩu hiện tại không đúng!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_UpdateFailed);
+            }
+        }
+
+
     }
 }
