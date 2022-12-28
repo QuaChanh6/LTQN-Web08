@@ -93,10 +93,17 @@
                 </div>
                 </div>
             <div class="detail" :class="{'edit-detail': stateFormSalary==1}" style="margin-top: 30px;">
-                <div style="display:flex; align-items: center;">
+                <div class="detail-title" style="display:flex; align-items: center;">
                     <h3 style="margin-right: 8px">Thông tin lương</h3>
-                    <label class="labelWork" @click="editBank"><div class="icon-pen"></div>Sửa thông ngân hàng</label>
+                    <div class="date-salary">
+                        <Datepicker class="datepicker" :enableTimePicker="false" 
+                            v-model="daySalary" placeholder="MM-YYYY" textInput
+                            format = 'MM-yyyy' locale="vi" autoApply
+                            :dayNames="['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']"></Datepicker>
+                    </div> 
+                    <MButton class="btn-save-and-add" :text="'Xem'" @click="getSalaryByDay"/>
                 </div>
+                <label class="labelWork" @click="editBank"><div class="icon-pen"></div>Sửa thông ngân hàng</label>
                 <div class="column">
                     <div class="column1">
                         <div class="container-input">
@@ -130,6 +137,11 @@
                         <div class="container-input">
                                 <div  class="label">Ngày làm thêm</div>
                             <input disabled type="text" class="input-detail" v-model="sal.bonusDate">
+
+                        </div>
+                        <div class="container-input">
+                                <div  class="label">Tổng lương</div>
+                            <input disabled type="text" class="input-detail" v-model="salary">
 
                         </div>
                         <div class="container-input">
@@ -219,12 +231,14 @@ import TheTableHistoryWorkVue from '../historyWork/TheTableHistoryWork.vue';
                   console.log(error);
             }) 
 
-        url = process.env.VUE_APP_URL + "Salaries/code/" + this.code;
+        let now = new Date();
+        let day = (now.getMonth() + 1).toString() + "N" + now.getFullYear().toString();
+        url = process.env.VUE_APP_URL + "Salaries/code/" + this.code + "/" + day;
             fetch(url)
                 .then(res => res.json())
                 .then(res => {
                     this.sal = res[0];              
-                     //xử lý dữ liệu radio
+                     this.salary = Math.round((this.sal.salaryMonthly/26).toFixed(0) * (this.sal.numberWork + this.sal.dayoff + this.sal.bonusDate + this.sal.bonusDate*0.5)) + this.sal.bonus - this.sal.advanceMoney + this.sal.allowance;
                 
                 }).catch(error => {
                   console.log(error);
@@ -288,7 +302,6 @@ import TheTableHistoryWorkVue from '../historyWork/TheTableHistoryWork.vue';
         },
         editBank(){
             this.stateFormSalary = 1;
-
         },
         async save(){
             let me = this;
@@ -298,11 +311,29 @@ import TheTableHistoryWorkVue from '../historyWork/TheTableHistoryWork.vue';
             headers: {'Accept': 'application/json','Content-Type': 'application/json'},
             body: JSON.stringify(this.emp),
             }) 
-
             handleResponse(response, me);
             this.stateForm = 0;
 
-        }
+        },
+        getSalaryByDay(){
+            let day = (this.daySalary.getMonth() + 1).toString() + "N" + this.daySalary.getFullYear().toString();
+            let url = process.env.VUE_APP_URL + "Salaries/code/" + this.code + "/" + day;
+                fetch(url)
+                    .then(res => res.json())
+                    .then(res => {
+                        if(res.length > 0){
+                            this.sal = res[0];             
+                            this.salary = Math.round((this.sal.salaryMonthly/26).toFixed(0) * (this.sal.numberWork + this.sal.dayoff + this.sal.bonusDate + this.sal.bonusDate*0.5)) + this.sal.bonus - this.sal.advanceMoney + this.sal.allowance;
+                            
+                        }else{
+                            this.sal = [];
+                            this.salary = null;
+                        }
+                    }).catch(error => {
+                    console.log(error);
+                }) 
+
+            }
     },
     data(){
         return{
@@ -313,7 +344,9 @@ import TheTableHistoryWorkVue from '../historyWork/TheTableHistoryWork.vue';
             picked: null, //link đến radio input
             pickedStatus: null,
             stateFormSalary: 0,
-            isShowWork: false
+            isShowWork: false,
+            salary: null,
+            daySalary: null
         }
     }
   }

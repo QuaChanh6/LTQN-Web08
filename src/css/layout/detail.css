@@ -76,3 +76,25 @@
 .employee-detail .datepicker input{
     border: 1px solid #d3c3c3;
 }
+
+.date-salary .dp__input_icon{
+    left: 0 !important;
+}
+
+.date-salary .datepicker{
+    width: 100% !important;
+}
+
+.date-salary .dp__input{
+    padding-left: 30px !important;
+}
+
+.date-salary{
+    margin: 0px 12px;
+    width: 150px;
+}
+
+.detail .detail-title button{
+    height: 25px;
+    padding: 0px 8px;
+}

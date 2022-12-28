@@ -5,7 +5,7 @@
             <div class="header-app-form">
                 <div class="detail-add">
                     <div class="action-app-form">
-                        <MButton class="btn-cancel btn" :text="'Đơn xin nghỉ phép'" @click="showDayOff1"/>
+                        <MButton class="btn-cancel btn" :disablebutton="disablebutton" :text="'Đơn xin nghỉ phép'" @click="showDayOff1"/>
                         <MButton class="btn-cancel btn" :text="'Đơn làm thêm giờ'" @click="showDayOff2"/>
                         <MButton class="btn-cancel btn" :text="'Đơn ứng lương'" @click="showSalary"/>    
                     </div>
@@ -67,7 +67,9 @@ export default {
         this.role = sessionStorage.getItem("role");
         this.nameUser = sessionStorage.getItem("user");
 
-        let url = `${this.Url}Salaries/code/` + this.code;
+        let now = new Date();
+        let day = (now.getMonth() + 1).toString() + "N" + now.getFullYear().toString();
+        let url = process.env.VUE_APP_URL + "Salaries/code/" + this.code + "/" + day;
         var requestOptions = {
             method: 'GET',
             redirect: 'follow'
@@ -82,7 +84,13 @@ export default {
     },
     methods:{
         handleDay(a){
-            return 12 - a;
+            let day = 12 -a;
+            if(day == 0){
+                this.disablebutton = true;
+            }else{
+                this.disablebutton = false;
+            }
+            return day;
         },
         closeAppForm(){
             this.isAppForm = false;
@@ -120,6 +128,7 @@ export default {
             keyTable: null,
             sal:{},
             Url: process.env.VUE_APP_URL,
+            disablebutton: false
         }
     }
 

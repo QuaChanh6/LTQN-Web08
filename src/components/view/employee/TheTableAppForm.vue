@@ -124,13 +124,16 @@ export default {
         },
         async updateAppForm(appform){
             let url= `${this.Url}AppForms/` + appform.id;
+            let now = new Date();
+            let day = (now.getMonth() + 1).toString() + "N" + now.getFullYear().toString();
             await fetch(url, {
             method: 'PUT',
             headers: {'Accept': 'application/json','Content-Type': 'application/json'},
             body: JSON.stringify(appform),
             }) 
             if(appform.status == 1){ // nếu đồng ý
-                url = `${this.Url}Salaries/code/` + appform.employeeCode;
+                url = process.env.VUE_APP_URL + "Salaries/code/" + appform.employeeCode + "/" + day;
+                // url = `${this.Url}Salaries/code/` + appform.employeeCode;
 
                 var requestOptions = {
                     method: 'GET',

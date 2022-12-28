@@ -73,3 +73,12 @@
     cursor: pointer;
 }
 
+.disablebutton{
+    background-color: #90a3d5;
+}
+
+.disablebutton:hover{
+    background-color: #90a3d5 !important;
+
+}
+

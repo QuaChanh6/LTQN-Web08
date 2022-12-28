@@ -1,12 +1,13 @@
 <template>
-    <button class="button">{{text}}</button>
+    <button :disabled="disablebutton" :class="{'disablebutton':disablebutton}" class="button">{{text}}</button>
 </template>
   
 <script>
   export default {
     props: {
         //button thực hiện chức năng gì
-        text: String
+        text: String,
+        disablebutton: Boolean
     }
   }
 </script>

@@ -8,6 +8,7 @@
                     <th class="salary">LƯƠNG CƠ BẢN</th>
                     <th class="numWork">SỐ NGÀY CÔNG</th>
                     <th class="numWork">SỐ NGÀY LÀM THÊM</th>
+                    <th class="numWork">SỐ NGÀY NGHỈ PHÉP</th>
                     <th class="bonus">LƯƠNG THƯỞNG</th>
                     <th class="advance-money">ỨNG TRƯỚC</th>
                     <th class="advance-money">PHỤ CẤP(vé xe)</th>
@@ -25,10 +26,11 @@
                     <td class="salary">{{formatMoney(sal.salaryMonthly)}}</td>
                     <td class="numWork">{{sal.numberWork}}</td>
                     <td class="bonusDate">{{sal.bonusDate}}</td>
+                    <td class="bonusDate">{{sal.dayoff}}</td>
                     <td class="bonus">{{formatMoney(sal.bonus)}}</td>
                     <td class="advance-money">{{formatMoney(sal.advanceMoney)}}</td>
                     <td class="advance-money">{{formatMoney(sal.allowance)}}</td>
-                    <td class="total-money">{{formatMoney(formatTotal(sal.salaryMonthly,sal.numberWork,sal.bonusDate, sal.bonus, sal.advanceMoney, sal.allowance))}}</td>
+                    <td class="total-money">{{formatMoney(formatTotal(sal.salaryMonthly,sal.numberWork,sal.bonusDate,sal.dayoff, sal.bonus, sal.advanceMoney, sal.allowance))}}</td>
                     <td class="accountBank">{{sal.accountBank}}</td>
                     <td class="nameOfBank">{{sal.nameOfBank}}</td>
                     <td class="branchOfBank">{{sal.branchOfBank}}</td>
@@ -107,8 +109,8 @@ import format from '@/common/formatData';
         }
     },
     methods: {
-        formatTotal(salaryMonthly,NumberWork,bonusDate, bonus, advanceMoney, allowance){
-            let tong = Math.round((salaryMonthly/22).toFixed(0) * (NumberWork + bonusDate + bonusDate*0.5)) + bonus - advanceMoney + allowance;
+        formatTotal(salaryMonthly,NumberWork,bonusDate, dayOff, bonus, advanceMoney, allowance){
+            let tong = Math.round((salaryMonthly/26).toFixed(0) * (NumberWork + dayOff + bonusDate + bonusDate*0.5)) + bonus - advanceMoney + allowance;
             return tong;
         },
         //hiển thị form
