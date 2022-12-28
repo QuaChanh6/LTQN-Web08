@@ -84,13 +84,13 @@ namespace MISA.Web08.QTKD.API.Controllers
             }
         }
 
-
+        
         [HttpGet("code/{code}")]
         public IActionResult RecordCode([FromRoute] string code)
         {
             try
             {
-                var employee = _baseBL.GetByCode(code);
+                var employee = _baseBL.GetByCode(code, "");
 
                 return StatusCode(StatusCodes.Status200OK, employee);
             }

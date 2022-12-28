@@ -69,6 +69,6 @@ namespace MISA.QTKD.DL
         public Guid checkDuplicateEmployeeCode(T record);
 
 
-        public IEnumerable<T> GetByCode(string code);
+        public IEnumerable<T> GetByCode(string code, string? month);
     }
 }

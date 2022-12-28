@@ -320,7 +320,7 @@ namespace MISA.QTKD.DL
 
         }
 
-        public IEnumerable<T> GetByCode(string code)
+        public IEnumerable<T> GetByCode(string code, string? month)
         {
 
             //khai báo store proceduce
@@ -332,6 +332,11 @@ namespace MISA.QTKD.DL
             if (Object.ReferenceEquals(typeof(T), typeof(AppForm)))
             {
                 IdInput = "v_employeeCode";
+
+            }
+            if (Object.ReferenceEquals(typeof(T), typeof(Salary)))
+            {
+                parameters.Add("v_month", month);
 
             }
             parameters.Add(IdInput, code);

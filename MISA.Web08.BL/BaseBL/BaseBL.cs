@@ -113,9 +113,9 @@ namespace MISA.Web08.BL
             return _baseDl.GetById(id);
         }
 
-        public IEnumerable<T> GetByCode(string code)
+        public IEnumerable<T> GetByCode(string code, string? month)
         {
-            return _baseDl.GetByCode(code);
+            return _baseDl.GetByCode(code, month);
         }
 
         /// <summary>

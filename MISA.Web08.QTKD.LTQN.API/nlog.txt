@@ -2491,3 +2491,47 @@
   MoreInfo: "https://openapi.misa.com.vn/errorcode"
   TraceID: 0HMN5QUBA2TRH:00000003
 
+ -------------- Error (2022-12-28 23:51:28.7954) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_month' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN8T3EBEJ7I:00000004
+
+ -------------- Error (2022-12-28 23:51:36.1104) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.ArgumentException
+ Exception Message: Parameter 'v_month' not found in the collection.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN8T3EBEJ7I:00000007
+
+ -------------- Error (2022-12-28 23:53:52.3583) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND1=1 ORDER BY s.ModifiedDate DESC' at line 4
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN8UFIIGG7Q:00000003
+
+ -------------- Error (2022-12-28 23:54:11.7366) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Unknown column 'e.Month' in 'where clause'
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN8UFIIGG7S:00000003
+

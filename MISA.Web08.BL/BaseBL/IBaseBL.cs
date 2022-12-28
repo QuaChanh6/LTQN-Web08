@@ -56,6 +56,6 @@ namespace MISA.Web08.BL
         /// <returns>id bản ghi</returns>
         public Guid Delete(Guid employeeID);
 
-        public IEnumerable<T> GetByCode(string code);
+        public IEnumerable<T> GetByCode(string code, string? month);
     }
 }

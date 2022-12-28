@@ -118,5 +118,25 @@ namespace MISA.Web08.QTKD.API.Controllers
 
 
         }
+
+
+
+        [HttpGet("code/{code}/{month}")]
+        public IActionResult RecordCode([FromRoute] string code, [FromRoute] string? month)
+        {
+            try
+            {
+                var employee = _salBL.GetByCode(code, month);
+
+                return StatusCode(StatusCodes.Status200OK, employee);
+            }
+            catch (Exception ex)
+            {
+                ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
+                handleError.SaveError(ex, er.ToStringMsg(HttpContext.TraceIdentifier));
+
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
+            }
+        }
     }
 }

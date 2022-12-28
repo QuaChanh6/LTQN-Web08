@@ -55,5 +55,7 @@ namespace MISA.QTKD.Common.Entities
         public int? Dayoff { get; set; }
 
         public int? Allowance { get; set; }
+
+        public string? Month { get; set; }
     }
 }

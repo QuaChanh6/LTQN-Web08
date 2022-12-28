@@ -14,15 +14,17 @@ namespace MISA.QTKD.DL
         public int setDataImport(List<List<string>> data)
         {
             string query = "";
-
-            for(int i=0; i<data.Count; i++)
+            var month = DateTime.Now.ToString("MM");
+            var year = DateTime.Now.Year.ToString();
+            var a = month + "N" + year;
+            for (int i=0; i<data.Count; i++)
             {
                     string Code = data[i][0];
                     int numberWork = Int32.Parse(data[i][1]);
                     int bonusDate = Int32.Parse(data[i][2]);
                     int adMoney = Int32.Parse(data[i][3]);
                     query +=
-                    $"UPDATE salary s SET s.NumberWork = {numberWork},s.BonusDate = {bonusDate},s.AdvanceMoney = {adMoney} WHERE s.SalaryCode = '{Code}';";
+                    $"UPDATE salary s SET s.NumberWork = {numberWork},s.BonusDate = {bonusDate},s.AdvanceMoney = {adMoney} WHERE s.SalaryCode = '{Code}' AND s.Month = '{a}';";
             }
 
             //kết nối đến db
@@ -44,6 +46,10 @@ namespace MISA.QTKD.DL
             string storedProceduceName = "Proc_salary_getSalaryOfManager";
             var parameters = new DynamicParameters();
             parameters.Add("v_department", department);
+            var month = DateTime.Now.ToString("MM");
+            var year = DateTime.Now.Year.ToString();
+            var a = month + "N" + year;
+            parameters.Add("v_month", a);
             if (keyword != null)
             {
                 string whereClause = $"s.EmployeeName LIKE '%{keyword}%' OR s.SalaryCode LIKE '%{keyword}%'";
