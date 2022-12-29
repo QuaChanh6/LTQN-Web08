@@ -300,17 +300,17 @@ namespace MISA.QTKD.DL
                     var record = connect.Query<T>(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
 
 
-                //if(Object.ReferenceEquals(typeof(T), typeof(Employee)))
+                //if(object.referenceequals(typeof(t), typeof(employee)))
                 //{
-                //    IEnumerable<Employee> emps = (IEnumerable<Employee>)this.GetAll("");
+                //    ienumerable<employee> emps = (ienumerable<employee>)this.getall("");
                 //    string query = "";
-                //    foreach (Employee emp in emps)
+                //    foreach (employee emp in emps)
                 //    {
-                //        query = query + "INSERT INTO historyWork ( EmployeeCode, PositionW, DepartmentW, DateStart)" +
-                //                $"VALUES('{emp.EmployeeCode}', '{emp.PositionName}', '{emp.DepartmentName}', now()); ";
+                //        query = query + "insert into historywork ( employeecode, positionw, departmentw, datestart)" +
+                //                $"values('{emp.employeecode}', '{emp.positionname}', '{emp.departmentname}', now()); ";
                 //    }
                 //    //thực hiện câu lệnh 
-                //    var result1 = connect.Execute(query);
+                //    var result1 = connect.execute(query);
 
                 //}
 
@@ -370,7 +370,14 @@ namespace MISA.QTKD.DL
             var parameters = new DynamicParameters();
             var props = typeof(T).GetProperties();
             var newID = Guid.NewGuid();
-            foreach (var prop in props)
+            var month = DateTime.Now.ToString("MM");
+            var year = DateTime.Now.Year.ToString();
+            var a = month + "N" + year;
+            if (Object.ReferenceEquals(typeof(Employee), typeof(T)))
+            {
+                parameters.Add("v_Month", a);
+            }
+                foreach (var prop in props)
             {
                 string propName = prop.Name;
                 var propValue = prop.GetValue(record, null);

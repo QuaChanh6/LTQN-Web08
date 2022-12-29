@@ -138,5 +138,24 @@ namespace MISA.Web08.QTKD.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
             }
         }
+
+
+        [HttpPut("salary-reset")]
+        public IActionResult Reset()
+        {
+            try
+            {
+                var employee = _salBL.reset();
+
+                return StatusCode(StatusCodes.Status200OK, employee);
+            }
+            catch (Exception ex)
+            {
+                ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
+                handleError.SaveError(ex, er.ToStringMsg(HttpContext.TraceIdentifier));
+
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
+            }
+        }
     }
 }

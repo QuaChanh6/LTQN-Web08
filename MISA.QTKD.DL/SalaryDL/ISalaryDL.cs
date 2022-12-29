@@ -13,5 +13,7 @@ namespace MISA.QTKD.DL
         public int setDataImport(List<List<string>> data);
 
         public IEnumerable<Salary> GetAllSalary(Guid department, string? keyword);
+
+        public int reset();
     }
 }

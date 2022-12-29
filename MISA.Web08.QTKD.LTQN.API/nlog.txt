@@ -2535,3 +2535,36 @@
   MoreInfo: "https://openapi.misa.com.vn/errorcode"
   TraceID: 0HMN8UFIIGG7S:00000003
 
+ -------------- Error (2022-12-29 22:38:40.0686) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidCastException
+ Exception Message: Unable to cast object of type 'System.Collections.Generic.List`1[MISA.QTKD.Common.Entities.Salary]' to type 'System.Collections.Generic.IEnumerable`1[MISA.QTKD.Common.Entities.Employee]'.
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN9MAJNH16B:00000003
+
+ -------------- Error (2022-12-29 22:45:05.5998) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidOperationException
+ Exception Message: CommandText must be specified
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN9MDHMS24L:00000003
+
+ -------------- Error (2022-12-29 23:13:22.4068) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: System.InvalidOperationException
+ Exception Message: CommandText must be specified
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMN9MQLI14D5:00000003
+

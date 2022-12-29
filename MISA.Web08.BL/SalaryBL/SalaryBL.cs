@@ -24,5 +24,10 @@ namespace MISA.Web08.BL.SalaryBL
         {
             return _salDL.GetAllSalary(department, keyword);
         }
+
+        public int reset()
+        {
+            return _salDL.reset();
+        }
     }
 }
