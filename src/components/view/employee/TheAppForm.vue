@@ -18,7 +18,7 @@
             <div class="number-day">
                 <div class="container-input">
                         <div  class="label">Số ngày nghỉ có phép</div>
-                        <h2 class="input-detail">{{sal.dayoff}}</h2>
+                        <h2 class="input-detail">{{dayoff}}</h2>
 
                     </div>
                     <div class="container-input">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="container-input">
                         <div  class="label">Số ngày phép còn lại</div>
-                        <h2 class="input-detail">{{handleDay(sal.dayoff)}}</h2>
+                        <h2 class="input-detail">{{handleDay(dayoff)}}</h2>
 
                     </div>
             </div>
@@ -79,6 +79,13 @@ export default {
         .then(response => response.json())
         .then(result => {
             this.sal = result[0];
+            url = process.env.VUE_APP_URL + "Salaries/dayoff/" + this.code;
+            fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                this.dayoff = result[0];
+                
+            })
             
         })
     },
@@ -120,7 +127,7 @@ export default {
             isAppForm: false,
             typeAppForm: null,
             code: null,
-            dayoff: 0,
+            dayoff: null,
             dayoff1:0,
             hour: 0,
             role: null,

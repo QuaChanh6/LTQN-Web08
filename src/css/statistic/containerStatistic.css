@@ -28,3 +28,33 @@
 .fileImport{
     width: 0px;
 }
+
+.content-statistic-detail button{
+    height: 25px;
+    padding: 0px 8px;
+    margin-top: 17px;
+    margin-left: 8px;
+}
+
+
+.salary-import{
+    background-color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 50px;
+    right: 24px;
+    z-index: 13;
+    padding: 8px;
+    border: solid 1px #8ab7cd;
+    border-radius: 8px;
+}
+.filter{
+    position: relative;
+}
+
+.item-hover:hover{
+    background-color: var(--light--green--50);
+}
+.item-hover{
+    padding: 4px;
+}

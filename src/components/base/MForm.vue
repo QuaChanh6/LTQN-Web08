@@ -143,9 +143,9 @@
         },
         validate(){
             if(!format.checkEmptyData(this.ap.dateEnd) && !format.checkEmptyData(this.ap.dateEnd)){
-                let check1= format.checkDate(this.ap.dateEnd, this.ap.dateStart);
-                let check2 = format.checkDate(this.ap.dateEnd, new Date());
-                let check3 = format.checkDate(this.ap.dateStart, new Date());
+                let check1= format.checkDate2(this.ap.dateEnd, this.ap.dateStart);
+                let check2 = format.checkDate2(this.ap.dateEnd, new Date());
+                let check3 = format.checkDate2(this.ap.dateStart, new Date());
                 if(check1 == true || check2 == true || check3 == true){
                     return false;
                 }

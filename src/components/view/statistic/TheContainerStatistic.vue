@@ -7,9 +7,15 @@
                     <input type="text" class="input" placeholder="Tìm theo mã, tên nhân viên"  v-model="search" @keyup="searchEmployee">
                     <div class="icon-search" @click="searchEmployee"></div>
                 </div>
+                <MButton v-if="false" class="btn-save-and-add" :text="'Reset'" @click="reset"/>
                 <div class="refresh"></div>
-                <div class="import" @click="importSalary()"></div>
+                <div class="import" @click="showSalary =! showSalary"></div>
+                <div v-if="showSalary" class="salary-import">
+                  <div class="item-hover" @click="downloadExample()">Tải file mẫu</div>
+                  <div class="item-hover" @click="importSalary()">Nhập khẩu</div>
+                </div>
                 <input   :key="keyUpLoad" ref="file" class="fileImport" style="visibility: hidden;" @change="handleFileUpload()"  type="file"/>
+                <a :href="href" class="link-export" ref="export" download = 'Import'></a>
           </div>
           <TheTableStatistic @showForm='showFormEdit' :key='keyReloadTable' :search='search' :role="role"/>
       </div>
@@ -20,7 +26,10 @@
         <MToastMessage v-show='isShowToast' :content = 'contentOfToastMessage' 
         @closeToastMessage='closeToastMessage' :type='typeToast'/>
     </transition>
-
+    <div class="loading" v-show="isLoading">
+        <div class="container"></div>
+        <img class="img-load" src="../../../assets/loading.svg" loading="lazy" alt="loading">
+    </div>
 </template>
   
 <script>
@@ -29,18 +38,19 @@ import TheFormStatistic from './TheFormStatistic.vue';
 import resource from '../../../common/resource';
 import MToastMessage from '@/components/base/MToastMessage.vue';
 import enumeration from '../../../common/enumeration';
-
+import MButton from '@/components/base/MButton.vue';
 
 async function handleResponse(res, pointer){
         try {
               // thực hiện thành công
+              pointer.showSalary = false;
             if(res.ok){
-              console.log(pointer);
               pointer.reloadAll();
+              pointer.openToast(resource.ToastMessageType.success, resource.ToastMessage.success)
             } //thực hiện thất bại
             else{ //lỗi khác: >=400 && <600
               console.log(res);
-              alert("File không đúng định dạng!")
+              pointer.openToast(resource.ToastMessageType.error, resource.ToastMessage.error);
             }
     
         } catch (error) {
@@ -51,12 +61,46 @@ async function handleResponse(res, pointer){
 
 
   export default {
-    components: { TheTableStatistic, TheFormStatistic, MToastMessage },
+    components: { TheTableStatistic, TheFormStatistic, MToastMessage, MButton },
     methods:{
+       /**
+         * Hàm đóng toastmessage
+         * author: LTQN(15/9/2022)
+         */
+         closeToastMessage(){
+            this.isShowToast = false;
+        },
+      downloadExample(){
+        let url = `${process.env.VUE_APP_URL}Salaries/file-example`;
+
+            this.isLoading = true;
+            fetch(url).then(response => response.blob())
+            .then(blob => {
+                const reader = new FileReader;
+                
+                reader.addEventListener('load', () => {
+                    this.href = reader.result;
+                    this.isLoading = false;
+                });
+                reader.readAsDataURL(blob);
+
+            }).catch(error => {
+                console.log(error);
+            })
+      },
       reloadAll(){
         this.keyReloadTable = Math.floor(Math.random()*90000);
         this.keyUpLoad = Math.floor(Math.random()*90000);
 
+      },
+      async reset(){
+        const  response = await fetch(process.env.VUE_APP_URL+'Salaries/salary-reset', {
+              method: 'PUT'
+            })
+
+            if(response.ok){
+              this.reload();
+            }
       },
       async handleFileUpload(){
         var data = new FormData();
@@ -113,9 +157,7 @@ async function handleResponse(res, pointer){
             }
             
         },
-        closeToastMessage(){
-          this.isShowToast = false;
-        },    
+  
          /**
          * Hàm reload lại table
          * author: LTQN(10/9/2022)
@@ -147,11 +189,22 @@ async function handleResponse(res, pointer){
         keyReloadTable: null,
         keyUpLoad: null,
         code: null,
-        role: null
+        role: null,
+        showSalary: false,
+        isLoading: false,
+        href: null, //link export
       }
     },
   
-    
+    watch:{
+        href(){
+            setTimeout(() => {{
+                this.$refs.export.click(); 
+            }},100)
+
+        },
+        
+      }
 }
 </script>
   

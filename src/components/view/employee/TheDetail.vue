@@ -93,21 +93,24 @@
                 </div>
                 </div>
             <div class="detail" :class="{'edit-detail': stateFormSalary==1}" style="margin-top: 30px;">
-                <div class="detail-title" style="display:flex; align-items: center;">
+                <div class="detail-title" style="display:flex; align-items: center; justify-content: space-between;">
                     <h3 style="margin-right: 8px">Thông tin lương</h3>
-                    <div class="date-salary">
-                        <Datepicker class="datepicker" :enableTimePicker="false" 
-                            v-model="daySalary" placeholder="MM-YYYY" textInput
-                            format = 'MM-yyyy' locale="vi" autoApply
-                            :dayNames="['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']"></Datepicker>
-                    </div> 
-                    <MButton class="btn-save-and-add" :text="'Xem'" @click="getSalaryByDay"/>
+                    <div style="display:flex;">
+                        <div class="date-salary">
+                            <Datepicker class="datepicker" :enableTimePicker="false" 
+                                v-model="daySalary" placeholder="MM-YYYY" textInput
+                                format = 'MM-yyyy' locale="vi" autoApply
+                                :dayNames="['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']"></Datepicker>
+                        </div> 
+                        <MButton class="btn-save-and-add" :text="'Xem'" @click="getSalaryByDay"/>
+                    </div>
+                    
                 </div>
                 <label class="labelWork" @click="editBank"><div class="icon-pen"></div>Sửa thông ngân hàng</label>
                 <div class="column">
                     <div class="column1">
                         <div class="container-input">
-                                <div  class="label">Lương cơ bản</div>
+                            <div  class="label">Lương cơ bản</div>
                             <input disabled type="text" class="input-detail" v-model="sal.salaryMonthly">
 
                         </div>
@@ -129,6 +132,12 @@
                         <div class="container-input">
                                 <div  class="label">Ngày công</div>
                             <input disabled type="text" class="input-detail" v-model="sal.numberWork">
+
+                        </div>
+
+                        <div class="container-input">
+                                <div  class="label">Ngày nghỉ phép</div>
+                            <input disabled type="text" class="input-detail" v-model="sal.dayoff">
 
                         </div>
                        

@@ -110,9 +110,9 @@
                 </div>
                 <div class="col-right">
                    <div class="position">
-                        <label for="">Chức vụ</label>
+                        <label for="">Chức vụ <span class="require"> *</span></label>
                         <MCombobox :url="Url + 'Positions'" @objectItemCombobox='objectItemComboboxPosition'
-                        :textName="'position'" :valueRender='dataComboboxPosition'
+                        :textName="'position'" :valueRender='dataComboboxPosition' :emptyCombobox="emptyPosition"
                          :placeholder="'Chức vụ'"/>
                    </div>
                    
@@ -257,6 +257,7 @@ import TheAttachFileVue from './TheAttachFile.vue';
               if(!format.checkEmptyData(this.emp.positionName)){
                 this.dataComboboxPosition = {id: this.emp.positionID, name: this.emp.positionName};
                 this.oldValuePos = this.emp.positionName;
+                this.emptyPosition = false;
             }
             
             Object.assign(this.oldEmp, this.emp);
@@ -356,7 +357,7 @@ import TheAttachFileVue from './TheAttachFile.vue';
                 response = {};
                 this.checkEmpty();
                 let objectEmpty = {
-                    'EmptyCode' : this.emptyCode, 'EmptyName' : this.emptyName, 'EmptyDepartment' : this.emptyDepartment
+                    'EmptyCode' : this.emptyCode, 'EmptyName' : this.emptyName, 'EmptyDepartment' : this.emptyDepartment, 'EmptyPosition': this.emptyPosition
                 }
                 let valid = validate(me, objectEmpty);
                 if(valid){
@@ -413,6 +414,10 @@ import TheAttachFileVue from './TheAttachFile.vue';
             if(format.checkEmptyData(this.emp.departmentName)){
                     this.emptyDepartment = true;
             }else  this.emptyDepartment = false;
+             // kiểm tra rỗng
+             if(format.checkEmptyData(this.emp.positionName)){
+                    this.emptyPosition = true;
+            }else  this.emptyPosition = false;
 
             this.validateFocusCode();
             this.validateFocusName();
@@ -433,6 +438,11 @@ import TheAttachFileVue from './TheAttachFile.vue';
                 if(format.checkEmptyData(this.emp.departmentName)){
                     this.emptyDepartment = true;
                 }else  this.emptyDepartment = false;
+
+                    // kiểm tra rỗng
+                    if(format.checkEmptyData(this.emp.positionName)){
+                    this.emptyPosition = true;
+                }else  this.emptyPosition = false;
             } catch (error) {
                 console.log(error)
             }
@@ -445,6 +455,11 @@ import TheAttachFileVue from './TheAttachFile.vue';
             this.emp.positionID = e.positionID;
             this.emp.positionName = e.positionName;
             this.emp.positionCode = e.positionCode;
+
+               // kiểm tra rỗng
+               if(format.checkEmptyData(this.emp.positionName)){
+                    this.emptyPosition = true;
+                }else  this.emptyPosition = false;
 
             } catch (error) {
                 console.log(error)
@@ -491,6 +506,10 @@ import TheAttachFileVue from './TheAttachFile.vue';
                 if(format.checkEmptyData(this.emp.departmentName)){
                 this.emptyDepartment = true;
                 }else this.emptyDepartment = false;
+
+                if(format.checkEmptyData(this.emp.positionName)){
+                this.emptyPosition = true;
+                }else this.emptyPosition = false;
             } catch (error) {
                 console.log(error)
             }
@@ -570,6 +589,7 @@ import TheAttachFileVue from './TheAttachFile.vue';
             emptyCode: false,
             emptyName: false,
             emptyDepartment: false,
+            emptyPosition: false,
             formatEmail: true,
             focusDepartment: false,
             picked: null, //link đến radio input

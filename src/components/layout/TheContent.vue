@@ -250,6 +250,9 @@ export default {
                     case resource.popupWarning.EmptyDepartment.name:
                         this.textWarning = resource.popupWarning.EmptyDepartment.content;
                     break;
+                    case resource.popupWarning.EmptyPosition.name:
+                        this.textWarning = resource.popupWarning.EmptyPosition.content;
+                    break;
                 }
 
 

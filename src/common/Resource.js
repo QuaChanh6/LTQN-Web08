@@ -5,7 +5,7 @@
  */
 resource.ToastMessage = {
     success: 'Thành công',
-    error: 'Lỗi',
+    error: 'Có lỗi xảy ra!',
     info: 'Chức năng chưa được thi công'
 }
 /**
@@ -80,6 +80,10 @@ resource.popupWarning = {
   EmptyDepartment: {
     name: 'EmptyDepartment',
     content: "Đơn vị không được để trống."
+  },
+  EmptyPosition: {
+    name: 'EmptyPosition',
+    content: "Chức vụ không được để trống."
   }
 }
 
