@@ -2568,3 +2568,36 @@
   MoreInfo: "https://openapi.misa.com.vn/errorcode"
   TraceID: 0HMN9MQLI14D5:00000003
 
+ -------------- Error (2022-12-30 22:41:13.9760) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: Microsoft.CSharp.RuntimeBinder.RuntimeBinderException
+ Exception Message: Cannot implicitly convert type 'object' to 'int'. An explicit conversion exists (are you missing a cast?)
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMNAFH1L5D9O:00000004
+
+ -------------- Error (2022-12-30 23:24:59.6484) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY ModifiedDate DESC' at line 1
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMNAG9A747HF:00000002
+
+ -------------- Error (2022-12-30 23:26:21.9418) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY ModifiedDate DESC' at line 1
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMNAG9A747HG:00000002
+

@@ -54,7 +54,7 @@ namespace MISA.Web08.QTKD.API.Controllers
 
                 ISheet sheet = workbook.GetSheetAt(0);
                 // Example: var firstCellRow = (int)sheet.GetRow(0).GetCell(0).NumericCellValue;
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     List<string> list1 = new List<string>();
                     data.Add(list1);
@@ -68,7 +68,7 @@ namespace MISA.Web08.QTKD.API.Controllers
                 {
                     IRow currentRow = sheet.GetRow(rowIdx);
 
-                    if (currentRow == null || currentRow.Cells == null || currentRow.Cells.Count() != 4)
+                    if (currentRow == null || currentRow.Cells == null || currentRow.Cells.Count() != 3)
                     {
                         return StatusCode(StatusCodes.Status400BadRequest, "Format file không đúng!");
                     }
@@ -157,5 +157,43 @@ namespace MISA.Web08.QTKD.API.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
             }
         }
+
+
+
+        [HttpGet("file-example")]
+        public IActionResult GetFileById()
+        {
+            string path = "ImportSalary.xlsx";
+
+
+         if (System.IO.File.Exists(path))
+            {
+                return File(System.IO.File.OpenRead(path),  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", Path.GetFileName(path));
+            }
+            return StatusCode(StatusCodes.Status500InternalServerError, "Có lỗi xảy ra!");
+        }
+
+
+        [HttpGet]
+        [Route("dayoff/{code}")]
+        public IActionResult DayOff([FromRoute] string code)
+        {
+            try
+            {
+                var records = _salBL.GetDayOff(code);
+
+                return StatusCode(StatusCodes.Status200OK, records);
+            }
+            catch (Exception ex)
+            {
+                ErrorResult er = handleError.setErrorCode(TypeOfError.Exception, Resource.MoreInfo);
+                handleError.SaveError(ex, er.ToStringMsg(HttpContext.TraceIdentifier));
+
+                return StatusCode(StatusCodes.Status500InternalServerError, Resource.UserMsg_Exception);
+            }
+
+
+        }
+
     }
 }

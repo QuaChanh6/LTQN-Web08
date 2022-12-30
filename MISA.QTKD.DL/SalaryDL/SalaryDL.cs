@@ -22,10 +22,10 @@ namespace MISA.QTKD.DL
             {
                     string Code = data[i][0];
                     int numberWork = Int32.Parse(data[i][1]);
-                    int bonusDate = Int32.Parse(data[i][2]);
-                    int adMoney = Int32.Parse(data[i][3]);
+                    int AdvanceMoney = Int32.Parse(data[i][2]);
+                    //int adMoney = Int32.Parse(data[i][3]);
                     query +=
-                    $"UPDATE salary s SET s.NumberWork = {numberWork},s.BonusDate = {bonusDate},s.AdvanceMoney = {adMoney} WHERE s.SalaryCode = '{Code}' AND s.Month = '{a}';";
+                    $"UPDATE salary s SET s.NumberWork = {numberWork},s.AdvanceMoney = {AdvanceMoney} WHERE s.SalaryCode = '{Code}' AND s.Month = '{a}';";
             }
 
             //kết nối đến db
@@ -161,6 +161,29 @@ namespace MISA.QTKD.DL
                 return records;
             }
 
+        }
+
+
+        public IEnumerable<int> GetDayOff(string code)
+        {
+
+            //khai báo store proceduce
+            string storedProceduceName = "Proc_salary_getdayoff";
+            var parameters = new DynamicParameters();
+            parameters.Add("v_code", code);
+            var year = DateTime.Now.Year.ToString();
+            var a = "N" + year;
+            parameters.Add("v_year", a);
+
+            //MySqlTransaction transaction = null;
+            //khởi tạo kết nối tới db
+            using (MySqlConnection connect = new MySqlConnection(DataContext.MySqlConnectionString))
+            {
+                var records = connect.Query<int>(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
+
+                return records;
+            }
+            
         }
     }
 }

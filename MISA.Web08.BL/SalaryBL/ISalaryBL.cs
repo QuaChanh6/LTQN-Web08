@@ -15,5 +15,7 @@ namespace MISA.Web08.BL.SalaryBL
         public IEnumerable<Salary> GetAllSalary(Guid department, string? keyword);
 
         public int reset();
+
+        public IEnumerable<int> GetDayOff(string code);
     }
 }

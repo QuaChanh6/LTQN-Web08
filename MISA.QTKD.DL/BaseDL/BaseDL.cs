@@ -246,7 +246,14 @@ namespace MISA.QTKD.DL
                 }
                 else
                 {
-                 whereClause = $"EmployeeName LIKE '%{keyword}%'";
+                 whereClause = $"EmployeeName LIKE '%{keyword}%' OR salaryCode LIKE '%{keyword}%'";
+                    if (Object.ReferenceEquals(typeof(T), typeof(Salary)))
+                    {
+                        var month = DateTime.Now.ToString("MM");
+                        var year = DateTime.Now.Year.ToString();
+                        var a = month + "N" + year;
+                        whereClause = whereClause + $" AND Month = '{a}'";
+                    }
 
                 }
                 parameters.Add("v_Where", whereClause);

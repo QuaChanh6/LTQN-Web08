@@ -15,5 +15,7 @@ namespace MISA.QTKD.DL
         public IEnumerable<Salary> GetAllSalary(Guid department, string? keyword);
 
         public int reset();
+
+        public IEnumerable<int> GetDayOff(string code);
     }
 }

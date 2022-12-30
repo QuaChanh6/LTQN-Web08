@@ -29,5 +29,10 @@ namespace MISA.Web08.BL.SalaryBL
         {
             return _salDL.reset();
         }
+
+        public IEnumerable<int> GetDayOff(string code)
+        {
+            return _salDL.GetDayOff(code);
+        }
     }
 }
