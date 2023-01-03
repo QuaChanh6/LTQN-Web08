@@ -19,14 +19,14 @@
                     <td class="type">{{handleType(app.type)}}</td>
                     <td class="sDate">{{formatDate(app.dateStart)}}</td>
                     <td class="eDate">{{formatDate(app.dateEnd)}}</td>
-                    <td class="numDate" v-if="func!=2">{{handleNumberDate(app.dateStart, app.dateEnd)}}</td>
+                    <td class="numDate" v-if="func!=2">{{handleNumberDate(app.dateStart, app.dateEnd, app.type)}}</td>
                     <td class="emloyee" v-if="func==2">{{app.employeeName}}</td>
                     <td class="reason">{{app.reason}}</td>
                     <td class="type" >{{formatDate(app.createdDate)}}</td>
                     <td class="type" >{{app.money}}</td>
                     <td class="statusApp">{{handleStatus(app.status)}}
-                    <span :hidden="func != 2 || app.status != 0" class="approve app-x" @click="approve(0, app)">x</span>
-                    <span :hidden="func != 2 || app.status != 0" class="approve app-v" @click="approve(1, app)">v</span>
+                    <span :hidden="func != 2 || app.status != 0" class="approve app-x" @click="approve(0, app)"><div class="refuse"></div></span>
+                    <span :hidden="func != 2 || app.status != 0" class="approve app-v" @click="approve(1, app)"><div class="accept"></div></span>
                     </td>
                 </tr>  
                             
@@ -87,7 +87,9 @@ export default {
         closeForm(){
             this.$emit('closeForm');
         },
-        handleNumberDate(start, end){
+        handleNumberDate(start, end, type){
+            if(type == 2)
+                return null;
             return format.distanceDate(start, end);
         },
         handleType(e){
@@ -126,6 +128,7 @@ export default {
             let url= `${this.Url}AppForms/` + appform.id;
             let now = new Date();
             let day = (now.getMonth() + 1).toString() + "N" + now.getFullYear().toString();
+            if(day.length == 6) day = "0"+day;
             await fetch(url, {
             method: 'PUT',
             headers: {'Accept': 'application/json','Content-Type': 'application/json'},

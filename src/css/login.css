@@ -2,7 +2,7 @@
 .login-page {
   height: 100%;
   width: 100%;
-  background: #a3d9a5;
+  background: #a3b9d9;
 }
 .login-form {
   position: relative;
@@ -38,7 +38,7 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: #4c6faf;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -49,7 +49,7 @@
   cursor: pointer;
 }
 .login-form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: #4360a0;
 }
 .login-form.message {
   margin: 15px 0 0;
@@ -57,7 +57,7 @@
   font-size: 12px;
 }
 .login-form .message a {
-  color: #4CAF50;
+  color: #4c82af;
   text-decoration: none;
 }
 .login-form .register-form {

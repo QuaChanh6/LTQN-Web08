@@ -21,3 +21,21 @@
     font-size: 18px;
     cursor: pointer;
 }
+
+.refuse{
+    background: url('../../assets/Icon_employee.svg') no-repeat -132px -361px;
+    width: 19px;
+    height: 19px;
+    display: block;
+}
+
+.accept{
+    background: url('../../assets/Icon_employee.svg') no-repeat -112px -361px;
+    width: 19px;
+    height: 19px;
+    display: block;
+}
+.statusApp{
+    display: flex;
+   margin-top: 10px;
+}

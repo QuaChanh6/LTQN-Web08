@@ -44,8 +44,8 @@ async function handleResponse(res, pointer){
         try {
               // thực hiện thành công
               pointer.showSalary = false;
-            if(res.ok){
               pointer.reloadAll();
+            if(res.ok){
               pointer.openToast(resource.ToastMessageType.success, resource.ToastMessage.success)
             } //thực hiện thất bại
             else{ //lỗi khác: >=400 && <600

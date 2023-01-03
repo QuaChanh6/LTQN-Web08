@@ -69,6 +69,7 @@ export default {
 
         let now = new Date();
         let day = (now.getMonth() + 1).toString() + "N" + now.getFullYear().toString();
+        if(day.length == 6) day = "0"+day;
         let url = process.env.VUE_APP_URL + "Salaries/code/" + this.code + "/" + day;
         var requestOptions = {
             method: 'GET',

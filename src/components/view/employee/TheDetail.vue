@@ -242,6 +242,7 @@ import TheTableHistoryWorkVue from '../historyWork/TheTableHistoryWork.vue';
 
         let now = new Date();
         let day = (now.getMonth() + 1).toString() + "N" + now.getFullYear().toString();
+        if(day.length == 6) day = "0"+day;
         url = process.env.VUE_APP_URL + "Salaries/code/" + this.code + "/" + day;
             fetch(url)
                 .then(res => res.json())
@@ -326,6 +327,7 @@ import TheTableHistoryWorkVue from '../historyWork/TheTableHistoryWork.vue';
         },
         getSalaryByDay(){
             let day = (this.daySalary.getMonth() + 1).toString() + "N" + this.daySalary.getFullYear().toString();
+            if(day.length ==6) day = "0"+day;
             let url = process.env.VUE_APP_URL + "Salaries/code/" + this.code + "/" + day;
                 fetch(url)
                     .then(res => res.json())
