@@ -77,18 +77,25 @@ namespace MISA.QTKD.DL
         public int reset()
         {
             IEnumerable<Employee> emps = this.GetAllE("", null);
-           string query = "";
             var month = DateTime.Now.ToString("MM");
             var year = DateTime.Now.Year.ToString();
-            var a = month + "N" + year;
-            foreach (Employee emp in emps)
+            var now = month + "N" + year;
+            var old = "";
+            var query = "";
+            switch (month)
             {
-                var id = Guid.NewGuid();
-                query = query + "INSERT INTO salary(SalaryID, SalaryCode, EmployeeName, AdvanceMoney, Bonus, NumberWork, BonusDate, Dayoff, CreatedDate, CreatedBy, ModifiedDate, ModifiedBy, Allowance, Month)" +
-                        $"VALUES('{id}', '{emp.EmployeeCode}', '{emp.EmployeeName}', 0, 0, 0, 0, 0, now(), 'admin', now(), 'admin', 50000, '{a}');";
-
+                case "01":
+                    old = "12N" + (DateTime.Now.Year - 1).ToString();
+                    break;
+                default:
+                    var month1 = Int32.Parse(month) - 1;
+                    old = month1 + "N" + year;
+                    if (old.Length == 6) old = "0" + old;
+                    break;
             }
-           
+
+            
+
 
 
             //MySqlTransaction transaction = null;

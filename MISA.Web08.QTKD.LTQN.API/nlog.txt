@@ -2601,3 +2601,36 @@
   MoreInfo: "https://openapi.misa.com.vn/errorcode"
   TraceID: 0HMNAG9A747HG:00000002
 
+ -------------- Error (2023-01-02 15:27:33.8384) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Unknown column 'salaryCode' in 'where clause'
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMNCJCMFBI94:00000004
+
+ -------------- Error (2023-01-02 15:31:09.4015) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Unknown column 'salaryCode' in 'where clause'
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMNCJELNLDPA:00000002
+
+ -------------- Error (2023-01-02 15:34:13.6349) --------------
+ 
+ Call Site: MISA.Web08.QTKD.API.Controllers.handleError.SaveError
+ Exception Type: MySqlConnector.MySqlException
+ Exception Message: Unknown column 'salaryCode' in 'where clause'
+ Additional Info: Lỗi: AccountErrorCode: Exception
+  DevMsg: Catched an exception
+  DserMsg: Có lỗi xảy ra! vui lòng liên hệ với quản trị viên.
+  MoreInfo: "https://openapi.misa.com.vn/errorcode"
+  TraceID: 0HMNCJG6KQO0D:00000002
+

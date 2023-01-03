@@ -54,7 +54,7 @@ namespace MISA.Web08.QTKD.API.Controllers
 
                 ISheet sheet = workbook.GetSheetAt(0);
                 // Example: var firstCellRow = (int)sheet.GetRow(0).GetCell(0).NumericCellValue;
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < sheet.LastRowNum - 1; i++)
                 {
                     List<string> list1 = new List<string>();
                     data.Add(list1);
@@ -68,14 +68,9 @@ namespace MISA.Web08.QTKD.API.Controllers
                 {
                     IRow currentRow = sheet.GetRow(rowIdx);
 
-                    if (currentRow == null || currentRow.Cells == null || currentRow.Cells.Count() != 3)
-                    {
-                        return StatusCode(StatusCodes.Status400BadRequest, "Format file không đúng!");
-                    }
-
                     var df = new DataFormatter();
 
-                    for (int cellNumber = 0; cellNumber < currentRow.Cells.Count(); cellNumber++)
+                    for (int cellNumber = 0; cellNumber < 3; cellNumber++)
                     {
                         var cell = currentRow.Cells[cellNumber];
 

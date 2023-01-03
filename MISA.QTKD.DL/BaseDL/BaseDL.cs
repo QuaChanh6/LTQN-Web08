@@ -246,9 +246,10 @@ namespace MISA.QTKD.DL
                 }
                 else
                 {
-                 whereClause = $"EmployeeName LIKE '%{keyword}%' OR salaryCode LIKE '%{keyword}%'";
+                 whereClause = $"EmployeeName LIKE '%{keyword}%'";
                     if (Object.ReferenceEquals(typeof(T), typeof(Salary)))
                     {
+                        whereClause = $" OR salaryCode LIKE '%{keyword}%'";
                         var month = DateTime.Now.ToString("MM");
                         var year = DateTime.Now.Year.ToString();
                         var a = month + "N" + year;
@@ -307,21 +308,26 @@ namespace MISA.QTKD.DL
                     var record = connect.Query<T>(storedProceduceName, parameters, commandType: System.Data.CommandType.StoredProcedure);
 
 
-                //if(object.referenceequals(typeof(t), typeof(employee)))
+                //if (Object.ReferenceEquals(typeof(T), typeof(Employee)))
                 //{
-                //    ienumerable<employee> emps = (ienumerable<employee>)this.getall("");
+                //    IEnumerable<Employee> emps = (IEnumerable<Employee>)this.GetAll("", null);
                 //    string query = "";
-                //    foreach (employee emp in emps)
+                //    var month = DateTime.Now.ToString("MM");
+                //    var year = DateTime.Now.Year.ToString();
+                //    var a = month + "N" + year;
+                //    foreach (Employee emp in emps)
                 //    {
-                //        query = query + "insert into historywork ( employeecode, positionw, departmentw, datestart)" +
-                //                $"values('{emp.employeecode}', '{emp.positionname}', '{emp.departmentname}', now()); ";
+                //        var ids = Guid.NewGuid();
+                //        query = query + "INSERT INTO salary(SalaryID, SalaryCode, EmployeeName, AdvanceMoney, Bonus, NumberWork, BonusDate, Dayoff, CreatedDate, CreatedBy, ModifiedDate, ModifiedBy, Allowance, Month)" +
+                //                $"VALUES('{ids}', '{emp.EmployeeCode}', '{emp.EmployeeName}', 0, 0, 0, 0, 0, now(), 'admin', now(), 'admin', 50000, '{a}');";
+
                 //    }
                 //    //thực hiện câu lệnh 
-                //    var result1 = connect.execute(query);
+                //    var result1 = connect.Execute(query);
 
                 //}
 
-                    return record;
+                return record;
             }
 
 
