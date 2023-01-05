@@ -22,8 +22,13 @@ format.checkEmptyData = (data) =>{
  * author: LTQN(9/9/2022)
  */
 format.formatDate = (dateSrc) => {
-    if (dateSrc != null && dateSrc.length > 10) {
-        let dateString = dateSrc.slice(0, 10);
+    if (dateSrc != null && dateSrc.length > 0) {
+      let dateString="";
+      if(dateSrc.length > 10){
+        dateString = dateSrc.slice(0, 10);
+      }else{
+        dateString = dateSrc;
+      }
         let date = new Date(dateString);
         let year = date.getFullYear().toString(), month = (date.getMonth() + 1).toString().padStart(2, "0"), day = date.getDate().toString().padStart(2, "0");
         return `${day}/${month}/${year}`;

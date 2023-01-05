@@ -23,10 +23,11 @@
                             <div class="container-input">
                                 <div  class="label">Ngày sinh</div>
                             <input disabled v-if="stateForm==0" type="text" class="input-detail" :placeholder="formatDate(emp.dateOfBirth)">
-                            <Datepicker v-if="stateForm==1" class="datepicker" :enableTimePicker="false" 
+                            <input style="width:300px;" v-show="stateForm==1" type="date" class="input" v-model="emp.dateOfBirth" placeholder="DD-MM-YYYY" name="date">
+                            <!-- <Datepicker v-if="stateForm==1" class="datepicker" :enableTimePicker="false" 
                             v-model="emp.dateOfBirth" placeholder="DD-MM-YYYY" textInput
                             format = 'dd-MM-yyyy' locale="vi" autoApply
-                            :dayNames="['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']"></Datepicker>
+                            :dayNames="['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']"></Datepicker> -->
                             </div>
                             <div class="container-input">
                                 <div class="label">Giới tính</div>
@@ -94,7 +95,10 @@
                 </div>
             <div class="detail" :class="{'edit-detail': stateFormSalary==1}" style="margin-top: 30px;">
                 <div class="detail-title" style="display:flex; align-items: center; justify-content: space-between;">
-                    <h3 style="margin-right: 8px">Thông tin lương</h3>
+                    <div style="display:flex;" class="comlumn-salary">
+                        <h3 style="margin-right: 8px">Thông tin lương</h3>
+                        <label class="labelWork" @click="editBank"><div class="icon-pen"></div>Sửa thông ngân hàng</label>
+                    </div>
                     <div style="display:flex;">
                         <div class="date-salary">
                             <Datepicker class="datepicker" :enableTimePicker="false" 
@@ -106,7 +110,7 @@
                     </div>
                     
                 </div>
-                <label class="labelWork" @click="editBank"><div class="icon-pen"></div>Sửa thông ngân hàng</label>
+                
                 <div class="column">
                     <div class="column1">
                         <div class="container-input">
@@ -234,6 +238,10 @@ import TheTableHistoryWorkVue from '../historyWork/TheTableHistoryWork.vue';
                      //xử lý dữ liệu radio
                 if(!format.checkEmptyData(this.emp.gender))
                     this.picked = this.emp.gender;
+
+                       //xử lý dữ liệu date
+            if(!format.checkEmptyData(this.emp.dateOfBirth))
+                this.emp.dateOfBirth = this.emp.dateOfBirth.slice(0,10);
 
                     sessionStorage.setItem('managedep', this.emp.departmentName);
                 }).catch(error => {

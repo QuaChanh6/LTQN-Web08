@@ -1,5 +1,6 @@
 .side-bar{
-    background-color: #001833;
+    /* background-color: #001833; */
+    background-image: linear-gradient(#041d3a, #274e4e);
     width: 250px;
     min-height: 775px;
     height: 100%;
@@ -33,7 +34,7 @@
 
 .side-bar-item{
     height: 40px;
-    width: 190px;
+    width: 210px;
     margin: auto;
     margin-top: 4px;
     display: flex;
@@ -49,7 +50,7 @@
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -30px -1628px;
 }
 .icon-money{
-    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -73px -1628px;
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -76px -1628px;
 }
 .icon-money-send{
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -117px -1628px;
@@ -88,11 +89,19 @@
     background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -547px -1628px;
 }
 .icon-analysis{
-    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -203px -1660px;
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -377px -1659px;
+}
+.icon-employee{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -633px -1628px;
+
+}
+.icon-info{
+    background: url('../../assets/img/Sprites.64af8f61.svg') no-repeat -589px -1628px;
+
 }
 .item-name{
     margin-left: 12px;
-    color: #D1D4D9;
+    color: white;
 }
 
 a{
@@ -124,4 +133,10 @@ a{
     text-align: center;
     margin-top: 8px;
 
+}
+
+.selected-item{
+    background-color: #020b16;
+    border-left: 3px solid #aeb3c3;
+    border-right: 3px solid #aeb3c3;
 }

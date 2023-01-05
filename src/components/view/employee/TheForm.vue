@@ -42,11 +42,11 @@
                 <div class="col-right">
                     <div class="date-of-birth">
                         <label for="">Ngày sinh</label>
-                        <!-- <input type="date" class="input" v-model="emp.dateOfBirth" name="date"> -->
-                        <Datepicker class="datepicker" :enableTimePicker="false" 
-                        v-model="emp.dateOfBirth" placeholder="DD-MM-YYYY" textInput
-                        format = 'dd-MM-yyyy' locale="vi" autoApply
-                        :dayNames="['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']"></Datepicker>
+                        <input type="date" class="input" v-model="emp.dateOfBirth" placeholder="DD-MM-YYYY" name="date">
+                        <!-- <Datepicker class="datepicker" :enableTimePicker="false" 
+                        v-model="emp.dateOfBirth" placeholder="DD-MM-YYYY" textInput 
+                        format = 'dd-MM-yyyy' locale="en-US" autoApply :typeable="true"
+                        :dayNames="['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN']"></Datepicker> -->
                     </div>
                     <div class="gender">
                         <label for="">Giới tính</label>
@@ -143,7 +143,6 @@ import MCombobox from '@/components/base/MCombobox.vue';
 import format from '@/common/formatData';
 import enumeration from '@/common/enumeration';
 import resource from '@/common/resource';
-import Datepicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css';
 import TheTableHistoryWorkVue from '../historyWork/TheTableHistoryWork.vue';
 import TheAttachFileVue from './TheAttachFile.vue';
@@ -221,7 +220,7 @@ import TheAttachFileVue from './TheAttachFile.vue';
 
 
   export default {
-    components: { MButton, MCombobox, Datepicker, TheTableHistoryWorkVue, TheAttachFileVue},
+    components: { MButton, MCombobox, TheTableHistoryWorkVue, TheAttachFileVue},
     props: {
         employee: Object,
         mode: Number,

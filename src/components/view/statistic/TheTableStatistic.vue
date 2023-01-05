@@ -4,7 +4,7 @@
             <thead>
                 <tr>
                     <th class="employeeCode">MÃ NHÂN VIÊN</th>
-                    <th class="employeeName">TÊN NHÂN VIÊN</th>
+                    <th class="employeeName" style="width:200px;">TÊN NHÂN VIÊN</th>
                     <th class="salary">LƯƠNG CƠ BẢN</th>
                     <th class="numWork">SỐ NGÀY CÔNG</th>
                     <th class="numWork">SỐ NGÀY LÀM THÊM</th>
@@ -22,7 +22,7 @@
             <tbody>
                 <tr @dblclick="showForm(sal)" v-for="(sal, index) in salaries" :key="index" >
                     <td class="employeeCode">{{sal.salaryCode}}</td>
-                    <td class="employeeName">{{sal.employeeName}}</td>
+                    <td class="employeeName" style="width:200px;">{{sal.employeeName}}</td>
                     <td class="salary">{{formatMoney(sal.salaryMonthly)}}</td>
                     <td class="numWork">{{sal.numberWork}}</td>
                     <td class="bonusDate">{{sal.bonusDate}}</td>

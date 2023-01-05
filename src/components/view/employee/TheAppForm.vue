@@ -16,24 +16,27 @@
                     
             </div>
             <div class="number-day">
-                <div class="container-input">
+                <div class="container-input img-container">
                         <div  class="label">Số ngày nghỉ có phép</div>
                         <h2 class="input-detail">{{dayoff}}</h2>
-
+                        <div class="img-a"></div>
                     </div>
-                    <div class="container-input">
+                    <div class="container-input img-container">
                         <div  class="label">Số ngày làm thêm</div>
                         <h2 class="input-detail">{{sal.bonusDate}}</h2>
+                        <div class="img-b"></div>
 
                     </div>
-                    <div class="container-input">
+                    <div class="container-input img-container">
                         <div  class="label">Số ngày phép được dùng</div>
                         <h2 class="input-detail">12</h2>
+                        <div class="img-c"></div>
 
                     </div>
-                    <div class="container-input">
+                    <div class="container-input img-container">
                         <div  class="label">Số ngày phép còn lại</div>
                         <h2 class="input-detail">{{handleDay(dayoff)}}</h2>
+                        <div class="img-d"></div>
 
                     </div>
             </div>

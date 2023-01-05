@@ -12,42 +12,42 @@
 
         </div>
         <div class="side-bar-list">
-            <div class="side-bar-item" v-if="role == 0">
+            <div class="side-bar-item" v-if="role == 0" :class="{'selected-item': selected == 1}" @click="select(1)">
                 <div class="icon-total side-bar-icon"></div>
                 <router-link to="/total" class="item-name">Tổng quan</router-link>
 
             </div>
             
-            <div class="side-bar-item" v-if="role == 1 || role == 2">
-                <div class="icon-money side-bar-icon"></div>
+            <div class="side-bar-item" v-if="role == 1 || role == 2"  :class="{'selected-item': selected == 2}" @click="select(2)">
+                <div class="icon-info side-bar-icon"></div>
                 <router-link to="/employeeDetail" class="item-name">Thông tin cá nhân</router-link>
             </div>
 
-            <div class="side-bar-item" v-if="role == 1 || role == 2">
-                <div class="icon-money side-bar-icon"></div>
+            <div class="side-bar-item" v-if="role == 1 || role == 2" :class="{'selected-item': selected == 3}" @click="select(3)">
+                <div class="icon-bills side-bar-icon"></div>
                 <router-link to="/appForm" class="item-name">Quản lý đơn từ</router-link>
             </div>
 
-            <div class="side-bar-item" v-if="role == 0 || role == 2">
-                <div class="icon-money side-bar-icon"></div>
+            <div class="side-bar-item" v-if="role == 0 || role == 2"  :class="{'selected-item': selected == 4}" @click="select(4)">
+                <div class="icon-employee side-bar-icon"></div>
                 <router-link to="/employee" class="item-name">Nhân viên</router-link>
             </div>
-            <div class="side-bar-item" v-if="role == 0">
+            <div class="side-bar-item" v-if="role == 0" @click="select(5)" :class="{'selected-item': selected == 5}">
                 <div class="icon-money side-bar-icon"></div>
                 <router-link to="/user" class="item-name">Quản lý tài khoản</router-link>
             </div>
 
-            <div class="side-bar-item" v-if="role == 0">
+            <div class="side-bar-item" v-if="role == 0" @click="select(6)" :class="{'selected-item': selected == 6}">
                 <div class="icon-taxt side-bar-icon"></div>
                 <router-link to="/department" class="item-name">Phòng ban</router-link>
             </div>
 
-            <div class="side-bar-item" v-if="role == 0">
+            <div class="side-bar-item" v-if="role == 0" @click="select(7)" :class="{'selected-item': selected == 7}">
                 <div class="icon-bills side-bar-icon"></div>
                 <router-link to="/position" class="item-name">Chức vụ</router-link>
             </div>
 
-            <div class="side-bar-item"  v-if="role == 0 || role == 2">
+            <div class="side-bar-item"  v-if="role == 0 || role == 2" @click="select(8)" :class="{'selected-item': selected == 8}">
                 <div class="icon-analysis side-bar-icon"></div>
                 <router-link to="/statistic" class="item-name">Lương nhân viên</router-link>
             </div>
@@ -64,6 +64,9 @@
       code: String
     },
     methods: {
+        select(e){
+            this.selected = e;
+        },
         /**
          * Lấy vị trí con chuột
          * author: LTQN(2/10/2022)
@@ -95,7 +98,8 @@
     data(){
         return{
             posX: null,
-            posY: null
+            posY: null,
+            selected : null
         }
     }
   }
