@@ -63,6 +63,16 @@
       role: Number,
       code: String
     },
+    created(){ 
+        if(this.role == 0){
+        this.selected = 1;
+        }else{
+            this.selected = 2;
+        }
+            
+
+
+    },
     methods: {
         select(e){
             this.selected = e;

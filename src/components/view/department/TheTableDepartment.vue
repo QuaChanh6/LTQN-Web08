@@ -10,7 +10,7 @@
                 </tr>
             </thead>           
             <tbody>
-                <tr v-for="(dep, index) in deps" :key="index">
+                <tr v-for="(dep, index) in deps" :key="index" v-show="hiddenDepartment[index]">
                     <td class="departmentCode">{{dep.departmentCode}}</td>
                     <td class="departentName">{{dep.departmentName}}</td>
                     <td class="numberOfEmployee">{{getCountOfDepartment(dep.departmentID)}}</td>
@@ -29,6 +29,9 @@
   <script>
 import format from '@/common/formatData';
   export default {
+    props:{
+        hiddenDepartment: Array
+    },
     created(){
 
         let url = process.env.VUE_APP_URL+'Departments';

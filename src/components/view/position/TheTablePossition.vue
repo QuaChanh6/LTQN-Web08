@@ -10,7 +10,7 @@
                 </tr>
             </thead>           
             <tbody>
-                <tr @dblclick="showForm" v-for="(position, index) in positions" :key="index">
+                <tr @dblclick="showForm" v-for="(position, index) in positions" :key="index" v-show="hiddenPosition[index]">
                     <td class="positionCode">{{position.positionCode}}</td>
                     <td class="positionName">{{position.positionName}}</td>
                     <td class="numberOfEmployee">{{getCountOfPosition(position.positionID)}}</td>
@@ -29,6 +29,9 @@
   <script>
   import format from '@/common/formatData';
   export default {
+    props:{
+        hiddenPosition: Array
+    },
     created(){
 
         let url = process.env.VUE_APP_URL+'Positions';
@@ -57,6 +60,7 @@
 
         },
     methods: {
+
         showForm(){
             this.$emit('showForm');
         },
